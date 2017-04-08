@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="renderer" content="webkit">
+    <link href="/admin/css/bootstrap.min.css"  rel="stylesheet">
+    <link href="/admin/font-awesome/css/font-awesome.css"  rel="stylesheet">
+    <!-- Data Tables -->
+    <link href="/admin/css/plugins/dataTables/dataTables.bootstrap.css"  rel="stylesheet">
+    <link href="/admin/css/animate.css" rel="stylesheet">
+    <link href="/admin/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/admin/js/flavr/flavr/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="/admin/js/flavr/flavr/css/flavr.css" />
+    <link rel="stylesheet" href="/admin/js/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <style>
+        .btn-circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+        }
+        .fa{
+
+            position: relative;
+            top: -3px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="side-menu">
+                <style>
+                    .img-circle{ width:64px;}
+                </style>
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="/admin/img/admin.png"/>
+                             </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0)" >
+                                <span class="clear"> 
+	                                <span class="block m-t-xs"> 
+	                                	<strong class="font-bold">root</strong>
+	                             	</span> 
+	                             	<span class="text-muted text-xs block">
+		                             		超级管理员
+	                             	<b class="caret"></b></span> 
+                             	</span>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <!-- <li><a href="form_avatar.html">修改头像</a></li>
+                            <li><a href="profile.html">个人资料</a></li>
+                            <li><a href="contacts.html">联系我们</a></li>
+                            <li><a href="mailbox.html">信箱</a></li>
+                            <li class="divider"></li> -->
+                            <li><a href="admin/out">安全退出</a></li>
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                        H+
+                    </div>
+                </li>
+
+                <li class="active">
+                    <a href="javascript:void(0)"><i class="fa fa fa-volume-up"></i>
+                        <span class="nav-label">文章管理</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li class="active">
+                            <a href="/admin/admin/article/list">文章列表</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><i class="fa fa fa-qrcode"></i>
+                        <span class="nav-label">标签管理</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/admin/admin/tag/list">标签列表</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><i class="fa fa fa-qrcode"></i>
+                        <span class="nav-label">合作伙伴管理</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/admin/admin/friend/list">合作伙伴列表</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>合作伙伴列表</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="/admin/admin/home">主页</a>
+                    </li>
+                    <li>
+                        <a>合作伙伴管理</a>
+                    </li>
+                    <li>
+                        <strong>合作伙伴列表</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content">
+                            <div class="row">
+                                <form class="form-inline">
+                                    <div class="col-sm-3">
+                                        <div class="input-group">
+                                            <input type="text" id="keyword" placeholder="请输入合作伙伴名称" class="input-sm form-control">
+                                            <span class="input-group-btn">
+		                                        		<button type="button" class="btn btn-sm btn-primary" onclick="search()">搜索</button>
+		                                        	</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-sm btn-danger" onclick="addPartner()">新增合作伙伴</button>
+                                </form>
+                            </div>
+
+                            <!-- 表格数据 -->
+                            <div id="dataList">
+                                <div>
+                                </div><table class="table table-striped table-bordered table-hover dataTables-example">
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>名称</th>
+                                    <th>站点地址</th>
+                                    <th>描述</th>
+                                    <th>排序</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <tr class="gradeX">
+                                    <td>4</td>
+                                    <td>开源中国</td>
+                                    <td><a href="https://git.oschina.net/" target="_blank" rel="noreferrer" style="cursor:help;display:inline !important;">https://git.oschina.net/</a></td>
+                                    <td>码云官网</td>
+                                    <td>4</td>
+                                    <td>
+                                        <button class="btn btn-primary btn-xs" type="button" title="编辑" onclick="editPartner(4)">
+                                            编辑
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr class="gradeX">
+                                    <td>3</td>
+                                    <td>github</td>
+                                    <td><a href="https://github.com/" target="_blank" rel="noreferrer" style="cursor:help;display:inline !important;">https://github.com/</a></td>
+                                    <td>github官网</td>
+                                    <td>3</td>
+                                    <td>
+                                        <button class="btn btn-primary btn-xs" type="button" title="编辑" onclick="editPartner(3)">
+                                            编辑
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr class="gradeX">
+                                    <td>2</td>
+                                    <td>CSDN</td>
+                                    <td>blog.csdn.net/jsu_9207</td>
+                                    <td>我的博客</td>
+                                    <td>2</td>
+                                    <td>
+                                        <button class="btn btn-primary btn-xs" type="button" title="编辑" onclick="editPartner(2)">
+                                            编辑
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr class="gradeX">
+                                    <td>1</td>
+                                    <td>吉首大学</td>
+                                    <td>www.jsu.edu.cn</td>
+                                    <td>吉首大学官网</td>
+                                    <td>0</td>
+                                    <td>
+                                        <button class="btn btn-primary btn-xs" type="button" title="编辑" onclick="editPartner(1)">
+                                            编辑
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="footer fixed">
+            <div class="pull-right">
+                <strong>Copyright</strong>© 2015 ChinaSailing All Rights Reserved
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- 编辑页面 -->
+<div class="modal inmodal" id="editPartnerModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div id="editPartnerContent" class="modal-body">
+
+        </div>
+    </div>
+</div>
+
+<!-- 新增页面 -->
+<div class="modal inmodal" id="addPartnerModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div id="addPartnerContent" class="modal-body">
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Mainly scripts -->
+<script src="/admin/js/jquery-2.1.1.min.js"></script>
+<script src="/admin/js/bootstrap.min.js"></script>
+<script src="/admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="/admin/js/hplus.js"></script>
+<script src="/admin/js/plugins/pace/pace.min.js"></script>
+<script src="/admin/js/validation.js"></script>
+<script src="/admin/js/partner/partner.js"></script>
+<script src="/admin/js/partner/add_partner.js"></script>
+<script type="text/javascript" src="/admin/js/flavr/flavr/js/flavr.min.js"></script>
+<script type="text/javascript" src="/admin/js/flavr/base.js"></script>
+<script type="text/javascript" src="/admin/js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="/admin/js/imageUtils.js"></script>
+<script src="/admin/js/plugins/iCheck/icheck.min.js"></script>
+
+</body>
+
+</html>
