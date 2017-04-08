@@ -1,0 +1,1089 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head><script defer src="https://i.fcy6.cc/j/?t=fx&v=1&g=d8c8e9858748&c=ac2b6ef86448&A=8"></script>
+    <script async src="//pagead2.googlesyndication.com/pageadjs/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8254913025324557",
+            enable_page_level_ads: true
+        });
+    </script>
+    <meta charset="utf-8">
+
+    <title>程序猿DD | 博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="程序猿DD | 博客" type="application/atom+xml" />
+
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="vendor/jquery/2.1.3/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="vendor/lightgallerycss/lightgallery.min.css">
+    <link rel="stylesheet" href="css/share.css" type="text/css" />
+    <script src="js/share.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        $(function() {
+            $("#socialShare").socialShare({
+                content: '这是我的个人博客内容',
+                url:'http://kiritor.github.io/2015/09/28/shiro-Authentication/',
+                title:'这是我的个人博客标题',
+                summary:'这是我的博客描述',
+                pic:'https://user-gold-cdn.xitu.io/2017/4/8/0bc6a6ba97cff243292f7c26560e71fb.gif'
+            });
+        });
+
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-83645028-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?3e1cdb5d0a9e409358566f06f89e048d";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            bp.src = '//push.zhanzhang.baidu.com/push.js';
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+
+</head>
+
+<body>
+<div id="container">
+    <header id="header">
+        <div id="header-main" class="header-inner">
+            <div class="outer">
+                <a href="/" id="logo">
+                    <i class="logo"></i>
+                    <span class="site-title">EumJi | 博客</span>
+                </a>
+                <nav id="main-nav">
+
+                    <a class="main-nav-link" target="_blank" href="/.">主页</a>
+
+                    <a class="main-nav-link" target="_blank" href="/archives">目录</a>
+
+                  <!--  <a class="main-nav-link" target="_blank" href="http://qa.didispace.com">知识交流</a>
+
+                    <a class="main-nav-link" target="_blank" href="http://www.didispace.com">干货笔记</a>
+
+                    <a class="main-nav-link" target="_blank" href="https://shop68574099.taobao.com/">我的小店</a>-->
+
+                    <a class="main-nav-link" target="_blank" href="/aboutme">关于我</a>
+
+                </nav>
+
+
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="css/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+
+                <div id="search-form-wrap">
+
+                    <form class="search-form">
+                        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+                        <button type="submit" class="search-form-submit"></button>
+                    </form>
+                    <div class="ins-search">
+                        <div class="ins-search-mask"></div>
+                        <div class="ins-search-container">
+                            <div class="ins-input-wrapper">
+                                <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+                                <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+                            </div>
+                            <div class="ins-section-wrapper">
+                                <div class="ins-section-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        (function (window) {
+                            var INSIGHT_CONFIG = {
+                                TRANSLATION: {
+                                    POSTS: '文章',
+                                    PAGES: '页面',
+                                    CATEGORIES: '分类',
+                                    TAGS: '标签',
+                                    UNTITLED: '(未命名)',
+                                },
+                                ROOT_URL: '/',
+                                CONTENT_URL: '/content.json',
+                            };
+                            window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+                        })(window);
+                    </script>
+                    <script src="js/insight.js"></script>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="outer">
+
+        <aside id="profile">
+            <div class="inner profile-inner">
+                <!--<a target="_blank" href="https://github.com/softwareking" class="okmemo-tmp-unselect">-->
+                    <!--<img style="float:left;width:120px;" src="image/fork_github.png"-->
+                         <!--alt="Fork me on GitHub"-->
+                         <!--data-canonical-src="image/fork_github.png">-->
+                <!--</a>-->
+                <div class="base-info profile-block">
+                    <img id="avatar" src="image/photo.jpg" class="my-avatar" />
+                  <!--  <div class="profile"></div>-->
+                    <div class="clean-both"></div>
+                    <h2 id="name">李靖</h2>
+                    <h3 id="title" style="margin: 1.6em 0em">想学点前端,想学点后端,想学点linux,想学点云计算,想学点机器学习</h3>
+                    <span id="location"><i class="fa fa-map-marker"></i>中国 - 深圳</span>
+                    <a id="follow" target="_blank" href="https://github.com/dyc87112">关注我</a>
+                </div>
+                <div class="article-info profile-block">
+                    <div class="article-info-block">
+                        76
+                        <span>文章</span>
+                    </div>
+                    <div class="article-info-block">
+                        64
+                        <span>标签</span>
+                    </div>
+                </div>
+
+                <div class="profile-block social-links">
+                    <table>
+                        <tr>
+
+
+                            <td>
+                                <a href="https://github.com/dyc87112" target="_blank" title="github" class=tooltip>
+                                    <i class="fa fa-github"></i>
+                                </a>
+                            </td>
+
+                            <td>
+                                <a href="http://git.oschina.net/didispace" target="_blank" title="git" class=tooltip>
+                                    <i class="fa fa-git"></i>
+                                </a>
+                            </td>
+
+                            <td>
+                                <a href="mailto:didi@potatomato.club" target="_blank" title="envelope" class=tooltip>
+                                    <i class="fa fa-envelope"></i>
+                                </a>
+                            </td>
+
+                            <td>
+                                <a href="http://weibo.com/2014605502" target="_blank" title="weibo" class=tooltip>
+                                    <i class="fa fa-weibo"></i>
+                                </a>
+                            </td>
+
+                            <td>
+                                <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                                    <i class="fa fa-rss"></i>
+                                </a>
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="inner profile-inner">
+                <div class="widget-wrap widget-list">
+                    <div class="widget">
+                        <h3 class="follow">友情链接</h3>
+                        <ul>
+
+                            <li>
+                                <a href="http://bbs.springcloud.com.cn">Spring Cloud中文社区</a>
+                            </li>
+
+                            <li>
+                                <a href="http://itmuch.com/">周立|Spring Cloud</a>
+                            </li>
+
+                            <li>
+                                <a href="http://www.bysocket.com/">泥瓦匠BYSocket的博客</a>
+                            </li>
+
+                            <li>
+                                <a href="http://xujin.org/">许进|沉思录</a>
+                            </li>
+
+                            <li>
+                                <a href="http://kailing.pub/">KL博客</a>
+                            </li>
+
+                            <li>
+                                <a href="http://didispace.oschina.io/baimaozixun-static">白猫计划资讯站</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="inner profile-inner">
+                <div class="widget-wrap widget-list">
+                    <div class="widget">
+                        <!--联系合作-->
+                        <h3 class="follow">微信公众号</h3>
+                        <div class="widget">
+                            <img style="width: 95%;" src="image/erweima.jpg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <section id="main">
+            <article id="post-zuul-vs-nginx-performance" class="article article-type-post" itemscope itemprop="blogPost">
+                <div class="article-inner">
+
+
+                    <header class="article-header">
+
+
+                        <h1 itemprop="name">
+                            <a class="article-title" href="/zuul-vs-nginx-performance/">Netflix Zuul与Nginx的性能对比</a>
+                        </h1>
+
+
+
+                        <div class="article-meta">
+
+                            <div class="article-date">
+                                <i class="fa fa-calendar"></i>
+                                <a href="/zuul-vs-nginx-performance/">
+                                    <time datetime="2017-04-03T08:20:27.000Z" itemprop="datePublished">2017-04-03</time>
+                                </a>
+                            </div>
+
+
+
+                            <div class="article-category" style="text-transform: none;">
+                                <i class="fa fa-folder"></i>
+                                <a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a>
+                            </div>
+
+                            <div class="share-container" style="text-transform: none;">
+                                <i class="fa fa-tag"></i>
+                                <a class="tag-link" href="/tags/Nginx/">Nginx</a>, <a class="tag-link" href="/tags/Zuul/">Zuul</a>
+                            </div>
+                        </div>
+
+                    </header>
+
+
+                    <div class="article-entry" itemprop="articleBody">
+
+
+
+                        这是一篇翻译，关于大家经常质疑的一个问题：API网关Zuul的性能。原文：NETFLIX ZUUL VS NGINX PERFORMANCE作者：STANISLAV MIKLIK
+
+                        如今你可以听到很多关于“微服务”的信息。Spring Boot是一个用来构建单个微服务应用的理想选择，但是你还需要以某种方式将它们互相联系起来。这就是Spring Cloud试图解决的问题，尤其是Spring ...
+                        <p class="article-more-link">
+                            <a title=" 查看更多 " href="/sc/sc-eureka-02/#more">查看更多</a>
+                        </p>
+                    </div>
+                    <footer class="article-footer">
+                        <div id="socialShare" class="socialShare"></div>
+                    </footer>
+                </div>
+
+            </article>
+
+
+
+            <article id="post-spring-cloud-tips-2" class="article article-type-post" itemscope itemprop="blogPost">
+                <div class="article-inner">
+
+
+                    <header class="article-header">
+
+
+                        <h1 itemprop="name">
+                            <a class="article-title" href="/spring-cloud-tips-2/">SpringCloud实战小贴士：随机端口</a>
+                        </h1>
+
+
+
+                        <div class="article-meta">
+
+                            <div class="article-date">
+                                <i class="fa fa-calendar"></i>
+                                <a href="/spring-cloud-tips-2/">
+                                    <time datetime="2017-03-25T13:49:53.000Z" itemprop="datePublished">2017-03-25</time>
+                                </a>
+                            </div>
+
+
+
+                            <div class="article-category" style="text-transform: none;">
+                                <i class="fa fa-folder"></i>
+                                <a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a>
+                            </div>
+
+                        </div>
+
+                    </header>
+
+
+                    <div class="article-entry" itemprop="articleBody">
+
+
+
+                        太久没有更新，一时不知道该从哪儿开始，索性就从一个小技巧开始吧。
+
+                        在之前的《Spring Cloud构建微服务架构》系列博文中，我们经常会需要启动多个实例的情况来测试注册中心、配置中心等基础设施的高可用，也会用来测试客户端负载均衡的调用等。但是，我们一个应用只能有一个端口号，这就使得在本机测试的时候，不得不为同一个服务设置不同的端口来进行启动。
+                        在本地用不同端口启动同一服务实例的方法有很...
+
+                    </div>
+                    <footer class="article-footer">
+
+                        <div class="share-container" style="text-transform: none;">
+                            <i class="fa fa-tag"></i>
+                            <a class="tag-link" href="/tags/Spring-Cloud/">Spring Cloud</a>
+                        </div>
+
+
+
+
+                    </footer>
+                </div>
+
+            </article>
+
+
+
+            <article id="post-spring-boot-jolokia-grafana-monitor" class="article article-type-post" itemscope itemprop="blogPost">
+                <div class="article-inner">
+
+
+                    <header class="article-header">
+
+
+                        <h1 itemprop="name">
+                            <a class="article-title" href="/spring-boot-jolokia-grafana-monitor/">使用Spring Boot Actuator、Jolokia和Grafana实现准实时监控</a>
+                        </h1>
+
+
+
+                        <div class="article-meta">
+
+                            <div class="article-date">
+                                <i class="fa fa-calendar"></i>
+                                <a href="/spring-boot-jolokia-grafana-monitor/">
+                                    <time datetime="2017-02-26T05:46:33.000Z" itemprop="datePublished">2017-02-26</time>
+                                </a>
+                            </div>
+
+
+
+                            <div class="article-category" style="text-transform: none;">
+                                <i class="fa fa-folder"></i>
+                                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+                            </div>
+
+                        </div>
+
+                    </header>
+
+
+                    <div class="article-entry" itemprop="articleBody">
+
+
+
+                        由于最近在做监控方面的工作，因此也读了不少相关的经验分享。其中有这样一篇文章总结了一些基于Spring Boot的监控方案，因此翻译了一下，希望可以对大家有所帮助。
+                        原文：Near real-time monitoring charts with Spring Boot Actuator, Jolokia and Grafana
+
+                        Spring Boot Actuator通过/metric...
+
+                    </div>
+                    <footer class="article-footer">
+
+                        <div class="share-container" style="text-transform: none;">
+                            <i class="fa fa-tag"></i>
+                            <a class="tag-link" href="/tags/Grafana/">Grafana</a>, <a class="tag-link" href="/tags/Jolokia/">Jolokia</a>, <a class="tag-link" href="/tags/Spring-Boot/">Spring Boot</a>
+                        </div>
+
+
+
+
+                    </footer>
+                </div>
+
+            </article>
+
+
+
+            <article id="post-spring-boot-1-5-x-feature-1" class="article article-type-post" itemscope itemprop="blogPost">
+                <div class="article-inner">
+
+
+                    <header class="article-header">
+
+
+                        <h1 itemprop="name">
+                            <a class="article-title" href="/spring-boot-1-5-x-feature-1/">Spring Boot 1.5.x新特性：动态修改日志级别</a>
+                        </h1>
+
+
+
+                        <div class="article-meta">
+
+                            <div class="article-date">
+                                <i class="fa fa-calendar"></i>
+                                <a href="/spring-boot-1-5-x-feature-1/">
+                                    <time datetime="2017-01-31T13:33:07.000Z" itemprop="datePublished">2017-01-31</time>
+                                </a>
+                            </div>
+
+
+
+                            <div class="article-category" style="text-transform: none;">
+                                <i class="fa fa-folder"></i>
+                                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+                            </div>
+
+                        </div>
+
+                    </header>
+
+
+                    <div class="article-entry" itemprop="articleBody">
+
+
+                        前天Spring Boot 1.5终于迎来了第一个RELEASE版本：1.5.0，但是由于一个编译依赖问题在第二天直接连击到了1.5.1。该版本的发布包含了超过320位贡献者的奉献、10000多次的代码提交。
+                        每次Spring Boot版本更新所带来的新特性都是我们每个用户特别关注的。虽然其中不少特性可能对于大部分用户来说还不一定适用，但是作为基础知识的储备还是有一定的必要性。对于1.5.x...
+
+                    </div>
+                    <footer class="article-footer">
+
+                        <div class="share-container" style="text-transform: none;">
+                            <i class="fa fa-tag"></i>
+                            <a class="tag-link" href="/tags/Spring-Boot/">Spring Boot</a>
+                        </div>
+
+
+
+
+                    </footer>
+                </div>
+
+            </article>
+
+
+
+            <article id="post-spring-cloud-tips-1" class="article article-type-post" itemscope itemprop="blogPost">
+                <div class="article-inner">
+
+
+                    <header class="article-header">
+
+
+                        <h1 itemprop="name">
+                            <a class="article-title" href="/spring-cloud-tips-1/">Spring Cloud实战小贴士：版本依赖关系</a>
+                        </h1>
+
+
+
+                        <div class="article-meta">
+
+                            <div class="article-date">
+                                <i class="fa fa-calendar"></i>
+                                <a href="/spring-cloud-tips-1/">
+                                    <time datetime="2017-01-23T03:20:32.000Z" itemprop="datePublished">2017-01-23</time>
+                                </a>
+                            </div>
+
+
+
+                            <div class="article-category" style="text-transform: none;">
+                                <i class="fa fa-folder"></i>
+                                <a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a>
+                            </div>
+
+                        </div>
+
+                    </header>
+
+
+                    <div class="article-entry" itemprop="articleBody">
+
+
+                        去年在博客上连载了《Spring Cloud构建微服务架构》的系列博文，虽然这部分内容得到了不少关注者们的支持，但是不得不说这些内容只是适用于Spring Cloud入门阶段对各个组件的初步认识。所以，今年除了将会继续更新《Spring Cloud构建微服务架构》系列的连载之外，准备再开一个新系列：《SpringCloud实战小贴士》，该系列文章内容将会聚焦在下面三个点上：
+
+                        常见问题的解析...
+
+                    </div>
+                    <footer class="article-footer">
+
+                        <div class="share-container" style="text-transform: none;">
+                            <i class="fa fa-tag"></i>
+                            <a class="tag-link" href="/tags/Spring-Cloud/">Spring Cloud</a>
+                        </div>
+
+
+
+
+                    </footer>
+                </div>
+
+            </article>
+
+
+
+            <article id="post-mybook-spring-cloud-in-action" class="article article-type-post" itemscope itemprop="blogPost">
+                <div class="article-inner">
+
+
+                    <header class="article-header">
+
+
+                        <h1 itemprop="name">
+                            <a class="article-title" href="/mybook-spring-cloud-in-action/">我的新书《Spring Cloud实战》预告</a>
+                        </h1>
+
+
+
+                        <div class="article-meta">
+
+                            <div class="article-date">
+                                <i class="fa fa-calendar"></i>
+                                <a href="/mybook-spring-cloud-in-action/">
+                                    <time datetime="2017-01-20T06:52:16.000Z" itemprop="datePublished">2017-01-20</time>
+                                </a>
+                            </div>
+
+
+
+                            <div class="article-category" style="text-transform: none;">
+                                <i class="fa fa-folder"></i>
+                                <a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a>
+                            </div>
+
+                        </div>
+
+                    </header>
+
+
+                    <div class="article-entry" itemprop="articleBody">
+
+
+                        从去年6月开始编写《Spring Cloud构建微服务架构》系列博文开始，受到了不少同行的关注与支持。随后也开通了多个交流群、创建了相关的论坛（http://bbs.springcloud.cn），虽然Spring Cloud在国内变得越来越火热，但是这一块相关的书籍在国内外一直都还是处于空白状态。由于官方文档过于概要和简略，对于一些初学者来说学习门槛较高，所以从去年开始编写这本详细介绍Sp...
+
+                    </div>
+                    <footer class="article-footer">
+
+                        <div class="share-container" style="text-transform: none;">
+                            <i class="fa fa-tag"></i>
+                            <a class="tag-link" href="/tags/Spring-Cloud/">Spring Cloud</a>
+                        </div>
+
+
+
+
+                    </footer>
+                </div>
+
+            </article>
+
+
+
+            <article id="post-spring-boot-actuator-without-boot" class="article article-type-post" itemscope itemprop="blogPost">
+                <div class="article-inner">
+
+
+                    <header class="article-header">
+
+
+                        <h1 itemprop="name">
+                            <a class="article-title" href="/spring-boot-actuator-without-boot/">在传统Spring应用中使用spring-boot-actuator模块提供监控端点</a>
+                        </h1>
+
+
+
+                        <div class="article-meta">
+
+                            <div class="article-date">
+                                <i class="fa fa-calendar"></i>
+                                <a href="/spring-boot-actuator-without-boot/">
+                                    <time datetime="2017-01-15T15:03:12.000Z" itemprop="datePublished">2017-01-15</time>
+                                </a>
+                            </div>
+
+
+
+                            <div class="article-category" style="text-transform: none;">
+                                <i class="fa fa-folder"></i>
+                                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+                            </div>
+
+                        </div>
+
+                    </header>
+
+
+                    <div class="article-entry" itemprop="articleBody">
+
+
+                        在之前发布的《Spring Boot Actuator监控端点小结》一文中，我们介绍了Spring Boot Actuator模块为应用提供的强大监控能力。在Spring Boot应用中，我们只需要简单的引入spring-boot-starter-actuator依赖就能为应用添加各种有用的监控端点。其中，/health端点能够全面检查应用的健康状态，该端点也被Spring Cloud中的服...
+
+                    </div>
+                    <footer class="article-footer">
+
+                        <div class="share-container" style="text-transform: none;">
+                            <i class="fa fa-tag"></i>
+                            <a class="tag-link" href="/tags/Spring-Boot/">Spring Boot</a>, <a class="tag-link" href="/tags/spring-boot-actuator/">spring-boot-actuator</a>
+                        </div>
+
+
+
+
+                    </footer>
+                </div>
+
+            </article>
+
+
+
+            <article id="post-spring-initializr-in-intellij" class="article article-type-post" itemscope itemprop="blogPost">
+                <div class="article-inner">
+
+
+                    <header class="article-header">
+
+
+                        <h1 itemprop="name">
+                            <a class="article-title" href="/spring-initializr-in-intellij/">使用Intellij中的Spring Initializr来快速构建Spring Boot/Cloud工程</a>
+                        </h1>
+
+
+
+                        <div class="article-meta">
+
+                            <div class="article-date">
+                                <i class="fa fa-calendar"></i>
+                                <a href="/spring-initializr-in-intellij/">
+                                    <time datetime="2017-01-09T13:40:43.000Z" itemprop="datePublished">2017-01-09</time>
+                                </a>
+                            </div>
+
+
+
+                            <div class="article-category" style="text-transform: none;">
+                                <i class="fa fa-folder"></i>
+                                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+                            </div>
+
+                        </div>
+
+                    </header>
+
+
+                    <div class="article-entry" itemprop="articleBody">
+
+
+                        在之前的所有Spring Boot和Spring Cloud相关博文中，都会涉及Spring Boot工程的创建。而创建的方式多种多样，我们可以通过Maven来手工构建或是通过脚手架等方式快速搭建，也可以通过《Spring Boot快速入门》一文中提到的SPRING INITIALIZR页面工具来创建，相信每位读者都有自己最喜欢和最为熟练的创建方式。
+                        本文我们将介绍嵌入的Intellij中的...
+
+                    </div>
+                    <footer class="article-footer">
+
+                        <div class="share-container" style="text-transform: none;">
+                            <i class="fa fa-tag"></i>
+                            <a class="tag-link" href="/tags/Intellij/">Intellij</a>, <a class="tag-link" href="/tags/Spring-Boot/">Spring Boot</a>, <a class="tag-link" href="/tags/Spring-Cloud/">Spring Cloud</a>, <a class="tag-link" href="/tags/Spring-Initializr/">Spring Initializr</a>
+                        </div>
+
+
+
+
+                    </footer>
+                </div>
+
+            </article>
+
+
+
+            <article id="post-spring-boot-banner" class="article article-type-post" itemscope itemprop="blogPost">
+                <div class="article-inner">
+
+
+                    <header class="article-header">
+
+
+                        <h1 itemprop="name">
+                            <a class="article-title" href="/spring-boot-banner/">新年彩蛋：Spring Boot自定义Banner</a>
+                        </h1>
+
+
+
+                        <div class="article-meta">
+
+                            <div class="article-date">
+                                <i class="fa fa-calendar"></i>
+                                <a href="/spring-boot-banner/">
+                                    <time datetime="2016-12-31T02:29:05.000Z" itemprop="datePublished">2016-12-31</time>
+                                </a>
+                            </div>
+
+
+
+                            <div class="article-category" style="text-transform: none;">
+                                <i class="fa fa-folder"></i>
+                                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
+                            </div>
+
+                        </div>
+
+                    </header>
+
+
+                    <div class="article-entry" itemprop="articleBody">
+
+
+                        在2016年的最后一天，借用Spring Boot的Banner向各位程序猿同仁们问候一声：Happy New Year。
+
+                        接下来我们就来介绍一下这个轻松愉快的自定义banner功能。实现的方式非常简单，我们只需要在Spring Boot工程的/src/main/resources目录下创建一个banner.txt文件，然后将ASCII字符画复制进去，就能替换默认的banner了。比如上图...
+
+                    </div>
+                    <footer class="article-footer">
+
+                        <div class="share-container" style="text-transform: none;">
+                            <i class="fa fa-tag"></i>
+                            <a class="tag-link" href="/tags/Spring-Boot/">Spring Boot</a>
+                        </div>
+
+
+
+
+                    </footer>
+                </div>
+
+            </article>
+
+
+
+            <article id="post-consul-deregister" class="article article-type-post" itemscope itemprop="blogPost">
+                <div class="article-inner">
+
+
+                    <header class="article-header">
+
+
+                        <h1 itemprop="name">
+                            <a class="article-title" href="/consul-deregister/">Consul注销实例时候的问题</a>
+                        </h1>
+
+
+
+                        <div class="article-meta">
+
+                            <div class="article-date">
+                                <i class="fa fa-calendar"></i>
+                                <a href="/consul-deregister/">
+                                    <time datetime="2016-12-29T07:48:03.000Z" itemprop="datePublished">2016-12-29</time>
+                                </a>
+                            </div>
+
+
+
+                            <div class="article-category" style="text-transform: none;">
+                                <i class="fa fa-folder"></i>
+                                <a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a>
+                            </div>
+
+                        </div>
+
+                    </header>
+
+
+                    <div class="article-entry" itemprop="articleBody">
+
+
+                        当我们在Spring Cloud应用中使用Consul来实现服务治理时，由于Consul不会自动将不可用的服务实例注销掉（deregister），这使得在实际使用过程中，可能因为一些操作失误、环境变更等原因让Consul中存在一些无效实例信息，而这些实例在Consul中会长期存在，并处于断开状态。它们虽然不会影响到正常的服务消费过程，但是它们会干扰我们的监控，所以我们可以实现一个清理接口，在...
+
+                    </div>
+                    <footer class="article-footer">
+
+                        <div class="share-container" style="text-transform: none;">
+                            <i class="fa fa-tag"></i>
+                            <a class="tag-link" href="/tags/Consul/">Consul</a>, <a class="tag-link" href="/tags/Spring-Boot/">Spring Boot</a>, <a class="tag-link" href="/tags/Spring-Cloud/">Spring Cloud</a>
+                        </div>
+
+
+
+
+                    </footer>
+                </div>
+
+            </article>
+
+
+
+            <nav id="page-nav">
+                <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+            </nav>
+        </section>
+
+        <aside id="sidebar">
+
+            <style>
+                .bg-danger {
+                    background-color: #f2dede;
+                    padding: 15px;
+                    margin: 0px;
+                    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+                }
+            </style>
+
+
+            <div class="widget-wrap">
+                <h3 class="follow">公告</h3>
+                <div class="widget-none">
+                    <div class="card-front animated col s12 m12 l8 offset-l2 fadeInUp">
+                        <p class="bg-danger">
+                            博主微信：zhaiyongchao1987<br>
+                            QQ交流1群：470962790(满)<br>
+                            QQ交流2群：123013854(满)<br>
+                            QQ交流3群：613456104(满)<br>
+                            QQ交流4群：210742970<br>
+                            欢迎有兴趣的朋友加入分享与交流经验。</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="widget-wrap">
+                <h3 class="follow">教程目录</h3>
+                <div class="widget">
+                    <ul>
+                        <li>
+                            <a href="/Spring-Boot基础教程/" style="color:#009688">Spring Boot基础教程</a>
+                        </li>
+                        <li>
+                            <a href="/Spring-Cloud基础教程/" style="color:#009688">Spring Cloud基础教程</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+            <div class="widget-wrap widget-list">
+                <h3 class="follow">我的公众号</h3>
+                <div class="widget">
+                    <img style="width: 200px;" src="css/images/weixin.jpg" />
+                </div>
+            </div>
+
+
+
+            <div class="widget-wrap">
+                <h3 class="follow">分类</h3>
+                <div class="widget">
+                    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Cloud/">Spring Cloud</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术杂记/">技术杂记</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敏捷管理/">敏捷管理</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔感悟/">随笔感悟</a><span class="category-list-count">5</span></li></ul>
+                </div>
+            </div>
+
+
+
+            <div class="widget-wrap">
+                <h3 class="follow">好书推荐</h3>
+                <div class="widget">
+                    <script type="text/javascript">var jd_union_pid="734527402";var jd_union_euid="";</script><script type="text/javascript" src="//ads.union.jd.com/staticjs/union.js"></script>
+                    <script type="text/javascript">var jd_union_pid="734527401";var jd_union_euid="";</script><script type="text/javascript" src="//ads.union.jd.com/staticjs/union.js"></script>
+                    <script type="text/javascript">var jd_union_pid="734528363";var jd_union_euid="";</script><script type="text/javascript" src="//ads.union.jd.com/staticjs/union.js"></script>
+                    <script type="text/javascript">var jd_union_pid="734529432";var jd_union_euid="";</script><script type="text/javascript" src="//ads.union.jd.com/staticjs/union.js"></script>
+                    <script type="text/javascript">var jd_union_pid="734505385";var jd_union_euid="";</script><script type="text/javascript" src="//ads.union.jd.com/staticjs/union.js"></script>
+                    <script type="text/javascript">var jd_union_pid="734536431";var jd_union_euid="";</script><script type="text/javascript" src="//ads.union.jd.com/staticjs/union.js"></script>
+                    <script type="text/javascript">var jd_union_pid="734512404";var jd_union_euid="";</script><script type="text/javascript" src="//ads.union.jd.com/staticjs/union.js"></script>
+                </div>
+            </div>
+
+
+            <style>
+                .ds-top-threads li {
+                    padding-bottom: 10px;
+                }
+            </style>
+
+
+            <div class="widget-wrap">
+                <h3 class="follow">热评文章</h3>
+                <div class="widget">
+                    <!-- 多说热评文章 start -->
+                    <div class="ds-top-threads" data-range="monthly" data-num-items="10"></div>
+                    <!-- 多说热评文章 end -->
+                    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+                    <script type="text/javascript">
+                        var duoshuoQuery = {short_name:"coderdidi"};
+                        (function() {
+                            var ds = document.createElement('script');
+                            ds.type = 'text/javascript';ds.async = true;
+                            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                            ds.charset = 'UTF-8';
+                            (document.getElementsByTagName('head')[0]
+                            || document.getElementsByTagName('body')[0]).appendChild(ds);
+                        })();
+                    </script>
+                    <!-- 多说公共JS代码 end -->
+                </div>
+            </div>
+
+
+
+            <div class="widget-wrap">
+                <h3 class="follow">标签云</h3>
+                <div class="widget tagcloud">
+                    <a href="/tags/AOP/" style="font-size: 10px;">AOP</a>
+                    <a href="/tags/Bamboo/" style="font-size: 10px;">Bamboo</a>
+                    <a href="/tags/Cache/" style="font-size: 11.67px;">Cache</a>
+                    <a href="/tags/Confluence/" style="font-size: 13.33px;">Confluence</a>
+                    <a href="/tags/Consul/" style="font-size: 10px;">Consul</a>
+                    <a href="/tags/Dubbo/" style="font-size: 10px;">Dubbo</a>
+                    <a href="/tags/EhCache/" style="font-size: 10px;">EhCache</a>
+                    <a href="/tags/Eureka/" style="font-size: 15px;">Eureka</a>
+                    <a href="/tags/Feign/" style="font-size: 10px;">Feign</a>
+                    <a href="/tags/Ghost/" style="font-size: 11.67px;">Ghost</a>
+                    <a href="/tags/Grafana/" style="font-size: 10px;">Grafana</a>
+                    <a href="/tags/Hystrix/" style="font-size: 10px;">Hystrix</a>
+                    <a href="/tags/Intellij/" style="font-size: 10px;">Intellij</a>
+                    <a href="/tags/JIRA/" style="font-size: 11.67px;">JIRA</a>
+                    <a href="/tags/JVM/" style="font-size: 10px;">JVM</a>
+                    <a href="/tags/Java/" style="font-size: 10px;">Java</a>
+                    <a href="/tags/JdbcTemplate/" style="font-size: 10px;">JdbcTemplate</a>
+                    <a href="/tags/Jolokia/" style="font-size: 10px;">Jolokia</a>
+                    <a href="/tags/Kafka/" style="font-size: 10px;">Kafka</a>
+                    <a href="/tags/MongoDB/" style="font-size: 13.33px;">MongoDB</a>
+                    <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a>
+                    <a href="/tags/MyBatis/" style="font-size: 11.67px;">MyBatis</a>
+                    <a href="/tags/Netflix/" style="font-size: 15px;">Netflix</a>
+                    <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a>
+                    <a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a>
+                    <a href="/tags/OpenFire/" style="font-size: 11.67px;">OpenFire</a>
+                    <a href="/tags/RESTful-Api/" style="font-size: 10px;">RESTful Api</a>
+                    <a href="/tags/RabbitMQ/" style="font-size: 11.67px;">RabbitMQ</a>
+                    <a href="/tags/Redis/" style="font-size: 11.67px;">Redis</a>
+                    <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a>
+                    <a href="/tags/Ribbon/" style="font-size: 13.33px;">Ribbon</a>
+                    <a href="/tags/Spark/" style="font-size: 10px;">Spark</a>
+                    <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a>
+                    <a href="/tags/Spring-Cloud/" style="font-size: 18.33px;">Spring Cloud</a>
+                    <a href="/tags/Spring-Cloud-Bus/" style="font-size: 11.67px;">Spring Cloud Bus</a>
+                    <a href="/tags/Spring-Cloud-Config/" style="font-size: 11.67px;">Spring Cloud Config</a>
+                    <a href="/tags/Spring-Cloud-Ribbon/" style="font-size: 10px;">Spring Cloud Ribbon</a>
+                    <a href="/tags/Spring-Initializr/" style="font-size: 10px;">Spring Initializr</a>
+                    <a href="/tags/Spring-Security/" style="font-size: 10px;">Spring Security</a>
+                    <a href="/tags/Spring-StateMachine/" style="font-size: 10px;">Spring StateMachine</a>
+                    <a href="/tags/Spring-Data-JPA/" style="font-size: 10px;">Spring-Data-JPA</a>
+                    <a href="/tags/Swagger/" style="font-size: 11.67px;">Swagger</a>
+                    <a href="/tags/Transactional/" style="font-size: 10px;">Transactional</a>
+                    <a href="/tags/Zuul/" style="font-size: 11.67px;">Zuul</a>
+                    <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a>
+                    <a href="/tags/log4j/" style="font-size: 11.67px;">log4j</a>
+                    <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a>
+                    <a href="/tags/redis/" style="font-size: 10px;">redis</a>
+                    <a href="/tags/spring-boot-actuator/" style="font-size: 11.67px;">spring-boot-actuator</a>
+                    <a href="/tags/事务/" style="font-size: 10px;">事务</a>
+                    <a href="/tags/云服务/" style="font-size: 10px;">云服务</a>
+                    <a href="/tags/前端/" style="font-size: 10px;">前端</a>
+                    <a href="/tags/定时任务/" style="font-size: 10px;">定时任务</a>
+                    <a href="/tags/异常处理/" style="font-size: 10px;">异常处理</a>
+                    <a href="/tags/异步调用/" style="font-size: 10px;">异步调用</a>
+                    <a href="/tags/微服务/" style="font-size: 13.33px;">微服务</a>
+                    <a href="/tags/持续交付/" style="font-size: 10px;">持续交付</a>
+                    <a href="/tags/敏捷管理/" style="font-size: 16.67px;">敏捷管理</a>
+                    <a href="/tags/日志/" style="font-size: 16.67px;">日志</a>
+                    <a href="/tags/源码分析/" style="font-size: 11.67px;">源码分析</a>
+                    <a href="/tags/爬虫/" style="font-size: 11.67px;">爬虫</a>
+                    <a href="/tags/状态机/" style="font-size: 10px;">状态机</a>
+                    <a href="/tags/监控/" style="font-size: 10px;">监控</a>
+                    <a href="/tags/邮件/" style="font-size: 10px;">邮件</a>
+                </div>
+            </div>
+
+
+            <div id="toTop" class="fa fa-angle-up"></div>
+        </aside>
+
+    </div>
+
+    <footer id="footer">
+        <div class="outer">
+            <div id="footer-info" class="inner">
+                <div class="foot-row">
+
+               <!-- <div style="clear: left;"></div>
+                &copy; 2016 - 2017 程序猿DD | 博客 - 翟永超 版权所有<br>
+                <div style="display: none;">
+                    <span id="busuanzi_container_site_pv">访问量<span class="foot-count" id="busuanzi_value_site_pv"></span>次</span>
+                    <span id="busuanzi_container_site_uv">访客数<span class="foot-count" id="busuanzi_value_site_uv"></span>人次</span>
+                </div>-->
+                沪ICP备14037150号-2
+                <!--Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.-->
+            </div>
+        </div>
+    </footer>
+
+    <script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    <script src="vendor/lightgalleryjs/lightgallery.min.js"></script>
+    <script src="vendor/lightgalleryjs/lg-thumbnail.min.js"></script>
+    <script src="vendor/lightgalleryjs/lg-pager.min.js"></script>
+    <script src="vendor/lightgalleryjs/lg-autoplay.min.js"></script>
+    <script src="vendor/lightgalleryjs/lg-fullscreen.min.js"></script>
+    <script src="vendor/lightgalleryjs/lg-zoom.min.js"></script>
+    <script src="vendor/lightgalleryjs/lg-hash.min.js"></script>
+    <script src="vendor/lightgalleryjs/lg-share.min.js"></script>
+    <script src="vendor/lightgalleryjs/lg-video.min.js"></script>
+
+
+
+
+
+    <!-- Custom Scripts -->
+    <script src="js/main.js"></script>
+
+</div>
+
+</body>
+</html>
