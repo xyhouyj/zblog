@@ -1,9 +1,7 @@
 package com.eumji.zblog.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 首页入口controller
@@ -14,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * TIME: 15:19
  */
 @Controller
-public class IndexController {
+public class PageController {
 
     @RequestMapping("/")
     public String home(){
@@ -25,10 +23,9 @@ public class IndexController {
         return "archives";
     }
 
-    @RequestMapping("/hello")
-    public String hello(Model model){
-        model.addAttribute("userName","zhangsan");
-        return "hello";
+    @RequestMapping("/loginPage")
+    public String loginPage(){
+        return "login";
     }
 
     @RequestMapping("/articleList")
