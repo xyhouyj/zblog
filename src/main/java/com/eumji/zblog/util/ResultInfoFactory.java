@@ -9,7 +9,8 @@ package com.eumji.zblog.util;
  * TIME: 15:39
  */
 public class ResultInfoFactory {
-    public static ResultInfo ERROR_RESULT;
+    public static ResultInfo ERROR_RESULT ;
+    public static ResultInfo SUCCESS_RESULT;
 
     /**
      * 带错误信息错误信息相应体
@@ -32,6 +33,29 @@ public class ResultInfoFactory {
      */
     public static ResultInfo getErrorResultInfo(){
         return getErrorRestInfo("操作失败！！！");
+    }
+
+    /**
+     * 带参数正确的实体相应题
+     * @param errorInfo
+     * @return
+     */
+    public static ResultInfo getSuccessRestInfo(String errorInfo){
+        if (SUCCESS_RESULT == null){
+            SUCCESS_RESULT = new ResultInfo("success",errorInfo);
+        }else{
+            SUCCESS_RESULT.setErrorInfo(errorInfo);
+        }
+        return SUCCESS_RESULT;
+    }
+
+    /**
+     * 不带参数正确的信息相应体
+     * 默认为错误信息为操作成功
+     * @return
+     */
+    public static ResultInfo getSuccessRestInfo(){
+        return getSuccessRestInfo("操作成功！！！");
     }
 
 
