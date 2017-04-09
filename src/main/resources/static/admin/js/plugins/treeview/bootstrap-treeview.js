@@ -61,7 +61,7 @@
 		showBorder: true,
 		showTags: false,
 
-		// Event handler for when a node is selected
+		// Event config for when a node is selected
 		onNodeSelected: undefined
 	};
 

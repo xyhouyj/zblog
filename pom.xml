@@ -11,8 +11,15 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.2.RELEASE</version>
-        <relativePath />
+        <relativePath/>
     </parent>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <thymeleaf.version> 3.0.2.RELEASE </thymeleaf.version>
+        <thymeleaf-layout-dialect.version> 2.1.1 </thymeleaf-layout-dialect.version>
+        <tomcat.version>7.6.69</tomcat.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -76,20 +83,19 @@
             <!--<groupId>org.springframework.cloud</groupId>-->
             <!--<artifactId>spring-cloud-starter-oauth2</artifactId>-->
         <!--</dependency>-->
+        <!--热部署-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
 
 
-
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-        <finalName>zblog</finalName>
-    </build>
 
 </project>

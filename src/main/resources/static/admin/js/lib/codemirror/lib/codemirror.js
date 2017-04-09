@@ -1364,7 +1364,7 @@
       if (!cm.state.focused || (hasSelection(input) && !prevInput) ||
           isReadOnly(cm) || cm.options.disableInput || cm.state.keySeq)
         return false;
-      // See paste handler for more on the fakedLastChar kludge
+      // See paste config for more on the fakedLastChar kludge
       if (cm.state.pasteIncoming && cm.state.fakedLastChar) {
         input.value = input.value.substring(0, input.value.length - 1);
         cm.state.fakedLastChar = false;
@@ -1443,7 +1443,7 @@
           var extval = te.value = "\u200b" + (selected ? te.value : "");
           input.prevInput = selected ? "" : "\u200b";
           te.selectionStart = 1; te.selectionEnd = extval.length;
-          // Re-set this, in case some other handler touched the
+          // Re-set this, in case some other config touched the
           // selection in the meantime.
           display.selForContextMenu = cm.doc.sel;
         }
@@ -3523,7 +3523,7 @@
           setTimeout(function() {document.body.focus(); display.input.focus();}, 20);
       }
     });
-    // Let the drag handler handle this.
+    // Let the drag config handle this.
     if (webkit) display.scroller.draggable = true;
     cm.state.draggingText = dragEnd;
     // IE's approach to draggable
@@ -3908,13 +3908,13 @@
 
   // KEY EVENTS
 
-  // Run a handler that was bound to a key.
+  // Run a config that was bound to a key.
   function doHandleBinding(cm, bound, dropShift) {
     if (typeof bound == "string") {
       bound = commands[bound];
       if (!bound) return false;
     }
-    // Ensure previous input has been read, so that the handler sees a
+    // Ensure previous input has been read, so that the config sees a
     // consistent view of the document
     cm.display.input.ensurePolled();
     var prevShift = cm.display.shift, done = false;
@@ -7945,7 +7945,7 @@
   var orphanDelayedCallbacks = null;
 
   // Often, we want to signal events at a point where we are in the
-  // middle of some work, but don't want the handler to start calling
+  // middle of some work, but don't want the config to start calling
   // other methods on the editor, which might be in an inconsistent
   // state or simply not expect any other events to happen.
   // signalLater looks whether there are any handlers, and schedules
@@ -7975,8 +7975,8 @@
   }
 
   // The DOM events that CodeMirror handles can be overridden by
-  // registering a (non-DOM) handler on the editor for the event name,
-  // and preventDefault-ing the event in that handler.
+  // registering a (non-DOM) config on the editor for the event name,
+  // and preventDefault-ing the event in that config.
   function signalDOMEvent(cm, e, override) {
     if (typeof e == "string")
       e = {type: e, preventDefault: function() { this.defaultPrevented = true; }};
@@ -8212,7 +8212,7 @@
   // WINDOW-WIDE EVENTS
 
   // These must be handled carefully, because naively registering a
-  // handler for each editor will cause the editors to never be
+  // config for each editor will cause the editors to never be
   // garbage collected.
 
   function forEachCodeMirror(f) {

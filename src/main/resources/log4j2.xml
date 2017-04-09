@@ -6,7 +6,7 @@
     </properties>
 
     <appenders>
-        <Console name="CONSOLE" target="system_out">
+        <Console name="Console" target="system_out">
             <PatternLayout pattern="${PATTERN}" />
         </Console>
     </appenders>
@@ -19,9 +19,9 @@
         <logger name="log4j.logger.java.sql" level="debug" additivity="false">
             <appender-ref ref="Console"/>
         </logger>
-        <logger name="com.eumji.mybatisxml.mapper" level="debug" />
+        <logger name="com.eumji.zblog.mapper" level="debug" />
         <root level="info">
-            <appenderref ref="CONSOLE" />
+            <appenderref ref="Console" />
         </root>
     </loggers>
 

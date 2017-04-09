@@ -68,7 +68,7 @@
                 }
 
                 if (halt == false) {
-                    alter(that.$editor.find('button[data-handler="' + v + '"]'))
+                    alter(that.$editor.find('button[data-config="' + v + '"]'))
                 }
             })
         }
@@ -126,7 +126,7 @@
                         // Attach the button object
                         btnGroupContainer.append(buttonContainer);
 
-                        // Register handler and callback
+                        // Register config and callback
                         handler.push(buttonHandler);
                         callback.push(button.callback);
                     }
@@ -180,7 +180,7 @@
             // Trigger onChange for each button handle
             this.change(this);
 
-            // Unless it was the save handler,
+            // Unless it was the save config,
             // focusin the textarea
             if (handlerName.indexOf('cmdSave') < 0) {
                 this.$textarea.focus()
@@ -326,11 +326,11 @@
                     createFooter = true;
                     var saveHandler = 'cmdSave'
 
-                    // Register handler and callback
+                    // Register config and callback
                     handler.push(saveHandler)
                     callback.push(options.onSave)
 
-                    editorFooter.append('<button class="btn btn-success" data-provider="' + ns + '" data-handler="' + saveHandler + '"><i class="icon icon-white icon-ok"></i> ' + this.__localize('Save') + '</button>')
+                    editorFooter.append('<button class="btn btn-success" data-provider="' + ns + '" data-config="' + saveHandler + '"><i class="icon icon-white icon-ok"></i> ' + this.__localize('Save') + '</button>')
 
 
                 }
