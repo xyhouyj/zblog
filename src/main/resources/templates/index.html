@@ -184,25 +184,25 @@
 
 
                             <td>
-                                <a href="https://github.com/dyc87112" target="_blank" title="github" class=tooltip>
+                                <a href="https://github.com/eumji025" target="_blank" title="github" class=tooltip>
                                     <i class="fa fa-github"></i>
                                 </a>
                             </td>
 
                             <td>
-                                <a href="http://git.oschina.net/didispace" target="_blank" title="git" class=tooltip>
+                                <a href="http://git.oschina.net/eumji025" target="_blank" title="git" class=tooltip>
                                     <i class="fa fa-git"></i>
                                 </a>
                             </td>
 
                             <td>
-                                <a href="mailto:didi@potatomato.club" target="_blank" title="envelope" class=tooltip>
+                                <a href="eumji025@gmail.com" target="_blank" title="envelope" class=tooltip>
                                     <i class="fa fa-envelope"></i>
                                 </a>
                             </td>
 
                             <td>
-                                <a href="http://weibo.com/2014605502" target="_blank" title="weibo" class=tooltip>
+                                <a target="_blank" title="weibo" class=tooltip>
                                     <i class="fa fa-weibo"></i>
                                 </a>
                             </td>
@@ -223,32 +223,12 @@
                 <div class="widget-wrap widget-list">
                     <div class="widget">
                         <h3 class="follow">友情链接</h3>
-                        <ul>
 
-                            <li>
-                                <a href="http://bbs.springcloud.com.cn">Spring Cloud中文社区</a>
+                        <ul >
+                            <!--/*@thymesVar id="partnerList" type="com.eumji.zblog.vo.Partner"*/-->
+                            <li th:each="partList : ${partnerList}">
+                                <a th:href="${partList.siteUrl}" th:text="${partList.siteName}"></a>
                             </li>
-
-                            <li>
-                                <a href="http://itmuch.com/">周立|Spring Cloud</a>
-                            </li>
-
-                            <li>
-                                <a href="http://www.bysocket.com/">泥瓦匠BYSocket的博客</a>
-                            </li>
-
-                            <li>
-                                <a href="http://xujin.org/">许进|沉思录</a>
-                            </li>
-
-                            <li>
-                                <a href="http://kailing.pub/">KL博客</a>
-                            </li>
-
-                            <li>
-                                <a href="http://didispace.oschina.io/baimaozixun-static">白猫计划资讯站</a>
-                            </li>
-
                         </ul>
                     </div>
                 </div>
