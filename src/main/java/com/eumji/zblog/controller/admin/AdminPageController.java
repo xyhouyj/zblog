@@ -13,13 +13,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/admin")
 public class AdminPageController {
+    /**
+     * 后台首页
+     * @return
+     */
     @RequestMapping("/home")
     public String homePage(){
         return "redirect:/admin/article/articleList";
     }
 
+    /**
+     * 跳转到文章列表页面
+     * @return
+     */
     @RequestMapping("/article/articleList")
     public String articlePage(){
         return "/admin/article/articleList";
+    }
+
+
+    /**
+     * 跳转到添加文章页面
+     * @return
+     */
+    @RequestMapping("/article/addPage")
+    public String articleAddPage(){
+        return "/admin/article/articleAdd";
     }
 }

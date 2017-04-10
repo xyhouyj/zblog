@@ -1,3 +1,22 @@
+//加载markdown文本编辑器
+var testEditor;
+$(function() {
+    // 初始化多选框
+    $(".chosen-select").chosen({
+        max_selected_options: 5,
+        no_results_text: "没有找到",
+        allow_single_deselect: true
+    });
+    testEditor = editormd("test-editormd", {
+        width: "90%",
+        height: 640,
+        syncScrolling: "single",
+        path: "../lib/"
+    });
+});
+
+
+
 // 保存文章
 function saveArticle(){
     var param = {};

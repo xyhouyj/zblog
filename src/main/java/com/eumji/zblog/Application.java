@@ -1,6 +1,5 @@
 package com.eumji.zblog;
 
-import jdk.nashorn.internal.runtime.logging.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -15,7 +14,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @time: 2017/4/2
  */
 @SpringBootApplication
-@Logger
 public class Application {
 
     public static void main(String[] args) {

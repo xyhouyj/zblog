@@ -75,7 +75,7 @@ function search(){
 
 // 新增文章  跳转新页
 function addArticle(){
-	window.location.href = "../article/addJump";
+	window.location.href = "/admin/article/addPage";
 }
 
 // 删除文章
