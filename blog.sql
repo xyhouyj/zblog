@@ -208,17 +208,14 @@ INSERT INTO `t_tag` VALUES ('7', '缓存机制');
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
   `username` varchar(20) DEFAULT NULL,
-  `age` int(3) DEFAULT NULL
+  `password` varchar(50) DEFAULT NULL,
+  `enabled` varchar(5) DEFAULT '0' COMMENT '是否被禁用',
+  `credential` varchar(5) DEFAULT '0' COMMENT '凭证是否过期',
+  `locked` varchar(5) DEFAULT '0' COMMENT '是否被锁',
+  `expired` varchar(5) DEFAULT '0' COMMENT '是否过期',
+  `createTime` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of user
--- ----------------------------
-INSERT INTO `user` VALUES ('zhangsan', '15');
-INSERT INTO `user` VALUES ('lisi', '17');
-INSERT INTO `user` VALUES ('wangwu', '19');
-INSERT INTO `user` VALUES ('mazi', '22');
-INSERT INTO `user` VALUES ('test', '100');
