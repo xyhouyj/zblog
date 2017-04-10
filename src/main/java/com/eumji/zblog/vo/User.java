@@ -3,6 +3,7 @@ package com.eumji.zblog.vo;
 import org.apache.ibatis.type.Alias;
 import org.springframework.security.core.GrantedAuthority;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
@@ -14,7 +15,7 @@ import java.util.Date;
  * TIME: 10:13
  */
 @Alias("user")
-public class User {
+public class User implements Serializable {
     private long id;
     private String username;
     private String password;

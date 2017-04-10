@@ -1,7 +1,14 @@
 package com.eumji.zblog.controller;
 
+import com.eumji.zblog.service.PartnerService;
+import com.eumji.zblog.vo.Partner;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 首页入口controller
@@ -14,8 +21,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageController {
 
+    @Resource
+    private PartnerService partnerService;
+
     @RequestMapping("/")
-    public String home(){
+    public String home(Model model){
+        List<Partner> partnerList = partnerService.findAll();
+        System.out.println(partnerList);
+        model.addAttribute("partnerList",partnerList);
         return "index";
     }
     @RequestMapping("/archives")
