@@ -251,7 +251,7 @@
 
 
         <section id="main">
-            <article id="post-zuul-vs-nginx-performance" class="article article-type-post" itemscope itemprop="blogPost">
+            <article th:each="articleList: ${articleList}" th:id="${articleList.name}" class="article article-type-post" itemscope itemprop="blogPost">
                 <div class="article-inner">
 
 
@@ -259,7 +259,7 @@
 
 
                         <h1 itemprop="name">
-                            <a class="article-title" href="/zuul-vs-nginx-performance/">Netflix Zuul与Nginx的性能对比</a>
+                            <a class="article-title" th:href="${articleList.name}" th:text="${articleList.articleName}"></a>
                         </h1>
 
 
@@ -268,8 +268,8 @@
 
                             <div class="article-date">
                                 <i class="fa fa-calendar"></i>
-                                <a href="/zuul-vs-nginx-performance/">
-                                    <time datetime="2017-04-03T08:20:27.000Z" itemprop="datePublished">2017-04-03</time>
+                                <a th:href="${articleList.aritcleUrl}">
+                                    <time datetime="2017-04-03T08:20:27.000Z" itemprop="datePublished" th:text="${articleList.createTime}"></time>
                                 </a>
                             </div>
 
@@ -277,27 +277,22 @@
 
                             <div class="article-category" style="text-transform: none;">
                                 <i class="fa fa-folder"></i>
-                                <a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a>
+                                <a class="article-category-link" href="/categories/Spring-Cloud/" th:text="${articleList.labelName}" th:href="/category/${articleList.label}"></a>
                             </div>
 
-                            <div class="share-container" style="text-transform: none;">
+                            <div class="share-container" style="text-transform: none;" th:each="tagListStat : ${articleList.tags}">
                                 <i class="fa fa-tag"></i>
-                                <a class="tag-link" href="/tags/Nginx/">Nginx</a>, <a class="tag-link" href="/tags/Zuul/">Zuul</a>
+                                <a class="tag-link"  th:href="/tags/${tagListStat}" th:text="${tagListStat}"></a>
                             </div>
                         </div>
 
                     </header>
 
 
-                    <div class="article-entry" itemprop="articleBody">
+                    <div class="article-entry" itemprop="articleBody" th:text="articleList.articleDesc">
 
-
-
-                        这是一篇翻译，关于大家经常质疑的一个问题：API网关Zuul的性能。原文：NETFLIX ZUUL VS NGINX PERFORMANCE作者：STANISLAV MIKLIK
-
-                        如今你可以听到很多关于“微服务”的信息。Spring Boot是一个用来构建单个微服务应用的理想选择，但是你还需要以某种方式将它们互相联系起来。这就是Spring Cloud试图解决的问题，尤其是Spring ...
                         <p class="article-more-link">
-                            <a title=" 查看更多 " href="/sc/sc-eureka-02/#more">查看更多</a>
+                            <a title=" 查看更多 " th:href="${articleList.articleUrl}">查看更多</a>
                         </p>
                     </div>
                     <footer class="article-footer">
@@ -368,474 +363,6 @@
 
             </article>
 
-
-
-            <article id="post-spring-boot-jolokia-grafana-monitor" class="article article-type-post" itemscope itemprop="blogPost">
-                <div class="article-inner">
-
-
-                    <header class="article-header">
-
-
-                        <h1 itemprop="name">
-                            <a class="article-title" href="/spring-boot-jolokia-grafana-monitor/">使用Spring Boot Actuator、Jolokia和Grafana实现准实时监控</a>
-                        </h1>
-
-
-
-                        <div class="article-meta">
-
-                            <div class="article-date">
-                                <i class="fa fa-calendar"></i>
-                                <a href="/spring-boot-jolokia-grafana-monitor/">
-                                    <time datetime="2017-02-26T05:46:33.000Z" itemprop="datePublished">2017-02-26</time>
-                                </a>
-                            </div>
-
-
-
-                            <div class="article-category" style="text-transform: none;">
-                                <i class="fa fa-folder"></i>
-                                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
-                            </div>
-
-                        </div>
-
-                    </header>
-
-
-                    <div class="article-entry" itemprop="articleBody">
-
-
-
-                        由于最近在做监控方面的工作，因此也读了不少相关的经验分享。其中有这样一篇文章总结了一些基于Spring Boot的监控方案，因此翻译了一下，希望可以对大家有所帮助。
-                        原文：Near real-time monitoring charts with Spring Boot Actuator, Jolokia and Grafana
-
-                        Spring Boot Actuator通过/metric...
-
-                    </div>
-                    <footer class="article-footer">
-
-                        <div class="share-container" style="text-transform: none;">
-                            <i class="fa fa-tag"></i>
-                            <a class="tag-link" href="/tags/Grafana/">Grafana</a>, <a class="tag-link" href="/tags/Jolokia/">Jolokia</a>, <a class="tag-link" href="/tags/Spring-Boot/">Spring Boot</a>
-                        </div>
-
-
-
-
-                    </footer>
-                </div>
-
-            </article>
-
-
-
-            <article id="post-spring-boot-1-5-x-feature-1" class="article article-type-post" itemscope itemprop="blogPost">
-                <div class="article-inner">
-
-
-                    <header class="article-header">
-
-
-                        <h1 itemprop="name">
-                            <a class="article-title" href="/spring-boot-1-5-x-feature-1/">Spring Boot 1.5.x新特性：动态修改日志级别</a>
-                        </h1>
-
-
-
-                        <div class="article-meta">
-
-                            <div class="article-date">
-                                <i class="fa fa-calendar"></i>
-                                <a href="/spring-boot-1-5-x-feature-1/">
-                                    <time datetime="2017-01-31T13:33:07.000Z" itemprop="datePublished">2017-01-31</time>
-                                </a>
-                            </div>
-
-
-
-                            <div class="article-category" style="text-transform: none;">
-                                <i class="fa fa-folder"></i>
-                                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
-                            </div>
-
-                        </div>
-
-                    </header>
-
-
-                    <div class="article-entry" itemprop="articleBody">
-
-
-                        前天Spring Boot 1.5终于迎来了第一个RELEASE版本：1.5.0，但是由于一个编译依赖问题在第二天直接连击到了1.5.1。该版本的发布包含了超过320位贡献者的奉献、10000多次的代码提交。
-                        每次Spring Boot版本更新所带来的新特性都是我们每个用户特别关注的。虽然其中不少特性可能对于大部分用户来说还不一定适用，但是作为基础知识的储备还是有一定的必要性。对于1.5.x...
-
-                    </div>
-                    <footer class="article-footer">
-
-                        <div class="share-container" style="text-transform: none;">
-                            <i class="fa fa-tag"></i>
-                            <a class="tag-link" href="/tags/Spring-Boot/">Spring Boot</a>
-                        </div>
-
-
-
-
-                    </footer>
-                </div>
-
-            </article>
-
-
-
-            <article id="post-spring-cloud-tips-1" class="article article-type-post" itemscope itemprop="blogPost">
-                <div class="article-inner">
-
-
-                    <header class="article-header">
-
-
-                        <h1 itemprop="name">
-                            <a class="article-title" href="/spring-cloud-tips-1/">Spring Cloud实战小贴士：版本依赖关系</a>
-                        </h1>
-
-
-
-                        <div class="article-meta">
-
-                            <div class="article-date">
-                                <i class="fa fa-calendar"></i>
-                                <a href="/spring-cloud-tips-1/">
-                                    <time datetime="2017-01-23T03:20:32.000Z" itemprop="datePublished">2017-01-23</time>
-                                </a>
-                            </div>
-
-
-
-                            <div class="article-category" style="text-transform: none;">
-                                <i class="fa fa-folder"></i>
-                                <a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a>
-                            </div>
-
-                        </div>
-
-                    </header>
-
-
-                    <div class="article-entry" itemprop="articleBody">
-
-
-                        去年在博客上连载了《Spring Cloud构建微服务架构》的系列博文，虽然这部分内容得到了不少关注者们的支持，但是不得不说这些内容只是适用于Spring Cloud入门阶段对各个组件的初步认识。所以，今年除了将会继续更新《Spring Cloud构建微服务架构》系列的连载之外，准备再开一个新系列：《SpringCloud实战小贴士》，该系列文章内容将会聚焦在下面三个点上：
-
-                        常见问题的解析...
-
-                    </div>
-                    <footer class="article-footer">
-
-                        <div class="share-container" style="text-transform: none;">
-                            <i class="fa fa-tag"></i>
-                            <a class="tag-link" href="/tags/Spring-Cloud/">Spring Cloud</a>
-                        </div>
-
-
-
-
-                    </footer>
-                </div>
-
-            </article>
-
-
-
-            <article id="post-mybook-spring-cloud-in-action" class="article article-type-post" itemscope itemprop="blogPost">
-                <div class="article-inner">
-
-
-                    <header class="article-header">
-
-
-                        <h1 itemprop="name">
-                            <a class="article-title" href="/mybook-spring-cloud-in-action/">我的新书《Spring Cloud实战》预告</a>
-                        </h1>
-
-
-
-                        <div class="article-meta">
-
-                            <div class="article-date">
-                                <i class="fa fa-calendar"></i>
-                                <a href="/mybook-spring-cloud-in-action/">
-                                    <time datetime="2017-01-20T06:52:16.000Z" itemprop="datePublished">2017-01-20</time>
-                                </a>
-                            </div>
-
-
-
-                            <div class="article-category" style="text-transform: none;">
-                                <i class="fa fa-folder"></i>
-                                <a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a>
-                            </div>
-
-                        </div>
-
-                    </header>
-
-
-                    <div class="article-entry" itemprop="articleBody">
-
-
-                        从去年6月开始编写《Spring Cloud构建微服务架构》系列博文开始，受到了不少同行的关注与支持。随后也开通了多个交流群、创建了相关的论坛（http://bbs.springcloud.cn），虽然Spring Cloud在国内变得越来越火热，但是这一块相关的书籍在国内外一直都还是处于空白状态。由于官方文档过于概要和简略，对于一些初学者来说学习门槛较高，所以从去年开始编写这本详细介绍Sp...
-
-                    </div>
-                    <footer class="article-footer">
-
-                        <div class="share-container" style="text-transform: none;">
-                            <i class="fa fa-tag"></i>
-                            <a class="tag-link" href="/tags/Spring-Cloud/">Spring Cloud</a>
-                        </div>
-
-
-
-
-                    </footer>
-                </div>
-
-            </article>
-
-
-
-            <article id="post-spring-boot-actuator-without-boot" class="article article-type-post" itemscope itemprop="blogPost">
-                <div class="article-inner">
-
-
-                    <header class="article-header">
-
-
-                        <h1 itemprop="name">
-                            <a class="article-title" href="/spring-boot-actuator-without-boot/">在传统Spring应用中使用spring-boot-actuator模块提供监控端点</a>
-                        </h1>
-
-
-
-                        <div class="article-meta">
-
-                            <div class="article-date">
-                                <i class="fa fa-calendar"></i>
-                                <a href="/spring-boot-actuator-without-boot/">
-                                    <time datetime="2017-01-15T15:03:12.000Z" itemprop="datePublished">2017-01-15</time>
-                                </a>
-                            </div>
-
-
-
-                            <div class="article-category" style="text-transform: none;">
-                                <i class="fa fa-folder"></i>
-                                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
-                            </div>
-
-                        </div>
-
-                    </header>
-
-
-                    <div class="article-entry" itemprop="articleBody">
-
-
-                        在之前发布的《Spring Boot Actuator监控端点小结》一文中，我们介绍了Spring Boot Actuator模块为应用提供的强大监控能力。在Spring Boot应用中，我们只需要简单的引入spring-boot-starter-actuator依赖就能为应用添加各种有用的监控端点。其中，/health端点能够全面检查应用的健康状态，该端点也被Spring Cloud中的服...
-
-                    </div>
-                    <footer class="article-footer">
-
-                        <div class="share-container" style="text-transform: none;">
-                            <i class="fa fa-tag"></i>
-                            <a class="tag-link" href="/tags/Spring-Boot/">Spring Boot</a>, <a class="tag-link" href="/tags/spring-boot-actuator/">spring-boot-actuator</a>
-                        </div>
-
-
-
-
-                    </footer>
-                </div>
-
-            </article>
-
-
-
-            <article id="post-spring-initializr-in-intellij" class="article article-type-post" itemscope itemprop="blogPost">
-                <div class="article-inner">
-
-
-                    <header class="article-header">
-
-
-                        <h1 itemprop="name">
-                            <a class="article-title" href="/spring-initializr-in-intellij/">使用Intellij中的Spring Initializr来快速构建Spring Boot/Cloud工程</a>
-                        </h1>
-
-
-
-                        <div class="article-meta">
-
-                            <div class="article-date">
-                                <i class="fa fa-calendar"></i>
-                                <a href="/spring-initializr-in-intellij/">
-                                    <time datetime="2017-01-09T13:40:43.000Z" itemprop="datePublished">2017-01-09</time>
-                                </a>
-                            </div>
-
-
-
-                            <div class="article-category" style="text-transform: none;">
-                                <i class="fa fa-folder"></i>
-                                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
-                            </div>
-
-                        </div>
-
-                    </header>
-
-
-                    <div class="article-entry" itemprop="articleBody">
-
-
-                        在之前的所有Spring Boot和Spring Cloud相关博文中，都会涉及Spring Boot工程的创建。而创建的方式多种多样，我们可以通过Maven来手工构建或是通过脚手架等方式快速搭建，也可以通过《Spring Boot快速入门》一文中提到的SPRING INITIALIZR页面工具来创建，相信每位读者都有自己最喜欢和最为熟练的创建方式。
-                        本文我们将介绍嵌入的Intellij中的...
-
-                    </div>
-                    <footer class="article-footer">
-
-                        <div class="share-container" style="text-transform: none;">
-                            <i class="fa fa-tag"></i>
-                            <a class="tag-link" href="/tags/Intellij/">Intellij</a>, <a class="tag-link" href="/tags/Spring-Boot/">Spring Boot</a>, <a class="tag-link" href="/tags/Spring-Cloud/">Spring Cloud</a>, <a class="tag-link" href="/tags/Spring-Initializr/">Spring Initializr</a>
-                        </div>
-
-
-
-
-                    </footer>
-                </div>
-
-            </article>
-
-
-
-            <article id="post-spring-boot-banner" class="article article-type-post" itemscope itemprop="blogPost">
-                <div class="article-inner">
-
-
-                    <header class="article-header">
-
-
-                        <h1 itemprop="name">
-                            <a class="article-title" href="/spring-boot-banner/">新年彩蛋：Spring Boot自定义Banner</a>
-                        </h1>
-
-
-
-                        <div class="article-meta">
-
-                            <div class="article-date">
-                                <i class="fa fa-calendar"></i>
-                                <a href="/spring-boot-banner/">
-                                    <time datetime="2016-12-31T02:29:05.000Z" itemprop="datePublished">2016-12-31</time>
-                                </a>
-                            </div>
-
-
-
-                            <div class="article-category" style="text-transform: none;">
-                                <i class="fa fa-folder"></i>
-                                <a class="article-category-link" href="/categories/Spring-Boot/">Spring Boot</a>
-                            </div>
-
-                        </div>
-
-                    </header>
-
-
-                    <div class="article-entry" itemprop="articleBody">
-
-
-                        在2016年的最后一天，借用Spring Boot的Banner向各位程序猿同仁们问候一声：Happy New Year。
-
-                        接下来我们就来介绍一下这个轻松愉快的自定义banner功能。实现的方式非常简单，我们只需要在Spring Boot工程的/src/main/resources目录下创建一个banner.txt文件，然后将ASCII字符画复制进去，就能替换默认的banner了。比如上图...
-
-                    </div>
-                    <footer class="article-footer">
-
-                        <div class="share-container" style="text-transform: none;">
-                            <i class="fa fa-tag"></i>
-                            <a class="tag-link" href="/tags/Spring-Boot/">Spring Boot</a>
-                        </div>
-
-
-
-
-                    </footer>
-                </div>
-
-            </article>
-
-
-
-            <article id="post-consul-deregister" class="article article-type-post" itemscope itemprop="blogPost">
-                <div class="article-inner">
-
-
-                    <header class="article-header">
-
-
-                        <h1 itemprop="name">
-                            <a class="article-title" href="/consul-deregister/">Consul注销实例时候的问题</a>
-                        </h1>
-
-
-
-                        <div class="article-meta">
-
-                            <div class="article-date">
-                                <i class="fa fa-calendar"></i>
-                                <a href="/consul-deregister/">
-                                    <time datetime="2016-12-29T07:48:03.000Z" itemprop="datePublished">2016-12-29</time>
-                                </a>
-                            </div>
-
-
-
-                            <div class="article-category" style="text-transform: none;">
-                                <i class="fa fa-folder"></i>
-                                <a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a>
-                            </div>
-
-                        </div>
-
-                    </header>
-
-
-                    <div class="article-entry" itemprop="articleBody">
-
-
-                        当我们在Spring Cloud应用中使用Consul来实现服务治理时，由于Consul不会自动将不可用的服务实例注销掉（deregister），这使得在实际使用过程中，可能因为一些操作失误、环境变更等原因让Consul中存在一些无效实例信息，而这些实例在Consul中会长期存在，并处于断开状态。它们虽然不会影响到正常的服务消费过程，但是它们会干扰我们的监控，所以我们可以实现一个清理接口，在...
-
-                    </div>
-                    <footer class="article-footer">
-
-                        <div class="share-container" style="text-transform: none;">
-                            <i class="fa fa-tag"></i>
-                            <a class="tag-link" href="/tags/Consul/">Consul</a>, <a class="tag-link" href="/tags/Spring-Boot/">Spring Boot</a>, <a class="tag-link" href="/tags/Spring-Cloud/">Spring Cloud</a>
-                        </div>
-
-
-
-
-                    </footer>
-                </div>
-
-            </article>
-
-
-
             <nav id="page-nav">
                 <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
             </nav>
@@ -843,16 +370,7 @@
 
         <aside id="sidebar">
 
-            <style>
-                .bg-danger {
-                    background-color: #f2dede;
-                    padding: 15px;
-                    margin: 0px;
-                    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-                }
-            </style>
-
-
+            <!--公告栏-->
             <div class="widget-wrap">
                 <h3 class="follow">公告</h3>
                 <div class="widget-none">
