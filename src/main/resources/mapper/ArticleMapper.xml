@@ -2,26 +2,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.eumji.zblog.mapper.PartnerMapper">
+<mapper namespace="com.eumji.zblog.mapper.ArticleMapper">
     <!--通过username获取user对象-->
-   <select id="findAll" resultType="partner">
-       select * from partner
+   <select id="getArticleCount" resultType="int">
+       select count(id) from article
    </select>
-
-    <delete id="delete">
-
-    </delete>
-
-    <select id="findById">
-
+    <!--分页获取文章-->
+    <select id="getArticleList" resultType="article">
+        select id,categoryId,title,content,description,status,author,createTime,updateTime,showCount from article where status=1 limit #{start},#{limit}
     </select>
-
-    <update id="update">
-
-    </update>
-
-    <insert id="save">
-
-    </insert>
 </mapper>
 
