@@ -8,14 +8,6 @@ import java.util.List;
 */
 public interface PartnerService {
 
-Partner findById(final Object id);
-
-List<Partner> findAll();
-
-void save(final Partner entity);
-
-Partner update(final Partner entity);
-
-void delete(final Partner entity);
+    List<Partner> findAll();
 
 }

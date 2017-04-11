@@ -1,8 +1,10 @@
 package com.eumji.zblog.controller;
 
+import com.eumji.zblog.service.ArticleService;
 import com.eumji.zblog.service.PartnerService;
+import com.eumji.zblog.vo.Article;
+import com.eumji.zblog.vo.Pager;
 import com.eumji.zblog.vo.Partner;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,10 +26,13 @@ public class PageController {
     @Resource
     private PartnerService partnerService;
 
+    @Resource
+    private ArticleService articleService;
     @RequestMapping("/")
     public String home(Model model){
         List<Partner> partnerList = partnerService.findAll();
-        System.out.println(partnerList);
+        Pager<Article> pager = articleService.InitPager();
+       List<Article> articleList = articleService.articleList(pager);
         model.addAttribute("partnerList",partnerList);
         return "index";
     }

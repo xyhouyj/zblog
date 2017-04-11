@@ -1,31 +1,27 @@
 package com.eumji.zblog.service.impl;
 
 import com.eumji.zblog.mapper.UserMapper;
-import com.eumji.zblog.service.UserService;
 import com.eumji.zblog.vo.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.eumji.zblog.service.UserService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
- * FILE: com.eumji.zblog.service.impl.UserServiceImpl.java
- * MOTTO:  不积跬步无以至千里,不积小流无以至千里
- * AUTHOR: EumJi
- * DATE: 2017/4/9
- * TIME: 10:10
+ * Created by GeneratorFx on 2017-04-11.
  */
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Resource
     private UserMapper userMapper;
-    /**
-     * 通过userName查找User
-     *
-     * @param username
-     * @return
-     */
+
     @Override
     public User loadUserByUsername(String username) {
         return userMapper.getUser(username);
     }
 }
+
+

@@ -1,7 +1,6 @@
 package com.eumji.zblog.vo;
 
 import org.apache.ibatis.type.Alias;
-
 import java.io.Serializable;
 
 /**

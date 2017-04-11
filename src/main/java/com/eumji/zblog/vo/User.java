@@ -7,13 +7,6 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
-/**
- * FILE: com.eumji.zblog.vo.User.java
- * MOTTO:  不积跬步无以至千里,不积小流无以至千里
- * AUTHOR: EumJi
- * DATE: 2017/4/9
- * TIME: 10:13
- */
 @Alias("user")
 public class User implements Serializable {
     private long id;

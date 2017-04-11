@@ -11,14 +11,9 @@ import java.util.List;
 @Mapper
 public interface PartnerMapper {
 
-Partner findById(final Object id);
 
 List<Partner> findAll();
 
-void save(final Partner entity);
 
-Partner update(final Partner entity);
-
-void delete(final Partner entity);
 
 }
