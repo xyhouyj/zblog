@@ -81,7 +81,6 @@ function addPartner(){
 	$.ajax({
         url : '/admin/friend/addJump',
         success  : function(data) {
-            console.log("data:"+data);
         	$('#addPartnerContent').html(data);
         	$('#addPartnerModal').modal('show');
         	$('#addPartnerModal').addClass('animated');

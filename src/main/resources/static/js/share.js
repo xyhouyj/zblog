@@ -9,7 +9,7 @@
         var settings = $.extend({}, $.fn.socialShare.defaults, options);
         console.log(settings);
 		//初始化各个组件
-        var $msb_main = "<a class='msb_main'><img title='分享' src='image/share_core_square.jpg'></a>";
+        var $msb_main = "<a class='msb_main'><img title='分享' src='/image/share_core_square.jpg'></a>";
         var $social_group = "<div class='social_group'>"
 		+ "<a target='_blank' class='msb_network_button weixin'>weixin</a>"
 		+ "<a target='_blank' class='msb_network_button sina'>sina</a>"
@@ -20,8 +20,8 @@
         $(target).append($msb_main);
         $(target).append($social_group);
         $(target).addClass("socialShare");
-
-
+        console.log($msb_main);
+        console.log($social_group);
 		//添加QQ好友分享事件
 		$(document).on("click",".msb_network_button.tQQ",function(){
 			tQQ(this,settings);
