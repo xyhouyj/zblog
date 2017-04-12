@@ -1,6 +1,7 @@
 package com.eumji.zblog.service;
 
 import com.eumji.zblog.vo.Article;
+import com.eumji.zblog.vo.ArticleCustom;
 import com.eumji.zblog.vo.Pager;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 public interface ArticleService {
 
 
-    List<Article> articleList(Pager pager);
+    List<ArticleCustom> articleList(Pager pager);
 
     /**
      * 获取分页信息

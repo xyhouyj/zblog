@@ -32,7 +32,6 @@ public class PageController {
     public String home(Model model){
         List<Partner> partnerList = partnerService.findAll();
         Pager<Article> pager = articleService.InitPager();
-       List<Article> articleList = articleService.articleList(pager);
         model.addAttribute("partnerList",partnerList);
         return "index";
     }

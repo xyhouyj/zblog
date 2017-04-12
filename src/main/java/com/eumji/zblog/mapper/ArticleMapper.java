@@ -1,7 +1,7 @@
 package com.eumji.zblog.mapper;
 
 
-import com.eumji.zblog.vo.Article;
+import com.eumji.zblog.vo.ArticleCustom;
 import com.eumji.zblog.vo.Pager;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -15,5 +15,5 @@ public interface ArticleMapper {
 
     int getArticleCount();
 
-    List<Article> getArticleList(Pager pager);
+    List<ArticleCustom> getArticleList(Pager pager);
 }
