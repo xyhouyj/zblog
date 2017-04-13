@@ -1,8 +1,7 @@
 var pager = {start:0,limit:10};
 $(function () {
     var categoryId = $("#categoryId").text();
-    console.log("ok!!!!");
-    console.log("categoryId:"+categoryId);
+
     //初始化文章
     $.ajax({
         type: 'GET',
@@ -43,6 +42,5 @@ $(function () {
         }
     });
 
-    var categoryId = $("#categoryId").val();
 
 })

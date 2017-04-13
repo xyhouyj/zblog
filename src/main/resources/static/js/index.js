@@ -41,3 +41,30 @@ $(function () {
     });
 
 })
+
+
+function loadCategory(categoryId) {
+    var loadPager = {start:0,limit:10};
+    $.ajax({
+        type: 'GET',
+        url: '/category/load/' + categoryId,
+        data: {pager: pager},
+        success: function (data) {
+            $("#main").html(data);
+        }
+    });
+
+}
+
+function loadTag(tagId) {
+    var loadPager = {start:0,limit:10};
+
+    $.ajax({
+        type: 'GET',
+        url: '/tag/load/'+tagId,
+        data: {pager: loadPager},
+        success: function (data) {
+            $("#main").html(data);
+        }
+    });
+}

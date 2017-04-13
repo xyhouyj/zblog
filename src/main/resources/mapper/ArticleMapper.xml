@@ -35,4 +35,9 @@
          select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and categoryId=#{categoryId} and article.categoryId = category.id limit #{pager.start},#{pager.limit}
     </select>
 
+
+    <select id="loadArticleByTag" resultMap="article">
+       select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.id in (select DISTINCT articleId from articletag where tagId = #{tagId} ) limit #{pager.start},#{pager.limit}
+
+    </select>
 </mapper>

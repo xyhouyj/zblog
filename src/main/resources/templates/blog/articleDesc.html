@@ -28,9 +28,9 @@
                     <a class="article-category-link" href="/categories/Spring-Cloud/" th:text="${articleList.labelName}" th:href="/category/${articleList.label}"></a>
                 </div>
 
-                <div class="share-container" style="text-transform: none;" th:each="tagListStat : ${articleList.tags}">
+                <div class="share-container" style="text-transform: none;" th:each="tagListStat : ${articleList.tag}">
                     <i class="fa fa-tag"></i>
-                    <a class="tag-link"  th:href="/tags/${tagListStat}" th:text="${tagListStat}"></a>
+                    <a class="tag-link"  onclick="loadTag([[${tagListStat}]])" th:href="/tag/${tagListStat}" th:text="${tagListStat}"></a>
                 </div>
             </div>
 

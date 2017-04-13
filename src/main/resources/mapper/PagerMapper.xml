@@ -8,5 +8,11 @@
         select count(id) from article where status = 1 and categoryId = #{categoryId}
    </select>
 
+
+
+    <select id="loadTagPager" resultType="int">
+        select count(articleId) from articletag JOIN article on article.id = articletag.articleId where tagId=#{tagId} and article.status=1
+    </select>
+
 </mapper>
 

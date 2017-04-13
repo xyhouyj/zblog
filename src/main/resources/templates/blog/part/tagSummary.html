@@ -2,9 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
 <div class="timeline timeline-wrap">
     <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title"th:text="${categoryName}"></h1>
+        <span class="node"><i class="fa fa-tag"></i></span>
+        <h1 class="title" th:text="'#'+${tagName}" ></h1>
     </div>
+
 
     <div th:each="articleList: ${articleList}">
         <div class="timeline-row">
@@ -26,7 +27,7 @@
                         </a>
                     </div>
 
-                <!--    <div class="article-category" style="text-transform: none;">
+                    <!--<div class="article-category" style="text-transform: none;">
                         <i class="fa fa-folder"></i>
                         <a class="article-category-link" th:href="'/category/details/'+${articleList.categoryId}" th:text="${articleList.categoryName}" ></a>
                     </div>
@@ -35,7 +36,6 @@
                         <i class="fa fa-tag"></i>
                         <a class="tag-link"  th:href="'/tag/details/'+${tagListStat.tagId}" th:text="${tagListStat.tagName}"></a>
                     </div>-->
-
                     <div class="article-category" style="text-transform: none;">
                         <i class="fa fa-folder"></i>
                         <!--th:href="'/category/details/'+${articleList.categoryId}"-->
@@ -47,6 +47,7 @@
                         <!--th:href="'/tag/details/'+${tagListStat.tagId}"-->
                         <a class="tag-link" th:onclick="'loadTag('+${tagListStat.tagId}+')'"  th:text="${tagListStat.tagName}" style="cursor: pointer"></a>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -62,4 +63,3 @@
     -->
 </nav>
 </html>
-
