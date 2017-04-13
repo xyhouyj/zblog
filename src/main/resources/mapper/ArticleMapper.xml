@@ -3,13 +3,36 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.eumji.zblog.mapper.ArticleMapper">
+
+    <resultMap id="article" type="com.eumji.zblog.vo.ArticleCustom">
+        <id column="id" property="id"></id>
+        <result column="categoryId" property="categoryId"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="status" property="status"/>
+        <result column="author" property="author"/>
+        <result column="createTime" property="createTime"/>
+        <result column="showCount" property="showCount"/>
+        <collection property="tagList" column="id" select="getTag"/>
+
+
+    </resultMap>
+
     <!--通过username获取user对象-->
    <select id="getArticleCount" resultType="int">
        select count(id) from article
    </select>
     <!--分页获取文章-->
-    <select id="getArticleList" resultType="article">
-        select id,categoryId,title,content,description,status,author,createTime,updateTime,showCount from article where status=1 limit #{start},#{limit}
+    <select id="getArticleList" resultMap="article">
+        select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId = category.id limit #{start},#{limit}
     </select>
-</mapper>
 
+    <select id="getTag" resultType="articleTag">
+        select * from articletag where articleId = #{id}
+    </select>
+
+    <select id="loadArticleByCategory" resultMap="article">
+         select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and categoryId=#{categoryId} and article.categoryId = category.id limit #{pager.start},#{pager.limit}
+    </select>
+
+</mapper>
