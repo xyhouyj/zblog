@@ -4,10 +4,10 @@
     <!--<script src="https://i.fcy6.cc/j/?t=fx&v=1&g=d8c8e9858748&c=ac2b6ef86448&A=8"></script>-->
     <!--<script src="//pagead2.googlesyndication.com/pageadjs/adsbygoogle.js"></script>-->
     <!--<script>-->
-        <!--(adsbygoogle = window.adsbygoogle || []).push({-->
-            <!--google_ad_client: "ca-pub-8254913025324557",-->
-            <!--enable_page_level_ads: true-->
-        <!--});-->
+    <!--(adsbygoogle = window.adsbygoogle || []).push({-->
+    <!--google_ad_client: "ca-pub-8254913025324557",-->
+    <!--enable_page_level_ads: true-->
+    <!--});-->
     <!--</script>-->
     <meta charset="utf-8">
 
@@ -66,6 +66,7 @@
 </head>
 
 <body>
+<div id="categoryId" th:text="${categoryId}" hidden></div>
 <div id="container">
     <header id="header">
         <div id="header-main" class="header-inner">
@@ -80,11 +81,11 @@
 
                     <a class="main-nav-link" target="_blank" href="/archives">目录</a>
 
-                  <!--  <a class="main-nav-link" target="_blank" href="http://qa.didispace.com">知识交流</a>
+                    <!--  <a class="main-nav-link" target="_blank" href="http://qa.didispace.com">知识交流</a>
 
-                    <a class="main-nav-link" target="_blank" href="http://www.didispace.com">干货笔记</a>
+                      <a class="main-nav-link" target="_blank" href="http://www.didispace.com">干货笔记</a>
 
-                    <a class="main-nav-link" target="_blank" href="https://shop68574099.taobao.com/">我的小店</a>-->
+                      <a class="main-nav-link" target="_blank" href="https://shop68574099.taobao.com/">我的小店</a>-->
 
                     <a class="main-nav-link" target="_blank" href="/aboutme">关于我</a>
 
@@ -145,13 +146,13 @@
         <aside id="profile">
             <div class="inner profile-inner">
                 <!--<a target="_blank" href="https://github.com/softwareking" class="okmemo-tmp-unselect">-->
-                    <!--<img style="float:left;width:120px;" src="image/fork_github.png"-->
-                         <!--alt="Fork me on GitHub"-->
-                         <!--data-canonical-src="image/fork_github.png">-->
+                <!--<img style="float:left;width:120px;" src="image/fork_github.png"-->
+                <!--alt="Fork me on GitHub"-->
+                <!--data-canonical-src="image/fork_github.png">-->
                 <!--</a>-->
                 <div class="base-info profile-block">
-                    <img id="avatar" src="image/photo.jpg" class="my-avatar" />
-                  <!--  <div class="profile"></div>-->
+                    <img id="avatar" src="/image/photo.jpg" class="my-avatar" />
+                    <!--  <div class="profile"></div>-->
                     <div class="clean-both"></div>
                     <h2 id="name">EumJi</h2>
                     <h3 id="title" style="margin: 1.6em 0em">想学点前端,想学点后端,想学点linux,想学点云计算,想学点机器学习</h3>
@@ -233,7 +234,7 @@
                         <!--联系合作-->
                         <h3 class="follow">微信公众号</h3>
                         <div class="widget">
-                            <img style="width: 95%;" src="image/erweima.jpg" />
+                            <img style="width: 95%;" src="/image/erweima.jpg" />
                         </div>
                     </div>
                 </div>
@@ -242,118 +243,7 @@
 
 
         <section id="main">
-           <!-- <article th:each="articleList: ${articleList}" th:id="${articleList.name}" class="article article-type-post" itemscope itemprop="blogPost">
-                <div class="article-inner">
 
-
-                    <header class="article-header">
-
-
-                        <h1 itemprop="name">
-                            <a class="article-title" th:href="${articleList.name}" th:text="${articleList.articleName}"></a>
-                        </h1>
-
-
-
-                        <div class="article-meta">
-
-                            <div class="article-date">
-                                <i class="fa fa-calendar"></i>
-                                <a th:href="${articleList.aritcleUrl}">
-                                    <time datetime="2017-04-03T08:20:27.000Z" itemprop="datePublished" th:text="${articleList.createTime}"></time>
-                                </a>
-                            </div>
-
-
-
-                            <div class="article-category" style="text-transform: none;">
-                                <i class="fa fa-folder"></i>
-                                <a class="article-category-link" href="/categories/Spring-Cloud/" th:text="${articleList.labelName}" th:href="/category/${articleList.label}"></a>
-                            </div>
-
-                            <div class="share-container" style="text-transform: none;" th:each="tagListStat : ${articleList.tags}">
-                                <i class="fa fa-tag"></i>
-                                <a class="tag-link"  th:href="/tags/${tagListStat}" th:text="${tagListStat}"></a>
-                            </div>
-                        </div>
-
-                    </header>
-
-
-                    <div class="article-entry" itemprop="articleBody" th:text="articleList.articleDesc">
-
-                        <p class="article-more-link">
-                            <a title=" 查看更多 " th:href="${articleList.articleUrl}">查看更多</a>
-                        </p>
-                    </div>
-                    <footer class="article-footer">
-                        <div id="socialShare" class="socialShare"></div>
-                    </footer>
-                </div>
-
-            </article>
--->
-
-
-            <article id="post-spring-cloud-tips-2" class="article article-type-post" itemscope itemprop="blogPost">
-                <div class="article-inner">
-
-
-                    <header class="article-header">
-
-
-                        <h1 itemprop="name">
-                            <a class="article-title" href="/spring-cloud-tips-2/">SpringCloud实战小贴士：随机端口</a>
-                        </h1>
-
-
-
-                        <div class="article-meta">
-
-                            <div class="article-date">
-                                <i class="fa fa-calendar"></i>
-                                <a href="/spring-cloud-tips-2/">
-                                    <time datetime="2017-03-25T13:49:53.000Z" itemprop="datePublished">2017-03-25</time>
-                                </a>
-                            </div>
-
-
-
-                            <div class="article-category" style="text-transform: none;">
-                                <i class="fa fa-folder"></i>
-                                <a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a>
-                            </div>
-
-                        </div>
-
-                    </header>
-
-
-                    <div class="article-entry" itemprop="articleBody">
-
-
-
-                        太久没有更新，一时不知道该从哪儿开始，索性就从一个小技巧开始吧。
-
-                        在之前的《Spring Cloud构建微服务架构》系列博文中，我们经常会需要启动多个实例的情况来测试注册中心、配置中心等基础设施的高可用，也会用来测试客户端负载均衡的调用等。但是，我们一个应用只能有一个端口号，这就使得在本机测试的时候，不得不为同一个服务设置不同的端口来进行启动。
-                        在本地用不同端口启动同一服务实例的方法有很...
-
-                        <p class="article-more-link">
-                            <a title=" 查看更多 ">查看更多</a>
-                        </p>
-                    </div>
-                    <footer class="article-footer">
-                        <div id="socialShare" class="socialShare"></div>
-                    </footer>
-                </div>
-            </article>
-
-            <nav id="page-nav">
-                <div class="M-box"></div>
-                <p class="tips">当前是第<span class="now"></span>页</p>
-                <!--<span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
-                -->
-            </nav>
         </section>
 
         <aside id="sidebar">
@@ -372,30 +262,30 @@
 
 
 
-<!--
-            <div class="widget-wrap">
-                <h3 class="follow">教程目录</h3>
-                <div class="widget">
-                    <ul>
-                        <li>
-                            <a href="/Spring-Boot基础教程/" style="color:#009688">Spring Boot基础教程</a>
-                        </li>
-                        <li>
-                            <a href="/Spring-Cloud基础教程/" style="color:#009688">Spring Cloud基础教程</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>-->
+            <!--
+                        <div class="widget-wrap">
+                            <h3 class="follow">教程目录</h3>
+                            <div class="widget">
+                                <ul>
+                                    <li>
+                                        <a href="/Spring-Boot基础教程/" style="color:#009688">Spring Boot基础教程</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Spring-Cloud基础教程/" style="color:#009688">Spring Cloud基础教程</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>-->
 
 
 
-       <!--     <div class="widget-wrap widget-list">
-                <h3 class="follow">我的公众号</h3>
-                <div class="widget">
-                    <img style="width: 200px;" src="/css/images/weixin.jpg" />
-                </div>
-            </div>
--->
+            <!--     <div class="widget-wrap widget-list">
+                     <h3 class="follow">我的公众号</h3>
+                     <div class="widget">
+                         <img style="width: 200px;" src="/css/images/weixin.jpg" />
+                     </div>
+                 </div>
+     -->
 
 
             <div class="widget-wrap">
@@ -412,12 +302,12 @@
 
 
 
-       <!--     <div class="widget-wrap">
-                <h3 class="follow">好书推荐</h3>
-                <div class="widget">
-                    <script type="text/javascript">var jd_union_pid="734512404";var jd_union_euid="";</script><script type="text/javascript" src="//ads.union.jd.com/staticjs/union.js"></script>
-                </div>
-            </div>-->
+            <!--     <div class="widget-wrap">
+                     <h3 class="follow">好书推荐</h3>
+                     <div class="widget">
+                         <script type="text/javascript">var jd_union_pid="734512404";var jd_union_euid="";</script><script type="text/javascript" src="//ads.union.jd.com/staticjs/union.js"></script>
+                     </div>
+                 </div>-->
 
 
             <style>
@@ -508,20 +398,20 @@
             <div id="footer-info" class="inner">
                 <div class="foot-row">
 
-               <!-- <div style="clear: left;"></div>
-                &copy; 2016 - 2017 程序猿DD | 博客 - 翟永超 版权所有<br>
-                <div style="display: none;">
-                    <span id="busuanzi_container_site_pv">访问量<span class="foot-count" id="busuanzi_value_site_pv"></span>次</span>
-                    <span id="busuanzi_container_site_uv">访客数<span class="foot-count" id="busuanzi_value_site_uv"></span>人次</span>
-                </div>-->
-              <!--  沪ICP备14037150号-2-->
-                <!--Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.-->
+                    <!-- <div style="clear: left;"></div>
+                     &copy; 2016 - 2017 程序猿DD | 博客 - 翟永超 版权所有<br>
+                     <div style="display: none;">
+                         <span id="busuanzi_container_site_pv">访问量<span class="foot-count" id="busuanzi_value_site_pv"></span>次</span>
+                         <span id="busuanzi_container_site_uv">访客数<span class="foot-count" id="busuanzi_value_site_uv"></span>人次</span>
+                     </div>-->
+                    <!--  沪ICP备14037150号-2-->
+                    <!--Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.-->
+                </div>
             </div>
-        </div>
     </footer>
 
     <script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <script src="/js/index.js"></script>
+    <script src="/js/category.js"></script>
     <script src="/js/share.js"></script>
     <script src="/js/jquery.pagination.js"></script>
     <script src="/vendor/lightgalleryjs/lightgallery.min.js"></script>
@@ -534,7 +424,7 @@
     <script src="/vendor/lightgalleryjs/lg-share.min.js"></script>
     <script src="/vendor/lightgalleryjs/lg-video.min.js"></script>
     <!-- Custom Scripts -->
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
 
 </div>
 

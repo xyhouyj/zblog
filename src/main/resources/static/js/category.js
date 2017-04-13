@@ -1,9 +1,12 @@
 var pager = {start:0,limit:10};
 $(function () {
+    var categoryId = $("#categoryId").text();
+    console.log("ok!!!!");
+    console.log("categoryId:"+categoryId);
     //初始化文章
     $.ajax({
         type: 'GET',
-        url: '/article/load',
+        url: '/article/category/'+categoryId,
         data:{pager:pager},
         success: function (data){
             $("#main").html(data);
@@ -20,8 +23,8 @@ $(function () {
             //初始化文章
             $.ajax({
                 type: 'GET',
-                url: '/pager/article/load',
-                data:{pager:pager},
+                url: '/pager/category/load',
+                data:{pager:pager,categoryId:categoryId},
                 success: function (data){
                     pager = data;
                     $('.M-box').pagination({
@@ -39,5 +42,7 @@ $(function () {
             });
         }
     });
+
+    var categoryId = $("#categoryId").val();
 
 })
