@@ -7,6 +7,7 @@ import com.eumji.zblog.vo.Pager;
 import com.eumji.zblog.vo.Partner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -21,7 +22,7 @@ import java.util.List;
  * TIME: 15:19
  */
 @Controller
-public class PageController {
+public class  PageController {
 
     @Resource
     private PartnerService partnerService;
@@ -58,5 +59,11 @@ public class PageController {
     @RequestMapping("/admin/friend/addJump")
     public String addPage(){
         return "/admin/partner/partnerAdd";
+    }
+
+    @RequestMapping("/category/details/{categoryId}")
+    public String categoryPage(Model model,@PathVariable Integer categoryId){
+        model.addAttribute("categoryId",categoryId);
+        return "/category";
     }
 }

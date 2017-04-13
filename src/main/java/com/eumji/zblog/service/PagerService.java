@@ -16,4 +16,6 @@ public interface PagerService {
      * @param pager
      */
     void initPage(Pager pager);
+
+    void loadCategoryPager(Pager pager,Integer categoryId);
 }

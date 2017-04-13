@@ -33,6 +33,7 @@ public class ArticleController {
     @RequestMapping("/load")
     public String loadArticle(Pager<Article> pager, Model model){
         List<ArticleCustom> articleList = articleService.articleList(pager);
+        System.out.println(articleList);
         model.addAttribute("articleList",articleList);
         return "/blog/part/articleSummary";
     }

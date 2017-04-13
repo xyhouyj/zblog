@@ -24,9 +24,16 @@ public class PagerController {
      * 初始化分页信息
      * @return
      */
-    @RequestMapping("/pager/load")
-    public Pager loadPager(Pager pager){
+    @RequestMapping("/pager/article/load")
+    public Pager loadArticlePager(Pager pager){
         pagerService.initPage(pager);
+        return pager;
+    }
+
+    @RequestMapping("/pager/category/load")
+    public Pager loadCategoryPager(Pager pager,Integer categoryId){
+        pagerService.loadCategoryPager(pager,categoryId);
+
         return pager;
     }
 }
