@@ -21,7 +21,7 @@ public class CategoryController {
     @Resource
     CategoryService categoryService;
 
-    @RequestMapping("/article/category/{categoryId}")
+    @RequestMapping("/category/load/{categoryId}")
     public String loadArticleByCategory(Model model,Pager pager, @PathVariable Integer categoryId){
         List<ArticleCustom> articleList = categoryService.loadArticleByCategory(pager,categoryId);
         if (!articleList.isEmpty()){

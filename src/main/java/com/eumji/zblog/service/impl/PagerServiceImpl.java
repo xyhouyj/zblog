@@ -33,4 +33,10 @@ public class PagerServiceImpl implements PagerService {
         int count = pagerMapper.loadCategoryPager(categoryId);
         pager.setTotalCount(count);
     }
+
+    @Override
+    public void loadTagPager(Pager pager, Integer tagId) {
+        int count = pagerMapper.loadTagPager(tagId);
+        pager.setTotalCount(count);
+    }
 }

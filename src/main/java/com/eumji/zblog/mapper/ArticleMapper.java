@@ -19,4 +19,14 @@ public interface ArticleMapper {
     List<ArticleCustom> getArticleList(Pager pager);
 
     List<ArticleCustom> loadArticleByCategory(@Param("pager") Pager pager, @Param("categoryId") Integer categoryId);
+
+    /**
+     * 通过tagid分页获取当前tag下的文章列表
+     * @param pager
+     * @param tagId
+     * @return
+     */
+    List<ArticleCustom> loadArticleByTag(@Param("pager")Pager pager, @Param("tagId") Integer tagId);
+
+
 }

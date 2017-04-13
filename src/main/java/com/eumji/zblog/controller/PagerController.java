@@ -35,4 +35,10 @@ public class PagerController {
         pagerService.loadCategoryPager(pager,categoryId);
         return pager;
     }
+
+    @RequestMapping("/pager/tag/load")
+    public Pager loadTagPager(Pager pager,Integer tagId){
+        pagerService.loadTagPager(pager,tagId);
+        return pager;
+    }
 }

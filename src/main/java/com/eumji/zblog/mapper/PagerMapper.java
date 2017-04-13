@@ -17,4 +17,11 @@ public interface PagerMapper {
      * @return
      */
     int loadCategoryPager(Integer categoryId);
+
+    /**
+     * 通过tagId获取文章总数量
+     * @param tagId
+     * @return
+     */
+    int loadTagPager(Integer tagId);
 }
