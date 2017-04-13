@@ -34,4 +34,9 @@ public class ArticleServiceImpl implements ArticleService {
         pager.setTotalCount(count);
         return pager;
     }
+
+    @Override
+    public int getArticleCount() {
+        return articleMapper.getArticleCount();
+    }
 }

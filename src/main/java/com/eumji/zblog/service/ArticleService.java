@@ -19,4 +19,6 @@ public interface ArticleService {
      * @return
      */
     Pager<Article> InitPager();
+
+    int getArticleCount();
 }

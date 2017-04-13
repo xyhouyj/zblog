@@ -3,6 +3,7 @@ package com.eumji.zblog.controller;
 import com.eumji.zblog.service.ArticleService;
 import com.eumji.zblog.service.CategoryService;
 import com.eumji.zblog.service.PartnerService;
+import com.eumji.zblog.service.TagService;
 import com.eumji.zblog.vo.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,10 +31,17 @@ public class  PageController {
     private ArticleService articleService;
     @Resource
     private CategoryService categoryService;
+    @Resource
+    private TagService tagService;
     @RequestMapping("/")
     public String home(Model model){
         List<Partner> partnerList = partnerService.findAll();
         List<CategoryCustom> categoryList = categoryService.initCategoryList();
+        int articleCount = articleService.getArticleCount();
+        int tagCount = tagService.getTagCount();
+        model.addAttribute("categoryCount",categoryList.size());
+        model.addAttribute("articleCount",articleCount);
+        model.addAttribute("tagCount",tagCount);
         model.addAttribute("categoryList",categoryList);
         model.addAttribute("partnerList",partnerList);
         return "index";

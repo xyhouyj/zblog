@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.eumji.zblog.mapper.CategoryMapper">
 
-
+    <!--初始化首页的分类列表 以文章数量排序-->
     <select id="initCategoryList" resultType="categoryCustom">
-        select t1.id,categoryName,aliasName,t2.articleCount from category t1 JOIN (select id,count(id) articleCount from article GROUP by id) t2 ON t1.id=t2.id
+        select t1.id,categoryName,aliasName,t2.articleCount from category t1 JOIN (select id,count(id) articleCount from article GROUP by id) t2 ON t1.id=t2.id order by articleCount desc
     </select>
 
 </mapper>

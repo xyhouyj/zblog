@@ -20,4 +20,6 @@ public interface TagService {
      * @return
      */
     List<ArticleCustom> loadArticleByTag(Pager pager, Integer tagId);
+
+    int getTagCount();
 }

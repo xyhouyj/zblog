@@ -18,9 +18,9 @@
 
     </resultMap>
 
-    <!--通过username获取user对象-->
+    <!--获取所有的文章-->
    <select id="getArticleCount" resultType="int">
-       select count(id) from article
+       select count(id) from article where status = 1
    </select>
     <!--分页获取文章-->
     <select id="getArticleList" resultMap="article">
