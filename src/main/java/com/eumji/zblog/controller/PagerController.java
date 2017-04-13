@@ -33,7 +33,6 @@ public class PagerController {
     @RequestMapping("/pager/category/load")
     public Pager loadCategoryPager(Pager pager,Integer categoryId){
         pagerService.loadCategoryPager(pager,categoryId);
-
         return pager;
     }
 }

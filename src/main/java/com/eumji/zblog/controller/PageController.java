@@ -1,10 +1,9 @@
 package com.eumji.zblog.controller;
 
 import com.eumji.zblog.service.ArticleService;
+import com.eumji.zblog.service.CategoryService;
 import com.eumji.zblog.service.PartnerService;
-import com.eumji.zblog.vo.Article;
-import com.eumji.zblog.vo.Pager;
-import com.eumji.zblog.vo.Partner;
+import com.eumji.zblog.vo.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,10 +28,13 @@ public class  PageController {
 
     @Resource
     private ArticleService articleService;
+    @Resource
+    private CategoryService categoryService;
     @RequestMapping("/")
     public String home(Model model){
         List<Partner> partnerList = partnerService.findAll();
-        Pager<Article> pager = articleService.InitPager();
+        List<CategoryCustom> categoryList = categoryService.initCategoryList();
+        model.addAttribute("categoryList",categoryList);
         model.addAttribute("partnerList",partnerList);
         return "index";
     }
@@ -63,6 +65,8 @@ public class  PageController {
 
     @RequestMapping("/category/details/{categoryId}")
     public String categoryPage(Model model,@PathVariable Integer categoryId){
+        List<Partner> partnerList = partnerService.findAll();
+        model.addAttribute("partnerList",partnerList);
         model.addAttribute("categoryId",categoryId);
         return "/category";
     }
