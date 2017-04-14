@@ -78,4 +78,21 @@ public class  PageController {
         model.addAttribute("categoryId",categoryId);
         return "/category";
     }
+    /**
+     * 加载文章
+     * @return
+     */
+    @RequestMapping("/article/details/{articleId}")
+    public String loadArticle(Integer articleId,Model model){
+        List<Partner> partnerList = partnerService.findAll();
+        List<CategoryCustom> categoryList = categoryService.initCategoryList();
+        int articleCount = articleService.getArticleCount();
+        int tagCount = tagService.getTagCount();
+        model.addAttribute("categoryCount",categoryList.size());
+        model.addAttribute("articleCount",articleCount);
+        model.addAttribute("tagCount",tagCount);
+        model.addAttribute("categoryList",categoryList);
+        model.addAttribute("partnerList",partnerList);
+        return "/article";
+    }
 }

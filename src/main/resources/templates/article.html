@@ -1,0 +1,1501 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8254913025324557",
+            enable_page_level_ads: true
+        });
+    </script>
+    <meta charset="utf-8">
+
+    <title>程序猿DD | 博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="本站是程序猿DD（翟永超）的技术分享博客。内容涵盖Java后端技术、Spring Boot、Spring Cloud、微服务架构、运维开发、系统监控等相关的研究与知识分享。">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="程序猿DD | 博客">
+    <meta property="og:url" content="http://blog.didispace.com/index.html">
+    <meta property="og:site_name" content="程序猿DD | 博客">
+    <meta property="og:description" content="本站是程序猿DD（翟永超）的技术分享博客。内容涵盖Java后端技术、Spring Boot、Spring Cloud、微服务架构、运维开发、系统监控等相关的研究与知识分享。">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="程序猿DD | 博客">
+    <meta name="twitter:description" content="本站是程序猿DD（翟永超）的技术分享博客。内容涵盖Java后端技术、Spring Boot、Spring Cloud、微服务架构、运维开发、系统监控等相关的研究与知识分享。">
+
+    <meta name="keywords" content="Spring Boot, Spring Cloud, 微服务, 翟永超, 程序猿DD" />
+
+    <link rel="alternate" href="/atom.xml" title="EumJi | 博客" type="application/atom+xml" />
+
+    <link rel="stylesheet" href="/vendor/font-awesome//css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/css/pagination.css">
+    <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
+    <link rel="stylesheet" href="/css/share.css" type="text/css" />
+    <link rel="stylesheet" href="/css/editormd.preview.css" />
+
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-83645028-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?3e1cdb5d0a9e409358566f06f89e048d";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            bp.src = '//push.zhanzhang.baidu.com/push.js';
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+
+</head>
+
+<body>
+<div id="container">
+    <header id="header">
+        <div id="header-main" class="header-inner">
+            <div class="outer">
+                <a href="/" id="logo">
+                    <i class="logo"></i>
+                    <span class="site-title">程序猿DD | 博客</span>
+                </a>
+                <nav id="main-nav">
+
+                    <a class="main-nav-link" target="_blank" href="/.">主页</a>
+
+                    <a class="main-nav-link" target="_blank" href="/archives">目录</a>
+
+                    <a class="main-nav-link" target="_blank" href="/about/me">关于我</a>
+
+                </nav>
+
+
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/image/avatar.jpg">
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+
+                <div id="search-form-wrap">
+
+                    <form class="search-form">
+                        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+                        <button type="submit" class="search-form-submit"></button>
+                    </form>
+
+                    <script>
+                        (function (window) {
+                            var INSIGHT_CONFIG = {
+                                TRANSLATION: {
+                                    POSTS: '文章',
+                                    PAGES: '页面',
+                                    CATEGORIES: '分类',
+                                    TAGS: '标签',
+                                    UNTITLED: '(未命名)',
+                                },
+                                ROOT_URL: '/',
+                                CONTENT_URL: '/content.json',
+                            };
+                            window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+                        })(window);
+                    </script>
+                    <script src="/js/insight.js"></script>
+
+                </div>
+            </div>
+        </div>
+        <!--移动端支持-->
+        <div id="main-nav-mobile" class="header-sub header-inner">
+            <table class="menu outer">
+                <tbody><tr>
+
+                    <td><a class="main-nav-link" target="_blank" href="/.">主页</a></td>
+
+                    <td><a class="main-nav-link" target="_blank" href="/archives">目录</a></td>
+
+                    <td><a class="main-nav-link" target="_blank" href="/about/me">关于我</a></td>
+
+                    <td>
+                        <div class="search-form">
+                            <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
+                        </div>
+                    </td>
+                </tr>
+                </tbody></table>
+        </div>
+    </header>
+
+    <div class="outer">
+
+        <aside id="profile">
+            <div class="inner profile-inner">
+                <!--<a target="_blank" href="https://github.com/softwareking" class="okmemo-tmp-unselect">-->
+                <!--<img style="float:left;width:120px;" src="image/fork_github.png"-->
+                <!--alt="Fork me on GitHub"-->
+                <!--data-canonical-src="image/fork_github.png">-->
+                <!--</a>-->
+                <div class="base-info profile-block">
+                    <img id="avatar" src="image/photo.jpg" class="my-avatar" />
+                    <!--  <div class="profile"></div>-->
+                    <div class="clean-both"></div>
+                    <h2 id="name">EumJi</h2>
+                    <h3 id="title" style="margin: 1.6em 0em">想学点前端,想学点后端,想学点linux,想学点云计算,想学点机器学习</h3>
+                    <span id="location"><i class="fa fa-map-marker"></i>中国 - 深圳</span>
+                    <a id="follow" target="_blank" href="https://github.com/dyc87112">关注我</a>
+                </div>
+                <div class="article-info profile-block">
+                    <div class="article-info-block" th:text="${articleCount}">
+                        <span>文章</span>
+                    </div>
+                    <div class="article-info-block" th:text="${tagCount}">
+                        <span>标签</span>
+                    </div>
+                </div>
+
+                <div class="profile-block social-links">
+                    <table>
+                        <tr>
+
+
+                            <td>
+                                <a href="https://github.com/eumji025" target="_blank" title="github" class=tooltip>
+                                    <i class="fa fa-github"></i>
+                                </a>
+                            </td>
+
+                            <td>
+                                <a href="http://git.oschina.net/eumji025" target="_blank" title="git" class=tooltip>
+                                    <i class="fa fa-git"></i>
+                                </a>
+                            </td>
+
+                            <td>
+                                <a href="eumji025@gmail.com" target="_blank" title="envelope" class=tooltip>
+                                    <i class="fa fa-envelope"></i>
+                                </a>
+                            </td>
+
+                            <td>
+                                <a target="_blank" title="weibo" class=tooltip>
+                                    <i class="fa fa-weibo"></i>
+                                </a>
+                            </td>
+
+                            <td>
+                                <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                                    <i class="fa fa-rss"></i>
+                                </a>
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="inner profile-inner">
+                <div class="widget-wrap widget-list">
+                    <div class="widget">
+                        <h3 class="follow">友情链接</h3>
+
+                        <ul >
+                            <!--/*@thymesVar id="partnerList" type="com.eumji.zblog.vo.Partner"*/-->
+                            <li th:each="partList : ${partnerList}">
+                                <a th:href="${partList.siteUrl}" th:text="${partList.siteName}"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="inner profile-inner">
+                <div class="widget-wrap widget-list">
+                    <div class="widget">
+                        <!--联系合作-->
+                        <h3 class="follow">微信公众号</h3>
+                        <div class="widget">
+                            <img style="width: 95%;" src="/image/erweima.jpg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <section id="main" style="width: 70%">
+            <style>
+                .alert-success {
+                    background-color: #f5f5f5;
+                    /* border-color: #2FA4E7; */
+                    padding: 7px;
+                    margin-top: 10px;
+                    margin-bottom: 20px;
+                    /* color: #468847; */
+                }
+
+                .alert {
+                    padding: 15px;
+                    margin-bottom: 20px;
+                    border: 1px solid transparent;
+                    border-radius: 4px;
+                }
+
+                #busuanzi_value_page_pv {
+                    color: #009688;
+                    font-weight: bold;
+                }
+            </style>
+
+            <article id="post-zuul-vs-nginx-performance" class="article article-type-post" itemscope="" itemprop="blogPost">
+                <div class="article-inner">
+
+
+                    <header class="article-header">
+
+
+                        <h1 class="article-title" itemprop="name">
+                            <span id="pos_placeholder" style="width: 0px; height: 0px; visibility: hidden; margin: 0px; padding: 0px;"></span>Netflix Zuul与Nginx的性能对比
+                        </h1>
+
+
+
+                        <div class="article-meta">
+
+                            <div class="article-date">
+                                <i class="fa fa-calendar"></i>
+                                <a href="/zuul-vs-nginx-performance/">
+                                    <time datetime="2017-04-03T08:20:27.000Z" itemprop="datePublished">2017-04-03</time>
+                                </a>
+                            </div>
+
+                            <div class="article-category" style="text-transform: none;">
+                                <i class="fa fa-folder"></i>
+                                <a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a>
+                            </div>
+
+                            <span id="busuanzi_container_page_pv" style="display: inline;">浏览 <span id="busuanzi_value_page_pv">968</span> 次</span>
+                        </div>
+
+                    </header>
+
+
+                    <div class="article-entry" itemprop="articleBody" lg-uid="lg0">
+                        <h1 id="h1-editor-md"><a name="Editor.md" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Editor.md</h1><p><img src="https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png" alt="">
+                        <p><img src="https://img.shields.io/github/stars/pandao/editor.md.svg" alt=""> <img src="https://img.shields.io/github/forks/pandao/editor.md.svg" alt=""> <img src="https://img.shields.io/github/tag/pandao/editor.md.svg" alt=""> <img src="https://img.shields.io/github/release/pandao/editor.md.svg" alt=""> <img src="https://img.shields.io/github/issues/pandao/editor.md.svg" alt=""> <img src="https://img.shields.io/bower/v/editor.md.svg" alt="">
+                        <p><strong>目录 (Table of Contents)</strong></p>
+                        <div class="editormd-toc-menu"><div class="markdown-toc editormd-markdown-toc">[TOCM]</div></div><br/><div class="markdown-toc editormd-markdown-toc">[TOC]</div><h1 id="h1-heading-1"><a name="Heading 1" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 1</h1><h2 id="h2-heading-2"><a name="Heading 2" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 2</h2><h3 id="h3-heading-3"><a name="Heading 3" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 3</h3><h4 id="h4-heading-4"><a name="Heading 4" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 4</h4><h5 id="h5-heading-5"><a name="Heading 5" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 5</h5><h6 id="h6-heading-6"><a name="Heading 6" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 6</h6><h1 id="h1-heading-1-link-heading-link"><a name="Heading 1 link   Heading link" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 1 link <a href="https://github.com/pandao/editor.md" title="Heading link">Heading link</a></h1><h2 id="h2-heading-2-link-heading-link"><a name="Heading 2 link   Heading link" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 2 link <a href="https://github.com/pandao/editor.md" title="Heading link">Heading link</a></h2><h3 id="h3-heading-3-link-heading-link"><a name="Heading 3 link   Heading link" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 3 link <a href="https://github.com/pandao/editor.md" title="Heading link">Heading link</a></h3><h4 id="h4-heading-4-link-heading-link-heading-link-heading-link"><a name="Heading 4 link   Heading link  Heading link   Heading link" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 4 link <a href="https://github.com/pandao/editor.md" title="Heading link">Heading link</a> Heading link <a href="https://github.com/pandao/editor.md" title="Heading link">Heading link</a></h4><h5 id="h5-heading-5-link-heading-link"><a name="Heading 5 link   Heading link" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 5 link <a href="https://github.com/pandao/editor.md" title="Heading link">Heading link</a></h5><h6 id="h6-heading-6-link-heading-link"><a name="Heading 6 link   Heading link" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Heading 6 link <a href="https://github.com/pandao/editor.md" title="Heading link">Heading link</a></h6><h4 id="h4--heading-underline-"><a name="标题（用底线的形式）Heading (underline)" class="reference-link"></a><span class="header-link octicon octicon-link"></span>标题（用底线的形式）Heading (underline)</h4><h1 id="h1-this-is-an-h1"><a name="This is an H1" class="reference-link"></a><span class="header-link octicon octicon-link"></span>This is an H1</h1><h2 id="h2-this-is-an-h2"><a name="This is an H2" class="reference-link"></a><span class="header-link octicon octicon-link"></span>This is an H2</h2><h3 id="h3-u5B57u7B26u6548u679Cu548Cu6A2Au7EBFu7B49"><a name="字符效果和横线等" class="reference-link"></a><span class="header-link octicon octicon-link"></span>字符效果和横线等</h3><hr>
+                        <p><del>删除线</del> <s>删除线（开启识别HTML标签时）</s><br><em>斜体字</em>      <em>斜体字</em><br><strong>粗体</strong>  <strong>粗体</strong><br><strong><em>粗斜体</em></strong> <strong><em>粗斜体</em></strong></p>
+                        <p>上标：X<sub>2</sub>，下标：O<sup>2</sup></p>
+                        <p><strong>缩写(同HTML的abbr标签)</strong></p>
+                        <blockquote>
+                            <p>即更长的单词或短语的缩写形式，前提是开启识别HTML标签时，已默认开启</p>
+                        </blockquote>
+                        <p>The <abbr title="Hyper Text Markup Language">HTML</abbr> specification is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>.</p>
+                        <h3 id="h3--blockquotes"><a name="引用 Blockquotes" class="reference-link"></a><span class="header-link octicon octicon-link"></span>引用 Blockquotes</h3><blockquote>
+                        <p>引用文本 Blockquotes</p>
+                    </blockquote>
+                        <p>引用的行内混合 Blockquotes</p>
+                        <blockquote>
+                            <p>引用：如果想要插入空白换行<code>即&lt;br /&gt;标签</code>，在插入处先键入两个以上的空格然后回车即可，<a href="http://localhost/">普通链接</a>。</p>
+                        </blockquote>
+                        <h3 id="h3--links"><a name="锚点与链接 Links" class="reference-link"></a><span class="header-link octicon octicon-link"></span>锚点与链接 Links</h3><p><a href="http://localhost/">普通链接</a></p>
+                        <p><a href="http://localhost/" title="普通链接带标题">普通链接带标题</a></p>
+                        <p>直接链接：<a href="https://github.com">https://github.com</a></p>
+                        <p><a href="http://www.this-anchor-link.com/">锚点链接</a> </p>
+                        <p><a href="mailto:test.test@gmail.com">mailto:test.test@gmail.com</a></p>
+                        <p>GFM a-tail link <a href="https://github.com/pandao" title="@pandao" class="at-link">@pandao</a>  邮箱地址自动链接 <a href="mailto:test.test@gmail.com">test.test@gmail.com</a>  <a href="mailto:www@vip.qq.com">www@vip.qq.com</a></p>
+                        <blockquote>
+                            <p><a href="https://github.com/pandao" title="@pandao" class="at-link">@pandao</a></p>
+                        </blockquote>
+                        <h3 id="h3--codes"><a name="多语言代码高亮 Codes" class="reference-link"></a><span class="header-link octicon octicon-link"></span>多语言代码高亮 Codes</h3><h4 id="h4--inline-code"><a name="行内代码 Inline code" class="reference-link"></a><span class="header-link octicon octicon-link"></span>行内代码 Inline code</h4><p>执行命令：<code>npm install marked</code></p>
+                        <h4 id="h4-u7F29u8FDBu98CEu683C"><a name="缩进风格" class="reference-link"></a><span class="header-link octicon octicon-link"></span>缩进风格</h4><p>即缩进四个空格，也做为实现类似 <code>&lt;pre&gt;</code> 预格式化文本 ( Preformatted Text ) 的功能。</p>
+                        <pre><code>&lt;?php
+    echo "Hello world!";
+?&gt;
+</code></pre><p>预格式化文本：</p>
+                        <pre><code>| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+</code></pre><h4 id="h4-js-"><a name="JS代码" class="reference-link"></a><span class="header-link octicon octicon-link"></span>JS代码　</h4><pre><code class="lang-javascript">function test() {
+    console.log("Hello world!");
+}
+
+(function(){
+    var box = function() {
+        return box.fn.init();
+    };
+
+    box.prototype = box.fn = {
+        init : function(){
+            console.log('box.init()');
+
+            return this;
+        },
+
+        add : function(str) {
+            alert("add", str);
+
+            return this;
+        },
+
+        remove : function(str) {
+            alert("remove", str);
+
+            return this;
+        }
+    };
+
+    box.fn.init.prototype = box.fn;
+
+    window.box =box;
+})();
+
+var testBox = box();
+testBox.add("jQuery").remove("jQuery");
+</code></pre>
+                        <h4 id="h4-html-html-codes"><a name="HTML 代码 HTML codes" class="reference-link"></a><span class="header-link octicon octicon-link"></span>HTML 代码 HTML codes</h4><pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;mate charest="utf-8" /&gt;
+        &lt;meta name="keywords" content="Editor.md, Markdown, Editor" /&gt;
+        &lt;title&gt;Hello world!&lt;/title&gt;
+        &lt;style type="text/css"&gt;
+            body{font-size:14px;color:#444;font-family: "Microsoft Yahei", Tahoma, "Hiragino Sans GB", Arial;background:#fff;}
+            ul{list-style: none;}
+            img{border:none;vertical-align: middle;}
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1 class="text-xxl"&gt;Hello world!&lt;/h1&gt;
+        &lt;p class="text-green"&gt;Plain text&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+                        <h3 id="h3--images"><a name="图片 Images" class="reference-link"></a><span class="header-link octicon octicon-link"></span>图片 Images</h3><p>Image:</p>
+                        <p><img src="https://pandao.github.io/editor.md/examples/images/4.jpg" alt="">
+                            <blockquote>
+                        <p>Follow your heart.</p>
+                        </blockquote>
+                        <p><img src="https://pandao.github.io/editor.md/examples/images/8.jpg" alt="">
+                            <blockquote>
+                        <p>图为：厦门白城沙滩</p>
+                        </blockquote>
+                        <p>图片加链接 (Image + Link)：</p>
+                        <p><a href="https://pandao.github.io/editor.md/images/7.jpg" title="李健首张专辑《似水流年》封面"><img src="https://pandao.github.io/editor.md/examples/images/7.jpg" alt=""></p>
+                        <blockquote>
+                            <p>图为：李健首张专辑《似水流年》封面</p>
+                        </blockquote>
+                        <hr>
+                        <h3 id="h3--lists"><a name="列表 Lists" class="reference-link"></a><span class="header-link octicon octicon-link"></span>列表 Lists</h3><h4 id="h4--unordered-lists-"><a name="无序列表（减号）Unordered Lists (-)" class="reference-link"></a><span class="header-link octicon octicon-link"></span>无序列表（减号）Unordered Lists (-)</h4><ul>
+                        <li>列表一</li><li>列表二</li><li>列表三</li></ul>
+                        <h4 id="h4--unordered-lists-"><a name="无序列表（星号）Unordered Lists (*)" class="reference-link"></a><span class="header-link octicon octicon-link"></span>无序列表（星号）Unordered Lists (*)</h4><ul>
+                        <li>列表一</li><li>列表二</li><li>列表三</li></ul>
+                        <h4 id="h4--unordered-lists-"><a name="无序列表（加号和嵌套）Unordered Lists (+)" class="reference-link"></a><span class="header-link octicon octicon-link"></span>无序列表（加号和嵌套）Unordered Lists (+)</h4><ul>
+                        <li>列表一</li><li>列表二<ul>
+                        <li>列表二-1</li><li>列表二-2</li><li>列表二-3</li></ul>
+                    </li><li>列表三<ul>
+                        <li>列表一</li><li>列表二</li><li>列表三</li></ul>
+                    </li></ul>
+                        <h4 id="h4--ordered-lists-"><a name="有序列表 Ordered Lists (-)" class="reference-link"></a><span class="header-link octicon octicon-link"></span>有序列表 Ordered Lists (-)</h4><ol>
+                        <li>第一行</li><li>第二行</li><li>第三行</li></ol>
+                        <h4 id="h4-gfm-task-list"><a name="GFM task list" class="reference-link"></a><span class="header-link octicon octicon-link"></span>GFM task list</h4><ul>
+                        <li style="list-style: none;"><input type="checkbox" class="task-list-item-checkbox" checked="checked" disabled="disabled"> GFM task list 1<li style="list-style: none;"><input type="checkbox" class="task-list-item-checkbox" checked="checked" disabled="disabled"> GFM task list 2<li style="list-style: none;"><input type="checkbox" class="task-list-item-checkbox" /> GFM task list 3<ul>
+                        <li style="list-style: none;"><input type="checkbox" class="task-list-item-checkbox"> GFM task list 3-1<li style="list-style: none;"><input type="checkbox" class="task-list-item-checkbox"> GFM task list 3-2<li style="list-style: none;"><input type="checkbox" class="task-list-item-checkbox"> GFM task list 3-3</ul>
+                    </li><li style="list-style: none;"><input type="checkbox" class="task-list-item-checkbox" /> GFM task list 4<ul>
+                        <li style="list-style: none;"><input type="checkbox" class="task-list-item-checkbox"> GFM task list 4-1<li style="list-style: none;"><input type="checkbox" class="task-list-item-checkbox"> GFM task list 4-2</ul>
+                    </li></ul>
+                        <hr>
+                        <h3 id="h3--tables"><a name="绘制表格 Tables" class="reference-link"></a><span class="header-link octicon octicon-link"></span>绘制表格 Tables</h3><table>
+                        <thead>
+                        <tr>
+                            <th>项目</th>
+                            <th style="text-align:right">价格</th>
+                            <th style="text-align:center">数量</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>计算机</td>
+                            <td style="text-align:right">$1600</td>
+                            <td style="text-align:center">5</td>
+                        </tr>
+                        <tr>
+                            <td>手机</td>
+                            <td style="text-align:right">$12</td>
+                            <td style="text-align:center">12</td>
+                        </tr>
+                        <tr>
+                            <td>管线</td>
+                            <td style="text-align:right">$1</td>
+                            <td style="text-align:center">234</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>First Header</th>
+                                <th>Second Header</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Content Cell</td>
+                                <td>Content Cell</td>
+                            </tr>
+                            <tr>
+                                <td>Content Cell</td>
+                                <td>Content Cell </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>First Header</th>
+                                <th>Second Header</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Content Cell</td>
+                                <td>Content Cell</td>
+                            </tr>
+                            <tr>
+                                <td>Content Cell</td>
+                                <td>Content Cell</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Function name</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><code>help()</code></td>
+                                <td>Display the help window.</td>
+                            </tr>
+                            <tr>
+                                <td><code>destroy()</code></td>
+                                <td><strong>Destroy your computer!</strong></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th style="text-align:left">Left-Aligned</th>
+                                <th style="text-align:center">Center Aligned</th>
+                                <th style="text-align:right">Right Aligned</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td style="text-align:left">col 3 is</td>
+                                <td style="text-align:center">some wordy text</td>
+                                <td style="text-align:right">$1600</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:left">col 2 is</td>
+                                <td style="text-align:center">centered</td>
+                                <td style="text-align:right">$12</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:left">zebra stripes</td>
+                                <td style="text-align:center">are neat</td>
+                                <td style="text-align:right">$1</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th style="text-align:right">Value</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Computer</td>
+                                <td style="text-align:right">$1600</td>
+                            </tr>
+                            <tr>
+                                <td>Phone</td>
+                                <td style="text-align:right">$12</td>
+                            </tr>
+                            <tr>
+                                <td>Pipe</td>
+                                <td style="text-align:right">$1</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <hr>
+                        <h4 id="h4--html-entities-codes"><a name="特殊符号 HTML Entities Codes" class="reference-link"></a><span class="header-link octicon octicon-link"></span>特殊符号 HTML Entities Codes</h4><p>&copy; &amp;  &uml; &trade; &iexcl; &pound;<br>& < > ¥ € ® ± ¶ § ¦ ¯ « ·
+                        <p>X² Y³ ¾ ¼  ×  ÷   »</p>
+                        <p>18ºC  "  '</p>
+                        <hr style="page-break-after:always;" class="page-break editormd-page-break" /><h3 id="h3-emoji-smiley-"><a name="Emoji表情 :smiley:" class="reference-link"></a><span class="header-link octicon octicon-link"></span>Emoji表情 <img src="http://www.emoji-cheat-sheet.com/graphics/emojis/smiley.png" class="emoji" title=":smiley:" alt=":smiley:"><blockquote>
+                        <p>Blockquotes <img src="http://www.emoji-cheat-sheet.com/graphics/emojis/star.png" class="emoji" title=":star:" alt=":star:">
+                    </blockquote>
+                        <h4 id="h4-gfm-task-lists-amp-emoji-amp-fontawesome-icon-emoji-amp-editormd-logo-emoji-editormd-logo-5x-"><a name="GFM task lists &amp; Emoji &amp; fontAwesome icon emoji &amp; editormd logo emoji :editormd-logo-5x:" class="reference-link"></a><span class="header-link octicon octicon-link"></span>GFM task lists &amp; Emoji &amp; fontAwesome icon emoji &amp; editormd logo emoji <i class="editormd-logo-5x" title="Editor.md logo (editormd-logo-5x)"></i></h4><ul>
+                            <li style="list-style: none;"><input type="checkbox" class="task-list-item-checkbox" checked disabled /> <img src="http://www.emoji-cheat-sheet.com/graphics/emojis/smiley.png" class="emoji" title="&#58;smiley&#58;" alt="&#58;smiley&#58;" /> <a href="https://github.com/mentions" title="@mentions" class="at-link">@mentions</a>, <img src="http://www.emoji-cheat-sheet.com/graphics/emojis/smiley.png" class="emoji" title="&#58;smiley&#58;" alt="&#58;smiley&#58;" /> #refs, <a href="">links</a>, <strong>formatting</strong>, and <del>tags</del> supported <i class="editormd-logo" title="Editor.md logo (editormd-logo)"></i>;</li><li style="list-style: none;"><input type="checkbox" class="task-list-item-checkbox" checked disabled /> list syntax required (any unordered or ordered list supported) <i class="editormd-logo-3x" title="Editor.md logo (editormd-logo-3x)"></i>;</li><li style="list-style: none;"><input type="checkbox" class="task-list-item-checkbox" checked disabled /> [ ] <img src="http://www.emoji-cheat-sheet.com/graphics/emojis/smiley.png" class="emoji" title="&#58;smiley&#58;" alt="&#58;smiley&#58;" /> this is a complete item <img src="http://www.emoji-cheat-sheet.com/graphics/emojis/smiley.png" class="emoji" title=":smiley:" alt=":smiley:">;<li style="list-style: none;"><input type="checkbox" class="task-list-item-checkbox" /> []this is an incomplete item <a href="#">test link</a> <i class="fa fa-star fa-emoji" title="star"></i> <a href="https://github.com/pandao" title="@pandao" class="at-link">@pandao</a>; </li><li style="list-style: none;"><input type="checkbox" class="task-list-item-checkbox" /> [ ]this is an incomplete item <i class="fa fa-star fa-emoji" title="star"></i> <i class="fa fa-gear fa-emoji" title="gear"></i>;<ul>
+                            <li style="list-style: none;"><input type="checkbox" class="task-list-item-checkbox" /> <img src="http://www.emoji-cheat-sheet.com/graphics/emojis/smiley.png" class="emoji" title="&#58;smiley&#58;" alt="&#58;smiley&#58;" /> this is an incomplete item <a href="#">test link</a> <i class="fa fa-star fa-emoji" title="star"></i> <i class="fa fa-gear fa-emoji" title="gear"></i>;</li><li style="list-style: none;"><input type="checkbox" class="task-list-item-checkbox" /> <img src="http://www.emoji-cheat-sheet.com/graphics/emojis/smiley.png" class="emoji" title="&#58;smiley&#58;" alt="&#58;smiley&#58;" /> this is  <i class="fa fa-star fa-emoji" title="star"></i> <i class="fa fa-gear fa-emoji" title="gear"></i> an incomplete item <a href="#">test link</a>;</li></ul>
+                        </li></ul>
+                        <h4 id="h4--escape"><a name="反斜杠 Escape" class="reference-link"></a><span class="header-link octicon octicon-link"></span>反斜杠 Escape</h4><p>*literal asterisks*</p>
+                        <hr style="page-break-after:always;" class="page-break editormd-page-break" /><h3 id="h3--tex-katex-"><a name="科学公式 TeX(KaTeX)" class="reference-link"></a><span class="header-link octicon octicon-link"></span>科学公式 TeX(KaTeX)</h3><p class="editormd-tex">E=mc^2</p>
+                        <p>行内的公式<span class="editormd-tex">E=mc^2</span>行内的公式，行内的<span class="editormd-tex">E=mc^2</span>公式。</p>
+                        <p class="editormd-tex">x &gt; y</p>
+                        <p class="editormd-tex">(\sqrt{3x-1}+(1+x)^2)</p>
+                        <p class="editormd-tex">\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))</p>
+                        <p>多行公式：</p>
+                        <p class="editormd-tex">\displaystyle
+                            \left( \sum\_{k=1}^n a\_k b\_k \right)^2
+                            \leq
+                            \left( \sum\_{k=1}^n a\_k^2 \right)
+                            \left( \sum\_{k=1}^n b\_k^2 \right)</p><p class="editormd-tex">\displaystyle
+                            \frac{1}{
+                            \Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{
+                            \frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {
+                            1+\frac{e^{-6\pi}}
+                            {1+\frac{e^{-8\pi}}
+                            {1+\cdots} }
+                            }
+                            }</p><p class="editormd-tex">f(x) = \int_{-\infty}^\infty
+                            \hat f(\xi)\,e^{2 \pi i \xi x}
+                            \,d\xi</p><h3 id="h3--page-break"><a name="分页符 Page break" class="reference-link"></a><span class="header-link octicon octicon-link"></span>分页符 Page break</h3><blockquote>
+                            <p>Print Test: Ctrl + P</p>
+                        </blockquote>
+                        <hr style="page-break-after:always;" class="page-break editormd-page-break" /><h3 id="h3--flowchart"><a name="绘制流程图 Flowchart" class="reference-link"></a><span class="header-link octicon octicon-link"></span>绘制流程图 Flowchart</h3><div class="flowchart">st=>start: 用户登陆
+                            op=>operation: 登陆操作
+                            cond=>condition: 登陆成功 Yes or No?
+                            e=>end: 进入后台
+
+                            st->op->cond
+                            cond(yes)->e
+                            cond(no)->op</div><hr style="page-break-after:always;" class="page-break editormd-page-break" /><h3 id="h3--sequence-diagram"><a name="绘制序列图 Sequence Diagram" class="reference-link"></a><span class="header-link octicon octicon-link"></span>绘制序列图 Sequence Diagram</h3><div class="sequence-diagram">Andrew->China: Says Hello
+                            Note right of China: China thinks\nabout it
+                            China-->Andrew: How are you?
+                            Andrew->>China: I am good thanks!</div><h3 id="h3-end"><a name="End" class="reference-link"></a><span class="header-link octicon octicon-link"></span>End</h3>
+                        full.html?_ijt=sittit1mib74qt7jdcbq1lod42:195 # Editor.md
+
+                        ![](https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png)
+
+                        ![](https://img.shields.io/github/stars/pandao/editor.md.svg) ![](https://img.shields.io/github/forks/pandao/editor.md.svg) ![](https://img.shields.io/github/tag/pandao/editor.md.svg) ![](https://img.shields.io/github/release/pandao/editor.md.svg) ![](https://img.shields.io/github/issues/pandao/editor.md.svg) ![](https://img.shields.io/bower/v/editor.md.svg)
+
+
+
+
+
+                    </div>
+                    <footer class="article-footer">
+
+                        <div class="share-container" style="text-transform: none;">
+                            <i class="fa fa-tag"></i>
+                            <a class="tag-link" href="/tags/Nginx/">Nginx</a>, <a class="tag-link" href="/tags/Zuul/">Zuul</a>
+                        </div>
+
+                    </footer>
+                </div>
+
+
+                <nav id="article-nav">
+
+                    <a href="/spring-cloud-consul-lock-and-semphore/" id="article-nav-newer" class="article-nav-link-wrap">
+                        <strong class="article-nav-caption">上一篇</strong>
+                        <div class="article-nav-title">
+
+                            基于Consul的分布式锁实现
+
+                        </div>
+                    </a>
+
+
+                    <a href="/spring-cloud-tips-2/" id="article-nav-older" class="article-nav-link-wrap">
+                        <strong class="article-nav-caption">下一篇</strong>
+                        <div class="article-nav-title">SpringCloud实战小贴士：随机端口</div>
+                    </a>
+
+                </nav>
+
+
+
+            </article>
+
+
+
+            <section id="comments">
+
+                <div id="SOHUCS" sid="zuul-vs-nginx-performance"><div class="cy-banner-iframe-wrapper" style="width: 728px; height: 90px;"><iframe src="http://changyan.sohu.com/activity/advert_html/77612aec-c413-4813-a72e-522203bd27bd.html" width="728" height="90" class="cy-banner-iframe" style="display: none !important;"></iframe></div><div id="SOHU_MAIN"><div node-type="cy-collection-btn" class="cy-collection-btn"><i></i><span>收藏文章</span></div>
+                    <div class="module-cmt-header">
+                        <div class="cy-hidden">
+                            <button id="jump-to-kz"></button>
+                        </div>
+                        <div class="clear-g section-title-w">
+                            <div class="title-user-w">
+                                <div node-type="user" class="clear-g user-wrap-w">
+                                    <span node-type="user-name" class="wrap-name-w"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section-cbox-w">
+                            <div class="cbox-block-w clear-g">
+                                <div node-type="block-head-w" class="block-head-w">
+                                    <div node-type="avatar" class="head-img-w">
+                                        <a href="javascript:void(0);">
+                                            <img node-type="user-head" src="https://changyan.sohu.com/upload/asset/scs/images/pic/pic42_null.gif" width="42" height="42" alt="">
+                                            <div node-type="head-img-ie-mask" class="head-img-ie-mask"></div>
+                                        </a>
+                                        <div node-type="notice-node" style="display: none" class="cy-avatar-notice-node"></div>
+                                    </div>
+                                    <div node-type="header-login" class="header-login">登录</div>
+                                    <div class="cy-to-shequ-head">
+                                        <span>我的社区</span>
+                                    </div>
+                                    <div node-type="cy-hot-words" class="cy-hot-words"></div>
+                                </div>
+                                <div node-type="login-select" class="block-post-w">
+                                    <!-- 放置cbox初始状态 -->
+                                    <div class="module-cmt-box">
+                                        <!-- 展开状态 -->
+                                        <div class="post-wrap-w">
+                                            <div class="post-wrap-border-l"></div>
+                                            <div class="post-wrap-border-r"></div>
+                                            <div node-type="post-wrap-main" class="post-wrap-main">
+                                                <div class="post-wrap-border-t">
+                                                    <div node-type="post-wrap-border-t-l" class="post-wrap-border-t-l"></div>
+                                                    <div node-type="post-wrap-border-t-r" class="post-wrap-border-t-r"></div>
+                                                </div>
+                                                <div class="wrap-area-w">
+                                                    <div class="area-textarea-w">
+                                                        <textarea node-type="textarea" name="" class="textarea-fw textarea-bf">有事没事说两句...</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clear-g wrap-action-w">
+                                                <div class="action-function-w">
+                                                    <ul class="clear-g">
+                                                        <li node-type="function-face" class="function-face-w">
+                                                            <a class="effect-w" href="javascript:void(0)">
+                                                                <i class="face-b"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li node-type="function-uploading" class="function-uploading-w">
+                                                            <a class="effect-w" href="javascript:void(0)" title="上传图片">
+                                                                <i class="uploading-b"></i>
+                                                            </a>
+                                                            <div class="uploading-file-w">
+                                                                <a href="javascript:void(0);" name="" class="file-fw"></a>
+                                                            </div>
+                                                            <form style="display: none;"><input name="file" type="file" accept="image/jpg,image/jpeg,image/png"></form></li>
+                                                    </ul>
+                                                    <!-- 表情 -->
+                                                    <div node-type="face-box" class="face-wrapper-dw">
+                                                        <div node-type="face-cont" class="wrapper-cont-dw">
+                                                            <ul class="clear-g">
+                                                                <li>
+                                                                    <span title="流汗" data_path="base" data-ubb="/流汗" class="face-item face_01"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="钱" data_path="base" data-ubb="/钱" class="face-item face_02"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="发怒" data_path="base" data-ubb="/发怒" class="face-item face_03"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="浮云" data_path="base" data-ubb="/浮云" class="face-item face_04"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="给力" data_path="base" data-ubb="/给力" class="face-item face_05"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="大哭" data_path="base" data-ubb="/大哭" class="face-item face_06"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="憨笑" data_path="base" data-ubb="/憨笑" class="face-item face_07"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="色" data_path="base" data-ubb="/色" class="face-item face_08"></span>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="clear-g">
+                                                                <li>
+                                                                    <span title="奋斗" data_path="base" data-ubb="/奋斗" class="face-item face_09"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="鼓掌" data_path="base" data-ubb="/鼓掌" class="face-item face_10"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="鄙视" data_path="base" data-ubb="/鄙视" class="face-item face_11"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="可爱" data_path="base" data-ubb="/可爱" class="face-item face_12"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="闭嘴" data_path="base" data-ubb="/闭嘴" class="face-item face_13"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="疑问" data_path="base" data-ubb="/疑问" class="face-item face_14"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="抓狂" data_path="base" data-ubb="/抓狂" class="face-item face_15"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="惊讶" data_path="base" data-ubb="/惊讶" class="face-item face_16"></span>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="clear-g">
+                                                                <li>
+                                                                    <span title="可怜" data_path="base" data-ubb="/可怜" class="face-item face_17"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="弱" data_path="base" data-ubb="/弱" class="face-item face_18"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="强" data_path="base" data-ubb="/强" class="face-item face_19"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="握手" data_path="base" data-ubb="/握手" class="face-item face_20"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="拳头" data_path="base" data-ubb="/拳头" class="face-item face_21"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="酒" data_path="base" data-ubb="/酒" class="face-item face_22"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="玫瑰" data_path="base" data-ubb="/玫瑰" class="face-item face_23"></span>
+                                                                </li>
+                                                                <li>
+                                                                    <span title="打酱油" data_path="base" data-ubb="/打酱油" class="face-item face_24"></span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div node-type="user-face-cont" class="wrapper-user-face-dw nano">
+                                                            <div class="nano-content">
+                                                                <ul class="clear-g">
+                                                                    <li class="upload-face-btn"></li>
+                                                                    <li class="manage-face-btn"></li>
+                                                                    <li class="cancel-face-btn"></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div node-type="face-tab" class="action-face-tab-dw">
+                                                            <ul class="clear-g">
+                                                                <li node-type="official-face" class="official-face-btn active"></li>
+                                                                <li node-type="user-face" class="user-face-btn" style="display: none;"></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div node-type="confirm-box" class="cy-confirm-box">
+                                                            <div class="cy-confirm-text">
+                                                                <span>表情删除后不可恢复，是否删除</span>
+                                                            </div>
+                                                            <div class="cy-confirm-btn-row">
+                                                                <div class="cy-confirm-btn-cancel">取消</div>
+                                                                <div class="cy-confirm-btn-confirm">确定</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--  上传图片 --><!--  uploading-efw -->
+                                                    <div node-type="uploading-wrapper" class="uploading-wrapper-dw uploading-efw ">
+                                                        <div class="uploading-wrapper-dw-t"></div>
+                                                        <div class="uploading-wrapper-dw-b"></div>
+                                                        <div node-type="image-uploading" class="wrapper-loading-dw">
+                                                            <div class="loading-word-dw"><span class="word-icon-dw"></span>图片正在上传，请稍后...</div>
+                                                            <div class="loading-btn-dw">
+                                                                <a href="javascript:void(0)">取消上传</a>
+                                                            </div>
+                                                        </div>
+                                                        <div node-type="image-uploaded" class="wrapper-image-dw">
+                                                            <div class="image-close-dw">
+                                                                <a href="javascript:void(0)"></a>
+                                                            </div>
+                                                            <div class="image-pic-dw">
+                                                                <img node-type="image-pic" alt="" src="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="clear-g action-issue-w">
+                                                    <div class="issue-btn-w">
+                                                        <a href="javascript:void(0)">
+                                                            <button node-type="issue" class="btn-fw"></button>
+                                                        </a>
+                                                    </div>
+                                                    <!--
+                                                    <div class="issue-icon-w" node-type="share-icons">
+                                                        </div>
+                                                    -->
+                                                </div>
+                                                <div class="cbox-prompt-w" node-type="error-tips">
+                                                    <span node-type="prompt-empty" class="prompt-empty-w">评论内容为空！</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 放置cbox发布状态 -->
+                                    <!-- 提示条 -->
+                                    <!-- 零评论提示条 -->
+                                    <div class="list-comment-empty-w">
+
+                                    </div>
+                                    <!-- 提示连接到快站社区 -->
+                                    <!-- <div class="list-comment-kuaizhan-w">
+                                        <div node-type="kuaizhan-prompt" class="kuaizhan-prompt-w">
+                                            <span class="prompt-text-w">点击查看更多精彩内容</span>
+                                        </div>
+                                    </div> -->
+                                    <!--关闭评论-->
+                                    <div class="list-close-comment-w">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- 评论列表  S -->
+                    <div node-type="module-cmt-list" class="module-cmt-list section-list-w">
+
+                        <div class="cmt-list-type">
+                            <ul class="clear-g type-lists">
+                                <li class="type-list active">评论</li>
+                                <!-- <li class="type-list">热门</li> -->
+                            </ul>
+                            <div class="cmt-list-border"></div>
+                            <div class="cmt-list-number">
+                                <span class="comment-number"><span class="cy-number">3</span>人参与,<span class="cy-number">3</span>条评论</span>
+                            </div>
+                        </div>
+                        <!-- 最新评论 -->
+                        <div class="list-block-gw list-newest-w">
+                            <div node-type="cmt-list-title" class="block-title-gw">
+                                <ul class="clear-g">
+                                    <li>
+                                        <div class="title-name-gw title-name-bg">
+                                            <div class="title-name-gw-tag"></div>最新评论</div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div node-type="cmt-list" id="cy-cmt-list"><div node-type="cmt-item" data-id="1338893696" data-user-id="756438852" data-platform-id="0" class="clear-g block-cont-gw">
+                                <div class="cont-head-gw">
+                                    <div class="head-img-gw">
+                                        <a node-type="photo" href="javascript:;" title="程序猿DD">
+                                            <div class="img-corner"></div>
+                                            <img src="http://0d077ef9e74d8.cdn.sohucs.com/08161dc143f28514db917a0fa4a34b91_official_1490744916911_jpg" width="42" height="42" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="cont-msg-gw">
+                                    <div class="msg-wrap-gw">
+                                        <div class="wrap-user-gw global-clear-spacing">
+                                            <span class="user-time-gw">2017年4月7日 8:35</span>
+                                            <span node-type="nickname" class="user-name-gw"><a href="javascript:void(0)">程序猿DD</a></span>
+
+                                            <span class="user-admin-gw"><i>管理员</i></span>
+                                        </div>
+
+
+                                        <!-- 盖楼 Begin -->
+                                        <div class="wrap-build-gw">
+                                            <div node-type="cmt-item floor-item" data-id="1338683131" data-user-id="763197774" data-platform-id="16" class="build-floor-gw">     <div node-type="child-floor">
+                                            </div>
+                                                <div node-type="floor-content" class="build-msg-gw">
+                                                    <div class="wrap-user-gw">
+                                                        <span class="user-time-gw user-floor-gw">1</span>
+                                                        <span node-type="nickname" class="user-name-gw"><a href="javascript:void(0)">Sivo</a></span>
+
+                                                        <span class="user-address-gw">[<i>北京市</i>网友]</span>
+                                                    </div>
+
+                                                    <div>
+                                                        <div class="wrap-issue-gw">
+                                                            <p class="issue-wrap-gw"><span class="wrap-word-gw">你是如何共享  服务和消费者的接口的呢？</span></p>
+                                                            <div class="cy-see-more">
+                                                                <span></span><i></i>
+                                                            </div>
+                                                        </div>
+                                                        <!-- 图片展示 -->
+
+                                                        <div node-type="action-bar btns-bar" class="clear-g wrap-action-gw">
+                                                            <div class="action-click-gw">
+                                                                <i class="gap-gw"></i>
+                                                                <span node-type="report" class="click-report-gw"><a href="javascript:void(0)"><i class="icon-gw icon-flag"></i><em>举报</em></a></span><i class="gap-gw"></i><span node-type="reply" class="click-reply-gw">
+                    <a href="javascript:void(0)">回复</a>
+                </span>
+                                                                <i class="gap-gw"></i>
+                                                                <span node-type="support" class="click-ding-gw">
+                    <a href="javascript:;"><i class="icon-gw icon-ding-bg"></i><em class="icon-name-bg"></em></a>
+                </span>
+
+                                                                <i class="gap-gw gap-line-gw"></i>
+                                                                <span node-type="oppose" class="click-cai-gw">
+                    <a href="javascript:void(0)"><i class="icon-gw icon-cai-bg"></i><em class="icon-name-bg"></em></a>
+                </span>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 盖楼 End -->
+
+                                        <div class="wrap-issue-gw">
+                                            <p class="issue-wrap-gw"><span class="wrap-word-gw">与文章无关的问题建议提到菜单中的知识交流吧。周末我会定期处理大家的问题，感谢支持！畅言的评论还没玩溜，回复起来不是很方便。</span></p>
+                                            <div class="cy-see-more">
+                                                <span></span><i></i>
+                                            </div>
+                                        </div>
+                                        <!-- 图片展示 -->
+
+                                        <div node-type="btns-bar" class="clear-g wrap-action-gw">
+                                            <div node-type="action-click-gw" class="action-click-gw global-clear-spacing">
+                                                <i class="gap-gw"></i>
+                                                <span node-type="report" class="click-report-gw"><a href="javascript:void(0)"><i class="icon-gw icon-flag"></i><em>举报</em></a></span><i class="gap-gw"></i><span node-type="reply" class="click-reply-gw"><a href="javascript:void(0)">回复</a></span>
+                                                <i class="gap-gw"></i>
+                                                <span node-type="support" class="click-ding-gw">
+                        <a href="javascript:;"><i class="icon-gw icon-ding-bg"></i><em class="icon-name-bg"></em></a>
+                    </span>
+
+                                                <i class="gap-gw"></i>
+                                                <span node-type="oppose" class="click-cai-gw">
+                        <a href="javascript:;"><i class="icon-gw icon-cai-bg"></i><em class="icon-name-bg"></em></a>
+                    </span>
+
+                                                <i class="gap-gw"></i><span node-type="prop" class="click-prop-gw"><span class="prop-span"><a href="javascript:void(0)"></a></span></span></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><div node-type="cmt-item" data-id="1338683131" data-user-id="763197774" data-platform-id="16" class="clear-g block-cont-gw">
+                                <div class="cont-head-gw">
+                                    <div class="head-img-gw">
+                                        <a node-type="photo" href="javascript:;" title="Sivo">
+                                            <div class="img-corner"></div>
+                                            <img src="http://wx.qlogo.cn/mmopen/OxUBpiaYgpHhwhP1GlMlibhKThyJjWQ2tnRkWvCcM4XUrDG5v9FFkZEgvwAWp9ajeyDq3CmzxjtibzhEJYobqricLA/0" width="42" height="42" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="cont-msg-gw">
+                                    <div class="msg-wrap-gw">
+                                        <div class="wrap-user-gw global-clear-spacing">
+                                            <span class="user-time-gw">2017年4月6日 22:08</span>
+                                            <span node-type="nickname" class="user-name-gw"><a href="javascript:void(0)">Sivo</a></span><!-- 管理员、铭牌图标 -->
+                                            <span class="user-level-gw user-1-4-gw user-1-gw">
+    <i>潜水</i>
+</span><!-- 管理员、铭牌图标 END -->
+
+                                            <span class="user-address-gw">[<i>北京市</i>网友]</span>
+                                        </div>
+
+
+                                        <div class="wrap-issue-gw">
+                                            <p class="issue-wrap-gw"><span class="wrap-word-gw">你是如何共享  服务和消费者的接口的呢？</span></p>
+                                            <div class="cy-see-more">
+                                                <span></span><i></i>
+                                            </div>
+                                        </div>
+                                        <!-- 图片展示 -->
+
+                                        <div node-type="btns-bar" class="clear-g wrap-action-gw">
+                                            <div node-type="action-click-gw" class="action-click-gw global-clear-spacing">
+                                                <i class="gap-gw"></i>
+                                                <span node-type="report" class="click-report-gw"><a href="javascript:void(0)"><i class="icon-gw icon-flag"></i><em>举报</em></a></span><i class="gap-gw"></i><span node-type="reply" class="click-reply-gw"><a href="javascript:void(0)">回复</a></span>
+                                                <i class="gap-gw"></i>
+                                                <span node-type="support" class="click-ding-gw">
+                        <a href="javascript:;"><i class="icon-gw icon-ding-bg"></i><em class="icon-name-bg"></em></a>
+                    </span>
+
+                                                <i class="gap-gw"></i>
+                                                <span node-type="oppose" class="click-cai-gw">
+                        <a href="javascript:;"><i class="icon-gw icon-cai-bg"></i><em class="icon-name-bg"></em></a>
+                    </span>
+
+                                                <i class="gap-gw"></i><span node-type="prop" class="click-prop-gw"><span class="prop-span"><a href="javascript:void(0)"></a></span></span></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><div node-type="cmt-item" data-id="1338382383" data-user-id="757421492" data-platform-id="16" class="clear-g block-cont-gw">
+                                <div class="cont-head-gw">
+                                    <div class="head-img-gw">
+                                        <a node-type="photo" href="javascript:;" title="邹益伟">
+                                            <div class="img-corner"></div>
+                                            <img src="http://wx.qlogo.cn/mmopen/ajNVdqHZLLB8K3FPYXsM1e2S1nxBIEf1H0icardzm1qZ5pmNwHqDRX8KDISUJ5UHcvNAXOcw7kCnibSXd5icialquw/0" width="42" height="42" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="cont-msg-gw">
+                                    <div class="msg-wrap-gw">
+                                        <div class="wrap-user-gw global-clear-spacing">
+                                            <span class="user-time-gw">2017年4月6日 10:51</span>
+                                            <span node-type="nickname" class="user-name-gw"><a href="javascript:void(0)">邹益伟</a></span><!-- 管理员、铭牌图标 -->
+                                            <span class="user-level-gw user-1-4-gw user-2-gw">
+    <i>冒泡</i>
+</span><!-- 管理员、铭牌图标 END -->
+
+                                            <span class="user-address-gw">[<i>陕西省西安市</i>网友]</span>
+                                        </div>
+
+
+                                        <div class="wrap-issue-gw">
+                                            <p class="issue-wrap-gw"><span class="wrap-word-gw"><span title="强" class="face-item face_19"></span>什么时候能出一下分布式事物相关的文章啊</span></p>
+                                            <div class="cy-see-more">
+                                                <span></span><i></i>
+                                            </div>
+                                        </div>
+                                        <!-- 图片展示 -->
+
+                                        <div node-type="btns-bar" class="clear-g wrap-action-gw">
+                                            <div node-type="action-click-gw" class="action-click-gw global-clear-spacing">
+                                                <i class="gap-gw"></i>
+                                                <span node-type="report" class="click-report-gw"><a href="javascript:void(0)"><i class="icon-gw icon-flag"></i><em>举报</em></a></span><i class="gap-gw"></i><span node-type="reply" class="click-reply-gw"><a href="javascript:void(0)">回复</a></span>
+                                                <i class="gap-gw"></i>
+                                                <span node-type="support" class="click-ding-gw">
+                        <a href="javascript:;"><i class="icon-gw icon-ding-bg"></i><em class="icon-name-bg"></em></a>
+                    </span>
+
+                                                <i class="gap-gw"></i>
+                                                <span node-type="oppose" class="click-cai-gw">
+                        <a href="javascript:;"><i class="icon-gw icon-cai-bg"></i><em class="icon-name-bg"></em></a>
+                    </span>
+
+                                                <i class="gap-gw"></i><span node-type="prop" class="click-prop-gw"><span class="prop-span"><a href="javascript:void(0)"></a></span></span></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div></div>
+                        </div>
+                    </div>
+                    <!-- 评论列表  E --><div class="module-cmt-footer">
+                        <!-- 评论关闭 -->
+                        <div class="list-comment-close-w">
+                            <div class="close-wrap-w close-wrap-b">该评论已关闭!</div>
+                        </div>
+                        <!-- 翻页 -->
+                        <div class="section-page-w">
+                        </div>
+                        <!-- 某站正在使用畅言 -->
+                        <div class="section-service-w">
+                            <div class="service-wrap-w">
+                                <a href="http://changyan.kuaizhan.com/" target="_blank">
+
+                                    程序猿DD正在使用畅言
+                                </a>
+                            </div>
+                        </div>
+                        <div node-type="cy-to-shequ" class="cy-redirect-btn">
+                            <span class="cy-redirect-text">去社区看看吧</span><i class="cy-right-arrow"></i>
+                        </div>
+                        <div node-type="cy-to-hots" class="cy-redirect-btn">
+                            <span class="cy-redirect-text">去热评看看吧</span><i class="cy-right-arrow"></i>
+                        </div>
+                        <div class="cy-to-shequ-float"></div>
+                    </div><div node-type="hot-topic" class="module-hot-topic clear-g"><div class="images-slider" node-type="imagesCon">
+                        <div class="forStep">
+                            <ul class="sliders" style="left: -640px;">
+
+                                <li class="slider" style="left: 0px;">
+                                    <a href="http://blog.didispace.com/zuul-vs-nginx-performance/" target="_blank">
+                                        <img src="http://0d077ef9e74d8.cdn.sohucs.com/topic_picture_2773252045_1491408597570" alt="Netflix Zuul与Nginx的性能对比 | 程序猿DD | 博客">
+                                    </a>
+                                    <div class="opacity" node-type="opacity">
+                                        <div class="foropicity"></div>
+                                        <div class="text-background">
+                                            <a class="text" href="http://blog.didispace.com/zuul-vs-nginx-performance/" title="Netflix Zuul与Nginx的性能对比 | 程序猿DD | 博客" target="_blank">Netflix Zuul与Nginx的性能对比 | 程序猿DD | 博客</a>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="slider">
+                                    <a href="http://blog.didispace.com/ghostinfinitscroll/" target="_blank">
+                                        <img src="http://0d077ef9e74d8.cdn.sohucs.com/topic_picture_2707506899_1490803337447" alt="使用infinite-scroll实现Ghost博文列表的滚动加载 | 程序猿DD | 博客">
+                                    </a>
+                                    <div class="opacity" node-type="opacity">
+                                        <div class="foropicity"></div>
+                                        <div class="text-background">
+                                            <a class="text" href="http://blog.didispace.com/ghostinfinitscroll/" title="使用infinite-scroll实现Ghost博文列表的滚动加载 | 程序猿DD | 博客" target="_blank">使用infinite-scroll实现Ghost博文列表的滚动加载 | 程序猿DD | 博客</a>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="slider">
+                                    <a href="http://blog.didispace.com/openfire-sparkgou-jian-shi-shi-xie-zuo-ping-tai/" target="_blank">
+                                        <img src="http://0d077ef9e74d8.cdn.sohucs.com/topic_picture_2707711734_1490803337391" alt="OpenFire + Spark构建实时协作平台 | 程序猿DD | 博客">
+                                    </a>
+                                    <div class="opacity" node-type="opacity">
+                                        <div class="foropicity"></div>
+                                        <div class="text-background">
+                                            <a class="text" href="http://blog.didispace.com/openfire-sparkgou-jian-shi-shi-xie-zuo-ping-tai/" title="OpenFire + Spark构建实时协作平台 | 程序猿DD | 博客" target="_blank">OpenFire + Spark构建实时协作平台 | 程序猿DD | 博客</a>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="slider">
+                                    <a href="http://blog.didispace.com/jvmerror/" target="_blank">
+                                        <img src="http://0d077ef9e74d8.cdn.sohucs.com/topic_picture_2707886671_1490803336959" alt="探讨一个“无法创建JVM”的问题（已解决） | 程序猿DD | 博客">
+                                    </a>
+                                    <div class="opacity" node-type="opacity">
+                                        <div class="foropicity"></div>
+                                        <div class="text-background">
+                                            <a class="text" href="http://blog.didispace.com/jvmerror/" title="探讨一个“无法创建JVM”的问题（已解决） | 程序猿DD | 博客" target="_blank">探讨一个“无法创建JVM”的问题（已解决） | 程序猿DD | 博客</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="step">
+                                <span class="next" node-type="next"></span>
+                                <span class="previous" node-type="previous"></span>
+                            </div>
+                        </div>
+                        <ul class="images">
+
+                            <li class="image" node-type="sliders">
+                                <img src="http://0d077ef9e74d8.cdn.sohucs.com/topic_picture_2773252045_1491408597570" alt="Netflix Zuul与Nginx的性能对比 | 程序猿DD | 博客">
+                                <div class="shadow"></div>
+                            </li>
+
+                            <li class="image" node-type="sliders">
+                                <img src="http://0d077ef9e74d8.cdn.sohucs.com/topic_picture_2707506899_1490803337447" alt="使用infinite-scroll实现Ghost博文列表的滚动加载 | 程序猿DD | 博客">
+                                <div class="shadow"></div>
+                            </li>
+
+                            <li class="image current" node-type="sliders">
+                                <img src="http://0d077ef9e74d8.cdn.sohucs.com/topic_picture_2707711734_1490803337391" alt="OpenFire + Spark构建实时协作平台 | 程序猿DD | 博客">
+                                <div class="shadow"></div>
+                            </li>
+
+                            <li class="image" node-type="sliders">
+                                <img src="http://0d077ef9e74d8.cdn.sohucs.com/topic_picture_2707886671_1490803336959" alt="探讨一个“无法创建JVM”的问题（已解决） | 程序猿DD | 博客">
+                                <div class="shadow"></div>
+                            </li>
+                        </ul>
+                    </div>
+                        <div class="topic" node-type="topic" style="width: 552px;">
+                            <span class="title">热评话题</span>
+                            <ul class="topic-list">
+
+                                <li>
+                                    <a href="http://blog.didispace.com/jvmerror/" title="探讨一个“无法创建JVM”的问题（已解决） | 程序猿DD | 博客" target="_blank">探讨一个“无法创建JVM”的问题（已解决） | 程序猿DD | 博客</a>
+                                </li>
+
+                                <li>
+                                    <a href="http://blog.didispace.com/atlassian001/" title="浅谈Atlassian产品搭建的敏捷管理体系（一）概述 | 程序猿DD | 博客" target="_blank">浅谈Atlassian产品搭建的敏捷管理体系（一）概述 | 程序猿DD | 博客</a>
+                                </li>
+
+                                <li>
+                                    <a href="http://blog.didispace.com/springbootproperties/" title="Spring Boot属性配置文件详解" target="_blank">Spring Boot属性配置文件详解</a>
+                                </li>
+
+                                <li>
+                                    <a href="http://blog.didispace.com/springbootproject/" title="Spring Boot工程结构的最佳实践案例" target="_blank">Spring Boot工程结构的最佳实践案例</a>
+                                </li>
+
+                                <li>
+                                    <a href="http://blog.didispace.com/Spring-Cloud基础教程/index.html" title="Spring Cloud基础教程 | 程序猿DD | 博客" target="_blank">Spring Cloud基础教程 | 程序猿DD | 博客</a>
+                                </li>
+
+                                <li>
+                                    <a href="http://blog.didispace.com/springcloud7/#lg=1&amp;slide=0" title="Spring Cloud构建微服务架构（七）消息总线 | 程序猿DD | 博客" target="_blank">Spring Cloud构建微服务架构（七）消息总线 | 程序猿DD | 博客</a>
+                                </li>
+
+                                <li>
+                                    <a href="http://blog.didispace.com/springbootredis/" title="Spring Boot中使用Redis数据库 | 程序猿DD | 博客" target="_blank">Spring Boot中使用Redis数据库 | 程序猿DD | 博客</a>
+                                </li>
+                            </ul>
+                        </div></div><div class="module-cmt-notice">
+                        <ul class="nt-list">
+
+                            <li node-type="notice-message" data-alias="message" data-type="message" data-static="static" class="nt-item" style=" display: none ">
+                                <div class="nt-logo"></div>
+                                <a node-type="notice-content" class="nt-text" href="javascript:void(0);">你收到<i>0</i>条新通知</a>
+                                <a class="nt-close" href="javascript:void(0);"></a>
+                            </li>
+
+                            <li node-type="notice-support" data-alias="support" data-type="support" data-static="static" class="nt-item" style=" display: none ">
+                                <div class="nt-logo"></div>
+                                <a node-type="notice-content" class="nt-text" href="javascript:void(0);">你有<i>0</i>条评论收到赞同</a>
+                                <a class="nt-close" href="javascript:void(0);"></a>
+                            </li>
+
+                            <li node-type="notice-reply" data-alias="reply" data-type="reply" data-static="static" class="nt-item" style=" display: none ">
+                                <div class="nt-logo"></div>
+                                <a node-type="notice-content" class="nt-text" href="javascript:void(0);">你有<i>0</i>条新回复</a>
+                                <a class="nt-close" href="javascript:void(0);"></a>
+                            </li>
+
+                            <li node-type="notice-hots" data-alias="hots" data-type="hots" data-static="static" class="nt-item" style=" display: none ">
+                                <div class="nt-logo"></div>
+                                <a node-type="notice-content" class="nt-text" href="javascript:void(0);">本日畅言热评新鲜出炉啦！</a>
+                                <a class="nt-close" href="javascript:void(0);"></a>
+                            </li>
+
+                            <li node-type="notice-task" data-alias="task" data-type="task" data-static="static" class="nt-item" style=" display: none ">
+                                <div class="nt-logo"></div>
+                                <a node-type="notice-content" class="nt-text" href="javascript:void(0);">你有<i>0</i>个任务已完成</a>
+                                <a class="nt-close" href="javascript:void(0);"></a>
+                            </li>
+
+                            <li node-type="notice-history" data-alias="history" data-type="history" data-static="static" class="nt-item" style=" display: none ">
+                                <div class="nt-logo"></div>
+                                <a node-type="notice-content" class="nt-text" href="javascript:void(0);">你收获<i>0</i>个畅言足迹</a>
+                                <a class="nt-close" href="javascript:void(0);"></a>
+                            </li>
+                        </ul>
+                    </div></div></div>
+                <script type="text/javascript">
+                    (function () {
+                        var changyan ='cysUhh1Hu,prod_08161dc143f28514db917a0fa4a34b91'
+                        var appid = changyan.split(",")[0];
+                        var conf = changyan.split(",")[1];
+                        var width = window.innerWidth || document.documentElement.clientWidth;
+                        if (width < 960) {
+                            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
+                        } else {
+                            var loadJs = function (d, a) {
+                                var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+                                var b = document.createElement("script");
+                                b.setAttribute("type", "text/javascript");
+                                b.setAttribute("charset", "UTF-8");
+                                b.setAttribute("src", d);
+                                if (typeof a === "function") {
+                                    if (window.attachEvent) {
+                                        b.onreadystatechange = function () {
+                                            var e = b.readyState;
+                                            if (e === "loaded" || e === "complete") {
+                                                b.onreadystatechange = null;
+                                                a()
+                                            }
+                                        }
+                                    } else {
+                                        b.onload = a
+                                    }
+                                }
+                                c.appendChild(b)
+                            };
+                            loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+                                window.changyan.api.config({appid: appid, conf: conf})
+                            });
+                        }
+                    })();
+                </script>
+
+            </section>
+
+        </section>
+
+
+    </div>
+
+    <style>
+        .foot-count {
+            color: #009688;
+            font-weight: bold;
+            padding: 0px 5px;
+            font-size: 1.3em;
+        }
+        .foot-row {
+            text-align: center;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        .foot-col {
+            /*padding: 20px;*/
+            text-align: left;
+            float: left;
+            width: 25%;
+        }
+        .widget-title {
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+        #footer a {
+            color: #888;
+        }
+        #footer {
+            background-color: #f8f8f8;
+        }
+
+        @media screen and (max-width: 768px) { /*当屏幕尺寸小于768px时，应用下面的CSS样式*/
+            .foot-col {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <footer id="footer">
+        <div class="outer">
+            <div id="footer-info" class="inner">
+                <div class="foot-row">
+                    <div class="foot-col">
+                        <!--关注我们-->
+                        <div class="widget-wrap widget-list">
+                            <h3 class="widget-title">关注我们</h3>
+                            <div class="widget">
+                                <ul>
+                                    <li>
+                                        <a href="https://github.com/dyc87112">Github</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://git.oschina.net/didispace">码云</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.jianshu.com/u/6a622d516e32">简书</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.zhihu.com/people/di-yong-chao-86">知乎</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://my.oschina.net/didispace/blog">开源中国</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://weibo.com/2014605502">新浪微博</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="foot-col">
+                        <!--联系合作-->
+                        <div class="widget-wrap widget-list">
+                            <h3 class="widget-title">联系合作</h3>
+                            <div class="widget">
+                                <ul>
+                                    <li>
+                                        <a href="#">微信：zhaiyongchao1987</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">QQ：123512160</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">邮箱：didi@potatomato.club</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="foot-col">
+                        <!--友情链接-->
+
+                        <div class="widget-wrap widget-list">
+                            <h3 class="widget-title">友情链接</h3>
+                            <div class="widget">
+                                <ul>
+
+                                    <li>
+                                        <a target="_blank" href="http://bbs.springcloud.com.cn">Spring Cloud中文社区</a>
+                                    </li>
+
+                                    <li>
+                                        <a target="_blank" href="http://didispace.oschina.io/baimaozixun-static">白猫计划资讯站</a>
+                                    </li>
+
+                                    <li>
+                                        <a target="_blank" href="http://itmuch.com/">周立|Spring Cloud</a>
+                                    </li>
+
+                                    <li>
+                                        <a target="_blank" href="http://www.bysocket.com/">泥瓦匠BYSocket的博客</a>
+                                    </li>
+
+                                    <li>
+                                        <a target="_blank" href="http://xujin.org/">许进|沉思录</a>
+                                    </li>
+
+                                    <li>
+                                        <a target="_blank" href="http://kailing.pub/">KL博客</a>
+                                    </li>
+
+                                    <li>
+                                        <a target="_blank" href="http://edisonxu.org/">Edison Xu&#39;s Blog</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="foot-col">
+                        <!--联系合作-->
+                        <div class="widget-wrap widget-list">
+                            <h3 class="widget-title">微信公众号</h3>
+                            <div class="widget">
+                                <img style="width: 200px;" src="/image/weixin.jpg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear: left;"></div>
+                &copy; 2016 - 2017 程序猿DD | 博客 - 翟永超 版权所有<br>
+                <div style="display: none;">
+                    <span id="busuanzi_container_site_pv">访问量<span class="foot-count" id="busuanzi_value_site_pv"></span>次</span>
+                    <span id="busuanzi_container_site_uv">访客数<span class="foot-count" id="busuanzi_value_site_uv"></span>人次</span>
+                </div>
+                沪ICP备14037150号-2
+                <!--Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.-->
+            </div>
+        </div>
+    </footer>
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    <script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script src="/js/share.js"></script>
+    <script src="/js/jquery.pagination.js"></script>
+    <script src="/vendor/lightgalleryjs/lightgallery.min.js"></script>
+    <script src="/vendor/lightgalleryjs/lg-thumbnail.min.js"></script>
+    <script src="/vendor/lightgalleryjs/lg-pager.min.js"></script>
+    <script src="/vendor/lightgalleryjs/lg-autoplay.min.js"></script>
+    <script src="/vendor/lightgalleryjs/lg-fullscreen.min.js"></script>
+    <script src="/vendor/lightgalleryjs/lg-zoom.min.js"></script>
+    <script src="/vendor/lightgalleryjs/lg-hash.min.js"></script>
+    <script src="/vendor/lightgalleryjs/lg-share.min.js"></script>
+    <script src="/vendor/lightgalleryjs/lg-video.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="js/main.js"></script>
+
+
+
+
+
+    <!-- Custom Scripts -->
+    <script src="/js/main.js"></script>
+
+</div>
+
+</body>
+</html>
