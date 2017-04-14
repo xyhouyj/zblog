@@ -1,6 +1,7 @@
 package com.eumji.zblog.config;
 
 import com.eumji.zblog.service.UserService;
+import com.eumji.zblog.util.Md5Util;
 import com.eumji.zblog.vo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +10,14 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * FILE: com.eumji.zblog.config.CustomAuthenticationProvider.java
@@ -29,33 +37,34 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String username = token.getName();
         //从数据库找到的用户
         User user = null;
-        if(username != null) {
+        if (username != null) {
             user = userService.loadUserByUsername(username);
         }
         //
-        if(user == null) {
+        if (user == null) {
             throw new UsernameNotFoundException("用户名/密码无效");
-        }else if (user.isEnabled()){
+        } else if (user.isEnabled()) {
             throw new DisabledException("用户已被禁用");
-        }else if (user.isAccountNonExpired()) {
+        } else if (user.isAccountNonExpired()) {
             throw new AccountExpiredException("账号已过期");
-        }else if (user.isAccountNonLocked()) {
+        } else if (user.isAccountNonLocked()) {
             throw new LockedException("账号已被锁定");
-        }else if (user.isCredentialsNonExpired()) {
+        } else if (user.isCredentialsNonExpired()) {
             throw new LockedException("凭证已过期");
         }
         //数据库用户的密码
         String password = user.getPassword();
+        String pwdDigest = Md5Util.pwdDigest(token.getCredentials().toString());
         //与authentication里面的credentials相比较
-        if(!password.equals(token.getCredentials())) {
+        if (!password.equals(Md5Util.pwdDigest(token.getCredentials().toString()))) {
             throw new BadCredentialsException("Invalid username/password");
         }
         //授权
-        return new UsernamePasswordAuthenticationToken(user, password,user.getAuthorities());
+        return new UsernamePasswordAuthenticationToken(user, password, user.getAuthorities());
     }
 
-    public void config(WebSecurity web){
-        web.ignoring().antMatchers("/js/**","/css/**","/vendor/**","/iamge/**","/admin/**");
+    public void config(WebSecurity web) {
+        web.ignoring().antMatchers("/js/**", "/css/**", "/vendor/**", "/image/**", "/admin/**");
     }
 
     @Override
@@ -63,3 +72,5 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         return UsernamePasswordAuthenticationToken.class.equals(authentication);
     }
 }
+
+

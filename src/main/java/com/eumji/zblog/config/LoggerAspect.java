@@ -3,11 +3,14 @@ package com.eumji.zblog.config;
 import com.eumji.zblog.mapper.LogMapper;
 import com.eumji.zblog.vo.LogInfo;
 import com.eumji.zblog.vo.User;
+import org.apache.logging.log4j.core.config.Order;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -22,8 +25,10 @@ import java.util.Date;
  * @date 2017/4/10
  * @time 18:08
  */
-
+@Aspect
+@Order(5)
 public class LoggerAspect {
+    @Autowired
     private LogMapper logMapper;
     private Logger logger = LoggerFactory.getLogger(LoggerAspect.class);
     @Pointcut("execution(* com.eumji.zblog.controller.*.*(..))")
