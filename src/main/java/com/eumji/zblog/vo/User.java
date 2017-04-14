@@ -2,10 +2,13 @@ package com.eumji.zblog.vo;
 
 import org.apache.ibatis.type.Alias;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Alias("user")
 public class User implements Serializable {
@@ -109,6 +112,9 @@ public class User implements Serializable {
     }
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        return authorities;
     }
+
 }

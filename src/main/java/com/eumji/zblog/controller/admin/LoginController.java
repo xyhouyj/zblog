@@ -7,7 +7,10 @@ import com.eumji.zblog.util.ResultInfoFactory;
 import com.eumji.zblog.vo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * FILE: com.eumji.zblog.controller.admin.LoginController.java
@@ -21,14 +24,13 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
-    @RequestMapping("/login/auth")
-    public ResultInfo loginAuth(User user){
+    @RequestMapping(value = "/auth",method = RequestMethod.POST)
+    public ResultInfo loginAuth(User user, HttpSession session){
         ResultInfo resultInfo = null;
         System.out.println(Md5Util.pwdDigest(user.getPassword()));
         System.out.println("user:"+user);
         User userInfo = userService.loadUserByUsername(user.getUsername());
-        System.out.println("password:"+userInfo.getPassword());
-        if (user==null){
+        if (userInfo==null){
             resultInfo =  ResultInfoFactory.getErrorRestInfo("账号不存在");
         }else{
             if (userInfo.getPassword().equals(Md5Util.pwdDigest(user.getPassword()))){
@@ -36,8 +38,9 @@ public class LoginController {
             }else {
                 resultInfo = ResultInfoFactory.getErrorRestInfo("账号或密码错误");
             }
-
+        session.setAttribute("user",userInfo);
         }
+
         return resultInfo;
 
     }

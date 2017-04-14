@@ -51,7 +51,7 @@ public class  PageController {
         return "archives";
     }
 
-    @RequestMapping("/loginPage")
+    @RequestMapping("/login")
     public String loginPage(){
         return "login";
     }
