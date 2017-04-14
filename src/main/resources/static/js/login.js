@@ -2,17 +2,18 @@
  * Created by EumJi on 2017/4/9.
  */
 
-$("#login-button").click(function () {
+$("#login-button1").click(function () {
     var username = $("#username").val();
     var password = $("#password").val();
     if (username.length > 0 && password.length > 0) {
         $.ajax({
             type: "POST",
-            url: '/login/auth',
+            url: '/auth',
             data: {username: username, password: password},
             success: function (data) {///去更新cookies
+                console.log("data:"+data);
                 if (data.resultCode == "success") {
-                    window.location.href = "/admin/home";
+                    window.location.href = "/admin/article/articleList";
 
                 }else{
                     layer.alert('账号或者密码错误', {

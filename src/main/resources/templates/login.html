@@ -1,10 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-
-    <title>Wopop</title>
+    <title>EumJi | 后台</title>
     <link href="/css/style_log.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="/css/userpanel.css"/>
@@ -16,18 +14,17 @@
         <img src="/image/login.png" width="196" height="46">
     </div>
     <div class="login_boder">
-
+        <form method="post" action="/login">
         <div class="login_padding" id="login_model">
 
             <h2>USERNAME</h2>
             <label>
-                <input type="text" id="username" class="txt_input txt_input2"
-                       onfocus="if (value ==&#39;Your name&#39;){value =&#39;&#39;}"
-                       onblur="if (value ==&#39;&#39;){value=&#39;Your name&#39;}" value="Your name">
+                <input type="text" id="username" name="username"  class="txt_input txt_input2"
+                       placeholder="请输入用户名" required>
             </label>
             <h2>PASSWORD</h2>
             <label>
-                <input type="password" name="textfield2" id="password" class="txt_input" value="Your password">
+                <input type="password" name="password" id="password" class="txt_input" placeholder="请输入密码" required>
             </label>
 
 
@@ -44,7 +41,7 @@
             </div>
         </div>
 
-
+        </form>
         <div id="forget_model" class="login_padding" style="display:none">
             <br>
 

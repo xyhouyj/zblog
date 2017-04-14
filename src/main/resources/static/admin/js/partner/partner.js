@@ -22,7 +22,7 @@ function loadPartnerList(){
 	
 	// 查询列表
 	$.ajax({
-        url : '../friend/load',
+        url : '/admin/friend/load',
         data : 'page='+page+"&param="+param,
         success  : function(data) {
         	$("#dataList").html(data);
@@ -65,7 +65,7 @@ function deletePartner(id){
 // 跳转栏目编辑页
 function editPartner(id){
 	$.ajax({
-        url : '../friend/editJump',
+        url : '/friend/editJump',
         data : 'id='+id,
         success  : function(data) {
         	$('#editPartnerContent').html(data);

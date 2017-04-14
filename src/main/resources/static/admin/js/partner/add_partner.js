@@ -1,7 +1,7 @@
 function saveAddPartner(){
 	if(validateAddPartner()){
 		$.ajax({
-	        url : '../friend/add',
+	        url : '/admin/partner/add',
 	        data : encodeURI($("#addForm").serialize()),
 	        success  : function(data) {
 	        	if(data.resultCode == 'success'){
