@@ -4056,7 +4056,7 @@
       signal(cm, "focus", cm);
       cm.state.focused = true;
       addClass(cm.display.wrapper, "CodeMirror-focused");
-      // This test prevents this from firing when a context
+      // This indexs.html prevents this from firing when a context
       // menu is closed (since the input reset would kill the
       // select-all detection hack)
       if (!cm.curOp && cm.display.selForContextMenu != cm.doc.sel) {
@@ -4131,7 +4131,7 @@
   }
 
   // Used by replaceSelections to allow moving the selection to the
-  // start or around the replaced test. Hint may be "start" or "around".
+  // start or around the replaced indexs.html. Hint may be "start" or "around".
   function computeReplacedSel(doc, changes, hint) {
     var out = [];
     var oldPrev = Pos(doc.first, 0), newPrev = oldPrev;

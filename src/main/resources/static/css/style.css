@@ -171,7 +171,7 @@ code {
   width: 40px;
   height: 40px;
   background-repeat: no-repeat;
-  background-image: url("../image/logo.jpg");
+  background-image: url("/image/logo.jpg");
   -webkit-background-size: 40px 40px;
   -moz-background-size: 40px 40px;
   background-size: 40px 40px;
@@ -519,13 +519,14 @@ code {
   right: 15px;
   border: none;
   cursor: pointer;
-  margin-top: -7px;
+  margin-top: 12px;
   background: none;
   position: absolute;
   font: 13px font-icon;
   font-family: 'FontAwesome';
 }
 #search-form-wrap .search-form .search-form-submit:before {
+  padding-top: 10px;
   content: '\f002';
 }
 #search-form-wrap .search-form .search-form-submit:hover,
@@ -660,6 +661,17 @@ code {
   display: block;
   text-align: center;
 }
+.my-avatar {
+  margin: 25px auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
 #profile .inner .base-info #name {
   font-size: 30px;
   font-weight: 600;
@@ -1496,7 +1508,7 @@ ol.toc {
   background-position: center;
 }
 .archive-article .archive-article-thumbnail .thumbnail .thumbnail-none {
-  background-image: url("images/thumb-default-small.png");
+  background-image: url("/css/image/thumb-default-small.png");
 }
 .archive-article-title {
   display: block;
@@ -2206,51 +2218,8 @@ ol.toc {
   font-weight: bold;
 }
 
-.profile {
-  display: block;
-  max-width: 240px;
-  max-hegight: 250px;
-  height: 250px;
-  margin: 0 auto;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: 100%;
-  padding: 0;
-  background-image: url("../image/profile-gif.png");
-  -webkit-background-size: 200% auto;
-  -moz-background-size: 200% auto;
-  background-size: 200% auto;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  -webkit-animation: mashape-ape-animation 0.4s steps(2) infinite;
-  -moz-animation: mashape-ape-animation 0.4s steps(2) infinite;
-  -ms-animation: mashape-ape-animation 0.4s steps(2) infinite;
-  animation: mashape-ape-animation 0.4s steps(2) infinite;
-  -webkit-animation-play-state: running;
-  -moz-animation-play-state: running;
-  -ms-animation-play-state: running;
-  animation-play-state: running;
-}
-.profile :hover {
-  -webkit-animation-play-state: paused;
-}
 
-.my-avatar {
-  margin: 25px auto;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  padding: 4px;
-  line-height: 1.42857143;
-  background-color: #fff;
-  border: 1px solid #ddd;
-}
+
 
 .adv-box {
   /*width: 100%;*/

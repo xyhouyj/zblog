@@ -7,7 +7,7 @@ $(function() {
         no_results_text: "没有找到",
         allow_single_deselect: true
     });
-    testEditor = editormd("test-editormd", {
+    testEditor = editormd("indexs.html-editormd", {
         width: "90%",
         height: 640,
         syncScrolling: "single",

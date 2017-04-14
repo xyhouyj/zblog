@@ -44,7 +44,7 @@ public class  PageController {
         model.addAttribute("tagCount",tagCount);
         model.addAttribute("categoryList",categoryList);
         model.addAttribute("partnerList",partnerList);
-        return "index";
+        return "indexs";
     }
     @RequestMapping("/archives")
     public String archivesPage(){

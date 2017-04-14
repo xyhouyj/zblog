@@ -20,9 +20,9 @@
  *  - is easily extensible to add new dialects without having to rewrite the
  *    entire parsing mechanics
  *
- *  - has a good test suite
+ *  - has a good indexs.html suite
  *
- *  This implementation fulfills all of these (except that the test suite could
+ *  This implementation fulfills all of these (except that the indexs.html suite could
  *  do with expanding to automatically run all the fixtures from other Markdown
  *  implementations.)
  *
