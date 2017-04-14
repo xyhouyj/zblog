@@ -2,6 +2,7 @@ package com.eumji.zblog.service.impl;
 
 import com.eumji.zblog.mapper.PartnerMapper;
 import com.eumji.zblog.service.PartnerService;
+import com.eumji.zblog.vo.Pager;
 import com.eumji.zblog.vo.Partner;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +24,17 @@ public class PartnerServiceImpl implements PartnerService {
     @Override
     public List<Partner> findAll() {
         return partnerMapper.findAll();
+    }
+
+    @Override
+    public void savePartner(Partner partner) {
+        partnerMapper.savePartner(partner);
+    }
+
+    @Override
+    public List<Partner> loadPartner(Pager pager) {
+
+        return partnerMapper.loadPartner(pager);
     }
 
 }

@@ -16,12 +16,12 @@
 
     </select>
 
-    <update id="update">
+    <select id="loadPartner" resultType="partner">
+        select * from partner limit #{start},#{limit}
+    </select>
 
-    </update>
-
-    <insert id="save">
-
+    <insert id="savePartner">
+        insert into partner(siteName, siteUrl, siteDesc, sort) VALUES (#{siteName},#{siteUrl},#{siteDesc},#{sort})
     </insert>
 </mapper>
 
