@@ -27,3 +27,8 @@ logging:
   config: classpath:log4j2.xml
   level: debug
   file:
+server:
+  session-timeout : 3600
+
+
+##

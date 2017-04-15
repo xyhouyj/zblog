@@ -1,12 +1,13 @@
 function saveEditPartner(){
 	if(validateEditPartner()){
 		$.ajax({
-	        url : '../friend/edit',
+	        url : '/admin/partner/update',
 	        data : encodeURI($("#editForm").serialize()),
 	        success  : function(data) {
 	        	if(data.resultCode == 'success'){
 	        		$('#editPartnerModal').modal('hide');
 	            	loadPartnerList();
+                    closeEditWindow();
 	            	autoCloseAlert(data.errorInfo,1000);
 	        	}else{
 	        		autoCloseAlert(data.errorInfo,1000);

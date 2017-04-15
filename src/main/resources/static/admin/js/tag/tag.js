@@ -1,7 +1,31 @@
-$(function(){
-	// 加载管理员列表
-	loadTagList();
-})
+$(function() {
+    var page = $("#current-page").val();
+    if (page == null || page == 0) {
+        page = 1;
+    }
+    $.ajax({
+        url: '/admin/tag/initPage',
+        data: 'page=' + page,
+        success: function (data) {
+            $("#total-num").text(data.totalCount);
+            $("#total-page").text(data.totalPageNum);
+            $("#current-page").text(data.page);
+            $.jqPaginator('#pagination', {
+                totalPages: data.totalPageNum,
+                visiblePages: 5,
+                currentPage: data.page,
+                prev: '<li class="prev"><a href="javascript:;">Previous</a></li>',
+                next: '<li class="next"><a href="javascript:;">Next</a></li>',
+                page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+                onPageChange: function (num, type) {
+                    // 加载管理员列表
+                    $("#current-page").val(num);
+                    loadTagList();
+                }
+            });
+        }
+    });
+});
 
 
 // 跳转分页
@@ -22,13 +46,13 @@ function loadTagList(){
 	
 	// 查询列表
 	$.ajax({
-        url : '../tag/load',
+        url : '/admin/tag/load',
         data : 'page='+page+"&param="+param,
         success  : function(data) {
         	$("#dataList").html(data);
 		}
     });
-	
+
 }
 
 // 收集参数
@@ -49,7 +73,7 @@ function search(){
 // 删除
 function deleteTag(id){
 	$.ajax({
-        url : '../tag/delete',
+        url : '/admin/tag/delete',
         data : 'id='+id,
         success  : function(data) {
         	if(data.resultCode == 'success'){
@@ -65,7 +89,8 @@ function deleteTag(id){
 // 跳转编辑页
 function editTag(id){
 	$.ajax({
-        url : '../tag/editJump/'+id,
+        url : '/admin/tag/editJump/',
+        data: {id:id},
         success  : function(data) {
         	$('#editTagContent').html(data);
         	$('#editTagModal').modal('show');
@@ -90,12 +115,13 @@ function closeAddWindow(){
 function saveEditTag(){
 	if(validateEditTag()){
 		$.ajax({
-	        url : '../tag/edit',
+	        url : '/admin/tag/update',
 	        data : encodeURI($("#editForm").serialize()),
 	        success  : function(data) {
 	        	if(data.resultCode == 'success'){
 	        		$('#editTagModal').modal('hide');
 	            	loadTagList();
+	            	closeEditWindow();
 	            	autoCloseAlert(data.errorInfo,1000);
 	        	}else{
 	        		autoCloseAlert(data.errorInfo,1000);
@@ -109,12 +135,13 @@ function saveEditTag(){
 function saveAddTag(){
 	if(validateAddTag()){
 		$.ajax({
-	        url : '../tag/add',
+	        url : '/admin/tag/save',
 	        data : encodeURI($("#addForm").serialize()),
 	        success  : function(data) {
 	        	if(data.resultCode == 'success'){
 	        		$('#addTagModal').modal('hide');
 	            	loadTagList();
+	            	closeAddWindow();
 	            	autoCloseAlert(data.errorInfo,1000);
 	        	}else{
 	        		autoCloseAlert(data.errorInfo,1000);
@@ -127,6 +154,7 @@ function saveAddTag(){
 // 校验新增管理员输入框
 function validateAddTag(){
 	var tagName = $("#tagName").val();
+	var aliasName = $("#aliasName").val();
 	if(!isEmpty(tagName)){
 		if(isSpecialSymbols(tagName)){
 			autoCloseAlert("标签不能包含特殊符号",1000);
@@ -136,7 +164,15 @@ function validateAddTag(){
 		autoCloseAlert("标签不能为空",1000);
 		return false;
 	}
-	
+    if(!isEmpty(aliasName)){
+        if(isSpecialSymbols(aliasName)){
+            autoCloseAlert("标签不能包含特殊符号",1000);
+            return false;
+        }
+    }else{
+        autoCloseAlert("标签不能为空",1000);
+        return false;
+    }
 	return true;
 }
 
@@ -152,14 +188,14 @@ function validateEditTag(){
 		autoCloseAlert("标签不能为空",1000);
 		return false;
 	}
-	
+
 	return true;
 }
 
 // 跳转新增管理员页面
 function addTag(){
 	$.ajax({
-        url : '../tag/addJump',
+        url : '/admin/tag/addJump',
         success  : function(data) {
         	$('#addTagContent').html(data);
         	$('#addTagModal').modal('show');

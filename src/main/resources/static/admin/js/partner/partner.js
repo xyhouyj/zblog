@@ -1,90 +1,115 @@
-$(function(){
-	// 加载菜单列表
-	loadPartnerList();
-})
+$(function() {
+    var page = $("#current-page").val();
+    if (page == null || page == 0) {
+        page = 1;
+    }
+    $.ajax({
+        url: '/admin/partner/initPage',
+        data: 'page=' + page,
+        success: function (data) {
+            $("#total-num").text(data.totalCount);
+            $("#total-page").text(data.totalPageNum);
+            $("#current-page").text(data.page);
+            $.jqPaginator('#pagination', {
+                totalPages: data.totalPageNum,
+                visiblePages: 5,
+                currentPage: data.page,
+                prev: '<li class="prev"><a href="javascript:;">Previous</a></li>',
+                next: '<li class="next"><a href="javascript:;">Next</a></li>',
+                page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+                onPageChange: function (num, type) {
+                    // 加载管理员列表
+                    $("#current-page").val(num);
+                    loadPartnerList();
+                }
+            });
+        }
+    });
+});
 
 
 // 跳转分页
-function toPage(page){
-	$("#page").val(page);
-	loadPartnerList();		
+function toPage(page) {
+    $("#page").val(page);
+    loadPartnerList();
 }
 
 // 加载菜单列表
-function loadPartnerList(){
-	// 收集参数
-	var param = buildParam();
-	
-	var page = $("#page").val();
-	if(isEmpty(page) || page == 0){
-		page = 1;
-	}
-	
-	// 查询列表
-	$.ajax({
-        url : '/admin/friend/load',
-        data : 'page='+page+"&param="+param,
-        success  : function(data) {
-        	$("#dataList").html(data);
-		}
+function loadPartnerList() {
+    var param = $("#keyword").val();
+    console.log("param:"+param);
+    // 收集参数
+    var page = $("#now").val();
+    if (isEmpty(page) || page == 0) {
+        page = 1;
+    }
+
+    // 查询列表
+    $.ajax({
+        url: '/admin/partner/load',
+        data: 'page=' + page+"&param="+param,
+        success: function (data) {
+            $("#dataList").html(data);
+        }
     });
-	
+
 }
 
-// 收集参数
-function buildParam(){
-	var param = {};
-	var keyword = $("#keyword").val();
-	if(!isEmpty(keyword)){
-		param["siteName"] = encodeURI(encodeURI(keyword));
-	}
-	return JSON.stringify(param);
-}
 
 // 搜索
-function search(){
-	loadPartnerList();
+function search() {
+    loadPartnerList();
 }
 
 // 删除栏目
-function deletePartner(id){
-	$.ajax({
-        url : '../friend/delete',
-        data : 'id='+id,
-        success  : function(data) {
-        	if(data.resultCode == 'success'){
-        		autoCloseAlert(data.errorInfo,1000);
-        		loadPartnerList();
-        	}else{
-        		autoCloseAlert(data.errorInfo,1000);
-        	}
-		}
-    });
+function deletePartner(id) {
+    new $.flavr().confirm('Are you sure to delete?',
+        function () {
+            $.ajax({
+                url: '/admin/partner/delete',
+                data: 'id=' + id,
+                success: function (data) {
+                    if (data.resultCode == 'success') {
+                        autoCloseAlert(data.errorInfo, 1000);
+                        loadPartnerList();
+                    } else {
+                        autoCloseAlert(data.errorInfo, 1000);
+                    }
+                }
+            });
+        },
+        function () {
+        });
+
 }
 
 // 跳转栏目编辑页
-function editPartner(id){
-	$.ajax({
-        url : '/friend/editJump',
-        data : 'id='+id,
-        success  : function(data) {
-        	$('#editPartnerContent').html(data);
-        	$('#editPartnerModal').modal('show');
-        	$('#editPartnerModal').addClass('animated');
-        	$('#editPartnerModal').addClass('flipInY');
-		}
+function editPartner(id) {
+
+    $.ajax({
+        url: '/admin/partner/editJump',
+        data: 'id=' + id,
+        success: function (data) {
+            $('#editPartnerContent').html(data);
+            $('#editPartnerModal').modal('show');
+            $('#editPartnerModal').addClass('animated');
+            $('#editPartnerModal').addClass('flipInY');
+        }
     });
 }
 
 // 跳转新增页面
-function addPartner(){
-	$.ajax({
-        url : '/admin/friend/addJump',
-        success  : function(data) {
-        	$('#addPartnerContent').html(data);
-        	$('#addPartnerModal').modal('show');
-        	$('#addPartnerModal').addClass('animated');
-        	$('#addPartnerModal').addClass('bounceInLeft');
-		}
+function addPartner() {
+    $.ajax({
+        url: '/admin/partner/addJump',
+        success: function (data) {
+            $('#addPartnerContent').html(data);
+            $('#addPartnerModal').modal('show');
+            $('#addPartnerModal').addClass('animated');
+            $('#addPartnerModal').addClass('bounceInLeft');
+        }
     });
 }
+
+
+

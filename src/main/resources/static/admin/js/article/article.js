@@ -1,8 +1,31 @@
-$(function(){
-	// 加载文章列表
-	loadArticleList();
-})
-
+$(function() {
+    var page = $("#current-page").val();
+    if (page == null || page == 0) {
+        page = 1;
+    }
+    $.ajax({
+        url: '/admin/article/initPage',
+        data: 'page=' + page,
+        success: function (data) {
+            $("#total-num").text(data.totalCount);
+            $("#total-page").text(data.totalPageNum);
+            $("#current-page").text(data.page);
+            $.jqPaginator('#pagination', {
+                totalPages: data.totalPageNum,
+                visiblePages: 5,
+                currentPage: data.page,
+                prev: '<li class="prev"><a href="javascript:;">Previous</a></li>',
+                next: '<li class="next"><a href="javascript:;">Next</a></li>',
+                page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+                onPageChange: function (num, type) {
+                    // 加载管理员列表
+                    $("#current-page").val(num);
+                    loadArticleList();
+                }
+            });
+        }
+    });
+});
 
 // 跳转分页
 function toPage(page){
@@ -12,18 +35,23 @@ function toPage(page){
 
 //0:可用  1：不可用 
 function updateStatue(id,flag){
-	$.ajax({
-        url : '../article/updateStatue',
-        data : 'id='+id+'&statue='+flag, 
-        success  : function(data) {
-        	if(data.resultCode == 'success'){
-        		autoCloseAlert(data.errorInfo,1000);
-        		loadArticleList();
-        	}else{
-        		autoCloseAlert(data.errorInfo,1000);
-        	}
-		}
-    });
+	flag = flag==1?0:1;
+    new $.flavr().confirm('Are you sure to change status?',
+        function () {
+            $.ajax({
+                url: '/admin/article/updateStatue',
+                data: 'id=' + id + '&status=' + flag,
+                success: function (data) {
+                    if (data.resultCode == 'success') {
+                        autoCloseAlert(data.errorInfo, 1000);
+                        loadArticleList();
+                    } else {
+                        autoCloseAlert(data.errorInfo, 1000);
+                    }
+                }
+            });
+        },function () {
+        });
 }
 
 // 加载文章列表
@@ -38,7 +66,7 @@ function loadArticleList(){
 	
 	// 查询列表
 	$.ajax({
-        url : '../article/load',
+        url : '/admin/article/load',
         data : 'page='+page+"&param="+param,
         success  : function(data) {
         	$("#dataList").html(data);
@@ -81,7 +109,7 @@ function addArticle(){
 // 删除文章
 function deleteArticle(id){
 	$.ajax({
-        url : '../article/delete',
+        url : '/admin/article/delete',
         data : 'id='+id,
         success  : function(data) {
         	if(data.resultCode == 'success'){
@@ -96,7 +124,7 @@ function deleteArticle(id){
 
 function htmlArticle(id){
 	$.ajax({
-        url : '../article/static/'+id,
+        url : '/admin/article/static/'+id,
         success  : function(data) {
         	if(data.resultCode == 'success'){
         		autoCloseAlert(data.errorInfo,1000);
@@ -112,7 +140,7 @@ function htmlArticle(id){
 function htmlAllArticle(){
 	$("#htmlAll").hide();
 	$.ajax({
-        url : '../article/staticAll',
+        url : '/admin/article/staticAll',
         success  : function(data) {
         	if(data.resultCode == 'success'){
         		autoCloseAlert(data.errorInfo,1000);
@@ -127,5 +155,5 @@ function htmlAllArticle(){
 
 // 编辑文章
 function editArticle(id){
-	window.location.href = "../article/editJump/"+id;
+	window.location.href = "/admin/article/editJump/?id="+id;
 }

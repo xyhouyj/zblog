@@ -145,7 +145,7 @@ function isSpecifyLength(str,minLen,maxLen) {
  * @returns {Boolean}
  */
 function isSpecialSymbols(str) {
-	var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？]");
+	var pattern = new RegExp("[`~!@#$^&*()={}':;',\\[\\].<>/?~！@#￥……&*（）{}【】‘；：”“'。，、？]");
 	return pattern.test(str);
 }
 

@@ -1,13 +1,15 @@
 function saveAddPartner(){
 	if(validateAddPartner()){
 		$.ajax({
-	        url : '/admin/partner/add',
+	        url : '/admin/partner/save',
 	        data : encodeURI($("#addForm").serialize()),
 	        success  : function(data) {
+	        	console.log("data:"+data);
 	        	if(data.resultCode == 'success'){
 	        		$('#addPartnerModal').modal('hide');
 	            	loadPartnerList();
 	            	autoCloseAlert(data.errorInfo,1000);
+                    closeAddWindow();
 	        	}else{
 	        		autoCloseAlert(data.errorInfo,1000);
 	        	}
@@ -67,6 +69,6 @@ function getRootPath() {
 
 //关闭新增窗口
 function closeAddWindow(){
-	console.log("ok!!!!");
 	$('#addPartnerModal').modal('hide');
 }
+
