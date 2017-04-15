@@ -36,12 +36,15 @@ public class AdminPageController {
      * 跳转到文章列表页面
      * @return
      */
-    @RequestMapping("/article/articleList")
+    @RequestMapping("/article/list")
     public String articlePage(){
         return "/admin/article/articleList";
     }
 
-
+    @RequestMapping("/tag/list")
+    public String labelPage(){
+        return "/admin/label/labelList";
+    }
     /**
      * 跳转到添加文章页面
      * @return
@@ -51,11 +54,41 @@ public class AdminPageController {
         return "/admin/article/articleAdd";
     }
 
+    /**
+     * 加载友链分页
+     * @param pager
+     * @param model
+     * @return
+     */
     @RequestMapping("/partner/load")
-    public String loadPartner(Pager pager, Model model){
+    public String loadPartner(Pager pager, Model model,String param){
         pager.setStart((pager.getPage()-1)*pager.getLimit());
-        List<Partner> partnerList =partnerService.loadPartner(pager);
+        List<Partner> partnerList =partnerService.loadPartner(pager,param);
         model.addAttribute("partnerList",partnerList);
         return "/admin/partner/partnerTable";
+    }
+
+    /**
+     * 跳转添加友链页面
+     * @return
+     */
+    @RequestMapping("/partner/addJump")
+    public String partnerAddPage(){
+        return "/admin/partner/partnerAdd";
+    }
+
+    @RequestMapping("/partner/editJump")
+    public String partnerEditPage(Integer id,Model model){
+        Partner partner = partnerService.getPartnerById(id);
+        model.addAttribute("partner",partner);
+        return "/admin/partner/partnerEdit";
+    }
+
+    /**跳转到友链展示页面
+     * @return
+     */
+    @RequestMapping("/partner/list")
+    public String partnerPage(){
+        return "/admin/partner/partnerList";
     }
 }
