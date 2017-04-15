@@ -17,7 +17,7 @@ public class ResultInfoFactory {
      * @param errorInfo
      * @return
      */
-    public static ResultInfo getErrorRestInfo(String errorInfo){
+    public static ResultInfo getErrorResultInfo(String errorInfo){
         if (ERROR_RESULT == null){
             ERROR_RESULT = new ResultInfo("fail",errorInfo);
         }else{
@@ -32,7 +32,7 @@ public class ResultInfoFactory {
      * @return
      */
     public static ResultInfo getErrorResultInfo(){
-        return getErrorRestInfo("操作失败！！！");
+        return getErrorResultInfo("操作失败！！！");
     }
 
     /**
@@ -40,7 +40,7 @@ public class ResultInfoFactory {
      * @param errorInfo
      * @return
      */
-    public static ResultInfo getSuccessRestInfo(String errorInfo){
+    public static ResultInfo getSuccessResultInfo(String errorInfo){
         if (SUCCESS_RESULT == null){
             SUCCESS_RESULT = new ResultInfo("success",errorInfo);
         }else{
@@ -54,8 +54,8 @@ public class ResultInfoFactory {
      * 默认为错误信息为操作成功
      * @return
      */
-    public static ResultInfo getSuccessRestInfo(){
-        return getSuccessRestInfo("操作成功！！！");
+    public static ResultInfo getSuccessResultInfo(){
+        return getSuccessResultInfo("操作成功！！！");
     }
 
 

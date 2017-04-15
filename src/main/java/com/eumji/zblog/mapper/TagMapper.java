@@ -1,6 +1,11 @@
 package com.eumji.zblog.mapper;
 
+import com.eumji.zblog.vo.Pager;
+import com.eumji.zblog.vo.Tag;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @author Do
@@ -13,4 +18,16 @@ import org.apache.ibatis.annotations.Mapper;
 public interface TagMapper {
 
     int getTagCount();
+
+    Tag getTagById(Integer id);
+
+    List<Tag> loadTagList(@Param("pager") Pager pager, @Param("tagName") String tagName);
+
+    void saveTag(Tag tag);
+
+    int checkExist(Tag tag);
+
+    void updateTag(Tag tag);
+
+    int initPage(Pager pager);
 }

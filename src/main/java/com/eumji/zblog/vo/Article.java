@@ -3,98 +3,124 @@ package com.eumji.zblog.vo;
 import java.io.Serializable;
 
 /**
-* Created by GeneratorFx on 2017-04-11.
-*/
+ * Created by GeneratorFx on 2017-04-11.
+ */
 public class Article implements Serializable {
 
-private Integer id;
-private Integer categoryId;
-private String title;
-private Byte[] content;
-private String description;
-private Integer status;
-private String author;
-private Long createTime;
-private Long updateTime;
-private Integer showCount;
-public Integer getId() {
-return id;
-}
+    private Integer id;
+    private Integer categoryId;
+    private String categoryName;
+    private String title;
+    private String content;
+    private String description;
+    private Integer status;
+    private String author;
+    private Long createTime;
+    private Long updateTime;
+    private Integer showCount;
+    public Integer getId() {
+        return id;
+    }
 
-public void setId(Integer id) {
-this.id = id;
-}
 
-public Integer getCategoryid() {
-return categoryId;
-}
+    @Override
+    public String toString() {
+        return "Article{" +
+                "id=" + id +
+                ", categoryId=" + categoryId +
+                ", categoryName='" + categoryName + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", description='" + description + '\'' +
+                ", status=" + status +
+                ", author='" + author + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", showCount=" + showCount +
+                '}';
+    }
 
-public void setCategoryid(Integer categoryId) {
-this.categoryId = categoryId;
-}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-public String getTitle() {
-return title;
-}
+    public Integer getCategoryId() {
+        return categoryId;
+    }
 
-public void setTitle(String title) {
-this.title = title;
-}
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
+    }
 
-public Byte[] getContent() {
-return content;
-}
+    public String getTitle() {
+        return title;
+    }
 
-public void setContent(Byte[] content) {
-this.content = content;
-}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-public String getDescription() {
-return description;
-}
+    public String getContent() {
+        return content;
+    }
 
-public void setDescription(String description) {
-this.description = description;
-}
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-public Integer getStatus() {
-return status;
-}
+    public String getDescription() {
+        return description;
+    }
 
-public void setStatus(Integer status) {
-this.status = status;
-}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-public String getAuthor() {
-return author;
-}
+    public Integer getStatus() {
+        return status;
+    }
 
-public void setAuthor(String author) {
-this.author = author;
-}
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
-public Long getCreatetime() {
-return createTime;
-}
+    public String getAuthor() {
+        return author;
+    }
 
-public void setCreatetime(Long createTime) {
-this.createTime = createTime;
-}
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
-public Long getUpdatetime() {
-return updateTime;
-}
+    public Long getCreateTime() {
+        return createTime;
+    }
 
-public void setUpdatetime(Long updateTime) {
-this.updateTime = updateTime;
-}
+    public void setCreateTime(Long createTime) {
+        this.createTime = createTime;
+    }
 
-public Integer getShowcount() {
-return showCount;
-}
+    public Long getUpdateTime() {
+        return updateTime;
+    }
 
-public void setShowcount(Integer showCount) {
-this.showCount = showCount;
-}
+    public void setUpdateTime(Long updateTime) {
+        this.updateTime = updateTime;
+    }
 
+    public Integer getShowCount() {
+        return showCount;
+    }
+
+    public void setShowCount(Integer showCount) {
+        this.showCount = showCount;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
 }

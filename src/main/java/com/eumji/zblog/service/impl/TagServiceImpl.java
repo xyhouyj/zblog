@@ -5,6 +5,7 @@ import com.eumji.zblog.mapper.TagMapper;
 import com.eumji.zblog.service.TagService;
 import com.eumji.zblog.vo.ArticleCustom;
 import com.eumji.zblog.vo.Pager;
+import com.eumji.zblog.vo.Tag;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -31,5 +32,41 @@ public class TagServiceImpl implements TagService {
     @Override
     public int getTagCount() {
         return tagMapper.getTagCount();
+    }
+
+    @Override
+    public Tag getTagById(Integer id) {
+        return tagMapper.getTagById(id);
+    }
+
+    @Override
+    public List<Tag> loadTagList(Pager pager, String tagName) {
+        pager.setStart(pager.getStart());
+        return tagMapper.loadTagList(pager,tagName);
+    }
+
+    @Override
+    public void saveTag(Tag tag) {
+        tagMapper.saveTag(tag);
+    }
+
+    @Override
+    public boolean checkExist(Tag tag) {
+        int count = tagMapper.checkExist(tag);
+        if (count>0){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void updateTag(Tag tag) {
+        tagMapper.updateTag(tag);
+    }
+
+    @Override
+    public void initPage(Pager pager) {
+        int count = tagMapper.initPage(pager);
+        pager.setTotalCount(count);
     }
 }

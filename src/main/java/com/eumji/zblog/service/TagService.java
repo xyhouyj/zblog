@@ -2,6 +2,7 @@ package com.eumji.zblog.service;
 
 import com.eumji.zblog.vo.ArticleCustom;
 import com.eumji.zblog.vo.Pager;
+import com.eumji.zblog.vo.Tag;
 
 import java.util.List;
 
@@ -22,4 +23,16 @@ public interface TagService {
     List<ArticleCustom> loadArticleByTag(Pager pager, Integer tagId);
 
     int getTagCount();
+
+    Tag getTagById(Integer id);
+
+    List<Tag> loadTagList(Pager pager, String tagName);
+
+    void saveTag(Tag tag);
+
+    boolean checkExist(Tag tag);
+
+    void updateTag(Tag tag);
+
+    void initPage(Pager pager);
 }

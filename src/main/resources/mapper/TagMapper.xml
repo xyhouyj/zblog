@@ -7,4 +7,36 @@
     <select id="getTagCount" resultType="int">
         select count(id) from tag
     </select>
+
+    <select id="getTagById" resultType="tag">
+        select id,tagName,aliasName from tag where id = #{id}
+    </select>
+
+
+    <select id="loadTagList" resultType="tag">
+        select id,tagName,aliasName from tag
+        <if test="tagName != null and tagName != ''">
+            where tagName like concat('%',#{tagName},'%') or aliasName like aliasName
+        </if>
+        limit #{pager.start},#{pager.limit}
+    </select>
+
+    <insert id="saveTag">
+        insert into tag(tagName, aliasName) VALUES (#{tagName},#{aliasName})
+    </insert>
+
+    <select id="checkExist" resultType="int">
+        SELECT count(id) from tag WHERE (tagName=#{tagName} or aliasName = #{aliasName})
+        <if test="id != null and id != '' ">
+            and id != #{id}
+        </if>
+    </select>
+
+    <update id="updateTag">
+        UPDATE tag set tagName = #{tagName},aliasName = #{aliasName} where id = #{id}
+    </update>
+
+    <select id="initPage" resultType="int">
+        SELECT COUNT(id) from tag
+    </select>
 </mapper>
