@@ -32,9 +32,30 @@ public class PartnerServiceImpl implements PartnerService {
     }
 
     @Override
-    public List<Partner> loadPartner(Pager pager) {
+    public List<Partner> loadPartner(Pager pager, String param) {
+        pager.setStart(pager.getStart());
+        return partnerMapper.loadPartner(pager,param);
+    }
 
-        return partnerMapper.loadPartner(pager);
+    @Override
+    public Partner getPartnerById(Integer id) {
+        return partnerMapper.getPartnerById(id);
+    }
+
+    @Override
+    public void deletePartner(Integer id) {
+        partnerMapper.deletePartner(id);
+    }
+
+    @Override
+    public void updatePartner(Partner partner) {
+        partnerMapper.updatePartner(partner);
+    }
+
+    @Override
+    public void initPage(Pager pager) {
+        int count = partnerMapper.initPage(pager);
+        pager.setTotalCount(count);
     }
 
 }
