@@ -2,6 +2,7 @@ package com.eumji.zblog.service;
 
 
 import com.eumji.zblog.vo.ArticleCustom;
+import com.eumji.zblog.vo.Category;
 import com.eumji.zblog.vo.CategoryCustom;
 import com.eumji.zblog.vo.Pager;
 
@@ -21,4 +22,16 @@ public interface CategoryService {
      * @return
      */
     List<CategoryCustom> initCategoryList();
+
+    Category getCategoryById(Integer id);
+
+    List<Category> loadCategory(Pager pager, String categoryName);
+
+    boolean checkExist(Category category);
+
+    void saveCategory(Category category);
+
+    void updateCategory(Category category);
+
+    void initPage(Pager pager);
 }
