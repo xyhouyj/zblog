@@ -24,19 +24,19 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
-    @RequestMapping(value = "/auth",method = RequestMethod.POST)
+    @RequestMapping(value = "/login/auth",method = RequestMethod.POST)
     public ResultInfo loginAuth(User user, HttpSession session){
         ResultInfo resultInfo = null;
         System.out.println(Md5Util.pwdDigest(user.getPassword()));
         System.out.println("user:"+user);
         User userInfo = userService.loadUserByUsername(user.getUsername());
         if (userInfo==null){
-            resultInfo =  ResultInfoFactory.getErrorRestInfo("账号不存在");
+            resultInfo =  ResultInfoFactory.getErrorResultInfo("账号不存在");
         }else{
             if (userInfo.getPassword().equals(Md5Util.pwdDigest(user.getPassword()))){
-                resultInfo = ResultInfoFactory.getSuccessRestInfo();
+                resultInfo = ResultInfoFactory.getSuccessResultInfo();
             }else {
-                resultInfo = ResultInfoFactory.getErrorRestInfo("账号或密码错误");
+                resultInfo = ResultInfoFactory.getErrorResultInfo("账号或密码错误");
             }
         session.setAttribute("user",userInfo);
         }
