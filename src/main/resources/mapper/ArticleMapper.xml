@@ -15,7 +15,6 @@
         <result column="showCount" property="showCount"/>
         <collection property="tagList" column="id" select="getTag"/>
 
-
     </resultMap>
 
     <!--获取所有的文章-->
@@ -41,4 +40,26 @@
        select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.id in (select DISTINCT articleId from articletag where tagId = #{tagId} ) limit #{pager.start},#{pager.limit}
 
     </select>
+
+    <select id="initPage" resultType="int">
+      select count(id) from article
+    </select>
+    
+    <select id="loadArticle" resultType="article" parameterType="map">
+        select article.id,title,categoryId,categoryName,status,createTime from article join category on article.categoryId=category.id where 1=1
+        <if test="categoryId != null and categoryId != ''">
+            and categoryId = #{categoryId}
+        </if>
+        <if test="tagId != null and tagId != ''">
+            and article.id in (select articleId from articletag where articletag.id = #{tagId})
+        </if>
+        <if test="title != null and title != ''">
+            and title like concat('%',#{title},'%')
+        </if>
+        order by createTime desc limit #{pager.start},#{pager.limit}
+    </select>
+
+    <update id="updateStatue">
+        update article set status = #{status} where id = #{id}
+    </update>
 </mapper>

@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by GeneratorFx on 2017-04-11.
@@ -38,5 +39,21 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public int getArticleCount() {
         return articleMapper.getArticleCount();
+    }
+
+    @Override
+    public void InitPager(Pager pager) {
+        int count = articleMapper.initPage(pager);
+        pager.setTotalCount(count);
+    }
+
+    @Override
+    public List<Article> loadArticle(Map<String, Object> param) {
+        return articleMapper.loadArticle(param);
+    }
+
+    @Override
+    public void updateStatue(Integer id, int status) {
+        articleMapper.updateStatue(id,status);
     }
 }
