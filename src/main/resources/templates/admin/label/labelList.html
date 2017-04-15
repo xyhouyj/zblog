@@ -3,15 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="renderer" content="webkit">
-    <link href="admin/css/bootstrap.min.css"  rel="stylesheet">
-    <link href="admin/font-awesome/css/font-awesome.css"  rel="stylesheet">
+    <link href="/admin/css/bootstrap.min.css"  rel="stylesheet">
+    <link href="/admin/font-awesome/css/font-awesome.css"  rel="stylesheet">
     <!-- Data Tables -->
-    <link href="admin/css/plugins/dataTables/dataTables.bootstrap.css"  rel="stylesheet">
-    <link href="admin/css/animate.css" rel="stylesheet">
-    <link href="admin/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="admin/js/flavr/flavr/css/animate.css" />
-    <link rel="stylesheet" type="text/css" href="admin/js/flavr/flavr/css/flavr.css" />
-    <link rel="stylesheet" href="admin//js/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <link href="/admin/css/plugins/dataTables/dataTables.bootstrap.css"  rel="stylesheet">
+    <link href="/admin/css/animate.css" rel="stylesheet">
+    <link href="/admin/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/admin/js/flavr/flavr/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="/admin/js/flavr/flavr/css/flavr.css" />
+    <link rel="stylesheet" href="/admin//js/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
     <style>
         .btn-circle {
             width: 20px;
@@ -36,7 +36,7 @@
                 </style>
                 <li class="nav-header">
                     <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="/image/photo.png"/>
+                            <img alt="image" class="img-circle" src="/image/avatar.jpg"/>
                              </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0)" >
                                 <span class="clear"> 
@@ -54,7 +54,7 @@
                             <li><a href="contacts.html">联系我们</a></li>
                             <li><a href="mailbox.html">信箱</a></li>
                             <li class="divider"></li> -->
-                            <li><a href="admin/out">安全退出</a></li>
+                            <li><a href="/admin/out">安全退出</a></li>
                         </ul>
                     </div>
                     <div class="logo-element">
@@ -62,25 +62,25 @@
                     </div>
                 </li>
 
-                <li class="active">
+                <li>
                     <a href="javascript:void(0)"><i class="fa fa fa-volume-up"></i>
                         <span class="nav-label">文章管理</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
-                        <li class="active">
-                            <a href="admin/admin/article/list">文章列表</a>
+                        <li >
+                            <a href="/admin/article/list">文章列表</a>
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="active">
                     <a href="javascript:void(0)"><i class="fa fa fa-qrcode"></i>
                         <span class="nav-label">标签管理</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
-                        <li>
-                            <a href="admin/admin/tag/list">标签列表</a>
+                        <li class="active">
+                            <a href="/admi/tag/list">标签列表</a>
                         </li>
                     </ul>
                 </li>
@@ -91,7 +91,18 @@
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="admin/admin/friend/list">合作伙伴列表</a>
+                            <a href="/admin/partner/list">合作伙伴列表</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)"><i class="fa fa fa-qrcode"></i>
+                        <span class="nav-label">分类管理</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/admin/category/list">分类列表</a>
                         </li>
                     </ul>
                 </li>
@@ -106,7 +117,7 @@
                 <h2>标签列表</h2>
                 <ol class="breadcrumb">
                     <li>
-                        <a href="http://localhost:8888/mr/admin/home">主页</a>
+                        <a href="/admin/home">主页</a>
                     </li>
                     <li>
                         <a>标签管理</a>
@@ -142,174 +153,20 @@
                             <!-- 表格数据 -->
                             <div id="dataList">
 
+                            </div>
 
-
-
-
-                                <div>
-                                </div><table class="table table-striped table-bordered table-hover dataTables-example">
-                                <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>标签名称</th>
-                                    <th>操作</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                <tr class="gradeX">
-                                    <td>21</td>
-                                    <td>测试专用12</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-xs" type="button" title="编辑" onclick="editTag(21)">
-                                            编辑
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="gradeX">
-                                    <td>20</td>
-                                    <td>测试专用11</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-xs" type="button" title="编辑" onclick="editTag(20)">
-                                            编辑
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="gradeX">
-                                    <td>19</td>
-                                    <td>测试专用10</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-xs" type="button" title="编辑" onclick="editTag(19)">
-                                            编辑
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="gradeX">
-                                    <td>18</td>
-                                    <td>测试专用9</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-xs" type="button" title="编辑" onclick="editTag(18)">
-                                            编辑
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="gradeX">
-                                    <td>17</td>
-                                    <td>测试专用8</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-xs" type="button" title="编辑" onclick="editTag(17)">
-                                            编辑
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="gradeX">
-                                    <td>16</td>
-                                    <td>测试专用7</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-xs" type="button" title="编辑" onclick="editTag(16)">
-                                            编辑
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="gradeX">
-                                    <td>15</td>
-                                    <td>测试专用6</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-xs" type="button" title="编辑" onclick="editTag(15)">
-                                            编辑
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="gradeX">
-                                    <td>14</td>
-                                    <td>测试专用5</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-xs" type="button" title="编辑" onclick="editTag(14)">
-                                            编辑
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="gradeX">
-                                    <td>13</td>
-                                    <td>测试专用4</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-xs" type="button" title="编辑" onclick="editTag(13)">
-                                            编辑
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="gradeX">
-                                    <td>12</td>
-                                    <td>测试专用3</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-xs" type="button" title="编辑" onclick="editTag(12)">
-                                            编辑
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                </tbody>
-                            </table>
-
-
-
-
-
-
-
-
-
-                                <div id="pager" class="row">
-                                    <input type="hidden" id="page" name="page" value="1">
-                                    <div class="col-sm-6">
-                                        <div class="dataTables_info" role="alert" aria-live="polite" aria-relevant="all">
-                                            共21条记录&nbsp;1/3
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="dataTables_paginate paging_simple_numbers">
-                                            <ul class="pagination">
-
-
-
-
-
-
-
-
-
-                                                <!-- 当前页 -->
-                                                <li class="paginate_button active" aria-controls="DataTables_Table_0" tabindex="0">
-                                                    <a href="javascript:;">1</a>
-                                                </li>
-
-
-
-
-
-
-                                                <li class="paginate_button " aria-controls="DataTables_Table_0" tabindex="0">
-                                                    <a href="javascript:;" onclick="toPage(2)">2</a>
-                                                </li>
-                                                <li class="paginate_button " aria-controls="DataTables_Table_0" tabindex="0">
-                                                    <a href="javascript:;" onclick="toPage(3)">3</a>
-                                                </li>
-
-
-                                            </ul>
-                                        </div>
-                                    </div>
+                            <div>
+                                <div style="float: left" class="pagination">共
+                                    <span id="total-num"></span>
+                                    条记录
+                                    <span id="current-page"></span>
+                                    /
+                                    <span id="total-page"></span>
                                 </div>
 
+                                <div id="pagination" class="pagination" style="float: right">
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -317,22 +174,20 @@
             </div>
         </div>
 
-
-        <div class="footer fixed">
-            <div class="pull-right">
-                <strong>Copyright</strong>© 2015 ChinaSailing All Rights Reserved
-            </div>
+    </div>
+    <div class="footer fixed">
+        <div class="pull-right">
+            <strong>Copyright</strong>© 2017 Eumji All Rights Reserved
         </div>
-
     </div>
 </div>
 
 </div>
 
 <!-- 编辑页面 -->
-<div class="modal inmodal" id="editArticleModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal inmodal" id="editTagModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
-        <div id="editArticleContent" class="modal-body">
+        <div id="editTagContent" class="modal-body">
 
         </div>
     </div>
@@ -340,9 +195,9 @@
 
 
 <!-- 新增页面 -->
-<div class="modal inmodal" id="addArticleModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal inmodal" id="addTagModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
-        <div id="addArticleContent" class="modal-body">
+        <div id="addTagContent" class="modal-body">
 
         </div>
     </div>
@@ -350,17 +205,18 @@
 
 
 <!-- Mainly scripts -->
-<script src="admin/js/jquery-2.1.1.min.js"></script>
-<script src="admin/js/bootstrap.min.js"></script>
-<script src="admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-<script src="admin/js/hplus.js"></script>
-<script src="admin/js/plugins/pace/pace.min.js"></script>
-<script src="admin/js/validation.js"></script>
-<script src="admin/js/article/article.js"></script>
-<script type="text/javascript" src="admin/js/flavr/flavr/js/flavr.min.js"></script>
-<script type="text/javascript" src="admin/js/flavr/base.js"></script>
-<script type="text/javascript" src="admin/js/zTree_v3/js/jquery.ztree.all-3.5.js"></script>
+<script src="/admin/js/jquery-2.1.1.min.js"></script>
+<script src="/admin/js/bootstrap.min.js"></script>
+<script src="/admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="/admin/js/hplus.js"></script>
+<script src="/admin/js/plugins/pace/pace.min.js"></script>
+<script src="/admin/js/validation.js"></script>
+<script src="/admin/js/tag/tag.js"></script>
+<script src="/js/jqPaginator.min.js"></script>
+<script type="text/javascript" src="/admin/js/flavr/flavr/js/flavr.min.js"></script>
+<script type="text/javascript" src="/admin/js/flavr/base.js"></script>
+<script type="text/javascript" src="/admin/js/zTree_v3/js/jquery.ztree.all-3.5.js"></script>
 
 </body>
 
