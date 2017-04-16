@@ -83,11 +83,13 @@ public class  PageController {
      * @return
      */
     @RequestMapping("/article/details/{articleId}")
-    public String loadArticle(Integer articleId,Model model){
+    public String loadArticle(@PathVariable Integer articleId,Model model){
         List<Partner> partnerList = partnerService.findAll();
         List<CategoryCustom> categoryList = categoryService.initCategoryList();
         int articleCount = articleService.getArticleCount();
         int tagCount = tagService.getTagCount();
+        ArticleCustom articleCustom = articleService.getArticleCustomById(articleId);
+        model.addAttribute("article",articleCustom);
         model.addAttribute("categoryCount",categoryList.size());
         model.addAttribute("articleCount",articleCount);
         model.addAttribute("tagCount",tagCount);
