@@ -35,4 +35,6 @@ public interface TagService {
     void updateTag(Tag tag);
 
     void initPage(Pager pager);
+
+    List<Tag> getTagList();
 }

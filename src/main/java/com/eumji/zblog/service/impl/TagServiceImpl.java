@@ -69,4 +69,9 @@ public class TagServiceImpl implements TagService {
         int count = tagMapper.initPage(pager);
         pager.setTotalCount(count);
     }
+
+    @Override
+    public List<Tag> getTagList() {
+        return tagMapper.getTagList();
+    }
 }

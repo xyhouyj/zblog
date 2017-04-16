@@ -30,4 +30,6 @@ public interface TagMapper {
     void updateTag(Tag tag);
 
     int initPage(Pager pager);
+
+    List<Tag> getTagList();
 }
