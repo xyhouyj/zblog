@@ -39,4 +39,8 @@
     <select id="initPage" resultType="int">
         SELECT COUNT(id) from tag
     </select>
+
+    <select id="getTagList" resultType="tag">
+        select id,tagName,aliasName from tag
+    </select>
 </mapper>
