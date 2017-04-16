@@ -32,4 +32,6 @@ public interface CategoryMapper {
     void updateCategory(Category category);
 
     int initPage(Pager pager);
+
+    List<Category> getCategoryList();
 }

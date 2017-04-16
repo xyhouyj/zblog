@@ -43,5 +43,10 @@
         </if>
         where id = #{id}
     </update>
+
+
+    <select id="getCategoryList" resultType="category">
+        select id,categoryName,aliasName from category
+    </select>
 </mapper>
 

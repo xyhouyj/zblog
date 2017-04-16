@@ -72,4 +72,9 @@ public class CategoryServiceImpl implements CategoryService {
         int count = categoryMapper.initPage(pager);
         pager.setTotalCount(count);
     }
+
+    @Override
+    public List<Category> getCategoryList() {
+        return categoryMapper.getCategoryList();
+    }
 }
