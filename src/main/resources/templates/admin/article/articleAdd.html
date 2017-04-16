@@ -1,288 +1,93 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="renderer" content="webkit">
-    <link rel="stylesheet" href="/admin/plugins/markdown/editormd.css">
-    <link rel="stylesheet" href="/admin/plugins/markdown/style.css">
-    <link href="/admin//css/bootstrap.min.css"  rel="stylesheet">
-    <link href="/admin/font-awesome//css/font-awesome.css"  rel="stylesheet">
-    <!-- Data Tables -->
-    <link href="/admin//css/plugins/dataTables/dataTables.bootstrap.css"  rel="stylesheet">
-    <link href="/admin//css/animate.css" rel="stylesheet">
-    <link href="/admin//css/style.css" rel="stylesheet">
-    <link rel="stylesheet" type="text//css" href="/admin/js/flavr/flavr//css/animate.css" />
-    <link rel="stylesheet" type="text//css" href="/admin/js/flavr/flavr//css/flavr.css" />
-    <link href="/admin//css/plugins/datapicker/datepicker3.css" rel="stylesheet">
-    <link href="/admin//css/plugins/chosen/chosen.css" rel="stylesheet">
+    <head>
+        <meta charset="utf-8" />
+        <title>Simple example - Editor.md examples</title>
+        <link href="/admin/css/bootstrap.min.css"  rel="stylesheet">
+        <link href="/admin/font-awesome/css/font-awesome.css"  rel="stylesheet">
+        <!-- Data Tables -->
+        <link href="/admin/css/plugins/dataTables/dataTables.bootstrap.css"  rel="stylesheet">
+        <link href="/admin/css/animate.css" rel="stylesheet">
+        <link href="/admin/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="/admin/css/article-add.css" />
+        <link rel="stylesheet" href="/admin/css/editormd.css" />
+        <link href="/admin/css/plugins/chosen/chosen.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/admin/js/flavr/flavr/css/animate.css" />
+        <link rel="stylesheet" type="text/css" href="/admin/js/flavr/flavr/css/flavr.css" />
+    </head>
+    <body>
+        <div id="layoutitle-controlt">
+            <header class="header-control">
+                <!--<div class="title-control">-->
+                        <!--<input type="text" class="title-input" placeholder="请输入文章标题">-->
+                <!--</div>-->
+                <div class="article-btn article-btn-danger submit-control" onclick="saveArticle()">
+                    发布文章
+                </div>
+            </header>
+            <div id="article-editormd">
+                <textarea style="display:none;">[TOC]
 
-    <style>
-        .input-upload{ position: relative;}
-        .input-upload input[type="file"]{ position: absolute; left: 0px; top: 0px; width: 72px; height: 35px; opacity:.0;filter:alpha(opacity=00);}
-    </style>
+                    #### Disabled options
 
-</head>
+                    - TeX (Based on KaTeX);
+                    - Emoji;
+                    - Task lists;
+                    - HTML tags decode;
+                    - Flowchart and Sequence Diagram;
 
-<body>
-<div id="wrapper">
-    <nav class="navbar-default navbar-static-side" role="navigation">
-        <div class="sidebar-collapse">
-            <ul class="nav" id="side-menu">
-                
-                <style>
-                    .img-circle{ width:64px;}
-                </style>
-                <li class="nav-header">
-                    <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="/image/photo.jpg"/>
-                             </span>
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0)" >
-                                <span class="clear"> 
-	                                <span class="block m-t-xs"> 
-	                                	<strong class="font-bold">root</strong>
-	                             	</span> 
-	                             	<span class="text-muted text-xs block">
-		                             		超级管理员
-	                             	<b class="caret"></b></span> 
-                             	</span>
-                        </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <!-- <li><a href="form_avatar.html">修改头像</a></li>
-                            <li><a href="profile.html">个人资料</a></li>
-                            <li><a href="contacts.html">联系我们</a></li>
-                            <li><a href="mailbox.html">信箱</a></li>
-                            <li class="divider"></li> -->
-                            <li><a href="/admin/out">安全退出</a></li>
-                        </ul>
-                    </div>
-                    <div class="logo-element">
-                        H+
-                    </div>
-                </li>
+                    #### Editor.md directory
 
-                <li class="active">
-                    <a href="javascript:void(0)"><i class="fa fa fa-volume-up"></i>
-                        <span class="nav-label">文章管理</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li class="active">
-                            <a href="/admin/admin/article/list">文章列表</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><i class="fa fa fa-qrcode"></i>
-                        <span class="nav-label">标签管理</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="/admin/admin/tag/list">标签列表</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><i class="fa fa fa-qrcode"></i>
-                        <span class="nav-label">合作伙伴管理</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="/admin/admin/friend/list">合作伙伴列表</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+                        editor.md/
+                                lib/
+                                css/
+                                scss/
+                                tests/
+                                fonts/
+                                images/
+                                plugins/
+                                examples/
+                                languages/
+                                editormd.js
+                                ...
 
-        </div>
-    </nav>
+                    ```html
+                    &lt;!-- English --&gt;
+                    &lt;script src="../dist/js/languages/en.js"&gt;&lt;/script&gt;
 
-    <div id="page-wrapper" class="gray-bg dashbard-1">
-        <div class="row wrapper border-bottom white-bg page-heading">
-            <div class="col-lg-10">
-                <h2>文章列表</h2>
-                <ol class="breadcrumb">
-                    <li>
-                        <a href="/admin/admin/home">主页</a>
-                    </li>
-                    <li>
-                        <a>文章管理</a>
-                    </li>
-                    <li>
-                        <a href="/admin/admin/article/list">文章列表</a>
-                    </li>
-                    <li>
-                        <strong>新增文章</strong>
-                    </li>
-                </ol>
-            </div>
-            <div class="col-lg-2">
-
+                    &lt;!-- 繁體中文 --&gt;
+                    &lt;script src="../dist/js/languages/zh-tw.js"&gt;&lt;/script&gt;
+                    ```
+                </textarea>
             </div>
         </div>
 
 
-        <div class="wrapper wrapper-content animated fadeInRight">
+        <!-- 编辑页面 -->
+        <div class="modal inmodal" id="editArticleModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div id="editArticleContent" class="modal-body">
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-content">
-                            <form method="get" class="form-horizontal">
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">栏目:</label>
-                                    <div class="col-sm-4">
-                                        <select class="form-control m-b" id="categoryId">
-                                            <option value="-1">请选择</option>
-
-                                            <option value="16">111111</option>
-
-                                            <option value="10">1111</option>
-
-                                            <option value="9">11</option>
-
-                                            <option value="7">一二三四</option>
-
-                                            <option value="5">傻子罗桂芝</option>
-
-                                            <option value="4">生活发现</option>
-
-                                            <option value="6">这是个问题</option>
-
-                                            <option value="3">体育竞技</option>
-
-                                            <option value="2">情感生活</option>
-
-                                            <option value="8">111</option>
-
-                                            <option value="1">技术专栏</option>
-
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">标题:</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" id="title" class="form-control" placeholder="请输入标题">
-                                    </div>
-                                </div>
-                                <div class="hr-line-dashed"></div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">内容:</label>
-                                    <div class="col-sm-10">
-                                        <script id="editor" type="text/plain"></script>
-                                    </div>
-                                </div>
-                                <div class="hr-line-dashed"></div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">标签:</label>
-                                    <div class="col-sm-10">
-                                        <select data-placeholder="请选择标签" class="chosen-select" multiple style="width:450px;" tabindex="5">
-
-                                            <option value="1" hassubinfo="true">游戏开发</option>
-
-                                            <option value="2" hassubinfo="true">PHP开发</option>
-
-                                            <option value="3" hassubinfo="true">java开发</option>
-
-                                            <option value="4" hassubinfo="true">web开发</option>
-
-                                            <option value="5" hassubinfo="true">数据库开发</option>
-
-                                            <option value="6" hassubinfo="true">文档记录</option>
-
-                                            <option value="7" hassubinfo="true">缓存机制</option>
-
-                                            <option value="8" hassubinfo="true">go</option>
-
-                                            <option value="9" hassubinfo="true">eee</option>
-
-                                            <option value="10" hassubinfo="true">测试专用1</option>
-
-                                            <option value="11" hassubinfo="true">测试专用2</option>
-
-                                            <option value="12" hassubinfo="true">测试专用3</option>
-
-                                            <option value="13" hassubinfo="true">测试专用4</option>
-
-                                            <option value="14" hassubinfo="true">测试专用5</option>
-
-                                            <option value="15" hassubinfo="true">测试专用6</option>
-
-                                            <option value="16" hassubinfo="true">测试专用7</option>
-
-                                            <option value="17" hassubinfo="true">测试专用8</option>
-
-                                            <option value="18" hassubinfo="true">测试专用9</option>
-
-                                            <option value="19" hassubinfo="true">测试专用10</option>
-
-                                            <option value="20" hassubinfo="true">测试专用11</option>
-
-                                            <option value="21" hassubinfo="true">测试专用12</option>
-
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-sm-4 col-sm-offset-2">
-                                        <button class="btn btn-primary" type="button" onclick="saveArticle()">保存内容</button>
-                                        <button class="btn btn-white" type="button" onclick="cancelSaveArticle()">取消</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
                 </div>
             </div>
-
         </div>
 
-    </div>
-</div>
+        <!-- 新增页面 -->
+        <div class="modal inmodal" id="addArticleModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div id="addArticleContent" class="modal-body">
 
-</div>
+                </div>
+            </div>
+        </div>
 
-<!-- Mainly scripts -->
-<script src="/admin/js/jquery-2.1.1.min.js"></script>
-<script src="/admin/js/bootstrap.min.js"></script>
-<script src="/admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-<script src="/admin/js/hplus.js"></script>
-<script src="/admin/js/plugins/pace/pace.min.js"></script>
-<script src="/admin/js/validation.js"></script>
-<script src="/admin/js/article/add_article.js"></script>
-<script type="text/javascript" src="/admin/js/flavr/flavr/js/flavr.min.js"></script>
-<script type="text/javascript" src="/admin/js/flavr/base.js"></script>
-<script type="text/javascript" src="/admin/js/zTree_v3/js/jquery.ztree.all-3.5.js"></script>
-<script src="/admin/js/plugins/datapicker/bootstrap-datepicker.js"></script>
-<!-- 配置文件 -->
-<script type="text/javascript" src="/admin/js/ueditor1_4_3/ueditor.config.js"></script>
-<!-- 编辑器源码文件 -->
-<script type="text/javascript" src="/admin/js/ueditor1_4_3/ueditor.all.js"></script>
-<script type="text/javascript" charset="utf-8" src="/admin/js/ueditor1_4_3/lang/zh-cn/zh-cn.js"></script>
-<script type="text/javascript" src="/admin/js/ajaxfileupload.js"></script>
-<script src="/admin/js/plugins/chosen/chosen.jquery.js"></script>
-<script type="text/javascript" src="/admin/js/imageUtils.js"></script>
-<script type="text/javascript" src="/admin/plugins/markdown/editorjs.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        var UEDITOR_HOME_URL = "/js/ueditor1_4_3/";
-        var ue = UE.getEditor('editor');
-    })
-
-    // 初始化多选框
-    $(".chosen-select").chosen({
-        max_selected_options:5,
-        no_results_text:"没有找到",
-        allow_single_deselect:true
-    });
-
-</script>
-</body>
+        <script src="/admin/js/jquery-2.1.1.min.js"></script>
+        <script src="/admin/js/bootstrap.min.js"></script>
+        <script src="/admin/js/editormd.js"></script>
+        <script src="/admin/js/plugins/chosen/chosen.jquery.js"></script>
+        <script src="/admin/js/article/add_article.js"></script>
+        <script src="/admin/js/validation.js"></script>
+        <script type="text/javascript" src="/admin/js/flavr/flavr/js/flavr.min.js"></script>
+        <script type="text/javascript" src="/admin/js/flavr/base.js"></script>
+    </body>
 </html>
