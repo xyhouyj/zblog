@@ -50,8 +50,12 @@
         <if test="categoryId != null and categoryId != ''">
             and categoryId = #{categoryId}
         </if>
-        <if test="tagId != null and tagId != ''">
-            and article.id in (select articleId from articletag where articletag.id = #{tagId})
+        <if test="tags != null and tags.length>0">
+            and article.id in (select DISTINCT articleId from articletag where articletag.id in
+            <foreach collection="tags" item="item" index="index" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+            )
         </if>
         <if test="title != null and title != ''">
             and title like concat('%',#{title},'%')
@@ -62,4 +66,40 @@
     <update id="updateStatue">
         update article set status = #{status} where id = #{id}
     </update>
+
+
+    <insert id="saveArticle">
+        insert into article(id,categoryId, title, content, description, createTime) values(#{id},#{categoryId},#{title},#{content},#{description},#{createTime})
+    </insert>
+    
+    <insert id="saveArticleTag">
+        INSERT into articletag(articleId, tagId, tagName)
+        <foreach collection="tags" item="item" index="index" separator=" union all">
+            SELECT #{articleId},#{item},(select tagName from tag where id =#{item})
+        </foreach>
+    </insert>
+
+    <select id="checkExist" resultType="int">
+        select count(id) from article where id = #{id}
+    </select>
+
+    <select id="getArticleById" resultType="article">
+        select id,title,description,content,categoryId from article where id = #{id}
+    </select>
+    
+    <update id="updateArticle">
+        update article set title = #{title},description = #{description},content = #{content},updateTime = #{updateTime},categoryId = #{categoryId} where id = #{id}
+    </update>
+    
+    <delete id="deleteArticleTag">
+        delete from articletag where articleId = #{articleId}
+    </delete>
+
+    <delete id="deleteArticle">
+        delete from article where id = #{id}
+    </delete>
+    <!--通过id查找 博文的详细信息-->
+    <select id="getArticleCustomById" resultMap="article">
+        select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId = category.id and article.id = #{id}
+    </select>
 </mapper>

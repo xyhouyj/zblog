@@ -1,6 +1,7 @@
 package com.eumji.zblog.vo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by GeneratorFx on 2017-04-11.
@@ -15,30 +16,13 @@ public class Article implements Serializable {
     private String description;
     private Integer status;
     private String author;
-    private Long createTime;
-    private Long updateTime;
+    private Date createTime;
+    private Date updateTime;
     private Integer showCount;
     public Integer getId() {
         return id;
     }
 
-
-    @Override
-    public String toString() {
-        return "Article{" +
-                "id=" + id +
-                ", categoryId=" + categoryId +
-                ", categoryName='" + categoryName + '\'' +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", description='" + description + '\'' +
-                ", status=" + status +
-                ", author='" + author + '\'' +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                ", showCount=" + showCount +
-                '}';
-    }
 
     public void setId(Integer id) {
         this.id = id;
@@ -50,6 +34,14 @@ public class Article implements Serializable {
 
     public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public String getTitle() {
@@ -92,19 +84,19 @@ public class Article implements Serializable {
         this.author = author;
     }
 
-    public Long getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Long createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public Long getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Long updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 
@@ -116,11 +108,20 @@ public class Article implements Serializable {
         this.showCount = showCount;
     }
 
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    @Override
+    public String toString() {
+        return "Article{" +
+                "id=" + id +
+                ", categoryId=" + categoryId +
+                ", categoryName='" + categoryName + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", description='" + description + '\'' +
+                ", status=" + status +
+                ", author='" + author + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", showCount=" + showCount +
+                '}';
     }
 }

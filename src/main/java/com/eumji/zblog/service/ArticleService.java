@@ -32,4 +32,14 @@ public interface ArticleService {
     List<Article> loadArticle(Map<String, Object> param);
 
     void updateStatue(Integer id, int status);
+
+    void saveArticle(Article article, int[] tags);
+
+    Article getArticleById(Integer id);
+
+    void updateArticle(Article article, int[] tags);
+
+    void deleteArticle(Integer id);
+
+    ArticleCustom getArticleCustomById(Integer articleId);
 }

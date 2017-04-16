@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by GeneratorFx on 2017-04-11.
  */
 @Service
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class ArticleServiceImpl implements ArticleService {
 
     @Resource
@@ -55,5 +55,53 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public void updateStatue(Integer id, int status) {
         articleMapper.updateStatue(id,status);
+    }
+
+    @Override
+    public void saveArticle(Article article, int[] tags) {
+        Integer id  = getRandomId();
+        for (int i = 0; i < 50; i++) {
+            int count = articleMapper.checkExist(id);
+            if (count==0) break;
+            else id = getRandomId();
+        }
+        article.setId(id);
+        article.setCreateTime(new Date());
+        article.setStatus(1);
+        articleMapper.saveArticle(article);
+        articleMapper.saveArticleTag(id,tags);
+    }
+
+    @Override
+    public Article getArticleById(Integer id) {
+        return articleMapper.getArticleById(id);
+    }
+
+    @Override
+    public void updateArticle(Article article, int[] tags) {
+        article.setUpdateTime(new Date());
+        articleMapper.updateArticle(article);
+        articleMapper.deleteArticleTag(article.getId());
+        articleMapper.saveArticleTag(article.getId(),tags);
+    }
+
+    @Override
+    public void deleteArticle(Integer id) {
+        articleMapper.deleteArticle(id);
+    }
+
+    @Override
+    public ArticleCustom getArticleCustomById(Integer articleId) {
+        return articleMapper.getArticleCustomById(articleId);
+    }
+
+    private Integer getRandomId(){
+        Calendar instance = Calendar.getInstance();
+        int month = instance.MONTH;
+        int dayOfMonth = instance.DAY_OF_MONTH;
+        int random = new Random().nextInt(8999)+1000;
+        StringBuilder append = new StringBuilder().append(month).append(dayOfMonth).append(random);
+
+        return Integer.valueOf(append.toString());
     }
 }

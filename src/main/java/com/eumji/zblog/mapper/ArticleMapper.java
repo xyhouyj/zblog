@@ -36,4 +36,20 @@ public interface ArticleMapper {
     List<Article> loadArticle(Map<String, Object> param);
 
     void updateStatue(@Param("id") Integer id, @Param("status") int status);
+
+    void saveArticle(Article article);
+
+    void saveArticleTag(@Param("articleId") Integer articleId,@Param("tags") int[] tags);
+
+    int checkExist(Integer id);
+
+    Article getArticleById(Integer id);
+
+    void updateArticle(Article article);
+
+    void deleteArticleTag(Integer articleId);
+
+    void deleteArticle(Integer id);
+
+    ArticleCustom getArticleCustomById(Integer id);
 }
