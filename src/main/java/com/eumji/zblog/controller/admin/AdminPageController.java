@@ -1,8 +1,13 @@
 package com.eumji.zblog.controller.admin;
 
+import com.eumji.zblog.service.ArticleService;
+import com.eumji.zblog.service.CategoryService;
 import com.eumji.zblog.service.PartnerService;
+import com.eumji.zblog.service.TagService;
+import com.eumji.zblog.vo.Category;
 import com.eumji.zblog.vo.Pager;
 import com.eumji.zblog.vo.Partner;
+import com.eumji.zblog.vo.Tag;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +27,15 @@ import java.util.List;
 public class AdminPageController {
 
     @Resource
+    private ArticleService articleService;
+
+    @Resource
+    private CategoryService categoryService;
+
+    @Resource
+    private TagService tagService;
+
+    @Resource
     private PartnerService partnerService;
     /**
      * 后台首页
@@ -37,23 +51,19 @@ public class AdminPageController {
      * @return
      */
     @RequestMapping("/article/list")
-    public String articlePage(){
+    public String articlePage(Model model){
+        List<Tag> tagList = tagService.getTagList();
+        List<Category> categoryList = categoryService.getCategoryList();
+        model.addAttribute("tagList",tagList);
+        model.addAttribute("categoryList",categoryList);
         return "/admin/article/articleList";
     }
+
 
     @RequestMapping("/tag/list")
     public String labelPage(){
         return "/admin/label/labelList";
     }
-    /**
-     * 跳转到添加文章页面
-     * @return
-     */
-    @RequestMapping("/article/addPage")
-    public String articleAddPage(){
-        return "/admin/article/articleAdd";
-    }
-
     /**
      * 加载友链分页
      * @param pager
