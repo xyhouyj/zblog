@@ -21,10 +21,17 @@ $(function() {
                     // 加载管理员列表
                     $("#current-page").val(num);
                     loadArticleList();
+                    $(".chosen-select").chosen({
+                        max_selected_options: 5,
+                        no_results_text: "没有找到",
+                        allow_single_deselect: true
+                    });
+                    $(".chosen-select").trigger("liszt:updated");
                 }
             });
         }
     });
+
 });
 
 // 跳转分页
@@ -56,18 +63,21 @@ function updateStatue(id,flag){
 
 // 加载文章列表
 function loadArticleList(){
-	// 收集参数
-	var param = buildParam();
-	
+
 	var page = $("#page").val();
 	if(isEmpty(page) || page == 0){
 		page = 1;
 	}
-	
+    var categoryId = $("#categoryId option:selected").val();
+    var keyword = $("#keyword").val();
+    var tagIds = [];
+    $("#tagId option:selected").each(function () {
+        tagIds.push($(this).val());
+    })
 	// 查询列表
 	$.ajax({
         url : '/admin/article/load',
-        data : 'page='+page+"&param="+param,
+        data : 'page='+page+"&categoryId="+categoryId+"&title="+keyword+"&tagIds="+tagIds,
         success  : function(data) {
         	$("#dataList").html(data);
 		}
@@ -75,26 +85,6 @@ function loadArticleList(){
 	
 }
 
-// 收集参数
-function buildParam(){
-	var param = {};
-	var keyword = $("#keyword").val();
-	if(!isEmpty(keyword)){
-		param["title"] = encodeURI(encodeURI(keyword));
-	}
-	
-	var categoryId = $("#categoryId").val();
-	if(!isEmpty(categoryId) && categoryId != '-1'){
-		param["categoryId"] = categoryId;
-	}
-	
-	var tagId = $("#tagId").val();
-	if(!isEmpty(tagId) && tagId != '-1'){
-		param["tagId"] = tagId;
-	}
-	
-	return JSON.stringify(param);
-}
 
 // 搜索
 function search(){
@@ -108,18 +98,35 @@ function addArticle(){
 
 // 删除文章
 function deleteArticle(id){
-	$.ajax({
-        url : '/admin/article/delete',
-        data : 'id='+id,
-        success  : function(data) {
-        	if(data.resultCode == 'success'){
-        		autoCloseAlert(data.errorInfo,1000);
-        		loadArticleList();
-        	}else{
-        		autoCloseAlert(data.errorInfo,1000);
-        	}
-		}
+    new $.flavr({
+        content: '您确定要删除吗?',
+
+        buttons: {
+            primary: {
+                text: '确定', style: 'primary', action: function () {
+                    $.ajax({
+                        url : '/admin/article/delete',
+                        data : 'id='+id,
+                        success  : function(data) {
+                            if(data.resultCode == 'success'){
+                                autoCloseAlert(data.errorInfo,1000);
+                                loadArticleList();
+                            }else{
+                                autoCloseAlert(data.errorInfo,1000);
+                            }
+                        }
+                    });
+                }
+            },
+            success: {
+                text: '取消', style: 'danger', action: function () {
+
+                }
+            }
+        }
     });
+    // 调到列表页
+
 }
 
 function htmlArticle(id){
@@ -155,5 +162,5 @@ function htmlAllArticle(){
 
 // 编辑文章
 function editArticle(id){
-	window.location.href = "/admin/article/editJump/?id="+id;
+	window.open("/admin/article/editJump/?id="+id);
 }

@@ -1,3 +1,16 @@
+var testEditor;
+
+$(function () {
+    testEditor = editormd("article-editormd", {
+        width: "100%",
+        height: 640,
+        syncScrolling: "single",
+        path: "/admin/lib/"
+    });
+
+
+});
+
 function getRootPath() {
 	//获取当前网址，如： http://localhost:8080/GameFngine/share/meun.jsp
 	var curWwwPath = window.document.location.href;
@@ -14,62 +27,98 @@ function getRootPath() {
 
 // 保存文章
 function editArticle(){
-    var param = {};
-    
-    // 收集参数 校验
-    param["id"] = $("#id").val();
-    
+	var articleId = $("#article-id").val();
+    $.ajax({
+        url: '/admin/article/updateInfo?articleId='+articleId,
+        success: function (data) {
+            $('#addArticleContent').html(data);
+            $('#addArticleModal').modal('show');
+            $('#addArticleModal').addClass('animated');
+            $('#addArticleModal').addClass('flipInY');
+            $(".chosen-select").chosen({
+                max_selected_options: 5,
+                no_results_text: "没有找到",
+                allow_single_deselect: true
+            });
+            $(".chosen-select").trigger("liszt:updated");
+        }
+    });
+}
+
+function save() {
+	var id = $("#articleId").val();
+
     var categoryId = $("#categoryId").val();
-    if(categoryId == '-1'){
-    	autoCloseAlert("请选择栏目",500);
-    	return false;
+    if(isEmpty(categoryId)){
+        autoCloseAlert("请选择栏目",500);
+        return false;
     }
-    param["categoryId"] = categoryId;
-    
     var title = $("#title").val();
     if(isEmpty(title)){
-    	autoCloseAlert("请输入标题",500);
-    	return false;
+        autoCloseAlert("请输入标题",500);
+        return false;
     }
-    param["title"] = title;
 
-    //var description = UE.getEditor('editor').getContentTxt().substring(0,500);
-    var content = testEditor.getHTML();
-    console.log(content);
-    var description = content.substring(0,100);
+    var content = testEditor.getMarkdown();
+    var description = $("#description").val();
     // 标签
-    var tagId = $(".chosen-select").val();
-    if(!isEmpty(tagId)){
-    	var ids = (tagId+"").split("\,");
-    	var tagArray = [];
-    	for(var i=0;i<ids.length;i++){
-    		tagObj = {id:ids[i]};
-    		tagArray.push(tagObj);
-    	}
-    	param["tagList"] = tagArray;
-    	console.info(tagArray);
-    }else{
-    	autoCloseAlert("请输入标签",500);
-    	return false;
+    var tagIds = [];
+    $("#tagId option:selected").each(function () {
+        tagIds.push($(this).val());
+    })
+    if (isEmpty(tagIds)) {
+        autoCloseAlert("请输入标签", 500);
+        return false;
+        // var ids = (tagId+"").split(",");
+        // var tagArray = [];
+        // for(var i=0;i<ids.length;i++){
+        //     tagObj = {id:ids[i]};
+        //     tagArray.push(tagObj);
+        // }
+        // param["tagList"] = tagArray;
+        // console.info(tagArray);
     }
 
     // 保存文章
     $.ajax({
         type : "POST",
-        url :  getRootPath()+'admin/article/edit',
-        data : 'param='+encodeURI(encodeURI(JSON.stringify(param)))+"&content="+encodeURI(encodeURI(content)).replace(/\&/g, "%26").replace(/\+/g, "%2B")+"&description="+encodeURI(encodeURI(description)),
+        url :  '/admin/article/update',
+        data : 'id='+id+'&categoryId=' + categoryId + "&tags=" + tagIds + "&title=" + title + "&content=" + encodeURI(content) + "&description=" +  encodeURI(description),
         success  : function(data) {
-        	if(data.resultCode != 'success'){
-        		autoCloseAlert(data.errorInfo,1000);
-				return false;
-			}else{
-				// 调到列表页
-				window.location.href = getRootPath()+ "admin/article/list";
-			}
-		}
+            if(data.resultCode != 'success'){
+                autoCloseAlert(data.errorInfo,1000);
+                closeEditWindow();
+                return false;
+            }else{
+                new $.flavr({
+                    content: '修改文章成功!',
+
+                    buttons: {
+                        primary: {
+                            text: '再写一篇', style: 'primary', action: function () {
+                                window.location.href = "/admin/article/list";
+                            }
+                        },
+                        success: {
+                            text: '查看博客', style: 'danger', action: function () {
+                                window.location.href = "/admin/article/list";
+                            }
+                        }
+                    }
+                });
+                // 调到列表页
+
+            }
+
+        }
     });
 }
 
 function cancleEditArticle(){
 	window.location.href = getRootPath()+ "admin/article/list";
+}
+
+//关闭编辑窗口
+function closeEditWindow(){
+    $('#addArticleContent').modal('hide');
 }
