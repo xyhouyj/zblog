@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+    <head>
+        <meta charset="utf-8" />
+        <title>Simple example - Editor.md examples</title>
+        <link href="/admin/css/bootstrap.min.css"  rel="stylesheet">
+        <link href="/admin/font-awesome/css/font-awesome.css"  rel="stylesheet">
+        <!-- Data Tables -->
+        <link href="/admin/css/plugins/dataTables/dataTables.bootstrap.css"  rel="stylesheet">
+        <link href="/admin/css/animate.css" rel="stylesheet">
+        <link href="/admin/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="/admin/css/article-add.css" />
+        <link rel="stylesheet" href="/admin/css/editormd.css" />
+        <link href="/admin/css/plugins/chosen/chosen.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/admin/js/flavr/flavr/css/animate.css" />
+        <link rel="stylesheet" type="text/css" href="/admin/js/flavr/flavr/css/flavr.css" />
+    </head>
+    <body>
+        <div id="layoutitle-controlt">
+            <header class="header-control">
+                <!--<div class="title-control">-->
+                        <!--<input type="text" class="title-input" placeholder="请输入文章标题">-->
+                <!--</div>-->
+                <div class="article-btn article-btn-danger submit-control" onclick="editArticle()">
+                    保存文章
+                </div>
+            </header>
+            <input id="article-id" th:value="${article.id}" hidden />
+            <div id="article-editormd">
+                <textarea style="display:none;" th:text="${article.content}"></textarea>
+            </div>
+        </div>
+
+
+        <!-- 编辑页面 -->
+        <div class="modal inmodal" id="editArticleModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div id="editArticleContent" class="modal-body">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 新增页面 -->
+        <div class="modal inmodal" id="addArticleModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div id="addArticleContent" class="modal-body">
+
+                </div>
+            </div>
+        </div>
+
+        <script src="/admin/js/jquery-2.1.1.min.js"></script>
+        <script src="/admin/js/bootstrap.min.js"></script>
+        <script src="/admin/js/editormd.js"></script>
+        <script src="/admin/js/plugins/chosen/chosen.jquery.js"></script>
+        <script src="/admin/js/article/edit_article.js"></script>
+        <script src="/admin/js/validation.js"></script>
+        <script type="text/javascript" src="/admin/js/flavr/flavr/js/flavr.min.js"></script>
+        <script type="text/javascript" src="/admin/js/flavr/base.js"></script>
+    </body>
+</html>
