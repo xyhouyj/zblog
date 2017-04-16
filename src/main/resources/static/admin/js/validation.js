@@ -123,7 +123,7 @@ function isMobile(string) {
  * @returns {Boolean}
  */
 function isEmpty(str) {
-	if (!str || $.trim(str).length <= 0)
+	if (!str || $.trim(str).length <= 0||str==null||str==undefined)
 		return true;
 	return false;
 }
