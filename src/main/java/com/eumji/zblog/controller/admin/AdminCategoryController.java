@@ -36,7 +36,7 @@ public class AdminCategoryController {
      */
     @RequestMapping("/list")
     public String categoryPage(){
-        return "/admin/category/categoryList";
+        return "admin/category/categoryList";
     }
 
     /**
@@ -57,7 +57,7 @@ public class AdminCategoryController {
      */
     @RequestMapping("/addJump")
     public String addPage(){
-        return "/admin/category/categoryAdd";
+        return "admin/category/categoryAdd";
     }
 
     /**
@@ -70,7 +70,7 @@ public class AdminCategoryController {
     public String editPage(Integer id,Model model){
         Category category = categoryService.getCategoryById(id);
         model.addAttribute("category",category);
-        return "/admin/category/categoryEdit";
+        return "admin/category/categoryEdit";
     }
 
     /**
@@ -84,7 +84,7 @@ public class AdminCategoryController {
     public String loadCategory(Pager pager ,String categoryName,Model model){
         List<Category> categoryList = categoryService.loadCategory(pager,categoryName);
         model.addAttribute("categoryList",categoryList);
-        return "/admin/category/categoryTable";
+        return "admin/category/categoryTable";
     }
 
 

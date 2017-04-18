@@ -35,7 +35,7 @@ public class ArticleController {
         List<ArticleCustom> articleList = articleService.articleList(pager);
         System.out.println(articleList);
         model.addAttribute("articleList",articleList);
-        return "/blog/part/articleSummary";
+        return "blog/part/articleSummary";
     }
 
 

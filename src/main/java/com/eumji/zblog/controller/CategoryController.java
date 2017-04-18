@@ -28,7 +28,7 @@ public class CategoryController {
             model.addAttribute("articleList",articleList);
             model.addAttribute("categoryName",articleList.get(0).getCategoryName());
         }
-        return "/blog/part/categorySummary";
+        return "blog/part/categorySummary";
     }
 
 }

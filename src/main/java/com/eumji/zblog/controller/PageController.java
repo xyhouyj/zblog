@@ -58,17 +58,17 @@ public class  PageController {
 
     @RequestMapping("/articleList")
     public String articleList(){
-        return "/admin/article/articleList";
+        return "admin/article/articleList";
     }
 
     @RequestMapping("/admin/friend/list")
     public String partnerList(){
-        return "/admin/partner/partnerList";
+        return "admin/partner/partnerList";
     }
 
     @RequestMapping("/admin/friend/addJump")
     public String addPage(){
-        return "/admin/partner/partnerAdd";
+        return "admin/partner/partnerAdd";
     }
 
     @RequestMapping("/category/details/{categoryId}")
@@ -76,7 +76,7 @@ public class  PageController {
         List<Partner> partnerList = partnerService.findAll();
         model.addAttribute("partnerList",partnerList);
         model.addAttribute("categoryId",categoryId);
-        return "/category";
+        return "category";
     }
     /**
      * 加载文章
@@ -95,6 +95,6 @@ public class  PageController {
         model.addAttribute("tagCount",tagCount);
         model.addAttribute("categoryList",categoryList);
         model.addAttribute("partnerList",partnerList);
-        return "/article";
+        return "article";
     }
 }

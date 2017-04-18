@@ -64,7 +64,7 @@ public class AdminArticleController {
      */
     @RequestMapping("/addPage")
     public String addPage() {
-        return "/admin/article/articleAdd";
+        return "admin/article/articleAdd";
     }
 
     /**
@@ -91,7 +91,7 @@ public class AdminArticleController {
         //获取文章列表
         List<Article> articleList = articleService.loadArticle(param);
         model.addAttribute("articleList", articleList);
-        return "/admin/article/articleTable";
+        return "admin/article/articleTable";
     }
 
     /**
@@ -124,7 +124,7 @@ public class AdminArticleController {
         List<Category> categoryList = categoryService.getCategoryList();
         model.addAttribute("tagList", tagList);
         model.addAttribute("categoryList", categoryList);
-        return "/admin/article/articleInfo";
+        return "admin/article/articleInfo";
     }
 
     /**
@@ -158,7 +158,7 @@ public class AdminArticleController {
     public String updatePage(Integer id,Model model){
         Article article = articleService.getArticleById(id);
         model.addAttribute("article",article);
-        return"/admin/article/articleEdit";
+        return"admin/article/articleEdit";
     }
 
     /**
@@ -175,7 +175,7 @@ public class AdminArticleController {
         model.addAttribute("article",article);
         model.addAttribute("categoryList",categoryList);
         model.addAttribute("tagList",tagList);
-        return "/admin/article/articleEditInfo";
+        return "admin/article/articleEditInfo";
     }
 
     /**

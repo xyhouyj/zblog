@@ -56,13 +56,13 @@ public class AdminPageController {
         List<Category> categoryList = categoryService.getCategoryList();
         model.addAttribute("tagList",tagList);
         model.addAttribute("categoryList",categoryList);
-        return "/admin/article/articleList";
+        return "admin/article/articleList";
     }
 
 
     @RequestMapping("/tag/list")
     public String labelPage(){
-        return "/admin/label/labelList";
+        return "admin/label/labelList";
     }
     /**
      * 加载友链分页
@@ -75,7 +75,7 @@ public class AdminPageController {
         pager.setStart((pager.getPage()-1)*pager.getLimit());
         List<Partner> partnerList =partnerService.loadPartner(pager,param);
         model.addAttribute("partnerList",partnerList);
-        return "/admin/partner/partnerTable";
+        return "admin/partner/partnerTable";
     }
 
     /**
@@ -84,14 +84,14 @@ public class AdminPageController {
      */
     @RequestMapping("/partner/addJump")
     public String partnerAddPage(){
-        return "/admin/partner/partnerAdd";
+        return "admin/partner/partnerAdd";
     }
 
     @RequestMapping("/partner/editJump")
     public String partnerEditPage(Integer id,Model model){
         Partner partner = partnerService.getPartnerById(id);
         model.addAttribute("partner",partner);
-        return "/admin/partner/partnerEdit";
+        return "admin/partner/partnerEdit";
     }
 
     /**跳转到友链展示页面
@@ -99,6 +99,6 @@ public class AdminPageController {
      */
     @RequestMapping("/partner/list")
     public String partnerPage(){
-        return "/admin/partner/partnerList";
+        return "admin/partner/partnerList";
     }
 }

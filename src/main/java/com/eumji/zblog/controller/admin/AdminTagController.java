@@ -42,19 +42,19 @@ public class AdminTagController {
     public String editPage(Integer id, Model model){
         Tag tag = tagService.getTagById(id);
         model.addAttribute("tag",tag);
-        return "/admin/label/labelEdit";
+        return "admin/label/labelEdit";
     }
 
     @RequestMapping("/addJump")
     public String addPage(){
-        return "/admin/label/labelAdd";
+        return "admin/label/labelAdd";
     }
 
     @RequestMapping("/load")
     public String loadTagList(Pager pager,String tagName,Model model){
         List<Tag> tagList = tagService.loadTagList(pager,tagName);
         model.addAttribute("tagList",tagList);
-        return "/admin/label/labelTable";
+        return "admin/label/labelTable";
     }
 
 

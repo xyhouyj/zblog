@@ -34,7 +34,7 @@ public class TagController {
            model.addAttribute("tagName",articleList.get(0).getTagList().get(0).getTagName());
        }
 
-       return "/blog/part/tagSummary";
+       return "blog/part/tagSummary";
    }
 }
 
