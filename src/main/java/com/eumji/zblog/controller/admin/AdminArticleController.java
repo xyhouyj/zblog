@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 后台管理 文章controller
  * FILE: com.eumji.zblog.controller.admin.AdminArticleController.java
  * MOTTO:  不积跬步无以至千里,不积小流无以至千里
  * AUTHOR: EumJi
@@ -32,15 +33,24 @@ import java.util.Map;
 @RequestMapping("/admin/article")
 public class AdminArticleController {
     private Logger log = LoggerFactory.getLogger(AdminArticleController.class);
+    //文章service
     @Resource
     private ArticleService articleService;
 
+
+    //标签service
     @Resource
     private TagService tagService;
 
+    //分类service
     @Resource
     private CategoryService categoryService;
 
+    /**
+     * 初始化文章分页信息
+     * @param pager
+     * @return
+     */
     @RequestMapping("/initPage")
     @ResponseBody
     public Pager initPage(Pager pager) {
@@ -48,25 +58,48 @@ public class AdminArticleController {
         return pager;
     }
 
+    /**
+     * 跳转到添加页面
+     * @return
+     */
     @RequestMapping("/addPage")
     public String addPage() {
         return "/admin/article/articleAdd";
     }
 
+    /**
+     * 初始化文章列表
+     * @param pager 分页对象
+     * @param categoryId 搜索条件 分类id
+     * @param tagIds 搜索条件 tag集合
+     * @param title 搜索条件 文章标题
+     * @param model
+     * @return
+     */
     @RequestMapping("/load")
     public String loadArticle(Pager pager, Integer categoryId, int[] tagIds, String title, Model model) {
-
+        /**
+         * 设置start位置
+         */
         pager.setStart(pager.getStart());
+        //封装查询条件
         Map<String, Object> param = new HashMap<>();
         param.put("tags", tagIds);
         param.put("categoryId", categoryId);
         param.put("title",title);
         param.put("pager", pager);
+        //获取文章列表
         List<Article> articleList = articleService.loadArticle(param);
         model.addAttribute("articleList", articleList);
         return "/admin/article/articleTable";
     }
 
+    /**
+     * 更新文章可用状态
+     * @param id
+     * @param status
+     * @return
+     */
     @RequestMapping("/updateStatue")
     @ResponseBody
     public ResultInfo updateStatue(Integer id, int status) {
@@ -80,6 +113,11 @@ public class AdminArticleController {
         return ResultInfoFactory.getSuccessResultInfo();
     }
 
+    /**
+     * 获取条件,所有tag和category
+     * @param model
+     * @return
+     */
     @RequestMapping("/term")
     public String articleTerm(Model model) {
         List<Tag> tagList = tagService.getTagList();
@@ -89,7 +127,12 @@ public class AdminArticleController {
         return "/admin/article/articleInfo";
     }
 
-
+    /**
+     * 保存文章
+     * @param article
+     * @param tags
+     * @return
+     */
     @RequestMapping("/save")
     @ResponseBody
     public ResultInfo SaveArticle(Article article,int[] tags){
@@ -105,6 +148,12 @@ public class AdminArticleController {
 
     }
 
+    /**
+     * 跳转到编辑页面
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping("/editJump")
     public String updatePage(Integer id,Model model){
         Article article = articleService.getArticleById(id);
@@ -112,6 +161,12 @@ public class AdminArticleController {
         return"/admin/article/articleEdit";
     }
 
+    /**
+     * 获取更新文章信息
+     * @param articleId 文章标题 用于获取文章信息
+     * @param model
+     * @return
+     */
     @RequestMapping("/updateInfo")
     public String updateInfo(Integer articleId,Model model){
         Article article = articleService.getArticleById(articleId);
@@ -123,6 +178,12 @@ public class AdminArticleController {
         return "/admin/article/articleEditInfo";
     }
 
+    /**
+     * 更新文章
+     * @param article
+     * @param tags
+     * @return
+     */
     @RequestMapping("/update")
     @ResponseBody
     public ResultInfo updateArticle(Article article,int[] tags){

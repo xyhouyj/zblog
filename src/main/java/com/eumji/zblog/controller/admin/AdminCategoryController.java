@@ -16,6 +16,7 @@ import java.net.URLDecoder;
 import java.util.List;
 
 /**
+ * 后台管理的分类controller
  * FILE: com.eumji.zblog.controller.admin.AdminCategoryController.java
  * MOTTO:  不积跬步无以至千里,不积小流无以至千里
  * AUTHOR: EumJi
@@ -29,13 +30,20 @@ public class AdminCategoryController {
     @Resource
     private CategoryService categoryService;
 
-
+    /**
+     * 跳转到分类列表页面
+     * @return 分类列表页面
+     */
     @RequestMapping("/list")
     public String categoryPage(){
         return "/admin/category/categoryList";
     }
 
-
+    /**
+     * 初始化分页信息 获取totalcount
+     * @param pager 分页对象
+     * @return
+     */
     @RequestMapping("/initPage")
     @ResponseBody
     public Pager initPage(Pager pager){
@@ -43,17 +51,35 @@ public class AdminCategoryController {
         return pager;
     }
 
+    /**
+     * 跳转到添加页面
+     * @return
+     */
     @RequestMapping("/addJump")
     public String addPage(){
         return "/admin/category/categoryAdd";
     }
 
+    /**
+     * 跳转修改页面
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping("/editJump")
     public String editPage(Integer id,Model model){
         Category category = categoryService.getCategoryById(id);
         model.addAttribute("category",category);
         return "/admin/category/categoryEdit";
     }
+
+    /**
+     * 加载分类信息列表
+     * @param pager 分页对象
+     * @param categoryName  搜索条件
+     * @param model
+     * @return
+     */
     @RequestMapping("/load")
     public String loadCategory(Pager pager ,String categoryName,Model model){
         List<Category> categoryList = categoryService.loadCategory(pager,categoryName);
@@ -61,15 +87,23 @@ public class AdminCategoryController {
         return "/admin/category/categoryTable";
     }
 
+
+    /**
+     * 添加分类信息
+     * @param category 分类信息对象
+     * @return
+     */
     @RequestMapping("/save")
     @ResponseBody
     public ResultInfo saveCateogry(Category category){
         try {
+            //解码
             category.setCategoryName(URLDecoder.decode(category.getCategoryName(),"UTF-8"));
             category.setAliasName(URLDecoder.decode(category.getAliasName(),"UTF-8"));
             if (category.getSort()==null){
                 category.setSort(0);
             }
+            //检查是否已存在
             if (categoryService.checkExist(category)){
                 return ResultInfoFactory.getErrorResultInfo("分类名称或别名已存在");
             }else {
@@ -83,16 +117,23 @@ public class AdminCategoryController {
         return ResultInfoFactory.getSuccessResultInfo();
     }
 
+    /**
+     * 更新分类信息
+     * @param category
+     * @return
+     */
     @RequestMapping("/update")
     @ResponseBody
     public ResultInfo updateCategory(Category category){
 
         try {
+            //解码
             category.setCategoryName(URLDecoder.decode(category.getCategoryName(),"UTF-8"));
             category.setAliasName(URLDecoder.decode(category.getAliasName(),"UTF-8"));
             if (category.getSort()==null){
                 category.setSort(0);
             }
+            //检查是否存在
             if (categoryService.checkExist(category)){
                 return ResultInfoFactory.getErrorResultInfo("分类的名称或别名已存在");
             }else {
