@@ -19,7 +19,7 @@ $(function() {
                 page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
                 onPageChange: function (num, type) {
                     // 加载管理员列表
-                    $("#current-page").val(num);
+                    $("#current-page").text(num);
                     loadPartnerList();
                 }
             });
