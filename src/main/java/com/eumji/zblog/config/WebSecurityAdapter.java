@@ -25,7 +25,7 @@ public class WebSecurityAdapter extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/","/blog/**","/tag/**","friend","/login/**","/login/auth").permitAll()
                 .antMatchers("/admin/**").authenticated()
                 .and().rememberMe().tokenValiditySeconds(3600)
-                .and().formLogin().loginPage("/login").permitAll()
+                .and().formLogin().loginPage("/login").defaultSuccessUrl("/admin/article/list").permitAll()
                 .and().logout().logoutUrl("/admin/loginOut").permitAll();
 
     }
