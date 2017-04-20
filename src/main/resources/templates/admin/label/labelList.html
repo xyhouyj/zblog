@@ -31,9 +31,6 @@
     <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="side-menu">
-                <style>
-                    .img-circle{ width:64px;}
-                </style>
                 <li class="nav-header">
                     <div class="dropdown profile-element"> <span>
                             <img alt="image" class="img-circle" src="/image/avatar.jpg"/>
@@ -175,10 +172,8 @@
         </div>
 
     </div>
-    <div class="footer fixed">
-        <div class="pull-right">
-            <strong>Copyright</strong>© 2017 Eumji All Rights Reserved
-        </div>
+    <div class="footer fixed" th:insert="~{/admin/partial/footer :: copyright}">
+
     </div>
 </div>
 
