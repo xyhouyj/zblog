@@ -3,23 +3,26 @@ package com.eumji.zblog.controller.admin;
 import com.eumji.zblog.service.ArticleService;
 import com.eumji.zblog.service.CategoryService;
 import com.eumji.zblog.service.TagService;
+import com.eumji.zblog.util.PhotoUploadUtil;
 import com.eumji.zblog.util.ResultInfo;
 import com.eumji.zblog.util.ResultInfoFactory;
-import com.eumji.zblog.vo.Article;
-import com.eumji.zblog.vo.Category;
-import com.eumji.zblog.vo.Pager;
-import com.eumji.zblog.vo.Tag;
+import com.eumji.zblog.vo.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * 后台管理 文章controller
@@ -207,5 +210,24 @@ public class AdminArticleController {
             return ResultInfoFactory.getErrorResultInfo("删除失败!");
         }
         return ResultInfoFactory.getSuccessResultInfo();
+    }
+
+    @RequestMapping("/imageUpload")
+    @ResponseBody
+    public PhotoResult imageUpload(@RequestParam(value = "editormd-image-file",required = true) MultipartFile file){
+        PhotoResult result = null;
+        //设置filename
+       // String filename = new Random().nextInt(10000)+file.getOriginalFilename();
+        try {
+            File files = new File("d:/"+file.getOriginalFilename());
+            file.transferTo(files);
+
+            result = PhotoUploadUtil.uploadPhoto(files.getAbsolutePath(), file.getOriginalFilename());
+            return result;
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+        return result;
     }
 }
