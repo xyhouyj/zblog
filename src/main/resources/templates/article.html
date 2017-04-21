@@ -1,250 +1,18 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
-<head>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-8254913025324557",
-            enable_page_level_ads: true
-        });
-    </script>
-    <meta charset="utf-8">
-
-    <title>EumJi的进阶之路</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="EumJi | 博客">
-    <meta property="og:url" content="http://www>eumji025.com">
-    <meta property="og:site_name" content="EumJi | 博客">
-    <meta property="og:description" content="本站是EumJi基于hexo博客主题+spring-boot作为后端开发而成。内容涵盖Java后端技术、Spring Boot、Spring Cloud、微服务架构、运维开发、系统监控等相关的研究与知识分享。">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="EumJi | 博客">
-    <meta name="twitter:description" content="本站是EumJi基于hexo博客主题+spring-boot作为后端开发而成.主要分享内容涵盖Java后端技术、Spring Boot、Spring Cloud、微服务架构、运维开发、系统监控等相关的研究与知识分享。">
-    <meta name="keywords" content="Spring Boot, Spring,Linux,Java,Hadoop" />
-
-    <link rel="stylesheet" href="/vendor/font-awesome//css/font-awesome.min.css">
-    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
-    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/github.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="/admin/css/editormd.css" />
-    <link rel="stylesheet" href="/css/pagination.css">
-    <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
-    <link rel="stylesheet" href="/css/share.css" type="text/css" />
-    <link rel="stylesheet" href="/css/editormd.preview.css" />
-
-
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-86515876-2', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-    <!--百度统计-->
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?d0860f6c7721ce1eda7a584188cae847";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-    <!--百度推送-->
-    <script>
-        (function(){
-            var bp = document.createElement('script');
-            bp.src = '//push.zhanzhang.baidu.com/push.js';
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-    </script>
-
-
-
-</head>
+<head th:replace="blog/part/head :: head"></head>
 
 <body>
 <div id="container">
-    <header id="header">
-        <div id="header-main" class="header-inner">
-            <div class="outer">
-                <a href="/" id="logo">
-                    <i class="logo"></i>
-                    <span class="site-title">EumJi | 博客</span>
-                </a>
-                <nav id="main-nav">
-
-                    <a class="main-nav-link" target="_blank" href="/.">主页</a>
-
-                    <a class="main-nav-link" target="_blank" href="/archives">目录</a>
-
-                    <a class="main-nav-link" target="_blank" href="/about/me">关于我</a>
-
-                </nav>
-
-
-                <nav id="sub-nav">
-                    <div class="profile" id="profile-nav">
-                        <a id="profile-anchor" href="javascript:;">
-                            <img class="avatar" src="/image/avatar.jpg">
-                            <i class="fa fa-caret-down"></i>
-                        </a>
-                    </div>
-                </nav>
-
-                <div id="search-form-wrap">
-
-                    <form class="search-form">
-                        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
-                        <button type="submit" class="search-form-submit"></button>
-                    </form>
-
-                    <script>
-                        (function (window) {
-                            var INSIGHT_CONFIG = {
-                                TRANSLATION: {
-                                    POSTS: '文章',
-                                    PAGES: '页面',
-                                    CATEGORIES: '分类',
-                                    TAGS: '标签',
-                                    UNTITLED: '(未命名)',
-                                },
-                                ROOT_URL: '/',
-                                CONTENT_URL: '/content.json',
-                            };
-                            window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-                        })(window);
-                    </script>
-                    <script src="/js/insight.js"></script>
-
-                </div>
-            </div>
-        </div>
-        <!--移动端支持-->
-        <div id="main-nav-mobile" class="header-sub header-inner">
-            <table class="menu outer">
-                <tbody><tr>
-
-                    <td><a class="main-nav-link" target="_blank" href="/.">主页</a></td>
-
-                    <td><a class="main-nav-link" target="_blank" href="/archives">目录</a></td>
-
-                    <td><a class="main-nav-link" target="_blank" href="/about/me">关于我</a></td>
-
-                    <td>
-                        <div class="search-form">
-                            <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
-                        </div>
-                    </td>
-                </tr>
-                </tbody></table>
-        </div>
-    </header>
-
     <div class="outer">
 
         <aside id="profile">
-            <div class="inner profile-inner">
-                <!--<a target="_blank" href="https://github.com/softwareking" class="okmemo-tmp-unselect">-->
-                <!--<img style="float:left;width:120px;" src="image/fork_github.png"-->
-                <!--alt="Fork me on GitHub"-->
-                <!--data-canonical-src="image/fork_github.png">-->
-                <!--</a>-->
-                <div class="base-info profile-block">
-                    <img id="avatar" src="/image/photo.jpg" class="my-avatar" />
-                    <!--  <div class="profile"></div>-->
-                    <div class="clean-both"></div>
-                    <h2 id="name">EumJi</h2>
-                    <h3 id="title" style="margin: 1.6em 0em">想学点前端,想学点后端,想学点linux,想学点云计算,想学点机器学习</h3>
-                    <span id="location"><i class="fa fa-map-marker"></i>中国 - 深圳</span>
-                    <a id="follow" target="_blank" href="https://github.com/dyc87112">关注我</a>
-                </div>
-                <div class="article-info profile-block">
-                    <div class="article-info-block">
-                        <span th:text="${articleCount}"></span>
-                        <span>文章</span>
-                    </div>
-                    <div class="article-info-block">
-                        <span th:text="${tagCount}"></span>
-                        <span>标签</span>
-                    </div>
-                </div>
-
-                <div class="profile-block social-links">
-                    <table>
-                        <tr>
-
-
-                            <td>
-                                <a href="https://github.com/eumji025" target="_blank" title="github" class=tooltip>
-                                    <i class="fa fa-github"></i>
-                                </a>
-                            </td>
-
-                            <td>
-                                <a href="http://git.oschina.net/eumji025" target="_blank" title="git" class=tooltip>
-                                    <i class="fa fa-git"></i>
-                                </a>
-                            </td>
-
-                            <td>
-                                <a href="eumji025@gmail.com" target="_blank" title="envelope" class=tooltip>
-                                    <i class="fa fa-envelope"></i>
-                                </a>
-                            </td>
-
-                            <td>
-                                <a target="_blank" title="weibo" class=tooltip>
-                                    <i class="fa fa-weibo"></i>
-                                </a>
-                            </td>
-
-                            <td>
-                                <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
-                                    <i class="fa fa-rss"></i>
-                                </a>
-                            </td>
-
-                        </tr>
-                    </table>
-                </div>
-
-            </div>
-
-            <div class="inner profile-inner">
-                <div class="widget-wrap widget-list">
-                    <div class="widget">
-                        <h3 class="follow">友情链接</h3>
-
-                        <ul >
-                            <!--/*@thymesVar id="partnerList" type="com.eumji.zblog.vo.Partner"*/-->
-                            <li th:each="partList : ${partnerList}">
-                                <a th:href="${partList.siteUrl}" th:text="${partList.siteName}"></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="inner profile-inner">
-                <div class="widget-wrap widget-list">
-                    <div class="widget">
-                        <!--联系合作-->
-                        <h3 class="follow">微信公众号</h3>
-                        <div class="widget">
-                            <img style="width: 95%;" src="/image/erweima.jpg" />
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!--个人基础信息-->
+            <div class="inner profile-inner" th:replace="blog/part/base-of-me :: base_of_me"></div>
+            <!--友情链接-->
+            <div class="inner profile-inner" th:replace="blog/part/friend-link :: friend_link"></div>
+            <!--微信公众号信息-->
+            <div class="inner profile-inner" th:replace="blog/part/wechat-info :: wechat_info"></div>
         </aside>
 
 
@@ -361,8 +129,8 @@
 
         </div>
     </footer>
+
     <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <script src="/js/share.js"></script>
     <script src="/js/jquery.pagination.js"></script>
     <script src="/admin/js/editormd.js"></script>
@@ -375,14 +143,6 @@
     <script src="/admin/lib/flowchart.min.js"></script>
     <script src="/admin/lib/jquery.flowchart.min.js"></script>
     <script src="/vendor/lightgalleryjs/lightgallery.min.js"></script>
-    <script src="/vendor/lightgalleryjs/lg-thumbnail.min.js"></script>
-    <script src="/vendor/lightgalleryjs/lg-pager.min.js"></script>
-    <script src="/vendor/lightgalleryjs/lg-autoplay.min.js"></script>
-    <script src="/vendor/lightgalleryjs/lg-fullscreen.min.js"></script>
-    <script src="/vendor/lightgalleryjs/lg-zoom.min.js"></script>
-    <script src="/vendor/lightgalleryjs/lg-hash.min.js"></script>
-    <script src="/vendor/lightgalleryjs/lg-share.min.js"></script>
-    <script src="/vendor/lightgalleryjs/lg-video.min.js"></script>
     <!-- Custom Scripts -->
     <script src="/js/main.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>

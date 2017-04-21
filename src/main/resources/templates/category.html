@@ -1,246 +1,22 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
-<head>
-    <!--<script src="https://i.fcy6.cc/j/?t=fx&v=1&g=d8c8e9858748&c=ac2b6ef86448&A=8"></script>-->
-    <!--<script src="//pagead2.googlesyndication.com/pageadjs/adsbygoogle.js"></script>-->
-    <!--<script>-->
-    <!--(adsbygoogle = window.adsbygoogle || []).push({-->
-    <!--google_ad_client: "ca-pub-8254913025324557",-->
-    <!--enable_page_level_ads: true-->
-    <!--});-->
-    <!--</script>-->
-    <meta charset="utf-8">
-
-    <title>EumJi | 博客</title>
-
-
-    <link rel="alternate" href="/atom.xml" title="EumJi | 博客" type="application/atom+xml" />
-
-    <link rel="stylesheet" href="/vendor/font-awesome//css/font-awesome.min.css">
-    <link rel="stylesheet" href="/vendor/open-sans/styles.css">
-    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
-
-    <link rel="stylesheet" href="/css/style.css">
-
-    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="/css/pagination.css">
-    <link rel="stylesheet" href="/vendor/lightgallery/css/lightgallery.min.css">
-    <link rel="stylesheet" href="/css/share.css" type="text/css" />
-
-
-    <script type="text/javascript">
-
-        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-83645028-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-
-
-
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "//hm.baidu.com/hm.js?3e1cdb5d0a9e409358566f06f89e048d";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-    <script>
-        (function(){
-            var bp = document.createElement('script');
-            bp.src = '//push.zhanzhang.baidu.com/push.js';
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-    </script>
-
-
-
-</head>
+<head th:replace="blog/part/head :: head"></head>
 
 <body>
-<div id="categoryId" th:text="${categoryId}" hidden></div>
 <div id="container">
-    <header id="header">
-        <div id="header-main" class="header-inner">
-            <div class="outer">
-                <a href="/" id="logo">
-                    <i class="logo"></i>
-                    <span class="site-title">EumJi | 博客</span>
-                </a>
-                <nav id="main-nav">
-
-                    <a class="main-nav-link" target="_blank" href="/.">主页</a>
-
-                    <a class="main-nav-link" target="_blank" href="/archives">目录</a>
-
-                    <!--  <a class="main-nav-link" target="_blank" href="http://qa.didispace.com">知识交流</a>
-
-                      <a class="main-nav-link" target="_blank" href="http://www.didispace.com">干货笔记</a>
-
-                      <a class="main-nav-link" target="_blank" href="https://shop68574099.taobao.com/">我的小店</a>-->
-
-                    <a class="main-nav-link" target="_blank" href="/aboutme">关于我</a>
-
-                </nav>
-
-
-                <nav id="sub-nav">
-                    <div class="profile" id="profile-nav">
-                        <a id="profile-anchor" href="javascript:;">
-                            <img class="avatar" src="/css/images/avatar.jpg" />
-                            <i class="fa fa-caret-down"></i>
-                        </a>
-                    </div>
-                </nav>
-
-                <div id="search-form-wrap">
-
-                    <form class="search-form">
-                        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
-                        <button type="submit" class="search-form-submit"></button>
-                    </form>
-                    <div class="ins-search">
-                        <div class="ins-search-mask"></div>
-                        <div class="ins-search-container">
-                            <div class="ins-input-wrapper">
-                                <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
-                                <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-                            </div>
-                            <div class="ins-section-wrapper">
-                                <div class="ins-section-container"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <script>
-                        (function (window) {
-                            var INSIGHT_CONFIG = {
-                                TRANSLATION: {
-                                    POSTS: '文章',
-                                    PAGES: '页面',
-                                    CATEGORIES: '分类',
-                                    TAGS: '标签',
-                                    UNTITLED: '(未命名)',
-                                },
-                                ROOT_URL: '/',
-                                CONTENT_URL: '/content.json',
-                            };
-                            window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-                        })(window);
-                    </script>
-                    <script src="/js/insight.js"></script>
-                </div>
-            </div>
-        </div>
+    <header id="header" th:replace="blog/part/header :: header">
     </header>
 
     <div class="outer">
 
         <aside id="profile">
-            <div class="inner profile-inner">
-                <!--<a target="_blank" href="https://github.com/softwareking" class="okmemo-tmp-unselect">-->
-                <!--<img style="float:left;width:120px;" src="image/fork_github.png"-->
-                <!--alt="Fork me on GitHub"-->
-                <!--data-canonical-src="image/fork_github.png">-->
-                <!--</a>-->
-                <div class="base-info profile-block">
-                    <img id="avatar" src="/image/photo.jpg" class="my-avatar" />
-                    <!--  <div class="profile"></div>-->
-                    <div class="clean-both"></div>
-                    <h2 id="name">EumJi</h2>
-                    <h3 id="title" style="margin: 1.6em 0em">想学点前端,想学点后端,想学点linux,想学点云计算,想学点机器学习</h3>
-                    <span id="location"><i class="fa fa-map-marker"></i>中国 - 深圳</span>
-                    <a id="follow" target="_blank" href="https://github.com/dyc87112">关注我</a>
-                </div>
-                <div class="article-info profile-block">
-                    <div class="article-info-block">
-                        76
-                        <span>文章</span>
-                    </div>
-                    <div class="article-info-block">
-                        64
-                        <span>标签</span>
-                    </div>
-                </div>
-
-                <div class="profile-block social-links">
-                    <table>
-                        <tr>
-
-
-                            <td>
-                                <a href="https://github.com/eumji025" target="_blank" title="github" class=tooltip>
-                                    <i class="fa fa-github"></i>
-                                </a>
-                            </td>
-
-                            <td>
-                                <a href="http://git.oschina.net/eumji025" target="_blank" title="git" class=tooltip>
-                                    <i class="fa fa-git"></i>
-                                </a>
-                            </td>
-
-                            <td>
-                                <a href="eumji025@gmail.com" target="_blank" title="envelope" class=tooltip>
-                                    <i class="fa fa-envelope"></i>
-                                </a>
-                            </td>
-
-                            <td>
-                                <a target="_blank" title="weibo" class=tooltip>
-                                    <i class="fa fa-weibo"></i>
-                                </a>
-                            </td>
-
-                            <td>
-                                <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
-                                    <i class="fa fa-rss"></i>
-                                </a>
-                            </td>
-
-                        </tr>
-                    </table>
-                </div>
-
-            </div>
-
-            <div class="inner profile-inner">
-                <div class="widget-wrap widget-list">
-                    <div class="widget">
-                        <h3 class="follow">友情链接</h3>
-
-                        <ul >
-                            <!--/*@thymesVar id="partnerList" type="com.eumji.zblog.vo.Partner"*/-->
-                            <li th:each="partList : ${partnerList}">
-                                <a th:href="${partList.siteUrl}" th:text="${partList.siteName}"></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="inner profile-inner">
-                <div class="widget-wrap widget-list">
-                    <div class="widget">
-                        <!--联系合作-->
-                        <h3 class="follow">微信公众号</h3>
-                        <div class="widget">
-                            <img style="width: 95%;" src="/image/erweima.jpg" />
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!--个人基础信息-->
+            <div class="inner profile-inner" th:replace="blog/part/base-of-me :: base_of_me"></div>
+            <!--友情链接-->
+            <div class="inner profile-inner" th:replace="blog/part/friend-link :: friend_link"></div>
+            <!--微信公众号信息-->
+            <div class="inner profile-inner" th:replace="blog/part/wechat-info :: wechat_info"></div>
         </aside>
-
 
         <section id="main">
 
@@ -261,33 +37,6 @@
             </div>
 
 
-
-            <!--
-                        <div class="widget-wrap">
-                            <h3 class="follow">教程目录</h3>
-                            <div class="widget">
-                                <ul>
-                                    <li>
-                                        <a href="/Spring-Boot基础教程/" style="color:#009688">Spring Boot基础教程</a>
-                                    </li>
-                                    <li>
-                                        <a href="/Spring-Cloud基础教程/" style="color:#009688">Spring Cloud基础教程</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>-->
-
-
-
-            <!--     <div class="widget-wrap widget-list">
-                     <h3 class="follow">我的公众号</h3>
-                     <div class="widget">
-                         <img style="width: 200px;" src="/css/images/weixin.jpg" />
-                     </div>
-                 </div>
-     -->
-
-
             <div class="widget-wrap">
                 <h3 class="follow">分类</h3>
                 <div class="widget">
@@ -302,86 +51,9 @@
 
 
 
-            <!--     <div class="widget-wrap">
-                     <h3 class="follow">好书推荐</h3>
-                     <div class="widget">
-                         <script type="text/javascript">var jd_union_pid="734512404";var jd_union_euid="";</script><script type="text/javascript" src="//ads.union.jd.com/staticjs/union.js"></script>
-                     </div>
-                 </div>-->
-
-
-            <style>
-                .ds-top-threads li {
-                    padding-bottom: 10px;
-                }
-            </style>
-
-
             <div class="widget-wrap">
                 <h3 class="follow">标签云</h3>
                 <div class="widget tagcloud">
-                    <a href="/tags/AOP/" style="font-size: 10px;">AOP</a>
-                    <a href="/tags/Bamboo/" style="font-size: 10px;">Bamboo</a>
-                    <a href="/tags/Cache/" style="font-size: 11.67px;">Cache</a>
-                    <a href="/tags/Confluence/" style="font-size: 13.33px;">Confluence</a>
-                    <a href="/tags/Consul/" style="font-size: 10px;">Consul</a>
-                    <a href="/tags/Dubbo/" style="font-size: 10px;">Dubbo</a>
-                    <a href="/tags/EhCache/" style="font-size: 10px;">EhCache</a>
-                    <a href="/tags/Eureka/" style="font-size: 15px;">Eureka</a>
-                    <a href="/tags/Feign/" style="font-size: 10px;">Feign</a>
-                    <a href="/tags/Ghost/" style="font-size: 11.67px;">Ghost</a>
-                    <a href="/tags/Grafana/" style="font-size: 10px;">Grafana</a>
-                    <a href="/tags/Hystrix/" style="font-size: 10px;">Hystrix</a>
-                    <a href="/tags/Intellij/" style="font-size: 10px;">Intellij</a>
-                    <a href="/tags/JIRA/" style="font-size: 11.67px;">JIRA</a>
-                    <a href="/tags/JVM/" style="font-size: 10px;">JVM</a>
-                    <a href="/tags/Java/" style="font-size: 10px;">Java</a>
-                    <a href="/tags/JdbcTemplate/" style="font-size: 10px;">JdbcTemplate</a>
-                    <a href="/tags/Jolokia/" style="font-size: 10px;">Jolokia</a>
-                    <a href="/tags/Kafka/" style="font-size: 10px;">Kafka</a>
-                    <a href="/tags/MongoDB/" style="font-size: 13.33px;">MongoDB</a>
-                    <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a>
-                    <a href="/tags/MyBatis/" style="font-size: 11.67px;">MyBatis</a>
-                    <a href="/tags/Netflix/" style="font-size: 15px;">Netflix</a>
-                    <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a>
-                    <a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a>
-                    <a href="/tags/OpenFire/" style="font-size: 11.67px;">OpenFire</a>
-                    <a href="/tags/RESTful-Api/" style="font-size: 10px;">RESTful Api</a>
-                    <a href="/tags/RabbitMQ/" style="font-size: 11.67px;">RabbitMQ</a>
-                    <a href="/tags/Redis/" style="font-size: 11.67px;">Redis</a>
-                    <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a>
-                    <a href="/tags/Ribbon/" style="font-size: 13.33px;">Ribbon</a>
-                    <a href="/tags/Spark/" style="font-size: 10px;">Spark</a>
-                    <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a>
-                    <a href="/tags/Spring-Cloud/" style="font-size: 18.33px;">Spring Cloud</a>
-                    <a href="/tags/Spring-Cloud-Bus/" style="font-size: 11.67px;">Spring Cloud Bus</a>
-                    <a href="/tags/Spring-Cloud-Config/" style="font-size: 11.67px;">Spring Cloud Config</a>
-                    <a href="/tags/Spring-Cloud-Ribbon/" style="font-size: 10px;">Spring Cloud Ribbon</a>
-                    <a href="/tags/Spring-Initializr/" style="font-size: 10px;">Spring Initializr</a>
-                    <a href="/tags/Spring-Security/" style="font-size: 10px;">Spring Security</a>
-                    <a href="/tags/Spring-StateMachine/" style="font-size: 10px;">Spring StateMachine</a>
-                    <a href="/tags/Spring-Data-JPA/" style="font-size: 10px;">Spring-Data-JPA</a>
-                    <a href="/tags/Swagger/" style="font-size: 11.67px;">Swagger</a>
-                    <a href="/tags/Transactional/" style="font-size: 10px;">Transactional</a>
-                    <a href="/tags/Zuul/" style="font-size: 11.67px;">Zuul</a>
-                    <a href="/tags/fastjson/" style="font-size: 10px;">fastjson</a>
-                    <a href="/tags/log4j/" style="font-size: 11.67px;">log4j</a>
-                    <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a>
-                    <a href="/tags/redis/" style="font-size: 10px;">redis</a>
-                    <a href="/tags/spring-boot-actuator/" style="font-size: 11.67px;">spring-boot-actuator</a>
-                    <a href="/tags/事务/" style="font-size: 10px;">事务</a>
-                    <a href="/tags/云服务/" style="font-size: 10px;">云服务</a>
-                    <a href="/tags/前端/" style="font-size: 10px;">前端</a>
-                    <a href="/tags/定时任务/" style="font-size: 10px;">定时任务</a>
-                    <a href="/tags/异常处理/" style="font-size: 10px;">异常处理</a>
-                    <a href="/tags/异步调用/" style="font-size: 10px;">异步调用</a>
-                    <a href="/tags/微服务/" style="font-size: 13.33px;">微服务</a>
-                    <a href="/tags/持续交付/" style="font-size: 10px;">持续交付</a>
-                    <a href="/tags/敏捷管理/" style="font-size: 16.67px;">敏捷管理</a>
-                    <a href="/tags/日志/" style="font-size: 16.67px;">日志</a>
-                    <a href="/tags/源码分析/" style="font-size: 11.67px;">源码分析</a>
-                    <a href="/tags/爬虫/" style="font-size: 11.67px;">爬虫</a>
-                    <a href="/tags/状态机/" style="font-size: 10px;">状态机</a>
                     <a href="/tags/监控/" style="font-size: 10px;">监控</a>
                     <a href="/tags/邮件/" style="font-size: 10px;">邮件</a>
                 </div>
@@ -393,40 +65,16 @@
 
     </div>
 
-    <footer id="footer">
-        <div class="outer">
-            <div id="footer-info" class="inner">
-                <div class="foot-row">
-
-                    <!-- <div style="clear: left;"></div>
-                     &copy; 2016 - 2017 程序猿DD | 博客 - 翟永超 版权所有<br>
-                     <div style="display: none;">
-                         <span id="busuanzi_container_site_pv">访问量<span class="foot-count" id="busuanzi_value_site_pv"></span>次</span>
-                         <span id="busuanzi_container_site_uv">访客数<span class="foot-count" id="busuanzi_value_site_uv"></span>人次</span>
-                     </div>-->
-                    <!--  沪ICP备14037150号-2-->
-                    <!--Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.-->
-                </div>
-            </div>
-    </footer>
+    <footer id="footer" th:replace="blog/part/footer :: footer"></footer>
 
     <script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <script src="/js/category.js"></script>
     <script src="/js/share.js"></script>
     <script src="/js/jquery.pagination.js"></script>
     <script src="/vendor/lightgalleryjs/lightgallery.min.js"></script>
-    <script src="/vendor/lightgalleryjs/lg-thumbnail.min.js"></script>
-    <script src="/vendor/lightgalleryjs/lg-pager.min.js"></script>
-    <script src="/vendor/lightgalleryjs/lg-autoplay.min.js"></script>
-    <script src="/vendor/lightgalleryjs/lg-fullscreen.min.js"></script>
-    <script src="/vendor/lightgalleryjs/lg-zoom.min.js"></script>
-    <script src="/vendor/lightgalleryjs/lg-hash.min.js"></script>
-    <script src="/vendor/lightgalleryjs/lg-share.min.js"></script>
-    <script src="/vendor/lightgalleryjs/lg-video.min.js"></script>
     <!-- Custom Scripts -->
     <script src="/js/main.js"></script>
 
 </div>
-
 </body>
 </html>
