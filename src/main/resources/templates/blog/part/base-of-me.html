@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+
+<body>
+<div class="inner profile-inner" th:fragment="base_of_me" >
+    <!--<a target="_blank" href="https://github.com/softwareking" class="okmemo-tmp-unselect">-->
+    <!--<img style="float:left;width:120px;" src="image/fork_github.png"-->
+    <!--alt="Fork me on GitHub"-->
+    <!--data-canonical-src="image/fork_github.png">-->
+    <!--</a>-->
+    <div class="base-info profile-block">
+        <img id="avatar" src="image/photo.jpg" class="my-avatar" />
+        <!--  <div class="profile"></div>-->
+        <div class="clean-both"></div>
+        <h2 id="name">EumJi</h2>
+        <h3 id="title" style="margin: 1.6em 0em">想学点前端,想学点后端,想学点linux,想学点云计算,想学点机器学习</h3>
+        <span id="location"><i class="fa fa-map-marker"></i>中国 - 深圳</span>
+        <a id="follow" target="_blank" href="https://github.com/dyc87112">关注我</a>
+    </div>
+    <div class="article-info profile-block">
+        <div class="article-info-block">
+            <span>文章</span>
+            [[${articleCount}]]
+        </div>
+        <div class="article-info-block">
+            <span>标签</span>
+            [[${tagCount}]]
+        </div>
+    </div>
+
+    <div class="profile-block social-links">
+        <table>
+            <tr>
+
+
+                <td>
+                    <a href="https://github.com/eumji025" target="_blank" title="github" class=tooltip>
+                        <i class="fa fa-github"></i>
+                    </a>
+                </td>
+
+                <td>
+                    <a href="http://git.oschina.net/eumji025" target="_blank" title="git" class=tooltip>
+                        <i class="fa fa-git"></i>
+                    </a>
+                </td>
+
+                <td>
+                    <a href="eumji025@gmail.com" target="_blank" title="envelope" class=tooltip>
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                </td>
+
+                <td>
+                    <a target="_blank" title="weibo" class=tooltip>
+                        <i class="fa fa-weibo"></i>
+                    </a>
+                </td>
+
+                <td>
+                    <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                        <i class="fa fa-rss"></i>
+                    </a>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>
