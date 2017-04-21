@@ -4,7 +4,7 @@ $(function() {
 
     $.get('', function(md){
         testEditor = editormd("article-editormd", {
-            width: "90%",
+            width: "99%",
             height: 740,
             path : '/admin/lib/',
             markdown : md,
