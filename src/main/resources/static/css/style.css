@@ -2247,3 +2247,38 @@ ol.toc {
   margin: 0px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
+
+
+.foot-count {
+  color: #009688;
+  font-weight: bold;
+  padding: 0px 5px;
+  font-size: 1.3em;
+}
+.foot-row {
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.foot-col {
+  /*padding: 20px;*/
+  text-align: left;
+  float: left;
+  width: 25%;
+}
+.widget-title {
+  font-size: 1.3em;
+  font-weight: 700;
+}
+#footer a {
+  color: #888;
+}
+#footer {
+  background-color: #f8f8f8;
+}
+
+@media screen and (max-width: 768px) { /*当屏幕尺寸小于768px时，应用下面的CSS样式*/
+  .foot-col {
+    width: 100%;
+  }
+}
