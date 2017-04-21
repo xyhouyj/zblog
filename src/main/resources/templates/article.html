@@ -1,7 +1,18 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
 <head th:replace="blog/part/head :: head"></head>
-
+<head>
+    <style>
+        @media screen and (min-width: 1200px) {
+            #main {
+                display: inline;
+                float: left;
+                width: 70.9999999999%;
+                margin: 0 0.769230769230769%;
+            }
+        }
+    </style>
+</head>
 <body>
 <div id="container">
     <header id="header" th:replace="blog/part/header :: header">
@@ -18,33 +29,9 @@
         </aside>
 
 
-        <section id="main" style="width: 70%">
-            <style>
-                .alert-success {
-                    background-color: #f5f5f5;
-                    /* border-color: #2FA4E7; */
-                    padding: 7px;
-                    margin-top: 10px;
-                    margin-bottom: 20px;
-                    /* color: #468847; */
-                }
-
-                .alert {
-                    padding: 15px;
-                    margin-bottom: 20px;
-                    border: 1px solid transparent;
-                    border-radius: 4px;
-                }
-
-                #busuanzi_value_page_pv {
-                    color: #009688;
-                    font-weight: bold;
-                }
-            </style>
-
+        <section id="main">
             <article id="post-zuul-vs-nginx-performance" class="article article-type-post" itemscope="" itemprop="blogPost">
                 <div class="article-inner">
-
 
                     <header class="article-header">
 
