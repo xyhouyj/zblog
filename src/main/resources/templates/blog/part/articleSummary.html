@@ -43,10 +43,10 @@
         <div class="article-entry" itemprop="articleBody" th:text="${article.description}">
 
         </div>
-        <div class="article-entry">
+        <div class="article-more">
             <p class="article-more-link">
                 <!--th:href="'/article/details/'+${articleList.id}"-->
-                <a title=" 查看更多 " th:onclick="'loadArticle('+${article.id}+')'" style="cursor: pointer">查看更多</a>
+                <a title=" 查看更多 " class="read-more" th:href="'/article/details/'+${article.id}" style="cursor: pointer">查看更多</a>
             </p>
         </div>
         <footer class="article-footer">
@@ -54,6 +54,7 @@
         </footer>
     </div>
 </article>
+
 <nav id="page-nav">
     <div class="M-box"></div>
     <p class="tips">当前是第<span class="now"></span>页</p>
