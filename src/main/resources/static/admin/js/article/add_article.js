@@ -2,7 +2,7 @@
 var testEditor;
 $(function() {
 
-    $.get('', function(md){
+    $.get( function(md){
         testEditor = editormd("article-editormd", {
             width: "99%",
             height: 740,
@@ -10,7 +10,7 @@ $(function() {
             markdown : md,
             codeFold : true,
             //syncScrolling : false,
-            saveHTMLToTextarea : true,    // 保存 HTML 到 Textarea
+            saveHTMLToTextarea : false,    // 保存 HTML 到 Textarea
             searchReplace : true,
             //watch : false,                // 关闭实时预览
             htmlDecode : "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启
