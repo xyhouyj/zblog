@@ -4,6 +4,8 @@ import com.eumji.zblog.service.ArticleService;
 import com.eumji.zblog.service.CategoryService;
 import com.eumji.zblog.service.PartnerService;
 import com.eumji.zblog.service.TagService;
+import com.eumji.zblog.vo.Article;
+import com.eumji.zblog.vo.ArticleCustom;
 import com.eumji.zblog.vo.CategoryCustom;
 import com.eumji.zblog.vo.Partner;
 import org.springframework.stereotype.Controller;
@@ -78,6 +80,20 @@ public class  PageController {
         model.addAttribute("partnerList",partnerList);
         model.addAttribute("categoryId",categoryId);
         return "category";
+    }
+
+    @RequestMapping("/about/me")
+    public String aboutMe(Model model){
+        List<Partner> partnerList = partnerService.findAll();
+        List<CategoryCustom> categoryList = categoryService.initCategoryList();
+        int articleCount = articleService.getArticleCount();
+        int tagCount = tagService.getTagCount();
+        model.addAttribute("categoryCount",categoryList.size());
+        model.addAttribute("articleCount",articleCount);
+        model.addAttribute("tagCount",tagCount);
+        model.addAttribute("categoryList",categoryList);
+        model.addAttribute("partnerList",partnerList);
+        return "aboutMe";
     }
 
 }
