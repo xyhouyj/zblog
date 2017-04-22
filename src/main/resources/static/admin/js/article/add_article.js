@@ -2,7 +2,7 @@
 var testEditor;
 $(function() {
 
-    $.get( function(md){
+    $.get('', function(md){
         testEditor = editormd("article-editormd", {
             width: "99%",
             height: 740,
