@@ -95,6 +95,21 @@ public class ArticleServiceImpl implements ArticleService {
         return articleMapper.getArticleCustomById(articleId);
     }
 
+    @Override
+    public Article getLastArticle(Integer articleId) {
+        return articleMapper.getLastArticle(articleId);
+    }
+
+    @Override
+    public Article getNextArticle(Integer articleId) {
+        return articleMapper.getNextArticle(articleId);
+    }
+
+    @Override
+    public void addArticleCount(Integer articleId) {
+        articleMapper.addArticleCount(articleId);
+    }
+
     private Integer getRandomId(){
         Calendar instance = Calendar.getInstance();
         int month = instance.MONTH;

@@ -53,13 +53,18 @@ public class ArticleController {
      * 加载文章
      * @return
      */
-    @RequestMapping("/article/details/{articleId}")
+    @RequestMapping("/details/{articleId}")
     public String loadArticle(@PathVariable Integer articleId, Model model){
         List<Partner> partnerList = partnerService.findAll();
         List<CategoryCustom> categoryList = categoryService.initCategoryList();
+        Article lastArticle = articleService.getLastArticle(articleId);
+        Article nextArticle = articleService.getNextArticle(articleId);
+        articleService.addArticleCount(articleId);
         int articleCount = articleService.getArticleCount();
         int tagCount = tagService.getTagCount();
         ArticleCustom articleCustom = articleService.getArticleCustomById(articleId);
+        model.addAttribute("lastArticle",lastArticle);
+        model.addAttribute("nextArticle",nextArticle);
         model.addAttribute("article",articleCustom);
         model.addAttribute("categoryCount",categoryList.size());
         model.addAttribute("articleCount",articleCount);

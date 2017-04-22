@@ -102,4 +102,17 @@
     <select id="getArticleCustomById" resultMap="article">
         select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId = category.id and article.id = #{id}
     </select>
+
+    <select id="getLastArticle" resultType="article">
+        select id,title from article where createTime &lt; (select createTime from article where id = #{id}) ORDER BY createTime desc LIMIT 1
+    </select>
+
+    <select id="getNextArticle" resultType="article">
+        select id,title from article where createTime &gt; (select createTime from article where id = #{id}) ORDER BY createTime asc LIMIT 1
+    </select>
+    
+    <update id="addArticleCount">
+        update article set showCount = showCount+1 where id = #{id}
+    </update>
+
 </mapper>

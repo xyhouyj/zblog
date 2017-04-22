@@ -42,4 +42,24 @@ public interface ArticleService {
     void deleteArticle(Integer id);
 
     ArticleCustom getArticleCustomById(Integer articleId);
+
+    /**
+     * 获取上一篇文章信息
+     * @param articleId
+     * @return
+     */
+    Article getLastArticle(Integer articleId);
+
+    /**
+     * 获取下一篇文章信息
+     * @param articleId
+     * @return
+     */
+    Article getNextArticle(Integer articleId);
+
+    /**
+     * 增加文章阅读数量
+     * @param articleId
+     */
+    void addArticleCount(Integer articleId);
 }

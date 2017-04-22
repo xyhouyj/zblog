@@ -52,4 +52,24 @@ public interface ArticleMapper {
     void deleteArticle(Integer id);
 
     ArticleCustom getArticleCustomById(Integer id);
+
+    /**
+     * 获取上一篇文章
+     * @param id
+     * @return
+     */
+    Article getLastArticle(Integer id);
+
+    /**
+     * 获取下一篇文章
+     * @param articleId
+     * @return
+     */
+    Article getNextArticle(Integer articleId);
+
+    /**
+     * 增加文章阅读数量
+     * @param articleId
+     */
+    void addArticleCount(Integer articleId);
 }
