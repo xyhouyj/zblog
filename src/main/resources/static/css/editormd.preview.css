@@ -2636,13 +2636,13 @@
 
 .markdown-body code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .markdown-body pre {
   margin-top: 0;
   margin-bottom: 0;
-  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font: 16px Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
 .markdown-body .octicon {
@@ -3112,7 +3112,7 @@
 
 .editormd-preview-container, .editormd-html-preview {
   text-align: left;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   padding: 20px;
   overflow: auto;
@@ -3220,7 +3220,7 @@
 
   /* a type name */
   .lit {
-    color: #066;
+    color: #64c6a1;
   }
 
   /* a literal value */
@@ -3235,7 +3235,7 @@
 
   /* a markup tag name */
   .atn {
-    color: #357abf;
+    color: #345eb1;
   }
 
   /* a markup attribute name */
