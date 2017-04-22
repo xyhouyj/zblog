@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
 <head th:replace="blog/part/head :: head"></head>
 <head>
+    <link rel="stylesheet" href="/css/monokai-sublime.css">
     <style>
         @media screen and (min-width: 1200px) {
             #main {
@@ -37,7 +38,7 @@
 
 
                         <h1 class="article-title" itemprop="name">
-                            <span id="pos_placeholder" style="width: 0px; height: 0px; visibility: hidden; margin: 0px; padding: 0px;"></span><span th:text="${article.title}"></span>
+                            <span id="article-title" th:text="${article.title}"></span>
                         </h1>
 
 
@@ -72,9 +73,7 @@
 
                     <div class="article-entry" itemprop="articleBody" lg-uid="lg0">
                         <div id="article-content">
-                            <textarea id="append-test" style="display:none;" th:text="${article.content}">
-
-                            </textarea>
+                            <textarea id="append-test" style="display:none;" th:text="${article.content}"></textarea>
                         </div>
 
                     </div>
@@ -85,19 +84,15 @@
 
                 <nav id="article-nav">
 
-                    <a href="/spring-cloud-consul-lock-and-semphore/" id="article-nav-newer" class="article-nav-link-wrap">
+                    <a th:if="${lastArticle != null}" th:href="'/article/details/'+${lastArticle.id}" id="article-nav-newer" class="article-nav-link-wrap">
                         <strong class="article-nav-caption">上一篇</strong>
-                        <div class="article-nav-title">
-
-                            基于Consul的分布式锁实现
-
-                        </div>
+                        <div class="article-nav-title" th:text="${lastArticle.title}"></div>
                     </a>
 
 
-                    <a href="/spring-cloud-tips-2/" id="article-nav-older" class="article-nav-link-wrap">
+                    <a th:if="${nextArticle != null}" th:href="'/article/details/'+${nextArticle.id}" id="article-nav-older" class="article-nav-link-wrap">
                         <strong class="article-nav-caption">下一篇</strong>
-                        <div class="article-nav-title">SpringCloud实战小贴士：随机端口</div>
+                        <div class="article-nav-title" th:text="${nextArticle.title}"></div>
                     </a>
 
                 </nav>
@@ -130,8 +125,7 @@
     <script src="/vendor/lightgalleryjs/lightgallery.min.js"></script>
     <!-- Custom Scripts -->
     <script src="/js/main.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/highlight.pack.js"></script>
 
 </div>
 
