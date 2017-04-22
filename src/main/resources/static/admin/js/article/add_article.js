@@ -30,6 +30,52 @@ $(function() {
             imageUpload : true,
             imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
             imageUploadURL : "/admin/article/imageUpload",
+            toolbarIcons : function() {
+                return ["bold", "italic", "hr", "ucwords","uppercase", "lowercase", "list-ul", "list-ol", "|", "link", "reference-link", "image", "code", "code-block", "table","|", "datetime", "emoji", "pagebreak","|","goto-line", "watch", "preview", "search", "||", "post-article"]
+            },
+            toolbarIconTexts : {
+                "post-article" : "发布"  // 如果没有图标，则可以这样直接插入内容，可以是字符串或HTML标签
+            },
+            // 自定义工具栏按钮的事件处理
+            toolbarHandlers : {
+                /**
+                 * @param {Object}      cm         CodeMirror对象
+                 * @param {Object}      icon       图标按钮jQuery元素对象
+                 * @param {Object}      cursor     CodeMirror的光标对象，可获取光标所在行和位置
+                 * @param {String}      selection  编辑器选中的文本
+                 */
+                "post-article": function (cm, icon, cursor, selection) {
+
+                    //var cursor    = cm.getCursor();     //获取当前光标对象，同cursor参数
+                    //var selection = cm.getSelection();  //获取当前选中的文本，同selection参数
+
+                    // 替换选中文本，如果没有选中文本，则直接插入
+                    //cm.replaceSelection("[" + selection + ":testIcon]");
+
+                    // 如果当前没有选中的文本，将光标移到要输入的位置
+                    // if (selection === "") {
+                    //     cm.setCursor(cursor.line, cursor.ch + 1);
+                    // }
+
+                    // this == 当前editormd实例
+                    // console.log("testIcon =>", this, cm, icon, cursor, selection);
+                    $.ajax({
+                        url: '/admin/article/term',
+                        success: function (data) {
+                            $('#addArticleContent').html(data);
+                            $('#addArticleModal').modal('show');
+                            $('#addArticleModal').addClass('animated');
+                            $('#addArticleModal').addClass('flipInY');
+                            $(".chosen-select").chosen({
+                                max_selected_options: 5,
+                                no_results_text: "没有找到",
+                                allow_single_deselect: true
+                            });
+                            $(".chosen-select").trigger("liszt:updated");
+                        }
+                    });
+                },
+            },
             onload : function() {
                 console.log('onload', this);
                 //this.fullscreen();
