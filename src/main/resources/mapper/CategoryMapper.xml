@@ -48,5 +48,10 @@
     <select id="getCategoryList" resultType="category">
         select id,categoryName,aliasName from category
     </select>
+
+
+    <select id="ArticleCatePage" resultType="int">
+        select count(id) from article where categoryId = #{categoryId} and status = 1
+    </select>
 </mapper>
 

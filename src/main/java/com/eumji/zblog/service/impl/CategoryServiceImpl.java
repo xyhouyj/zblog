@@ -29,6 +29,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<ArticleCustom> loadArticleByCategory(Pager pager, Integer categoryId) {
+        pager.getStart();
         return articleMapper.loadArticleByCategory(pager,categoryId);
     }
 
@@ -77,4 +78,11 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> getCategoryList() {
         return categoryMapper.getCategoryList();
     }
+
+    @Override
+    public void ArticleCatePage(Pager pager, int categoryId) {
+        int count = categoryMapper.ArticleCatePage(categoryId);
+        pager.setTotalCount(count);
+    }
+
 }

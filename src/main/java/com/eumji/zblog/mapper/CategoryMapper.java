@@ -34,4 +34,11 @@ public interface CategoryMapper {
     int initPage(Pager pager);
 
     List<Category> getCategoryList();
+
+    /**
+     * 获取当前id的文章数量
+     * @param categoryId
+     * @return
+     */
+    int ArticleCatePage(int categoryId);
 }
