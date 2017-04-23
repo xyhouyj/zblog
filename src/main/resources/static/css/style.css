@@ -2249,9 +2249,9 @@ ol.toc {
 }
 
 .bg-danger {
-  background-color: #b5d5f2;
+
   padding: 15px;
-  margin: 0px;
+  marginb: 0px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -2288,4 +2288,16 @@ ol.toc {
   .foot-col {
     width: 100%;
   }
+}
+
+.aphorism-author{
+  float: right;
+  margin-bottom: 10px;
+}
+
+.label{
+  display: inline-block;
+  padding: 0px 5px;
+  color: white;
+  margin: 0 1px 2px 2px;
 }

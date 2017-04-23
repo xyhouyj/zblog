@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
 <head th:replace="blog/part/head :: head"></head>
-<!--<head>
-    <link rel="stylesheet" type="text/css" href="/css/loading.css">
-</head>-->
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/load.css">
+</head>
 <body>
 <!--<div class="loader"></div>-->
 <div id="container">
@@ -23,7 +23,12 @@
 
 
         <section id="main">
-
+            <div id="loader-wrapper">
+                <div id="loader"></div>
+                <div class="loader-section section-left"></div>
+                <div class="loader-section section-right"></div>
+                <div class="load_title">正在加载EumJi站点....<br><span>V1.0</span></div>
+            </div>
         </section>
 
         <aside id="sidebar">
@@ -31,7 +36,7 @@
             <!--每日一言-->
             <div class="widget-wrap" th:replace="blog/part/aphorism :: aphorism"></div>
             <!--文章分类-->
-            <div class="widget-wrap" th:replace="blog/part/classification ::classification"></div>
+            <div class="widget-wrap" th:replace="blog/part/classification :: classification"></div>
 
             <div class="widget-wrap" th:replace="blog/part/label-info :: label-info"></div>
 

@@ -43,7 +43,7 @@ public class AdminPageController {
      */
     @RequestMapping("/home")
     public String homePage(){
-        return "redirect:/admin/article/articleList";
+        return "redirect:/admin/article/list";
     }
 
     /**

@@ -3,6 +3,7 @@
 <head th:replace="blog/part/head :: head"></head>
 <head>
     <link rel="stylesheet" href="/css/lrtk.css" />
+    <link rel="stylesheet" type="text/css" href="/css/load.css">
     <style>
         @media screen and (min-width: 1200px) {
             #main {
@@ -31,6 +32,13 @@
 
 
         <section id="main">
+            <div id="loader-wrapper">
+                <div id="loader"></div>
+                <div class="loader-section section-left"></div>
+                <div class="loader-section section-right"></div>
+                <div class="load_title">正在加载EumJi站点....<br><span>V1.0</span></div>
+            </div>
+
             <article id="post-zuul-vs-nginx-performance" class="article article-type-post" itemscope="" itemprop="blogPost">
                 <div class="article-inner">
 
@@ -78,7 +86,8 @@
 
                     </div>
                     <footer class="article-footer">
-                        <div id="socialShare" class="socialShare active" th:data-content="${#strings.substring(article.content,0,100)}" th:data-title="${article.title}" th:data-url="'/article/details/'+${article.id}" th:data-desc="${article.description}"></
+                        <div id="socialShare" class="socialShare active" th:data-content="${article.description}"
+                             th:data-title="${article.title}" th:data-url="'/article/details/'+${article.id}" th:data-desc="${article.description}"></
                     </footer>
                 </div>
 

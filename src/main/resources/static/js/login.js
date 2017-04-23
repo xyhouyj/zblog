@@ -13,7 +13,7 @@ $("#login-button1").click(function () {
             success: function (data) {///去更新cookies
                 console.log("data:"+data);
                 if (data.resultCode == "success") {
-                    window.location.href = "/admin/article/articleList";
+                    window.location.href = "/admin/article/list";
 
                 }else{
                     layer.alert('账号或者密码错误', {

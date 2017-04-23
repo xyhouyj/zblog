@@ -3,7 +3,7 @@
  */
 $(function() {
     var testEditormdView;
-
+    $('#main').addClass('loaded');
     $.get("", function(markdown) {
         testEditormdView = editormd.markdownToHTML("article-content", {
             htmlDecode      : "style,script,iframe",  // you can filter tags decode
@@ -34,6 +34,8 @@ $(function() {
         summary:'Eumji个人博客分享,欢迎指教',
         pic:'http://of8rkrh1w.bkt.clouddn.com/2017/4/21/touxiang.jpg'
     });
+
+    $('#loader-wrapper .load_title').remove();
 });
 
 

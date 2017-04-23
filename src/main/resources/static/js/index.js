@@ -1,6 +1,6 @@
 var pager = {page:1,start:0,limit:10};
-var pager1 = {page:1,start:0,limit:10};
 $(function () {
+    $('body').addClass('loaded');
     //初始化文章
     $.ajax({
         type: 'GET',
@@ -10,6 +10,7 @@ $(function () {
             $("#main").html(data);
             //初始化文章分页信息
             //初始化文章
+
             $.ajax({
                 type: 'GET',
                 url: '/pager/article/load',
@@ -26,10 +27,13 @@ $(function () {
                         summary:'Eumji个人博客分享,欢迎指教',
                         pic:'http://of8rkrh1w.bkt.clouddn.com/2017/4/21/touxiang.jpg'
                     });
+
+                    $('#loader-wrapper .load_title').remove();
                 }
             });
         }
     });
+
 
 })
 
