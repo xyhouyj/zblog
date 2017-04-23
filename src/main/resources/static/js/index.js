@@ -20,11 +20,11 @@ $(function () {
 
                     /*分享初始化*/
                     $(".socialShare").socialShare({
-                        content: '这是我的个人博客内容',
-                        url:'http://kiritor.github.io/2015/09/28/shiro-Authentication/',
-                        title:'这是我的个人博客标题',
-                        summary:'这是我的博客描述',
-                        pic:'https://user-gold-cdn.xitu.io/2017/4/8/0bc6a6ba97cff243292f7c26560e71fb.gif'
+                        content: "EumJi在IT,生活,音乐方面的分享",
+                        url:"www.eumji025.com/",
+                        title:$("#article-title").text(),
+                        summary:'Eumji个人博客分享,欢迎指教',
+                        pic:'http://of8rkrh1w.bkt.clouddn.com/2017/4/21/touxiang.jpg'
                     });
                 }
             });
