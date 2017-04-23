@@ -32,17 +32,28 @@ html{-webkit-text-size-adjust:none;}
 .login_boder p.forgot{ font-size:11px;  text-align:right; margin-bottom:15px;}
 .login_boder p.forgot a,.login_boder p.forgot a:visited{color:#8c8e91;}
 .login_boder p.forgot a:hover{color:#206fd5;}
-.rem_sub input.sub_button{ float:right; width:122px; height:32px;
-    background-color: #269f42;
-    background-image: -webkit-linear-gradient(270deg, #2fcb53 0%, #269f42 90%);
-    background-image: linear-gradient(-180deg, #2fcb53 0%, #269f42 90%);
-    background-position: 0 -0.5em;
-    border-color: rgba(27,31,35,0.5);}
+.rem_sub input.sub_button{  width:305px; height:38px;
+    float: right;
+    background-color: #24ad32;
+    border:1px solid #eff8f2;
+    border-radius:10px;
+    color: white;
+
+}
+
+.rem_sub input.forget_button{
+    width:135px; height:38px;
+    float: right;
+    background-color: #24ad32;
+    border:1px solid #eff8f2;
+    border-radius:10px;
+    color: white;
+}
 
 .rem_sub input.sub_buttons{ float:left; width:122px;  height:32px; background:url(/image/site_bg.png) no-repeat -153px -850px; border:none; color:#FFF; padding-bottom:2px; font-size:14px; font-weight:bold;}
 .rem_sub input.sub_buttons:hover{ background-position:-153px -882px; cursor:pointer;}
 
-.rem_sub input.sub_button:hover{ background-position:-153px -882px; cursor:pointer;}
+.rem_sub input.sub_button:hover{  cursor:pointer;}
 .rem_sub .rem_sub_l{ float:left; font-size:12px; height:33px; line-height:33px;}
 .rem_sub input#checkbox{ margin-right:5px; vertical-align:middle;}
 /*dali*/
