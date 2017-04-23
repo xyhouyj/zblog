@@ -7,6 +7,7 @@
     //插件初始化
     function init(target, options) {
         var settings = $.extend({}, $.fn.socialShare.defaults, options);
+        console.log("setting:"+JSON.stringify(settings));
 		//初始化各个组件
         var $msb_main =$msb_main = "<a class='msb_main'><img title='分享' src='/image/share_core_square.jpg'></a>";
         var $social_group = "<div class='social_group'>"
@@ -106,29 +107,33 @@
 	}
 
 	function tQQ(target,options){
-	    var options = $.extend({}, $.fn.socialShare.defaults, options);
-
+	    //var options = $.extend({}, $.fn.socialShare.defaults, options);
+        options = loadShareInfo(target);
 		window.open(replaceAPI(tqq,options));
 	}
 
 	function qZone(target,options){
-		var options = $.extend({}, $.fn.socialShare.defaults, options);
 
+		//var options = $.extend({}, $.fn.socialShare.defaults, options);
+        options = loadShareInfo(target);
 		window.open(replaceAPI(qzone,options));
 	}
 
 	function sinaWeibo(target,options){
-		var options = $.extend({}, $.fn.socialShare.defaults, options);
-
+		//var options = $.extend({}, $.fn.socialShare.defaults, options);
+        options = loadShareInfo(target);
 		window.open(replaceAPI(sina,options));
 	}
 
 	function doubanShare(target,options){
-		window.open(replaceAPI(douban,$.extend({},$.fn.socialShare.defaults,options)));
+
+        options = loadShareInfo(target);
+		window.open(replaceAPI(douban,options));
 	}
 
 	function weixinShare(target,options){
-		window.open(replaceAPI(weixin,$.extend({},$.fn.socialShare.defaults,options)));
+        options = loadShareInfo(target);
+		window.open(replaceAPI(weixin,options));
 	}
 
     $.fn.socialShare = function(options, param) {
@@ -195,3 +200,17 @@
 
 
 })(jQuery, window, document);
+
+
+function loadShareInfo(target) {
+	var parent = $(target).parents(".socialShare");
+	var result = {
+        content: $(parent).data("content"),
+        url:"www.eumji025.com"+$(parent).data("url"),
+        title:$(parent).data("title"),
+        summary:$(parent).data("desc")==null?$(parents).data("desc"):'Eumji个人博客分享,欢迎指教',
+        pic:'http://of8rkrh1w.bkt.clouddn.com/2017/4/21/touxiang.jpg'
+	};
+	return result;
+	
+}
