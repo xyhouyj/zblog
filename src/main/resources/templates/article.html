@@ -78,7 +78,7 @@
 
                     </div>
                     <footer class="article-footer">
-                        <div id="socialShare" class="socialShare active"></div>
+                        <div id="socialShare" class="socialShare active" th:data-content="${#strings.substring(article.content,0,100)}" th:data-title="${article.title}" th:data-url="'/article/details/'+${article.id}" th:data-desc="${article.description}"></
                     </footer>
                 </div>
 
