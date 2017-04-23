@@ -37,4 +37,11 @@ public interface TagService {
     void initPage(Pager pager);
 
     List<Tag> getTagList();
+
+    /**
+     * 初始化分页
+     * @param pager
+     * @param tagId
+     */
+    void ArticleTagPage(Pager pager, int tagId);
 }

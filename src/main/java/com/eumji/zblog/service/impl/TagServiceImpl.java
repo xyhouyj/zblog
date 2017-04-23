@@ -74,4 +74,16 @@ public class TagServiceImpl implements TagService {
     public List<Tag> getTagList() {
         return tagMapper.getTagList();
     }
+
+
+
+    /**
+     * 初始化tag -> article的分页
+     * @param pager
+     */
+    @Override
+    public void ArticleTagPage(Pager pager, int tagId) {
+        int count =  tagMapper.articleTagPage(tagId);
+        pager.setTotalCount(count);
+    }
 }

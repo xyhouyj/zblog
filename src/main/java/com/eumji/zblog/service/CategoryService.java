@@ -36,4 +36,6 @@ public interface CategoryService {
     void initPage(Pager pager);
 
     List<Category> getCategoryList();
+
+    void ArticleCatePage(Pager pager, int categoryId);
 }

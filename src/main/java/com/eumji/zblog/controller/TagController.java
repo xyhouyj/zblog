@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -31,10 +32,17 @@ public class TagController {
        List<ArticleCustom> articleList = tagService.loadArticleByTag(pager,tagId);
        if (!articleList.isEmpty()){
            model.addAttribute("articleList",articleList);
+           model.addAttribute("pager",pager);
            model.addAttribute("tagName",articleList.get(0).getTagList().get(0).getTagName());
        }
 
        return "blog/part/tagSummary";
+   }
+
+   @RequestMapping("/pager/{tagId}")
+   public Pager initPage(Pager pager,@PathVariable int tagId){
+        tagService.ArticleTagPage(pager,tagId);
+        return pager;
    }
 }
 

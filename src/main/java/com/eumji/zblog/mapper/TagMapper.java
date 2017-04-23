@@ -32,4 +32,11 @@ public interface TagMapper {
     int initPage(Pager pager);
 
     List<Tag> getTagList();
+
+    /**
+     * 加载此tag下的所有文章
+     * @return
+     * @param tagId
+     */
+    int articleTagPage(int tagId);
 }
