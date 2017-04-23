@@ -20,8 +20,8 @@
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("/admin/fonts/fontawesome-webfont.eot?v=4.3.0");
-  src: url("/admin/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"), url("/admin/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"), url("/admin/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"), url("/admin/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"), url("/admin/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
+  src: url("/admin/fonts/fontawesome-webfont.eot");
+  src: url("/admin/fonts/fontawesome-webfont.eot") format("embedded-opentype"), url("/admin/fonts/fontawesome-webfont.woff2") format("woff2"), url("/admin/fonts/fontawesome-webfont.woff") format("woff"), url("/admin/fonts/fontawesome-webfont.ttf") format("truetype"), url("/admin/fonts/fontawesome-webfont.svg#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
