@@ -11,8 +11,18 @@
 <body class="login" mycollectionplug="bind">
 <div class="login_m">
     <div class="login_logo">
-        <img src="/image/eumji.png" width="196" height="46">
+        <!--<img src="/image/eumji.png" width="196" height="46">-->
+        <span>Admin Login</span>
     </div>
+  <!--  <div id="error-container">
+        <div class="flash flash-full flash-error">
+            <div class="container">
+                <button class="flash-close js-flash-close" type="button" aria-label="Dismiss this message">
+                    <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>-->
     <div class="login_boder">
         <form method="post" action="/login">
         <div class="login_padding" id="login_model">
@@ -30,13 +40,12 @@
 
             <p class="forgot"><a id="iforget" href="#">Forgot your password?</a></p>
             <div class="rem_sub">
-                <div class="rem_sub_l">
-                    <input type="checkbox" name="checkbox" id="save_me">
+              <!--  <div class="rem_sub_l">
                     <label for="checkbox">Remember me</label>
-                </div>
+                    <input id="checkbox" type="checkbox" name="checkbox" id="save_me">
+                </div>-->
                 <label>
-                    <input type="submit" class="sub_button" name="button" id="login-button" value="Sign In"
-                           style="opacity: 0.7;">
+                    <input type="submit" class="sub_button" name="button" id="login-button" value="Sign In">
                 </label>
             </div>
         </div>
@@ -56,16 +65,8 @@
 
 
             <div class="rem_sub">
-                <div class="rem_sub_l">
-                </div>
-                <label>
-                    <input type="submit" class="sub_buttons" name="button" id="Retrievenow" value="Retrieve now"
-                           style="opacity: 0.7;">
-                    　　　
-                    <input type="submit" class="sub_button" name="button" id="denglou" value="Return"
-                           style="opacity: 0.7;">　　
-
-                </label>
+                    <input type="submit" class="forget_button" name="button" id="Retrievenow" value="Retrieve Now" style="float:left">
+                    <input type="submit" class="forget_button" name="button" id="denglou" value="Return">　　
             </div>
         </div>
     </div>
