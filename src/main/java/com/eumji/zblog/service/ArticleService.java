@@ -62,4 +62,6 @@ public interface ArticleService {
      * @param articleId
      */
     void addArticleCount(Integer articleId);
+
+    List<ArticleCustom> popularArticle();
 }

@@ -72,4 +72,6 @@ public interface ArticleMapper {
      * @param articleId
      */
     void addArticleCount(Integer articleId);
+
+    List<ArticleCustom> popularArticle();
 }

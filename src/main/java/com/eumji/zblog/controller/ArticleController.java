@@ -51,6 +51,11 @@ public class ArticleController {
 
     /**
      * 加载文章
+     * 包括总标签数
+     * 总文章数量
+     * 分类及每个分类文章数量
+     * 友链集合
+     *
      * @return
      */
     @RequestMapping("/details/{articleId}")
