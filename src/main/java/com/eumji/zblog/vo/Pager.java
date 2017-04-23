@@ -1,5 +1,6 @@
 package com.eumji.zblog.vo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  * @date 2017/4/11
  * @time 12:32
  */
-public class Pager<T> {
+public class Pager<T> implements Serializable {
 
     /**
 
@@ -186,4 +187,6 @@ public class Pager<T> {
     public void setStart(int start) {
         this.start = start;
     }
+
+
 }

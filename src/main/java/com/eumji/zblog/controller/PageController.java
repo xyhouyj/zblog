@@ -96,4 +96,21 @@ public class  PageController {
         return "aboutMe";
     }
 
+    @RequestMapping("/popular")
+    public String popularArticle(Model model){
+        List<Partner> partnerList = partnerService.findAll();
+        List<CategoryCustom> categoryList = categoryService.initCategoryList();
+        int articleCount = articleService.getArticleCount();
+        List<ArticleCustom> articleList = articleService.popularArticle();
+        int tagCount = tagService.getTagCount();
+
+        model.addAttribute("categoryCount",categoryList.size());
+        model.addAttribute("articleCount",articleCount);
+        model.addAttribute("tagCount",tagCount);
+        model.addAttribute("articleList",articleList);
+        model.addAttribute("categoryList",categoryList);
+        model.addAttribute("partnerList",partnerList);
+        return "popular";
+    }
+
 }
