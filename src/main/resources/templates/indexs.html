@@ -28,41 +28,12 @@
 
         <aside id="sidebar">
 
-            <!--公告栏-->
-            <div class="widget-wrap">
-                <h3 class="follow">公告</h3>
-                <div class="widget-none">
-                    <div class="card-front animated col s12 m12 l8 offset-l2 fadeInUp">
-                        <p class="bg-danger">
-                            eumji025@gmail.com
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <!--每日一言-->
+            <div class="widget-wrap" th:replace="blog/part/aphorism :: aphorism"></div>
+            <!--文章分类-->
+            <div class="widget-wrap" th:replace="blog/part/classification ::classification"></div>
 
-            <div class="widget-wrap">
-                <h3 class="follow">分类</h3>
-                <div class="widget">
-                    <ul class="category-list">
-                        <li class="category-list-item" th:each="categoryList : ${categoryList}">
-                            <a class="category-list-link" th:href="${categoryList.id}" th:text="${categoryList.categoryName}"></a>
-                            <span class="category-list-count" th:text="${categoryList.articleCount}"></span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="widget-wrap">
-                <h3 class="follow">标签云</h3>
-                <div class="widget tagcloud">
-                    <a href="/tags/log4j/" style="font-size: 11.67px;">log4j</a>
-                    <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a>
-                    <a href="/tags/redis/" style="font-size: 10px;">redis</a>
-                    <a href="/tags/spring-boot-actuator/" style="font-size: 11.67px;">spring-boot-actuator</a>
-
-                </div>
-            </div>
-
+            <div class="widget-wrap" th:replace="blog/part/label-info :: label-info"></div>
 
             <div id="toTop" class="fa fa-angle-up"></div>
         </aside>
@@ -71,7 +42,7 @@
 
 
     <footer id="footer" th:replace="blog/part/footer :: footer"></footer>
-
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
     <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <script src="/js/index.js"></script>
     <script src="/js/share.js"></script>

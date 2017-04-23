@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
 <head th:replace="blog/part/head :: head"></head>
 <head>
-    <link rel="stylesheet" href="/css/monokai-sublime.css">
+    <link rel="stylesheet" href="/css/lrtk.css" />
     <style>
         @media screen and (min-width: 1200px) {
             #main {
@@ -78,6 +78,7 @@
 
                     </div>
                     <footer class="article-footer">
+                        <div id="socialShare" class="socialShare active"></div>
                     </footer>
                 </div>
 
@@ -111,6 +112,8 @@
     <footer id="footer" th:replace="blog/part/footer :: footer"></footer>
 
     <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/js/jquery.imgbox.pack.js"></script>
     <script src="/js/share.js"></script>
     <script src="/js/jquery.pagination.js"></script>
     <script src="/admin/js/editormd.js"></script>
@@ -125,7 +128,6 @@
     <script src="/vendor/lightgalleryjs/lightgallery.min.js"></script>
     <!-- Custom Scripts -->
     <script src="/js/main.js"></script>
-    <script src="/js/highlight.pack.js"></script>
 
 </div>
 
