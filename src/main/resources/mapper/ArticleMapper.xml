@@ -24,7 +24,7 @@
     <!--分页获取文章-->
     <select id="getArticleList" resultMap="article">
 
-        select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId = category.id limit #{start},#{limit}
+        select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId = category.id order by createTime desc limit #{start},#{limit}
     </select>
     <!--通过文章id获取tag列表-->
     <select id="getTag" resultType="articleTag">
