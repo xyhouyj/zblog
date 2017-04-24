@@ -1,7 +1,12 @@
 # zblog
-这个项目是使用spring boot 开发个人博客项目
+这个项目是使用spring boot + thymeleaf 开发个人博客项目.
+
+初期开发已经完成,网站已经上线.
+
+演示站: http://www.eumji025.com
 
 
+修改记录
 
 ## 2017年4月19日
 博客的雏形已经完成,
