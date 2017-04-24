@@ -32,12 +32,12 @@
     </select>
     <!--通过分类获取所有的文章-->
     <select id="loadArticleByCategory" resultMap="article">
-         select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId=category.id and  categoryId=#{categoryId} and article.categoryId = category.id limit #{pager.start},#{pager.limit}
+         select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId=category.id and  categoryId=#{categoryId} and article.categoryId = category.id order by createTime desc limit #{pager.start},#{pager.limit}
     </select>
 
     <!--通过tag加载文章-->
     <select id="loadArticleByTag" resultMap="article">
-       select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId=category.id and article.id in (select DISTINCT articleId from articletag where tagId = #{tagId} ) limit #{pager.start},#{pager.limit}
+       select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId=category.id and article.id in (select DISTINCT articleId from articletag where tagId = #{tagId} ) order by createTime desc limit #{pager.start},#{pager.limit}
 
     </select>
     <!--获取所有的文章数量-->
@@ -115,7 +115,7 @@
     <select id="getNextArticle" resultType="article">
         select id,title from article where createTime &gt; (select createTime from article where id = #{id}) ORDER BY createTime asc LIMIT 1
     </select>
-    
+    <!--增加文章的阅读量-->
     <update id="addArticleCount">
         update article set showCount = showCount+1 where id = #{id}
     </update>
