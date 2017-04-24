@@ -6,7 +6,7 @@
         <div class="widget">
             <ul class="category-list">
                 <li class="category-list-item" th:each="category : ${categoryList}">
-                    <a class="category-list-link" th:href="${category.id}" th:text="${category.categoryName}"></a>
+                    <a class="category-list-link" th:href="'loadCategory('+${category.id}+')'" th:text="${category.categoryName}"></a>
                     <span class="category-list-count" th:text="${category.articleCount}"></span>
                 </li>
             </ul>
