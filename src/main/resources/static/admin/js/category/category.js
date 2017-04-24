@@ -80,7 +80,7 @@ function deleteCategory(id){
         success  : function(data) {
             if(data.resultCode == 'success'){
                 autoCloseAlert(data.errorInfo,1000);
-                loadCategoryList();
+                window.href.location = "/admin/tag/list";
             }else{
                 autoCloseAlert(data.errorInfo,1000);
             }
@@ -122,9 +122,9 @@ function saveEditCategory(){
             success  : function(data) {
                 if(data.resultCode == 'success'){
                     $('#editCategoryModal').modal('hide');
-                    loadCategoryList();
                     closeEditWindow();
                     autoCloseAlert(data.errorInfo,1000);
+                    window.href.location = "/admin/tag/list";
                 }else{
                     autoCloseAlert(data.errorInfo,1000);
                 }

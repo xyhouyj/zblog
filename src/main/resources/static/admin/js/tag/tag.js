@@ -78,7 +78,7 @@ function deleteTag(id){
         success  : function(data) {
         	if(data.resultCode == 'success'){
         		autoCloseAlert(data.errorInfo,1000);
-        		loadTagList();
+        		window.href.location = "/admin/tag/list";
         	}else{
         		autoCloseAlert(data.errorInfo,1000);
         	}
@@ -121,8 +121,8 @@ function saveEditTag(){
 	        	if(data.resultCode == 'success'){
 	        		$('#editTagModal').modal('hide');
 	            	loadTagList();
-	            	closeEditWindow();
 	            	autoCloseAlert(data.errorInfo,1000);
+                    window.href.location = "/admin/tag/list";
 	        	}else{
 	        		autoCloseAlert(data.errorInfo,1000);
 	        	}
