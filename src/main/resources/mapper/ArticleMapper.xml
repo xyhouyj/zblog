@@ -108,12 +108,12 @@
 
     <!--获取上一篇文章信息-->
     <select id="getLastArticle" resultType="article">
-        select id,title from article where createTime &lt; (select createTime from article where id = #{id}) ORDER BY createTime desc LIMIT 1
+        select id,title from article where createTime &gt; (select createTime from article where id = #{id}) ORDER BY createTime desc LIMIT 1
     </select>
 
     <!--获取下一篇文章信息-->
     <select id="getNextArticle" resultType="article">
-        select id,title from article where createTime &gt; (select createTime from article where id = #{id}) ORDER BY createTime asc LIMIT 1
+        select id,title from article where createTime &lt; (select createTime from article where id = #{id}) ORDER BY createTime asc LIMIT 1
     </select>
     <!--增加文章的阅读量-->
     <update id="addArticleCount">
