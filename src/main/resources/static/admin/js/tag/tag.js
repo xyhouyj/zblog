@@ -39,7 +39,7 @@ function loadTagList(){
 	// 收集参数
 	var param = buildParam();
 	
-	var page = $("#page").val();
+	var page = $("#current-page").text();
 	if(isEmpty(page) || page == 0){
 		page = 1;
 	}

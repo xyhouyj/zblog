@@ -18,7 +18,7 @@ $(function(){
                 next: '<li class="next"><a href="javascript:;">Next</a></li>',
                 page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
                 onPageChange: function (num, type) {
-                    // 加载管理员列表
+                    // 加载分类列表
                     $("#current-page").text(num);
                     loadCategoryList();
                 }
