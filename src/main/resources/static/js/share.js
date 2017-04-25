@@ -194,7 +194,7 @@
 	var qzone = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={url}&title={title}&pics={pic}&summary={summary}';
 	var sina = 'http://service.weibo.com/share/share.php?url={url}&title={title}&pic={pic}&searchPic=false';
 	//var tqq = 'http://share.v.t.qq.com/index.php?c=share&a=index&url={url}&title={title}&appkey=801cf76d3cfc44ada52ec13114e84a96';
-	var tqq = 'http://connect.qq.com/widget/shareqq/index.js?url={url}&title={title}&source={source}&desc={content}&pics={pic}&summary={summary}';
+	var tqq = 'http://connect.qq.com/widget/shareqq/index.html?url={url}&title={title}&source={source}&desc={content}&pics={pic}&summary={summary}';
 	var douban = 'http://www.douban.com/share/service?href={url}&name={title}&text={content}&image={pic}';
 	var weixin = 'http://qr.liantu.com/api.php?text={url}';
 
