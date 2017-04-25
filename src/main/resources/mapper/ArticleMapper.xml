@@ -106,14 +106,14 @@
         select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId = category.id and article.id = #{id}
     </select>
 
-    <!--获取上一篇文章信息-->
+    <!--获取上一篇文章信息  大于当前时间且最靠近当前时间的第一篇 -->
     <select id="getLastArticle" resultType="article">
-        select id,title from article where createTime &gt; (select createTime from article where id = #{id}) ORDER BY createTime desc LIMIT 1
+        select id,title from article where createTime &gt; (select createTime from article where id = #{id}) ORDER BY createTime asc LIMIT 1
     </select>
 
-    <!--获取下一篇文章信息-->
+    <!--获取下一篇文章信息 小于当前时间且最靠近当前时间的第一篇-->
     <select id="getNextArticle" resultType="article">
-        select id,title from article where createTime &lt; (select createTime from article where id = #{id}) ORDER BY createTime asc LIMIT 1
+        select id,title from article where createTime &lt; (select createTime from article where id = #{id}) ORDER BY createTime desc LIMIT 1
     </select>
     <!--增加文章的阅读量-->
     <update id="addArticleCount">
