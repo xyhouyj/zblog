@@ -2,13 +2,25 @@
  * Created by EumJi on 2017/4/9.
  */
 
-$("#login-button1").click(function () {
+$("#login-button").click(function () {
+    loginSubmit();
+});
+
+$("input").keydown(function(e){
+    if (e.keyCode==13) {
+        loginSubmit();
+    }
+});
+
+
+
+function loginSubmit(){
     var username = $("#username").val();
     var password = $("#password").val();
     if (username.length > 0 && password.length > 0) {
         $.ajax({
             type: "POST",
-            url: '/auth',
+            url: '/login/auth',
             data: {username: username, password: password},
             success: function (data) {///去更新cookies
                 console.log("data:"+data);
@@ -28,10 +40,9 @@ $("#login-button1").click(function () {
             icon: 2,
         })
     }
+}
 
-});
-
-////忘记密码
+///忘记密码
 $("#iforget").click(function () {
     $("#login_model").hide();
     $("#forget_model").show();
