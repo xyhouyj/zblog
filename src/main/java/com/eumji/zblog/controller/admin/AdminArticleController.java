@@ -219,7 +219,7 @@ public class AdminArticleController {
         //设置filename
        // String filename = new Random().nextInt(10000)+file.getOriginalFilename();
         try {
-            File files = new File("d:/"+file.getOriginalFilename());
+            File files = new File(System.getProperty("java.io.tmpdir") + System.getProperty("file.separator")+file.getOriginalFilename());
             file.transferTo(files);
 
             result = PhotoUploadUtil.uploadPhoto(files.getAbsolutePath(), file.getOriginalFilename());
