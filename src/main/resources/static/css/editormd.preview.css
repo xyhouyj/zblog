@@ -3121,10 +3121,11 @@
 }
 .editormd-preview-container blockquote, .editormd-html-preview blockquote {
   color: #666;
-  border-left: 4px solid #ddd;
+  border-left: 4px solid #70dd88;
+  background-color: #c1eecd;
   padding-left: 20px;
   margin-left: 0;
-  font-size: 14px;
+  font-size: 16px;
   font-style: italic;
 }
 .editormd-preview-container p code, .editormd-html-preview p code {
