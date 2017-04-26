@@ -6,7 +6,7 @@ $(function() {
     $('#main').addClass('loaded');
     $.get("", function(markdown) {
         testEditormdView = editormd.markdownToHTML("article-content", {
-            htmlDecode      : "style,script,iframe",  // you can filter tags decode
+            htmlDecode : "style,script,<iframe,sub,sup,<embed|onclick,title,onmouseover,onmouseout,style",
             emoji           : true,
             taskList        : true,
             tex             : true,  // 默认不解析

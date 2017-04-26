@@ -113,4 +113,8 @@ public class  PageController {
         return "popular";
     }
 
+    @RequestMapping("/thymeleaf")
+    public String thymeleafPage(){
+        return "thymeleaf";
+    }
 }
