@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
 <head th:replace="blog/part/head :: head"></head>
 <head>
+    <link rel="stylesheet" href="/css/lrtk.css" />
+    <link rel="stylesheet" type="text/css" href="/css/load.css">
     <style>
         @media screen and (min-width: 1200px) {
             #main {
@@ -37,7 +39,7 @@
 
 
                         <h1 class="article-title" itemprop="name">
-                            <span id="article-title">撑着年轻还有梦</span>
+                            <span id="article-title">趁着年轻还有梦</span>
                         </h1>
 
 
@@ -73,7 +75,7 @@
                             <p>专业：计算机科学与技术</p>
                             <p>领域：java，linux</p>
                             <p>毕业时间：2017.6</p>
-                            <p>状态: 实习中</p>
+                            <p>状态: 个人页面还在想怎么设计</p>
                         </blockquote>
                             <hr>
                             <h3 id="h3-u5176u4ED6u4ECBu7ECD"><a name="其他介绍" class="reference-link"></a><span class="header-link octicon octicon-link"></span>其他介绍</h3><blockquote>
@@ -81,10 +83,7 @@
                             <p>phone: 18574406580</p>
                             <p>母校介绍：<a href="http://jsu.eumji025.top/categories/">查看详情</a></p>
                         </blockquote>
-                            <pre><code> 个人简述：
-                             人生最大的幸福就是:
-                             你想做的事情还可以尝试的去做,
-                            </code></pre><hr>
+                        <hr>
                             <h3 id="h3-2017-"><a name="2017年计划" class="reference-link"></a><span class="header-link octicon octicon-link"></span>2017年计划</h3><blockquote>
                             <p>1.加强实战经验,提升web的技术,</p>
                             <p>2.加强java的学习,JVM,多线程,并发等.</p>
@@ -93,125 +92,9 @@
                             <p>5.自己的上线网站.</p>
                         </blockquote>
                             <h3 id="h3-it-"><a name="IT技能" class="reference-link"></a><span class="header-link octicon octicon-link"></span>IT技能</h3><blockquote>
-                            <p>1、主要使用java编程语言,熟悉J2EE开发模式； </p>
-                            <p>2、掌握spring mvc框架，spring框架，mybatis框架，接触过ehcache缓存框架，shiro安全框架等；</p>
-                            <p>3、掌握HTML,JavaScript，CSS,jQuery，AJAX,XML,JSON；</p>
-                            <p>4、熟练在windows和linux环境下进行开发环境搭建，开发，项目部署(本人笔记本电脑双系统:win10+ubuntu16.4)；</p>
-                            <p>5、掌握hadoop的基本原理,对HDFS和MapReduce模型有一定的了解；</p>
-                            <p>6、常用开发工具eclipse,intellij idea,webstorm等；</p>
-                            <p>7、掌握MySQL,oracle等关系型数据库，完成相应的程序开发功能；</p>
-                            <p>8、熟悉基本的git,svn指令,</p>
-                            <p>9、有了解过nginx,gradle,maven等</p>
+                            <p>1、菜的抠脚,什么也不会!!!! </p>
+
                         </blockquote>
-                            <h2 id="h2-u5C0Fu9879u76EE"><a name="小项目" class="reference-link"></a><span class="header-link octicon octicon-link"></span>小项目</h2><h3 id="h3-2048"><a name="2048" class="reference-link"></a><span class="header-link octicon octicon-link"></span>2048</h3><p>风靡一时的小游戏，值得去尝试。</p>
-                            <p>做窗体课程设计后，简单的做了一下。基本功能完成。</p>
-                            <p>采用java Jframe制作，存在很多不足。</p>
-                            <blockquote>
-                                <p><strong>细节</strong></p>
-                                <p>1.游戏的主要细节在于移动时候数组的处理，掌握数组移动的规律即可。</p>
-                                <p>2.把握游戏的方格的绘制，控制好之间的间距。</p>
-                                <p>3.游戏音乐部分把握音频输入输出流的使用。</p>
-                            </blockquote>
-                            <p>项目地址： <a href="https://github.com/eumji025/2048Game">2048小游戏</a></p>
-                            <hr>
-                            <h3 id="h3-u4E11u964Bu7684u804Au5929u5BA4"><a name="丑陋的聊天室" class="reference-link"></a><span class="header-link octicon octicon-link"></span>丑陋的聊天室</h3><p>目的：熟悉websocket</p>
-                            <p><strong>开发环境</strong></p>
-                            <blockquote>
-                                <p>IDE：intellij IDEA 或 eclipse </p>
-                                <p>java：jdk1.6</p>
-                                <p>tomcat: 7.0.27</p>
-                            </blockquote>
-                            <p>配置修改</p>
-                            <blockquote>
-                                <p>var url = “ws://localhost:80/WebChatDemo/chat?username=${sessionScope.username}”;<br>80对应自己的端口<br>WebChatDemo对应发布项目名
-                            </blockquote>
-                            <p><strong>参考文章</strong></p>
-                            <blockquote>
-                                <p><a href="http://www.ibm.com/developerworks/cn/java/j-lo-WebSocket/">戳这里</a></p>
-                            </blockquote>
-                            <p><strong>项目源码</strong></p>
-                            <blockquote>
-                                <p><a href="https://github.com/eumji025/WebChatDemo">github地址</a></p>
-                            </blockquote>
-                            <hr>
-                            <h3 id="h3-u7B80u964Bu7684u4E2Au4EBAu535Au5BA2"><a name="简陋的个人博客" class="reference-link"></a><span class="header-link octicon octicon-link"></span>简陋的个人博客</h3><p>学完web后的模仿之作，非常适合学完web后整合学习。</p>
-                            <p><strong>主要技术</strong></p>
-                            <blockquote>
-                                <p>后端技术</p>
-                                <p>服务层：spring</p>
-                                <p>控制层：spring MVC</p>
-                                <p>持久层：mybatis</p>
-                                <p>缓存： ehcache</p>
-                                <p>前端技术</p>
-                                <p>bootstrap</p>
-                                <p>html</p>
-                                <p>css</p>
-                                <p>jquery</p>
-                            </blockquote>
-                            <p><strong>构建流程</strong></p>
-                            <blockquote>
-                                <p>1.导入项目到intellij idea</p>
-                                <p>2.pom文件构建</p>
-                                <p>3.将sql文件导入mysql</p>
-                                <p>4.修改jdbc.properties</p>
-                                <p>5.运行项目</p>
-                            </blockquote>
-                            <p>源码地址：<a href="https://git.oschina.net/smiledog/SuprBlog">suprblog</a></p>
-                            <p><strong>说明</strong></p>
-                            <p>本人也没有做太大修改，所以还是给出源代码地址。</p>
-                            <p>主要原因还是我的ubuntu系统炸裂了 没保存。<img src="http://www.emoji-cheat-sheet.com/graphics/emojis/joy.png" class="emoji" title=":joy:" alt=":joy:">
-                            <hr>
-                            <h3 id="h3-u7B80u964Bu7684u5FAEu4FE1u516Cu4F17u53F7"><a name="简陋的微信公众号" class="reference-link"></a><span class="header-link octicon octicon-link"></span>简陋的微信公众号</h3><p>主要功能：</p>
-                            <blockquote>
-                                <p>1.自定义菜单</p>
-                                <p>2.图文消息</p>
-                                <p>3.自动回复</p>
-                            </blockquote>
-                            <p><strong>说明</strong></p>
-                            <p>还在毕设期间，暂不公布源码</p>
-                            <hr>
-                            <h3 id="h3-u6C11u5BBFu540Eu53F0u7BA1u7406u7CFBu7EDF"><a name="民宿后台管理系统" class="reference-link"></a><span class="header-link octicon octicon-link"></span>民宿后台管理系统</h3><p><strong>主要功能</strong></p>
-                            <blockquote>
-                                <ol>
-                                    <li>房间管理</li><li>人员信息管理</li><li>地区管理</li><li>管理员权限管理</li><li>首页关系管理</li></ol>
-                            </blockquote>
-                            <p><strong>主要技术</strong></p>
-                            <blockquote>
-                                <p>后端技术</p>
-                                <p>服务层：spring</p>
-                                <p>控制层：spring MVC</p>
-                                <p>持久层：mybatis</p>
-                                <p>缓存： ehcache</p>
-                                <p>前端技术</p>
-                                <p>bootstrap</p>
-                                <p>angularJS</p>
-                                <p>html</p>
-                                <p>css</p>
-                            </blockquote>
-                            <p><strong>说明</strong></p>
-                            <p>还在毕设期间，暂不公布源码。</p>
-                            <hr>
-                            <h3 id="h3-u4E2Au4EBAu8BC4u4F30u7CFBu7EDF"><a name="个人评估系统" class="reference-link"></a><span class="header-link octicon octicon-link"></span>个人评估系统</h3><p><strong>主要内容</strong></p>
-                            <blockquote>
-                                <p>1.规则自定义</p>
-                                <p>2.个人评估</p>
-                                <p>3.评估对比</p>
-                            </blockquote>
-                            <p><strong>主要技术</strong></p>
-                            <blockquote>
-                                <p>后端技术</p>
-                                <p>服务层：spring</p>
-                                <p>控制层：spring MVC</p>
-                                <p>持久层：mybatis</p>
-                                <p>缓存： ehcache</p>
-                                <p>前端技术</p>
-                                <p>bootstrap</p>
-                                <p>html</p>
-                                <p>css</p>
-                            </blockquote>
-                            <p><strong>说明</strong></p>
-                            <p>还在毕设期间，暂不公布源码。</p>
-                            <hr>
                             <h3 id="h3-u5F85u7EED"><a name="待续" class="reference-link"></a><span class="header-link octicon octicon-link"></span>待续</h3><p>。。。。。。。。。。。。。。。。。。。。。。。。。。。</p>
                             <h2 id="h2-bgm"><a name="BGM" class="reference-link"></a><span class="header-link octicon octicon-link"></span>BGM</h2>
                             <div align="center">
