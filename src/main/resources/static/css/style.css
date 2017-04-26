@@ -171,7 +171,7 @@ code {
   width: 40px;
   height: 40px;
   background-repeat: no-repeat;
-  background-image: url("/image/logo.jpg");
+  background-image: url("/image/j.png");
   -webkit-background-size: 40px 40px;
   -moz-background-size: 40px 40px;
   background-size: 40px 40px;
@@ -977,7 +977,6 @@ a.article-title:hover {
 .article-entry blockquote:before {
   top: 20px;
   left: 10px;
-  content: "\f10d";
   color: #e2e2e2;
   font-size: 32px;
   font-family: FontAwesome;
