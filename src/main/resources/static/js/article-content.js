@@ -6,12 +6,12 @@ $(function() {
     $('#main').addClass('loaded');
     $.get("", function(markdown) {
         testEditormdView = editormd.markdownToHTML("article-content", {
-            htmlDecode : "style,script,<iframe,sub,sup,<embed|onclick,title,onmouseover,onmouseout,style",
+            htmlDecode      : "style,script,<iframe",  // you can filter tags decode
             emoji           : true,
             taskList        : true,
             tex             : true,  // 默认不解析
             flowChart       : true,  // 默认不解析
-            sequenceDiagram : true,  // 默认不解析
+            sequenceDiagram : true,  // 默认不解析 // 默认不解析
         });
 
         //console.log("返回一个 jQuery 实例 =>", testEditormdView);

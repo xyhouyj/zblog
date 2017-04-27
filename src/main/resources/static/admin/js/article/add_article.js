@@ -2,18 +2,16 @@
 var testEditor;
 $(function() {
 
-    $.get('', function(md){
         testEditor = editormd("article-editormd", {
             width: "99%",
             height: 740,
             path : '/admin/lib/',
-            markdown : md,
             codeFold : true,
             //syncScrolling : false,
             saveHTMLToTextarea : false,    // 保存 HTML 到 Textarea
             searchReplace : true,
             //watch : false,                // 关闭实时预览
-            htmlDecode : "style,script,<iframe,sub,sup,<embed|onclick,title,onmouseover,onmouseout,style",            // 开启 HTML 标签解析，为了安全性，默认不开启
+            htmlDecode : "style,script,<iframe,sub,sup,<embed,<div |onclick,title,onmouseover,onmouseout,style",            // 开启 HTML 标签解析，为了安全性，默认不开启
             //toolbar  : false,             //关闭工具栏
             //previewCodeHighlight : false, // 关闭预览 HTML 的代码块高亮，默认开启
             emoji : true,
@@ -59,21 +57,7 @@ $(function() {
 
                     // this == 当前editormd实例
                     // console.log("testIcon =>", this, cm, icon, cursor, selection);
-                    $.ajax({
-                        url: '/admin/article/term',
-                        success: function (data) {
-                            $('#addArticleContent').html(data);
-                            $('#addArticleModal').modal('show');
-                            $('#addArticleModal').addClass('animated');
-                            $('#addArticleModal').addClass('flipInY');
-                            $(".chosen-select").chosen({
-                                max_selected_options: 5,
-                                no_results_text: "没有找到",
-                                allow_single_deselect: true
-                            });
-                            $(".chosen-select").trigger("liszt:updated");
-                        }
-                    });
+                    saveArticle();
                 },
             },
             onload : function() {
@@ -88,7 +72,6 @@ $(function() {
                 //this.resize("100%", 640);
             }
         });
-    });
 
 
 });
@@ -124,23 +107,27 @@ function save() {
     }
 
     var title = $("#title").val();
-
     if (isEmpty(title)) {
         autoCloseAlert("请输入标题", 500);
         return false;
     }
+    title = encodeURIComponent(title);
     var description = $("#description").val();
     if (isEmpty(description)) {
         autoCloseAlert("请输入文章描述", 500);
         return false;
     }
+    description = encodeURIComponent(description);
     // var arr = [];
     // arr.push(UE.getEditor('editor').getContent());
     // var content = arr.join("\n");
 
     // 简介
     var content = testEditor.getMarkdown();
-    console.log(content);
+    content = encodeURIComponent(content);
+
+    var content = testEditor.getMarkdown();
+    content = encodeURIComponent(content);
     // 标签
     var tagIds = [];
     $("#tagId option:selected").each(function () {
