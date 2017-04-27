@@ -3227,7 +3227,7 @@
   /* a literal value */
   /* punctuation, lisp open bracket, lisp close bracket */
   .pun, .opn, .clo {
-    color: #660;
+    color: #9c9c00;
   }
 
   .tag {

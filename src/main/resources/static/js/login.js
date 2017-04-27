@@ -23,7 +23,6 @@ function loginSubmit(){
             url: '/login/auth',
             data: {username: username, password: password},
             success: function (data) {///去更新cookies
-                console.log("data:"+data);
                 if (data.resultCode == "success") {
                     window.location.href = "/admin/article/list";
 

@@ -7,7 +7,6 @@
     //插件初始化
     function init(target, options) {
         var settings = $.extend({}, $.fn.socialShare.defaults, options);
-        console.log("setting:"+JSON.stringify(settings));
 		//初始化各个组件
         var $msb_main =$msb_main = "<a class='msb_main'><img title='分享' src='/image/share_core_square.jpg'></a>";
         var $social_group = "<div class='social_group'>"

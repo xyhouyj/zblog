@@ -60,7 +60,6 @@ $(function () {
             },
         },
         onload : function() {
-            console.log('onload', this);
             //this.fullscreen();
             //this.unwatch();
             //this.watch().fullscreen();

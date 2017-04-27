@@ -37,7 +37,6 @@ function toPage(page) {
 // 加载菜单列表
 function loadPartnerList() {
     var param = $("#keyword").val();
-    console.log("param:"+param);
     // 收集参数
     var page = $("#now").val();
     if (isEmpty(page) || page == 0) {

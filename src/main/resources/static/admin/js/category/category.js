@@ -140,7 +140,6 @@ function saveAddCategory(){
             url : '/admin/category/save',
             data : encodeURI($("#addForm").serialize()),
             success  : function(data) {
-                console.log("Data:"+data);
                 if(data.resultCode == 'success'){
                     $('#addCategoryModal').modal('hide');
                     loadCategoryList();

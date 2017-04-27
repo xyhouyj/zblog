@@ -4,7 +4,6 @@ function saveAddPartner(){
 	        url : '/admin/partner/save',
 	        data : encodeURI($("#addForm").serialize()),
 	        success  : function(data) {
-	        	console.log("data:"+data);
 	        	if(data.resultCode == 'success'){
 	        		$('#addPartnerModal').modal('hide');
 	            	loadPartnerList();
