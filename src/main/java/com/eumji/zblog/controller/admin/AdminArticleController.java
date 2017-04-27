@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.io.File;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -140,8 +141,10 @@ public class AdminArticleController {
     @ResponseBody
     public ResultInfo SaveArticle(Article article,int[] tags){
         try {
-//            article.setContent(URLDecoder.decode(article.getContent(), "UTF-8"));
-//            article.setDescription(URLDecoder.decode(article.getDescription(),"UTF-8"));
+            //解码文章内容防止出现部分特殊字符串被转义
+            article.setDescription(URLDecoder.decode(article.getDescription(),"UTF-8"));
+            article.setTitle(URLDecoder.decode(article.getTitle(),"UTF-8"));
+            article.setContent(URLDecoder.decode(article.getContent(),"UTF-8"));
             articleService.saveArticle(article, tags);
         }catch (Exception e){
             log.error(e.toString());
@@ -191,6 +194,10 @@ public class AdminArticleController {
     @ResponseBody
     public ResultInfo updateArticle(Article article,int[] tags){
         try {
+            //解码文章内容防止出现部分特殊字符串被转义
+            article.setDescription(URLDecoder.decode(article.getDescription(),"UTF-8"));
+            article.setTitle(URLDecoder.decode(article.getTitle(),"UTF-8"));
+            article.setContent(URLDecoder.decode(article.getContent(),"UTF-8"));
             articleService.updateArticle(article,tags);
         }catch (Exception e){
             log.error(e.toString());
