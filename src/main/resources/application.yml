@@ -29,6 +29,7 @@ logging:
   file:
 server:
   session-timeout : 3600
+  port: 8080
 
 
 ##
