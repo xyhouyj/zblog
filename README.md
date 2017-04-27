@@ -1,4 +1,8 @@
 # zblog
+
+[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+
+
 这个项目是使用spring boot + thymeleaf 开发个人博客项目.
 
 初期开发已经完成,网站已经上线.
@@ -43,3 +47,5 @@
  
 5.解决登录时候出现js的问题
 
+## License
+The zblog is released under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).

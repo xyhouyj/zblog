@@ -125,9 +125,6 @@ function save() {
     // 简介
     var content = testEditor.getMarkdown();
     content = encodeURIComponent(content);
-
-    var content = testEditor.getMarkdown();
-    content = encodeURIComponent(content);
     // 标签
     var tagIds = [];
     $("#tagId option:selected").each(function () {
@@ -151,7 +148,7 @@ function save() {
     // 保存文章
     $.ajax({
         type: "POST",
-        url: '../article/save',
+        url: '/admin/article/save',
         data: 'categoryId=' + categoryId + "&tags=" + tagIds + "&title=" + title + "&content=" + encodeURI(content) + "&description=" +  encodeURI(description),
         success: function (data) {
             if (data.resultCode != 'success') {
