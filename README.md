@@ -47,5 +47,13 @@
  
 5.解决登录时候出现js的问题
 
+## 2017年4月27日
+
+1.解决iframe不能正确被解析的问题
+
+2.解决&+等特殊符号在post请求中被转义的情况
+
+3.添加license
+
 ## License
 The zblog is released under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
