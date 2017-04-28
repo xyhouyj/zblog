@@ -128,5 +128,10 @@
 
     </select>
 
+    <!--获取articleId-->
+    <select id="getArticleId" resultType="string">
+        select id from article WHERE  status = 1
+    </select>
+
 
 </mapper>
