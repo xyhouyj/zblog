@@ -64,4 +64,6 @@ public interface ArticleService {
     void addArticleCount(Integer articleId);
 
     List<ArticleCustom> popularArticle();
+
+    String[] getArticleId();
 }

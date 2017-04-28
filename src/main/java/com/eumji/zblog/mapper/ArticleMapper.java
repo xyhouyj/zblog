@@ -74,4 +74,6 @@ public interface ArticleMapper {
     void addArticleCount(Integer articleId);
 
     List<ArticleCustom> popularArticle();
+
+    String[] getArticleId();
 }

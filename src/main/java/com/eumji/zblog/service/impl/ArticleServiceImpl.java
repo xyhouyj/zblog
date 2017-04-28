@@ -115,6 +115,11 @@ public class ArticleServiceImpl implements ArticleService {
         return articleMapper.popularArticle();
     }
 
+    @Override
+    public String[] getArticleId() {
+        return articleMapper.getArticleId();
+    }
+
     private Integer getRandomId(){
         Calendar instance = Calendar.getInstance();
         int month = instance.MONTH;
