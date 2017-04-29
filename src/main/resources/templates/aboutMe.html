@@ -1,134 +1,235 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
-<head th:replace="blog/part/head :: head"></head>
-<head>
-    <link rel="stylesheet" href="/css/lrtk.css" />
-    <link rel="stylesheet" type="text/css" href="/css/load.css">
+<head th:fragment="head">
+    <meta charset="utf-8">
+    <title>EumJi | 博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="EumJi | 博客">
+    <meta property="og:url" content="http://www>eumji025.com">
+    <meta property="og:site_name" content="EumJi | 博客">
+    <meta property="og:description" content="本站是EumJi基于hexo博客主题+spring-boot作为后端开发而成。内容涵盖Java基础、JAVA的web框架、等其他技术的分享。">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="EumJi | 博客">
+    <meta name="twitter:description" content="本站是EumJi基于hexo博客主题+spring-boot作为后端开发而成.内容涵盖Java基础、JAVA的web框架、等其他技术的分享。">
+    <meta name="keywords" content="Spring Boot, Spring,Linux,Java,Hadoop" />
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/about.me.css">
     <style>
-        @media screen and (min-width: 1200px) {
-            #main {
-                display: inline;
-                float: left;
-                width: 74.9999999999%;
-                margin: 0 0.769230769230769%;
-            }
+        a{
+            color: #000;
+        }
+        #footer{
+            position:absolute;
+            bottom: -100px;
+            width:100%;
+            height:20px;
+            background-color: #fbfffc;
         }
     </style>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8254913025324557",
+            enable_page_level_ads: true
+        });
+    </script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-86515876-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <!--百度统计-->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d0860f6c7721ce1eda7a584188cae847";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!--百度自动推送-->
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+    <script async type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
 </head>
+
 <body>
-<div id="container">
-    <header id="header" th:replace="blog/part/header :: header">
-    </header>
-    <div class="outer">
+<header id="header" th:replace="blog/part/header :: header">
+</header>
+<div class="main">
+    <h1>EumJi Information</h1>
+    <div class="account">
+        <div class="account-info">
+            <div class="account-top">
+                <div class="account-top-left">
+                    <img src="/image/avatar.jpg" alt="">
+                </div>
+                <!--<div class="account-top-right">
+                    <h2>李靖 </h2>
+                    <p>java Developer</p>
+                </div>-->
+                <div class="clear"></div>
+            </div>
+            <div class="account-bottom">
+                <div class="tabs">
+                    <nav>
+                        <a><span> </span>简介</a>
+                        <a><span class="icon1"></span>技能</a>
+                        <a><span class="icon2"></span>爱好</a>
+                        <a><span class="icon3"></span>联系我</a>
+                        <a><span class="icon4"></span>其他</a>
+                        <option></option>
+                        <option></option>
+                    </nav>
+                    <div class="content">
+                        <div class="text">
+                            <div class="text-right">
+                                <h4>Introduction</h4>
+                                <div class="clear"></div>
+                                <p>作者90后,毕业于吉首大学计算机科学与技术专业,目前个人从事java相关的工作,主要研究和工作的方向在java和linux,
+                                    平时会学习一些新的技术或者框架,有时候会阅读一些java的经典书籍,以提高自己对于技术的理解.</p>
+                                <p>大学期间弄过一些乱七八糟的东西,非常遗憾的事情是没有去完成一个优质的作品,在今后的工作和生活中,可能会尝试更多的东西.大学期间android,hadoop,linux,java等都略微学过一点点,目前主要规划是在java基础和java的一些框架学习中.</p>
 
-        <aside id="profile">
-            <!--个人基础信息-->
-            <div class="inner profile-inner" th:replace="blog/part/base-of-me :: base_of_me"></div>
-            <!--友情链接-->
-            <div class="inner profile-inner" th:replace="blog/part/friend-link :: friend_link"></div>
-            <!--微信公众号信息-->
-            <div class="inner profile-inner" th:replace="blog/part/wechat-info :: wechat_info"></div>
-        </aside>
 
-
-        <section id="main">
-            <article id="post-zuul-vs-nginx-performance" class="article article-type-post" itemscope="" itemprop="blogPost">
-                <div class="article-inner">
-
-                    <header class="article-header">
-
-
-                        <h1 class="article-title" itemprop="name">
-                            <span id="article-title">趁着年轻还有梦</span>
-                        </h1>
-
-
-
-                        <div class="article-meta">
-
-                            <div class="article-date">
-                                <i class="fa fa-calendar"></i>
-                                <a>
-                                    <time datetime="2017-04-22" itemprop="datePublished">2017-04-22</time>
-                                </a>
                             </div>
 
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="text">
+                            <div class="text-right">
+                                <h4>Skills</h4>
+                                <section class="container">
+                                    <div class="progress">
+                                        <span style="width: 40%;"><span>html</span></span>
+                                    </div>
 
+                                    <div class="progress">
+                                        <span class="green" style="width: 50%;"><span>js</span></span>
+                                    </div>
 
-                            <div class="article-category" style="text-transform: none;">
-                                <i class="fa fa-folder"></i>
-                                <!--th:href="'/category/details/'+${articleList.categoryId}"-->
-                                <a class="article-category-link" style="cursor: pointer">个人小计</a>
+                                    <div class="progress">
+                                        <span class="orange" style="width: 50%;"><span>hadoop</span></span>
+                                    </div>
+
+                                    <div class="progress">
+                                        <span class="red" style="width: 60%;"><span>linux</span></span>
+                                    </div>
+
+                                    <div class="progress">
+                                        <span class="blue" style="width: 70%;"><span>java</span></span>
+                                    </div>
+                                    <div class="progress">
+                                        <span style="width: 15%;"><span>python</span></span>
+                                    </div>
+                                    <div class="progress">
+                                        <span style="width: 0%;"><span>go</span></span>
+                                    </div>
+                                </section>
+                                <div class="text_wrap" hidden>
+                                </div >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="text">
+
+                            <div class="text-right">
+                                <h4>Hobby</h4>
+                                <div class="Hobby">
+
+                                </div>
                             </div>
 
                         </div>
 
+                    </div>
+                    <div class="content">
+                        <div class="text ">
+                            <div class="text-right">
+                                <h4>Connection</h4>
+                                <div class="myinfo">
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td>手机 | 18574406580</td>
+                                        </tr>
+                                        <tr>
+                                            <td>邮箱 | eumji025@gmail.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Q Q | 183127934</td>
+                                        </tr>
+                                        <tr>
+                                            <td>github | eumji025</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="text ">
 
-                    </header>
+                            <div class="text-right">
+                                <h4>Ohter Talk</h4>
 
-
-                    <div class="article-entry" itemprop="articleBody" lg-uid="lg0">
-                        <div id="article-content">
-                            <h1 id="h1-u5E74u8F7Bu7684u6211u4EECu9700u8981u68A6u60F3"><a name="年轻的我们需要梦想" class="reference-link"></a><span class="header-link octicon octicon-link"></span>年轻的我们需要梦想</h1><h3 id="h3-u57FAu672Cu4FE1u606F"><a name="基本信息" class="reference-link"></a><span class="header-link octicon octicon-link"></span>基本信息</h3><blockquote>
-                            <p>作者： 李靖</p>
-                            <p>母校：吉首大学</p>
-                            <p>专业：计算机科学与技术</p>
-                            <p>领域：java，linux</p>
-                            <p>毕业时间：2017.6</p>
-                            <p>状态: 个人页面还在想怎么设计</p>
-                        </blockquote>
-                            <hr>
-                            <h3 id="h3-u5176u4ED6u4ECBu7ECD"><a name="其他介绍" class="reference-link"></a><span class="header-link octicon octicon-link"></span>其他介绍</h3><blockquote>
-                            <p>email: <a href="mailto:eumji025@gmail.com">eumji025@gmail.com</a></p>
-                            <p>phone: 18574406580</p>
-                            <p>母校介绍：<a href="http://jsu.eumji025.top/categories/">查看详情</a></p>
-                        </blockquote>
-                        <hr>
-                            <h3 id="h3-2017-"><a name="2017年计划" class="reference-link"></a><span class="header-link octicon octicon-link"></span>2017年计划</h3><blockquote>
-                            <p>1.加强实战经验,提升web的技术,</p>
-                            <p>2.加强java的学习,JVM,多线程,并发等.</p>
-                            <p>3.学习新技术,python,scala,go等</p>
-                            <p>4.尝试做开源项目.</p>
-                            <p>5.自己的上线网站.</p>
-                        </blockquote>
-                            <h3 id="h3-it-"><a name="IT技能" class="reference-link"></a><span class="header-link octicon octicon-link"></span>IT技能</h3><blockquote>
-                            <p>1、菜的抠脚,什么也不会!!!! </p>
-
-                        </blockquote>
-                            <h3 id="h3-u5F85u7EED"><a name="待续" class="reference-link"></a><span class="header-link octicon octicon-link"></span>待续</h3><p>。。。。。。。。。。。。。。。。。。。。。。。。。。。</p>
-                            <h2 id="h2-bgm"><a name="BGM" class="reference-link"></a><span class="header-link octicon octicon-link"></span>BGM</h2>
-                            <div align="center">
-                                <iframe border="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=459239013&amp;auto=1&amp;height=66"></iframe>
                             </div>
 
                         </div>
-                        <footer class="article-footer">
-                        </footer>
+
                     </div>
                 </div>
-
-
-
-            </article>
-
-
-
-        </section>
-
-
+            </div>
+        </div>
     </div>
-
-    <footer id="footer" th:replace="blog/part/footer :: footer"></footer>
-
-    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <script src="/js/share.js"></script>
-    <script src="/js/jquery.pagination.js"></script>
-    <script src="/admin/js/editormd.js"></script>
-    <script src="/admin/lib/marked.min.js"></script>
-    <script src="/admin/lib/prettify.min.js"></script>
-
 </div>
+<footer id="footer" th:replace="blog/part/footer :: footer"></footer>
+<script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    $(function () {
+        $("#search-form-wrap").attr("hidden",true);
+        $('.tabs nav a').on('click', function () {
+            show_content($(this).index());
+        });
+        show_content(0);
+        function show_content(index) {
+            // Make the content visible
+            $('.tabs .content.visible').removeClass('visible');
+            $('.tabs .content:nth-of-type(' + (index + 1) + ')').addClass('visible');
 
+            // Set the tab to selected
+            $('.tabs nav a.selected').removeClass('selected');
+            $('.tabs nav a:nth-of-type(' + (index + 1) + ')').addClass('selected');
+        }
+    });
+    addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    }
+</script>
 </body>
 </html>
