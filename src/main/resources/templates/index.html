@@ -18,7 +18,7 @@
             <!--友情链接-->
             <div class="inner profile-inner" th:replace="blog/part/friend-link :: friend_link"></div>
             <!--微信公众号信息-->
-            <div class="inner profile-inner" th:replace="blog/part/wechat-info :: wechat_info"></div>
+            <!--<div class="inner profile-inner" th:replace="blog/part/wechat-info :: wechat_info"></div>-->
         </aside>
 
 
@@ -38,17 +38,14 @@
             <!--文章分类-->
             <div class="widget-wrap" th:replace="blog/part/classification :: classification"></div>
 
-            <div class="widget-wrap" th:replace="blog/part/label-info :: label-info"></div>
+           <!-- <div class="widget-wrap" th:replace="blog/part/label-info :: label-info"></div>-->
 
             <div id="toTop" class="fa fa-angle-up"></div>
         </aside>
 
     </div>
 
-
     <footer id="footer" th:replace="blog/part/footer :: footer"></footer>
-
-
 </div>
 <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -58,5 +55,6 @@
 <!-- Custom Scripts -->
 <script src="/vendor/lightgallery/js/lightgallery.min.js"></script>
 <script src="/js/main.js"></script>
+
 </body>
 </html>
