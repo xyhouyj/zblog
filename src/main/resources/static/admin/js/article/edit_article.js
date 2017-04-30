@@ -3,7 +3,7 @@ var testEditor;
 $(function () {
     testEditor = editormd("article-editormd", {
         width: "99%",
-        height: 740,
+        height: $(window).height()-20,
         path : '/admin/lib/',
         codeFold : true,
         //syncScrolling : false,
@@ -112,12 +112,12 @@ function save() {
 
     var categoryId = $("#categoryId").val();
     if(isEmpty(categoryId)){
-        autoCloseAlert("请选择栏目",500);
+        autoCloseconsole.log("请选择栏目",500);
         return false;
     }
     var title = $("#title").val();
     if(isEmpty(title)){
-        autoCloseAlert("请输入标题",500);
+        autoCloseconsole.log("请输入标题",500);
         return false;
     }
     title = encodeURIComponent(title);
@@ -126,7 +126,7 @@ function save() {
     content = encodeURIComponent(content);
     var description = $("#description").val();
     if (isEmpty(description)) {
-        autoCloseAlert("请输入文章描述", 500);
+        autoCloseconsole.log("请输入文章描述", 500);
         return false;
     }
     description = encodeURIComponent(description);
@@ -136,7 +136,7 @@ function save() {
         tagIds.push($(this).val());
     })
     if (isEmpty(tagIds)) {
-        autoCloseAlert("请输入标签", 500);
+        autoCloseconsole.log("请输入标签", 500);
         return false;
         // var ids = (tagId+"").split(",");
         // var tagArray = [];
@@ -155,7 +155,7 @@ function save() {
         data : 'id='+id+'&categoryId=' + categoryId + "&tags=" + tagIds + "&title=" + title + "&content=" + encodeURI(content) + "&description=" +  encodeURI(description),
         success  : function(data) {
             if(data.resultCode != 'success'){
-                autoCloseAlert(data.errorInfo,1000);
+                autoCloseconsole.log(data.errorInfo,1000);
                 closeEditWindow();
                 return false;
             }else{

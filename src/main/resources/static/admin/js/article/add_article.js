@@ -4,7 +4,7 @@ $(function() {
 
         testEditor = editormd("article-editormd", {
             width: "99%",
-            height: 740,
+            height: $(window).height()-20,
             path : '/admin/lib/',
             codeFold : true,
             //syncScrolling : false,

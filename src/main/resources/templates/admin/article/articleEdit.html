@@ -17,15 +17,8 @@
     </head>
     <body>
         <div id="layoutitle-controlt">
-            <header class="header-control">
-                <!--<div class="title-control">-->
-                        <!--<input type="text" class="title-input" placeholder="请输入文章标题">-->
-                <!--</div>-->
-                <div class="article-btn article-btn-danger submit-control" onclick="editArticle()">
-                    保存文章
-                </div>
-            </header>
             <input id="article-id" th:value="${article.id}" hidden />
+            <!--编辑框-->
             <div id="article-editormd">
                 <textarea style="display:none;" th:text="${article.content}"></textarea>
             </div>
