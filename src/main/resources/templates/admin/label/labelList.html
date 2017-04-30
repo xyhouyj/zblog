@@ -1,112 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="renderer" content="webkit">
-    <link href="/admin/css/bootstrap.min.css"  rel="stylesheet">
-    <link href="/admin/font-awesome/css/font-awesome.css"  rel="stylesheet">
-    <!-- Data Tables -->
-    <link href="/admin/css/plugins/dataTables/dataTables.bootstrap.css"  rel="stylesheet">
-    <link href="/admin/css/animate.css" rel="stylesheet">
-    <link href="/admin/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/admin/js/flavr/flavr/css/animate.css" />
-    <link rel="stylesheet" type="text/css" href="/admin/js/flavr/flavr/css/flavr.css" />
-    <style>
-        .btn-circle {
-            width: 20px;
-            height: 20px;
-            border-radius: 10px;
-        }
-        .fa{
+<head th:replace="~{admin/partial/head :: head}"></head>
 
-            position: relative;
-            top: -3px;
-        }
-    </style>
-</head>
 
 <body>
 <div id="wrapper">
-    <nav class="navbar-default navbar-static-side" role="navigation">
-        <div class="sidebar-collapse">
-            <ul class="nav" id="side-menu">
-                <li class="nav-header">
-                    <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="/image/avatar.jpg"/>
-                             </span>
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0)" >
-                                <span class="clear"> 
-	                                <span class="block m-t-xs"> 
-	                                	<strong class="font-bold">root</strong>
-	                             	</span> 
-	                             	<span class="text-muted text-xs block">
-		                             		超级管理员
-	                             	<b class="caret"></b></span> 
-                             	</span>
-                        </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <!-- <li><a href="form_avatar.html">修改头像</a></li>
-                            <li><a href="profile.html">个人资料</a></li>
-                            <li><a href="contacts.html">联系我们</a></li>
-                            <li><a href="mailbox.html">信箱</a></li>
-                            <li class="divider"></li> -->
-                            <li><a href="/admin/out">安全退出</a></li>
-                        </ul>
-                    </div>
-                    <div class="logo-element">
-                        H+
-                    </div>
-                </li>
-
-                <li>
-                    <a href="javascript:void(0)"><i class="fa fa fa-volume-up"></i>
-                        <span class="nav-label">文章管理</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li >
-                            <a href="/admin/article/list">文章列表</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="active">
-                    <a href="javascript:void(0)"><i class="fa fa fa-qrcode"></i>
-                        <span class="nav-label">标签管理</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li class="active">
-                            <a href="/admi/tag/list">标签列表</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><i class="fa fa fa-qrcode"></i>
-                        <span class="nav-label">合作伙伴管理</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="/admin/partner/list">合作伙伴列表</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><i class="fa fa fa-qrcode"></i>
-                        <span class="nav-label">分类管理</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="/admin/category/list">分类列表</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-        </div>
+    <nav class="navbar-default navbar-static-side" role="navigation" th:insert="~{admin/partial/sidebar :: sidebar}">
     </nav>
-
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">

@@ -1,32 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="renderer" content="webkit">
-    <link href="/admin/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <!-- Data Tables -->
-    <link href="/admin/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
-    <link href="/admin/css/animate.css" rel="stylesheet">
-    <link href="/admin/css/style.css" rel="stylesheet">
-    <link href="/admin/css/plugins/chosen/chosen.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/admin/js/flavr/flavr/css/animate.css"/>
-    <link rel="stylesheet" type="text/css" href="/admin/js/flavr/flavr/css/flavr.css"/>
-    <style>
-        .btn-circle {
-            width: 20px;
-            height: 20px;
-            border-radius: 10px;
-        }
-
-        .fa {
-
-            position: relative;
-            top: -3px;
-        }
-    </style>
-</head>
+<head th:replace="~{admin/partial/head :: head}"></head>
 
 <body>
     <div id="wrapper">
@@ -149,7 +123,10 @@
     <script src="/admin/js/validation.js"></script>
     <script src="/admin/js/article/article.js"></script>
     <script src="/js/jqPaginator.min.js"></script>
+    <!--左边菜单的展开和关闭-->
+    <script src="/admin/js/hplus.js"></script>
     <script src="/admin/js/plugins/chosen/chosen.jquery.js"></script>
+    <!--弹窗效果-->
     <script type="text/javascript" src="/admin/js/flavr/flavr/js/flavr.min.js"></script>
     <script type="text/javascript" src="/admin/js/flavr/base.js"></script>
 
