@@ -1,4 +1,6 @@
 $(function() {
+    $("#article-manage-li").addClass("active");
+    $("#article-list-li").addClass("active");
     var page = $("#current-page").val();
     if (page == null || page == 0) {
         page = 1;

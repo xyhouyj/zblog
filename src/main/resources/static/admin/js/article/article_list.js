@@ -27,9 +27,9 @@ function loadNextPage(lastId){
 											$('img').lazyload();
 										}
 									}
-		});	
-}  
-});  
+		});
+}
+});
 
 function goTag(tagName){
 	window.location.href = "http://coriger.com/tag/"+encodeURI(encodeURI(tagName))

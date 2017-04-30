@@ -1,4 +1,7 @@
 $(function() {
+    $("#partner-manage-li").addClass("active");
+    $("#partner-list-li").addClass("active");
+    $("#partner-list-li").parent().addClass("in");
     var page = $("#current-page").val();
     if (page == null || page == 0) {
         page = 1;

@@ -1,4 +1,7 @@
 $(function() {
+    $("#label-manage-li").addClass("active");
+    $("#label-list-li").addClass("active");
+    $("#label-list-li").parent().addClass("in");
     var page = $("#current-page").val();
     if (page == null || page == 0) {
         page = 1;
@@ -120,10 +123,9 @@ function saveEditTag(){
 	        success  : function(data) {
 	        	if(data.resultCode == 'success'){
 	        		$('#editTagModal').modal('hide');
-	            	loadTagList();
-	            	autoCloseAlert(data.errorInfo,1000);
-                    window.href.location = "/admin/tag/list";
-	        	}else{
+                    loadTagList();
+                    autoCloseAlert(data.errorInfo,1000);
+                }else{
 	        		autoCloseAlert(data.errorInfo,1000);
 	        	}
 			}
@@ -139,10 +141,8 @@ function saveAddTag(){
 	        data : encodeURI($("#addForm").serialize()),
 	        success  : function(data) {
 	        	if(data.resultCode == 'success'){
-	        		$('#addTagModal').modal('hide');
-	            	loadTagList();
-	            	closeAddWindow();
-	            	autoCloseAlert(data.errorInfo,1000);
+                    autoCloseAlert(data.errorInfo,1000);
+                    window.location.href = "/admin/tag/list";
 	        	}else{
 	        		autoCloseAlert(data.errorInfo,1000);
 	        	}
