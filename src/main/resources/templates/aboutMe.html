@@ -22,9 +22,9 @@
         }
         #footer{
             position:absolute;
-            bottom: -100px;
+            bottom: 0;
             width:100%;
-            height:20px;
+            height:30px;
             background-color: #fbfffc;
         }
     </style>
@@ -78,7 +78,7 @@
 <header id="header" th:replace="blog/part/header :: header">
 </header>
 <div class="main">
-    <h1>EumJi Information</h1>
+
     <div class="account">
         <div class="account-info">
             <div class="account-top">
@@ -210,6 +210,7 @@
 <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
 <script>
     $(function () {
+        $(".search-form").attr("hidden",true);
         $("#search-form-wrap").attr("hidden",true);
         $('.tabs nav a').on('click', function () {
             show_content($(this).index());
