@@ -20,8 +20,8 @@
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("/admin/fonts/fontawesome-webfont.eot");
-  src: url("/admin/fonts/fontawesome-webfont.eot") format("embedded-opentype"), url("/admin/fonts/fontawesome-webfont.woff2") format("woff2"), url("/admin/fonts/fontawesome-webfont.woff") format("woff"), url("/admin/fonts/fontawesome-webfont.ttf") format("truetype"), url("/admin/fonts/fontawesome-webfont.svg#fontawesomeregular") format("svg");
+  src: url("http://of8rkrh1w.bkt.clouddn.com//editormd/fonts/fontawesome-webfont.eot");
+  src: url("http://of8rkrh1w.bkt.clouddn.com//editormd/fontawesome-webfont.eot") format("embedded-opentype"), url("http://of8rkrh1w.bkt.clouddn.com//editormd/fontawesome-webfont.woff2") format("woff2"), url("http://of8rkrh1w.bkt.clouddn.com//editormd/fontawesome-webfont.woff") format("woff"), url("http://of8rkrh1w.bkt.clouddn.com//editormd/fontawesome-webfont.ttf") format("truetype"), url("http://of8rkrh1w.bkt.clouddn.com//editormd/fontawesome-webfont.svg#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -2364,8 +2364,8 @@
 /*! prefixes.scss v0.1.0 | Author: Pandao | https://github.com/pandao/prefixes.scss | MIT license | Copyright (c) 2015 */
 @font-face {
   font-family: 'editormd-logo';
-  src: url("/admin/fonts/editormd-logo.eot?-5y8q6h");
-  src: url("./admin/fonts/editormd-logo.eot?#iefix-5y8q6h") format("embedded-opentype"), url("/admin/fonts/editormd-logo.woff?-5y8q6h") format("woff"), url("/admin/fonts/editormd-logo.ttf?-5y8q6h") format("truetype"), url("/admin/fonts/editormd-logo.svg?-5y8q6h#icomoon") format("svg");
+  src: url("http://of8rkrh1w.bkt.clouddn.com//editormd/editormd-logo.eot?-5y8q6h");
+  src: url(".http://of8rkrh1w.bkt.clouddn.com//editormd/editormd-logo.eot?#iefix-5y8q6h") format("embedded-opentype"), url("http://of8rkrh1w.bkt.clouddn.com//editormd/editormd-logo.woff?-5y8q6h") format("woff"), url("http://of8rkrh1w.bkt.clouddn.com//editormd/editormd-logo.ttf?-5y8q6h") format("truetype"), url("http://of8rkrh1w.bkt.clouddn.com//editormd/editormd-logo.svg?-5y8q6h#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
