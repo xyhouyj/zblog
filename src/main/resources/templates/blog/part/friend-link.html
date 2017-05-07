@@ -9,7 +9,7 @@
             <ul >
                 <!--/*@thymesVar id="partnerList" type="com.eumji.zblog.vo.Partner"*/-->
                 <li th:each="partList : ${partnerList}">
-                    <a th:href="${partList.siteUrl}" th:text="${partList.siteName}"></a>
+                    <a target="_blank" th:href="${partList.siteUrl}" th:text="${partList.siteName}"></a>
                 </li>
             </ul>
         </div>
