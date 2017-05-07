@@ -56,7 +56,8 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String password = user.getPassword();
         String pwdDigest = Md5Util.pwdDigest(token.getCredentials().toString());
         //与authentication里面的credentials相比较
-        if (!password.equals(Md5Util.pwdDigest(token.getCredentials().toString()))) {
+        if (!password.equals(pwdDigest)) {
+
             throw new BadCredentialsException("Invalid username/password");
         }
         //授权

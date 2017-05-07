@@ -40,7 +40,7 @@ public class LoggerAspect {
         LogInfo log = new LogInfo();
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
         if (requestAttributes != null) {
-            HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
+            HttpServletRequest request = requestAttributes.getRequest();
             User user = (User) request.getSession().getAttribute("user");
             if (user!=null) {
                 log.setUserId(user.getUsername());

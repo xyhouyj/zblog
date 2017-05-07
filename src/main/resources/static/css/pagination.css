@@ -1,7 +1,7 @@
 .pagination {
     display: inline-block;
-    padding-left: 0;
     margin: 20px 0;
+    padding:0 10px 0 30px;
     border-radius: 4px
 }
 
