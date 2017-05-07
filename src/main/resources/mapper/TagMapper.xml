@@ -44,8 +44,8 @@
         select id,tagName,aliasName from tag
     </select>
 
-
+    <!--2017年5月7日 修复查询articlepage的错误 原因是由于前面没用到,现在才发现名称写错了也没有过滤重复的id-->
     <select id="articleTagPage" resultType="int">
-        select count(articletag.id) from articletag join article on articleId = article.id and article.status = 1 where tagId = #{tagId}
+       select count(DISTINCT article.id) from articletag join article on articleId = article.id and article.status = 1 where tagId = #{tagId}
     </select>
 </mapper>
