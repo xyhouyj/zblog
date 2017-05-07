@@ -18,7 +18,7 @@ import java.util.List;
  * Created by GeneratorFx on 2017-04-11.
  */
 @Controller
-@RequestMapping("/category")
+@RequestMapping("/categories")
 public class CategoryController {
 
     @Resource
