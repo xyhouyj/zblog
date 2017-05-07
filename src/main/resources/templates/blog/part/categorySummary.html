@@ -45,7 +45,7 @@
                     <div class="share-container" style="text-transform: none;" th:each="tagListStat : ${articleList.tagList}">
                         <i class="fa fa-tag"></i>
                         <!--th:href="'/tag/details/'+${tagListStat.tagId}"-->
-                        <a class="tag-link" th:onclick="'loadTag('+${tagListStat.tagId}+')'"  th:text="${tagListStat.tagName}" style="cursor: pointer"></a>
+                        <a class="article-tag-link" th:data-id="${tagListStat.tagId}"  th:text="${tagListStat.tagName}" style="cursor: pointer"></a>
                     </div>
                 </div>
             </div>
@@ -55,11 +55,5 @@
 
 </div>
 
-<nav id="page-nav">
-    <div class="M-box"></div>
-    <p class="tips">当前是第<span class="now" th:text="${pager.page}" th:value="${pager.page}"></span>页</p>
-    <!--<span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
-    -->
-</nav>
 </html>
 
