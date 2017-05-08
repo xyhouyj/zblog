@@ -1,8 +1,8 @@
 package com.eumji.zblog.task;
 
 import com.eumji.zblog.service.ArticleService;
-import com.eumji.zblog.vo.Article;
-import jdk.internal.dynalink.beans.StaticClass;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -22,39 +22,54 @@ import java.net.URLConnection;
  */
 @Component
 public class BaiduTask {
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
     public static final String POST_URL = "http://data.zz.baidu.com/urls?site=www.eumji025.com&token=hHzO6TjfJBf4KA53";
     public static final String BASE_URL = "http://www.eumji025.com";
     @Autowired
     private ArticleService articleService;
 
-    @Scheduled(fixedDelay = 5000000)
-    public void postArticleUrl(){
+    private URLConnection initConnect() throws IOException {
+        URLConnection conn = new URL(POST_URL).openConnection();
+        conn.setRequestProperty("Host","data.zz.baidu.com");
+        conn.setRequestProperty("User-Agent", "curl/7.12.1");
+        conn.setRequestProperty("Content-Length", "83");
+        conn.setRequestProperty("Content-Type", "text/plain");
+
+        conn.setDoInput(true);
+        conn.setDoOutput(true);
+        return conn;
+    }
+    @Scheduled(fixedDelay = 2000000)
+    public void postArticleUrl() throws IOException {
+        String [] ids = articleService.getArticleId();
+       writerUrl(initConnect(),ids);
+
+    }
+
+    /**
+     * 重构推送文章的write方法
+     * @param conn
+     * @param ids
+     * @throws IOException
+     */
+    private void writerUrl(URLConnection conn,String... ids) throws IOException {
         PrintWriter out=null;
-        try {
-            URLConnection conn = new URL(POST_URL).openConnection();
-            conn.setRequestProperty("Host","data.zz.baidu.com");
-            conn.setRequestProperty("User-Agent", "curl/7.12.1");
-            conn.setRequestProperty("Content-Length", "83");
-            conn.setRequestProperty("Content-Type", "text/plain");
-
-            conn.setDoInput(true);
-            conn.setDoOutput(true);
-            String [] ids = articleService.getArticleId();
-            int length = ids.length;
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < length; i++){
-                sb.append(BASE_URL+"/article/details/"+ids[i]+"\n");
-            }
-            System.out.println("推送的url为:"+sb.toString());
-            out=new PrintWriter(conn.getOutputStream());
-            out.print(sb.toString().trim());
-
-        } catch (MalformedURLException e) {
-            System.out.println("推送发生错误!!!");
-            e.printStackTrace();
-        } catch (IOException e) {
-            System.out.println("推送发生错误!!!");
-            e.printStackTrace();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < ids.length; i++){
+            sb.append(BASE_URL+"/article/details/"+ids[i]+"\n");
         }
+        logger.info("推送的url为:"+sb.toString());
+        out=new PrintWriter(conn.getOutputStream());
+        out.print(sb.toString().trim());
+        out.close();
+    }
+
+    /**
+     * 新增添加文章推送功能
+     * @param articleId 文章id
+     */
+    private void pushOneArticle(String articleId) throws IOException {
+        writerUrl(initConnect(),articleId);
+
     }
 }
