@@ -1,18 +1,18 @@
 package com.eumji.zblog.controller;
 
+import com.eumji.zblog.service.ArticleService;
 import com.eumji.zblog.service.CategoryService;
 import com.eumji.zblog.service.PartnerService;
 import com.eumji.zblog.service.TagService;
-import com.eumji.zblog.vo.*;
-import com.eumji.zblog.service.ArticleService;
 import com.eumji.zblog.util.ResultInfo;
+import com.eumji.zblog.vo.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import javax.annotation.Resource;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -79,7 +79,12 @@ public class ArticleController {
         return "article";
     }
 
-
+    @RequestMapping("/content/search")
+    public String search(String keyword,Model model){
+        List<Article> articleList = articleService.getArticleListByKeywords(keyword);
+        model.addAttribute("articleList",articleList);
+        return "blog/part/search-info";
+    }
 
 
 }

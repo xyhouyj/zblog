@@ -1,9 +1,12 @@
 package com.eumji.zblog.controller;
 
+import com.eumji.zblog.service.CategoryService;
 import com.eumji.zblog.service.PagerService;
+import com.eumji.zblog.service.TagService;
 import com.eumji.zblog.vo.Pager;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -20,27 +23,43 @@ public class PagerController {
 
     @Resource
     private PagerService pagerService;
+    @Resource
+    private TagService tagService;
+    @Resource
+    CategoryService categoryService;
     /**
-     * 初始化分页信息
+     * 初始化文章分页信息
      * @return
      */
-    @RequestMapping("/pager/article/load")
+    @RequestMapping("/pager/articles/load")
     public Pager loadArticlePager(Pager pager){
         pagerService.initPage(pager);
         return pager;
     }
 
-    @RequestMapping("/pager/category/load")
-    public Pager loadCategoryPager(Pager pager,Integer categoryId){
+    /**
+     * 初始化当前分类id的文章分页信息
+     * @param pager 分页对象
+     * @param categoryId 分类id
+     * @return
+     */
+    @RequestMapping("/pager/categories/{categoryId}")
+    public Pager loadCategoryPager(Pager pager,@PathVariable Integer categoryId){
         pagerService.loadCategoryPager(pager,categoryId);
         return pager;
     }
 
-    @RequestMapping("/pager/tag/load")
-    public Pager loadTagPager(Pager pager,Integer tagId){
-        pagerService.loadTagPager(pager,tagId);
+    /**
+     *初始化当前标签的文章分页信息
+     * @param pager 分页对象
+     * @param tagId 标签
+     * @return
+     */
+    @RequestMapping("/pager/tags/{tagId}")
+    @ResponseBody
+    public Pager initPage(Pager pager,@PathVariable Integer tagId){
+        tagService.ArticleTagPage(pager,tagId);
         return pager;
     }
-
 
 }

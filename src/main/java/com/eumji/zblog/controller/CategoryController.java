@@ -1,15 +1,14 @@
 package com.eumji.zblog.controller;
 
 import com.eumji.zblog.service.CategoryService;
+import com.eumji.zblog.service.PartnerService;
 import com.eumji.zblog.vo.ArticleCustom;
-import com.eumji.zblog.vo.Category;
 import com.eumji.zblog.vo.Pager;
+import com.eumji.zblog.vo.Partner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -23,7 +22,16 @@ public class CategoryController {
 
     @Resource
     CategoryService categoryService;
+    @Resource
+    PartnerService  partnerService;
 
+    /**
+     * 获取某个标签的分页文章
+     * @param model
+     * @param pager
+     * @param categoryId
+     * @return
+     */
     @RequestMapping("/load/{categoryId}")
     public String loadArticleByCategory(Model model, Pager pager, @PathVariable Integer categoryId){
         List<ArticleCustom> articleList = categoryService.loadArticleByCategory(pager,categoryId);
@@ -35,11 +43,19 @@ public class CategoryController {
         return "blog/part/categorySummary";
     }
 
-    @RequestMapping("/pager/{categoryId}")
-    @ResponseBody
-    public Pager initPage(Pager pager,@PathVariable int categoryId){
-        categoryService.ArticleCatePage(pager,categoryId);
-        return pager;
+    /**
+     * 跳转到分类的页面 暂时停用
+     * @param model
+     * @param categoryId
+     * @return
+     */
+    @Deprecated
+    @RequestMapping("/details/{categoryId}")
+    public String categoryPage(Model model,@PathVariable Integer categoryId){
+        List<Partner> partnerList = partnerService.findAll();
+        model.addAttribute("partnerList",partnerList);
+        model.addAttribute("categoryId",categoryId);
+        return "category";
     }
 
 }

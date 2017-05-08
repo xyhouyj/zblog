@@ -4,13 +4,11 @@ import com.eumji.zblog.service.ArticleService;
 import com.eumji.zblog.service.CategoryService;
 import com.eumji.zblog.service.PartnerService;
 import com.eumji.zblog.service.TagService;
-import com.eumji.zblog.vo.Article;
 import com.eumji.zblog.vo.ArticleCustom;
 import com.eumji.zblog.vo.CategoryCustom;
 import com.eumji.zblog.vo.Partner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -36,6 +34,12 @@ public class  PageController {
     private CategoryService categoryService;
     @Resource
     private TagService tagService;
+
+    /**
+     * 首页
+     * @param model
+     * @return
+     */
     @RequestMapping("/")
     public String home(Model model){
         List<Partner> partnerList = partnerService.findAll();
@@ -49,7 +53,13 @@ public class  PageController {
         model.addAttribute("partnerList",partnerList);
         return "index";
     }
+
+    /**
+     * 分类排序 暂时停用
+     * @return
+     */
     @RequestMapping("/archives")
+    @Deprecated
     public String archivesPage(){
         return "archives";
     }
@@ -59,28 +69,14 @@ public class  PageController {
         return "login";
     }
 
-    @RequestMapping("/articleList")
-    public String articleList(){
-        return "admin/article/articleList";
-    }
-
-    @RequestMapping("/admin/friend/list")
-    public String partnerList(){
+    /**跳转到友链展示页面
+     * @return
+     */
+    @RequestMapping("/partner/list")
+    public String partnerPage() {
         return "admin/partner/partnerList";
     }
 
-    @RequestMapping("/admin/friend/addJump")
-    public String addPage(){
-        return "admin/partner/partnerAdd";
-    }
-
-    @RequestMapping("/category/details/{categoryId}")
-    public String categoryPage(Model model,@PathVariable Integer categoryId){
-        List<Partner> partnerList = partnerService.findAll();
-        model.addAttribute("partnerList",partnerList);
-        model.addAttribute("categoryId",categoryId);
-        return "category";
-    }
 
     @RequestMapping("/about/me")
     public String aboutMe(Model model){
