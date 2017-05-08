@@ -5,7 +5,7 @@
 <mapper namespace="com.eumji.zblog.mapper.LogMapper">
     <!--通过username获取user对象-->
     <insert id="save">
-        insert into log (username, url, ip, method, args, classMethod, "exception", operateTime) VALUES (#{username},#{url},#{ip},#{method},#{args},#{classMethod},#{exception},#{operateTime})
+        insert into log(username, url, ip, method, args, classMethod, exception, operateTime) VALUES (#{userId},#{url},#{ip},#{method},#{args},#{classMethod},#{exception},#{operateTime})
     </insert>
 </mapper>
 
