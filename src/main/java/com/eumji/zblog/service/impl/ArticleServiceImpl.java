@@ -120,6 +120,11 @@ public class ArticleServiceImpl implements ArticleService {
         return articleMapper.getArticleId();
     }
 
+    @Override
+    public List<Article> getArticleListByKeywords(String keyword) {
+        return articleMapper.getArticleListByKeywords(keyword);
+    }
+
     private Integer getRandomId(){
         Calendar instance = Calendar.getInstance();
         int month = instance.MONTH;

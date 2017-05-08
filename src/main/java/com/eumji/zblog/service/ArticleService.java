@@ -66,4 +66,6 @@ public interface ArticleService {
     List<ArticleCustom> popularArticle();
 
     String[] getArticleId();
+
+    List<Article> getArticleListByKeywords(String keyword);
 }
