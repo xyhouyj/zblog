@@ -1,10 +1,10 @@
 var pager = {page:1,start:0,limit:10};
-var pager =
+/*初始化文章分页信息*/
 $(function () {
     $('body').addClass('loaded');
             $.ajax({
                 type: 'GET',
-                url: '/pager/article/load',
+                url: '/pager/articles/load',
                 data:pager,
                 success: function (data){
                     pager = data;
@@ -93,7 +93,7 @@ $("#main-article").on('click','.article-tag-link',function () {
     var loadPager = {page:1,start:0,limit:10};
     $.ajax({
         type: 'GET',
-        url: '/tags/pager/' + tagId,
+        url: '/pager/tags/' + tagId,
         data: loadPager,
         success: function (data) {
             pager = data;
@@ -110,7 +110,7 @@ $(".category-list-link").on('click',function () {
     console.log("categoryId:"+categoryId);
     $.ajax({
         type: 'GET',
-        url: '/categories/pager/' + categoryId,
+        url: '/pager/categories/' + categoryId,
         data: loadPager,
         success: function (data) {
             pager = data;
@@ -126,7 +126,7 @@ $("#main-article").on('click','.article-category-link',function () {
     var loadPager = {page:1,start:0,limit:10};
     $.ajax({
         type: 'GET',
-        url: '/categories/pager/' + categoryId,
+        url: '/pager/categories/' + categoryId,
         data: loadPager,
         success: function (data) {
             pager = data;

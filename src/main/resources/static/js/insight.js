@@ -9,7 +9,6 @@
     var $container = $main.find('.ins-section-container');
     $main.parent().remove('.ins-search');
     $('body').append($main);
-
     function section (title) {
         return $('<section>').addClass('ins-section')
             .append($('<header>').addClass('ins-section-header').text(title));
@@ -198,26 +197,77 @@
         $($items[nextPosition]).addClass('active');
         scrollTo($($items[nextPosition]));
     }
-
+    /*跳转页面*/
     function gotoLink ($item) {
         if ($item && $item.length) {
             location.href = $item.attr('data-url');
         }
     }
 
-    $.getJSON(CONFIG.CONTENT_URL, function (json) {
+    function getSearchInfo() {
+        $.ajax({
+            url: CONFIG.CONTENT_URL,
+            data: "keyword="+$(".ins-search-input").val(),
+            type: 'GET',
+            success: function (data) {
+                $(".ins-section-container").html(data);
+                if (location.hash.trim() === '#ins-search') {
+                    $main.addClass('show');
+                }
+                $input.on('input', function () {
+                    //var keywords = $(this).val();
+                    //searchResultToDOM(search(json, keywords));
+                    $.ajax({
+                        url: CONFIG.CONTENT_URL,
+                        data:  "keyword="+$(this).val(),
+                        type: 'GET',
+                        success: function (data) {
+                            $(".ins-section-container").html(data);
+                        }
+                    });
+                });
+                $input.trigger('input');
+            }
+        });
+    }
+        $.getJSON(CONFIG.CONTENT_URL,$(".ins-search-input").val(),function (json) {
+            $(".ins-section-container").html(json);
+            if (location.hash.trim() === '#ins-search') {
+                $main.addClass('show');
+            }
+            $input.on('input', function () {
+                var keywords = $(this).val();
+                //searchResultToDOM(search(json, keywords));
+                $.getJSON(CONFIG.CONTENT_URL,keywords,function (json) {
+                    if (location.hash.trim() === '#ins-search') {
+                        $main.addClass('show');
+                        $(".ins-section-container").html(json);
+                    }
+                });
+            });
+            $input.trigger('input');
+        });
+
+   /* $.getJSON(CONFIG.CONTENT_URL,$(".ins-search-input").val(),function (json) {
         if (location.hash.trim() === '#ins-search') {
             $main.addClass('show');
+            $(".ins-section-container").html(json);
         }
         $input.on('input', function () {
             var keywords = $(this).val();
-            searchResultToDOM(search(json, keywords));
+            //searchResultToDOM(search(json, keywords));
+            $.getJSON(CONFIG.CONTENT_URL,keywords,function (json) {
+                if (location.hash.trim() === '#ins-search') {
+                    $main.addClass('show');
+                    $(".ins-section-container").html(json);
+                }
+            });
         });
         $input.trigger('input');
-    });
-
+    });*/
 
     $(document).on('click focus', '.search-form-input', function () {
+        getSearchInfo();
         $main.addClass('show');
         $main.find('.ins-search-input').focus();
     }).on('click', '.ins-search-item', function () {
