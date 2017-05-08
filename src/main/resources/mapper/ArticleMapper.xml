@@ -143,4 +143,12 @@
         </if>
     </select>
 
+    <select id="articleArchiveList" resultType="java.util.Map">
+        select DATE_FORMAT(createTime,'%Y年%m月') createTime,count(id) count from article  group by DATE_FORMAT(createTime,'%Y年%m月') ORDER BY createTime desc
+    </select>
+
+    <select id="loadArticleByArchive" resultMap="article">
+         select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId=category.id and  DATE_FORMAT(article.createTime,'%Y年%m月')=#{createTime} and article.categoryId = category.id order by createTime desc limit #{pager.start},#{pager.limit}
+    </select>
+
 </mapper>

@@ -1,6 +1,7 @@
 package com.eumji.zblog.mapper;
 
 
+import com.eumji.zblog.vo.ArticleCustom;
 import com.eumji.zblog.vo.Category;
 import com.eumji.zblog.vo.CategoryCustom;
 import com.eumji.zblog.vo.Pager;
@@ -17,6 +18,7 @@ public interface CategoryMapper {
 
     /**
      * 初始化分类信息
+     *
      * @return
      */
     List<CategoryCustom> initCategoryList();
@@ -37,8 +39,10 @@ public interface CategoryMapper {
 
     /**
      * 获取当前id的文章数量
+     *
      * @param categoryId
      * @return
      */
     int ArticleCatePage(int categoryId);
+
 }

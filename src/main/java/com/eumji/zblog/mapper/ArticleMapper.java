@@ -78,4 +78,8 @@ public interface ArticleMapper {
     String[] getArticleId();
 
     List<Article> getArticleListByKeywords(@Param("keyword") String keyword);
+
+    List<Map> articleArchiveList();
+
+    List<ArticleCustom> loadArticleByArchive(@Param("pager") Pager pager, @Param("createTime") String createTime);
 }

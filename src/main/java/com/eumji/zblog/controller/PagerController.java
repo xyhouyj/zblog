@@ -3,13 +3,16 @@ package com.eumji.zblog.controller;
 import com.eumji.zblog.service.CategoryService;
 import com.eumji.zblog.service.PagerService;
 import com.eumji.zblog.service.TagService;
+import com.eumji.zblog.vo.ArticleCustom;
 import com.eumji.zblog.vo.Pager;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author Do

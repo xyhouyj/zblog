@@ -48,11 +48,11 @@
             and id != #{id}
         </if>
    </select>
-
+    <!--保存一个分类-->
     <insert id="saveCategory">
         insert into category(categoryName, aliasName, sort) values(#{categoryName},#{aliasName},#{sort})
     </insert>
-
+    <!--更新分类-->
     <update id="updateCategory">
         update category set categoryName = #{categoryName},aliasName = #{aliasName}
         <if test="sort != null and sort != ''">
@@ -61,14 +61,15 @@
         where id = #{id}
     </update>
 
-
+    <!--获取所有的分类列表-->
     <select id="getCategoryList" resultType="category">
         select id,categoryName,aliasName from category
     </select>
 
-
+    <!--获取某个分类的文章数量-->
     <select id="ArticleCatePage" resultType="int">
         select count(id) from article where categoryId = #{categoryId} and status = 1
     </select>
+
 </mapper>
 

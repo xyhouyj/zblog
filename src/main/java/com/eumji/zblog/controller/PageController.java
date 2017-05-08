@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 首页入口controller
@@ -45,12 +46,14 @@ public class  PageController {
         List<Partner> partnerList = partnerService.findAll();
         List<CategoryCustom> categoryList = categoryService.initCategoryList();
         int articleCount = articleService.getArticleCount();
+        List<Map> archiveList = articleService.articleArchiveList();
         int tagCount = tagService.getTagCount();
         model.addAttribute("categoryCount",categoryList.size());
         model.addAttribute("articleCount",articleCount);
         model.addAttribute("tagCount",tagCount);
         model.addAttribute("categoryList",categoryList);
         model.addAttribute("partnerList",partnerList);
+        model.addAttribute("archiveList",archiveList);
         return "index";
     }
 
