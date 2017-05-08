@@ -68,7 +68,7 @@ public class BaiduTask {
      * 新增添加文章推送功能
      * @param articleId 文章id
      */
-    private void pushOneArticle(String articleId) throws IOException {
+    public void pushOneArticle(String articleId) throws IOException {
         writerUrl(initConnect(),articleId);
 
     }

@@ -38,4 +38,6 @@ public interface CategoryService {
     List<Category> getCategoryList();
 
     void ArticleCatePage(Pager pager, int categoryId);
+
+    List<ArticleCustom> loadArticleByArchive(String createTime, Pager pager);
 }

@@ -85,4 +85,10 @@ public class CategoryServiceImpl implements CategoryService {
         pager.setTotalCount(count);
     }
 
+    @Override
+    public List<ArticleCustom> loadArticleByArchive(String createTime, Pager pager) {
+        pager.getStart();
+        return articleMapper.loadArticleByArchive(pager,createTime);
+    }
+
 }

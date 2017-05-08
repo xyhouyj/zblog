@@ -1,5 +1,6 @@
 package com.eumji.zblog.service.impl;
 
+import com.eumji.zblog.task.BaiduTask;
 import com.eumji.zblog.vo.Article;
 import com.eumji.zblog.mapper.ArticleMapper;
 import com.eumji.zblog.service.ArticleService;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -21,6 +23,9 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Resource
     private ArticleMapper articleMapper;
+
+    @Resource
+    private BaiduTask baiduTask;
 
     @Override
     public List<ArticleCustom> articleList(Pager pager) {
@@ -58,7 +63,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void saveArticle(Article article, int[] tags) {
+    public void saveArticle(Article article, int[] tags) throws IOException {
         Integer id  = getRandomId();
         for (int i = 0; i < 50; i++) {
             int count = articleMapper.checkExist(id);
@@ -70,6 +75,7 @@ public class ArticleServiceImpl implements ArticleService {
         article.setStatus(1);
         articleMapper.saveArticle(article);
         articleMapper.saveArticleTag(id,tags);
+        baiduTask.pushOneArticle(String.valueOf(id));
     }
 
     @Override
@@ -123,6 +129,11 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public List<Article> getArticleListByKeywords(String keyword) {
         return articleMapper.getArticleListByKeywords(keyword);
+    }
+
+    @Override
+    public List<Map> articleArchiveList() {
+        return articleMapper.articleArchiveList();
     }
 
     private Integer getRandomId(){

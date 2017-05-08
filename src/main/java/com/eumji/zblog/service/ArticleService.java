@@ -4,6 +4,7 @@ import com.eumji.zblog.vo.Article;
 import com.eumji.zblog.vo.ArticleCustom;
 import com.eumji.zblog.vo.Pager;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +34,7 @@ public interface ArticleService {
 
     void updateStatue(Integer id, int status);
 
-    void saveArticle(Article article, int[] tags);
+    void saveArticle(Article article, int[] tags) throws IOException;
 
     Article getArticleById(Integer id);
 
@@ -68,4 +69,6 @@ public interface ArticleService {
     String[] getArticleId();
 
     List<Article> getArticleListByKeywords(String keyword);
+
+    List<Map> articleArchiveList();
 }
