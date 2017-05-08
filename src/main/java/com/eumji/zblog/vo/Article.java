@@ -1,11 +1,14 @@
 package com.eumji.zblog.vo;
 
+import org.apache.ibatis.type.Alias;
+
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by GeneratorFx on 2017-04-11.
  */
+@Alias("article")
 public class Article implements Serializable {
 
     private Integer id;

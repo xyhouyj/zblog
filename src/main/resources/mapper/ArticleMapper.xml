@@ -133,5 +133,14 @@
         select id from article WHERE  status = 1
     </select>
 
+    <!--通过关键字查找文章-->
+    <select id="getArticleListByKeywords" resultType="article">
+        <if test="keyword != null and keyword != ''">
+            select id,title,description from article where title like concat('%',#{keyword},'%') or description like concat('%',#{keyword},'%') or content like concat('%',#{keyword},'%') limit 0,10
+        </if>
+        <if test="keyword == null or keyword == ''">
+            select id,title,description from article limit 0,10
+        </if>
+    </select>
 
 </mapper>

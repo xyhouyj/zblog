@@ -76,4 +76,6 @@ public interface ArticleMapper {
     List<ArticleCustom> popularArticle();
 
     String[] getArticleId();
+
+    List<Article> getArticleListByKeywords(@Param("keyword") String keyword);
 }
